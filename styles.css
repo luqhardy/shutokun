@@ -1,0 +1,18 @@
+body {
+    background-image: url('bg.png');
+    }
+    
+div {
+display: flex;
+justify-content: center;
+}
+
+img {
+width: 50%;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
