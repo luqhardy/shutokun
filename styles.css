@@ -18,8 +18,8 @@ width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
-    margin-top: 1em;
+    gap: -1em;
+    margin-top: -1em;
 }
 .level-button {
     width: 500px;
