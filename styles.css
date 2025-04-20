@@ -17,8 +17,8 @@ width: 50%;
 .logo {
   display: block;
   margin: 0 auto;
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
 }
 
 .button-container {
@@ -41,4 +41,32 @@ width: 50%;
     height: 80%;
     display: block;
     margin: 0 auto;
+}
+.vocab-card {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin: 8px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.vocab-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.vocab-word {
+  font-size: 1.2em;
+}
+
+.vocab-reading {
+  font-size: 0.95em;
+  color: #888;
+}
+
+.vocab-meaning {
+  color: #333;
 }

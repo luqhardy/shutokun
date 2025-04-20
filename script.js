@@ -1,56 +1,116 @@
-let score = 0
-function initWord(word) {
-    return {
-      ...word,
-      interval: 1,
-      ease: 2.5,
-      repetitions: 0,
-      nextReview: Date.now()
+// script.js
+
+let srsData = {};
+let words = [];
+let currentIndex = 0;
+
+function loadSRSData() {
+  const saved = localStorage.getItem("srs-data");
+  srsData = saved ? JSON.parse(saved) : {};
+}
+
+function saveSRSData() {
+  localStorage.setItem("srs-data", JSON.stringify(srsData));
+}
+
+function getToday() {
+  return new Date().toISOString().split("T")[0];
+}
+
+function initCard(wordObj) {
+  const id = wordObj.word;
+  if (!srsData[id]) {
+    srsData[id] = {
+      interval: 0,
+      due: getToday(),
+      lastReviewed: null,
     };
   }
+}
 
-function getDueWords(words) {
-    const now = Date.now();
-    return words.filter(word => word.nextReview <= now);
+function isDue(id) {
+  return new Date(srsData[id].due) <= new Date(getToday());
+}
+
+function scheduleReview(id, result) {
+  const today = new Date();
+  let interval = srsData[id].interval;
+
+  if (result === "know") {
+    interval = interval === 0 ? 1 : Math.round(interval * 2);
+  } else if (result === "dontknow") {
+    interval = 1;
   }
-function updateWord(word, grade) {
-    // grade: 0 (forgot), 3 (good), 5 (easy)
-    if (grade < 3) {
-      word.repetitions = 0;
-      word.interval = 1;
-    } else {
-      word.repetitions += 1;
-      word.ease = Math.max(1.3, word.ease + (0.1 - (5 - grade) * (0.08 + (5 - grade) * 0.02)));
-      if (word.repetitions === 1) word.interval = 1;
-      else if (word.repetitions === 2) word.interval = 6;
-      else word.interval = Math.round(word.interval * word.ease);
-    }
-  
-    // Set next review
-    const nextReviewDate = new Date();
-    nextReviewDate.setDate(nextReviewDate.getDate() + word.interval);
-    word.nextReview = nextReviewDate.getTime();
-  
-    return word;
+
+  const nextDue = new Date(today.getTime());
+  nextDue.setDate(today.getDate() + interval);
+
+  srsData[id] = {
+    interval,
+    due: nextDue.toISOString().split("T")[0],
+    lastReviewed: getToday(),
+  };
+
+  saveSRSData();
+}
+
+function showNextWord() {
+  if (currentIndex >= words.length) {
+    document.getElementById("quiz-container").innerHTML = "<p>All done for now!</p>";
+    return;
   }
-    
-function saveWords(words) {
-    localStorage.setItem("jlptN4Words", JSON.stringify(words));
+
+  const word = words[currentIndex];
+  initCard(word);
+
+  if (!isDue(word.word)) {
+    currentIndex++;
+    showNextWord();
+    return;
   }
-  
-function loadWords() {
-    const saved = localStorage.getItem("jlptN4Words");
-    return saved ? JSON.parse(saved) : null;
-  }
-  fetch('./jlpt-db/n5-goi.json')
-  .then(res => res.json())
-  .then(data => {
-    let words = loadWords();
-    if (!words) {
-      words = data.map(initializeWord);
-      saveWords(words);
-    }
-    const dueWords = getDueWords(words);
-    console.log("Words to review today:", dueWords);
+
+  document.getElementById("question").textContent = word.meaning;
+  document.getElementById("answer").textContent = word.word;
+  document.getElementById("answer").style.display = "none";
+  document.getElementById("srs-buttons").style.display = "none";
+  document.getElementById("show-answer").style.display = "block";
+}
+
+function revealAnswer() {
+  document.getElementById("answer").style.display = "block";
+  document.getElementById("show-answer").style.display = "none";
+  document.getElementById("srs-buttons").style.display = "flex";
+}
+
+function handleAnswer(result) {
+  const word = words[currentIndex];
+  scheduleReview(word.word, result);
+  currentIndex++;
+  showNextWord();
+}
+
+function startQuiz(level) {
+  fetch(`goi/level${level}.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      words = data;
+      currentIndex = 0;
+      loadSRSData();
+      showNextWord();
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".level-button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const level = btn.getAttribute("data-level");
+      document.getElementById("level-select").style.display = "none";
+      document.getElementById("quiz-container").style.display = "block";
+      startQuiz(level);
+    });
   });
-  
+
+  document.getElementById("show-answer").addEventListener("click", revealAnswer);
+  document.getElementById("know-button").addEventListener("click", () => handleAnswer("know"));
+  document.getElementById("dontknow-button").addEventListener("click", () => handleAnswer("dontknow"));
+});

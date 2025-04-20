@@ -1,0 +1,702 @@
+[
+    {
+      "word": "予定",
+      "kana": "よてい",
+      "romaji": "yotei",
+      "meaning": "schedule; plan",
+      "pos": "noun",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "明日の予定を教えてください。",
+          "en": "Please tell me your plans for tomorrow."
+        }
+      ]
+    },
+    {
+      "word": "運転",
+      "kana": "うんてん",
+      "romaji": "unten",
+      "meaning": "driving; operation (of a machine)",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "父は車の運転が上手です。",
+          "en": "My father is good at driving."
+        }
+      ]
+    },
+    {
+      "word": "急ぐ",
+      "kana": "いそぐ",
+      "romaji": "isogu",
+      "meaning": "to hurry",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "遅刻しそうだから急いで！",
+          "en": "We're going to be late, so hurry up!"
+        }
+      ]
+    },
+    {
+      "word": "間に合う",
+      "kana": "まにあう",
+      "romaji": "maniau",
+      "meaning": "to be on time; to make it",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "電車に間に合いましたか？",
+          "en": "Did you make it in time for the train?"
+        }
+      ]
+    },
+    {
+      "word": "経験",
+      "kana": "けいけん",
+      "romaji": "keiken",
+      "meaning": "experience",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "海外での経験がありますか？",
+          "en": "Do you have experience abroad?"
+        }
+      ]
+    },
+    {
+      "word": "最近",
+      "kana": "さいきん",
+      "romaji": "saikin",
+      "meaning": "recently; lately",
+      "pos": "adverb, noun",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "最近忙しいですか？",
+          "en": "Have you been busy lately?"
+        }
+      ]
+    },
+    {
+      "word": "必要",
+      "kana": "ひつよう",
+      "romaji": "hitsuyou",
+      "meaning": "necessary",
+      "pos": "noun, na-adjective",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "パスポートは必要です。",
+          "en": "A passport is necessary."
+        }
+      ]
+    },
+    {
+      "word": "安心",
+      "kana": "あんしん",
+      "romaji": "anshin",
+      "meaning": "relief; peace of mind",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "彼の声を聞いて安心しました。",
+          "en": "I felt relieved after hearing his voice."
+        }
+      ]
+    },
+    {
+      "word": "特に",
+      "kana": "とくに",
+      "romaji": "tokuni",
+      "meaning": "especially; particularly",
+      "pos": "adverb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "特に問題はありません。",
+          "en": "There is no particular problem."
+        }
+      ]
+    },
+    {
+      "word": "決める",
+      "kana": "きめる",
+      "romaji": "kimeru",
+      "meaning": "to decide",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "行くかどうか、まだ決めていません。",
+          "en": "I haven’t decided whether I’ll go yet."
+        }
+      ]
+    },
+    {
+      "word": "安心10",
+      "kana": "あんしん",
+      "romaji": "anshin",
+      "meaning": "relief; peace of mind",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "彼の声を聞いて安心しました。",
+          "en": "I felt relieved after hearing his voice."
+        }
+      ]
+    },
+    {
+      "word": "特に11",
+      "kana": "とくに",
+      "romaji": "tokuni",
+      "meaning": "especially; particularly",
+      "pos": "adverb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "特に問題はありません。",
+          "en": "There is no particular problem."
+        }
+      ]
+    },
+    {
+      "word": "特に12",
+      "kana": "とくに",
+      "romaji": "tokuni",
+      "meaning": "especially; particularly",
+      "pos": "adverb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "特に問題はありません。",
+          "en": "There is no particular problem."
+        }
+      ]
+    },
+    {
+      "word": "特に13",
+      "kana": "とくに",
+      "romaji": "tokuni",
+      "meaning": "especially; particularly",
+      "pos": "adverb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "特に問題はありません。",
+          "en": "There is no particular problem."
+        }
+      ]
+    },
+    {
+      "word": "予定14",
+      "kana": "よてい",
+      "romaji": "yotei",
+      "meaning": "schedule; plan",
+      "pos": "noun",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "明日の予定を教えてください。",
+          "en": "Please tell me your plans for tomorrow."
+        }
+      ]
+    },
+    {
+      "word": "経験15",
+      "kana": "けいけん",
+      "romaji": "keiken",
+      "meaning": "experience",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "海外での経験がありますか？",
+          "en": "Do you have experience abroad?"
+        }
+      ]
+    },
+    {
+      "word": "必要16",
+      "kana": "ひつよう",
+      "romaji": "hitsuyou",
+      "meaning": "necessary",
+      "pos": "noun, na-adjective",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "パスポートは必要です。",
+          "en": "A passport is necessary."
+        }
+      ]
+    },
+    {
+      "word": "予定17",
+      "kana": "よてい",
+      "romaji": "yotei",
+      "meaning": "schedule; plan",
+      "pos": "noun",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "明日の予定を教えてください。",
+          "en": "Please tell me your plans for tomorrow."
+        }
+      ]
+    },
+    {
+      "word": "間に合う18",
+      "kana": "まにあう",
+      "romaji": "maniau",
+      "meaning": "to be on time; to make it",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "電車に間に合いましたか？",
+          "en": "Did you make it in time for the train?"
+        }
+      ]
+    },
+    {
+      "word": "急ぐ19",
+      "kana": "いそぐ",
+      "romaji": "isogu",
+      "meaning": "to hurry",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "遅刻しそうだから急いで！",
+          "en": "We're going to be late, so hurry up!"
+        }
+      ]
+    },
+    {
+      "word": "安心20",
+      "kana": "あんしん",
+      "romaji": "anshin",
+      "meaning": "relief; peace of mind",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "彼の声を聞いて安心しました。",
+          "en": "I felt relieved after hearing his voice."
+        }
+      ]
+    },
+    {
+      "word": "急ぐ21",
+      "kana": "いそぐ",
+      "romaji": "isogu",
+      "meaning": "to hurry",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "遅刻しそうだから急いで！",
+          "en": "We're going to be late, so hurry up!"
+        }
+      ]
+    },
+    {
+      "word": "経験22",
+      "kana": "けいけん",
+      "romaji": "keiken",
+      "meaning": "experience",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "海外での経験がありますか？",
+          "en": "Do you have experience abroad?"
+        }
+      ]
+    },
+    {
+      "word": "安心23",
+      "kana": "あんしん",
+      "romaji": "anshin",
+      "meaning": "relief; peace of mind",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "彼の声を聞いて安心しました。",
+          "en": "I felt relieved after hearing his voice."
+        }
+      ]
+    },
+    {
+      "word": "間に合う24",
+      "kana": "まにあう",
+      "romaji": "maniau",
+      "meaning": "to be on time; to make it",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "電車に間に合いましたか？",
+          "en": "Did you make it in time for the train?"
+        }
+      ]
+    },
+    {
+      "word": "決める25",
+      "kana": "きめる",
+      "romaji": "kimeru",
+      "meaning": "to decide",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "行くかどうか、まだ決めていません。",
+          "en": "I haven’t decided whether I’ll go yet."
+        }
+      ]
+    },
+    {
+      "word": "間に合う26",
+      "kana": "まにあう",
+      "romaji": "maniau",
+      "meaning": "to be on time; to make it",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "電車に間に合いましたか？",
+          "en": "Did you make it in time for the train?"
+        }
+      ]
+    },
+    {
+      "word": "特に27",
+      "kana": "とくに",
+      "romaji": "tokuni",
+      "meaning": "especially; particularly",
+      "pos": "adverb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "特に問題はありません。",
+          "en": "There is no particular problem."
+        }
+      ]
+    },
+    {
+      "word": "経験28",
+      "kana": "けいけん",
+      "romaji": "keiken",
+      "meaning": "experience",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "海外での経験がありますか？",
+          "en": "Do you have experience abroad?"
+        }
+      ]
+    },
+    {
+      "word": "経験29",
+      "kana": "けいけん",
+      "romaji": "keiken",
+      "meaning": "experience",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "海外での経験がありますか？",
+          "en": "Do you have experience abroad?"
+        }
+      ]
+    },
+    {
+      "word": "必要30",
+      "kana": "ひつよう",
+      "romaji": "hitsuyou",
+      "meaning": "necessary",
+      "pos": "noun, na-adjective",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "パスポートは必要です。",
+          "en": "A passport is necessary."
+        }
+      ]
+    },
+    {
+      "word": "間に合う31",
+      "kana": "まにあう",
+      "romaji": "maniau",
+      "meaning": "to be on time; to make it",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "電車に間に合いましたか？",
+          "en": "Did you make it in time for the train?"
+        }
+      ]
+    },
+    {
+      "word": "運転32",
+      "kana": "うんてん",
+      "romaji": "unten",
+      "meaning": "driving; operation (of a machine)",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "父は車の運転が上手です。",
+          "en": "My father is good at driving."
+        }
+      ]
+    },
+    {
+      "word": "特に33",
+      "kana": "とくに",
+      "romaji": "tokuni",
+      "meaning": "especially; particularly",
+      "pos": "adverb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "特に問題はありません。",
+          "en": "There is no particular problem."
+        }
+      ]
+    },
+    {
+      "word": "運転34",
+      "kana": "うんてん",
+      "romaji": "unten",
+      "meaning": "driving; operation (of a machine)",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "父は車の運転が上手です。",
+          "en": "My father is good at driving."
+        }
+      ]
+    },
+    {
+      "word": "決める35",
+      "kana": "きめる",
+      "romaji": "kimeru",
+      "meaning": "to decide",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "行くかどうか、まだ決めていません。",
+          "en": "I haven’t decided whether I’ll go yet."
+        }
+      ]
+    },
+    {
+      "word": "決める36",
+      "kana": "きめる",
+      "romaji": "kimeru",
+      "meaning": "to decide",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "行くかどうか、まだ決めていません。",
+          "en": "I haven’t decided whether I’ll go yet."
+        }
+      ]
+    },
+    {
+      "word": "間に合う37",
+      "kana": "まにあう",
+      "romaji": "maniau",
+      "meaning": "to be on time; to make it",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "電車に間に合いましたか？",
+          "en": "Did you make it in time for the train?"
+        }
+      ]
+    },
+    {
+      "word": "決める38",
+      "kana": "きめる",
+      "romaji": "kimeru",
+      "meaning": "to decide",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "行くかどうか、まだ決めていません。",
+          "en": "I haven’t decided whether I’ll go yet."
+        }
+      ]
+    },
+    {
+      "word": "急ぐ39",
+      "kana": "いそぐ",
+      "romaji": "isogu",
+      "meaning": "to hurry",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "遅刻しそうだから急いで！",
+          "en": "We're going to be late, so hurry up!"
+        }
+      ]
+    },
+    {
+      "word": "急ぐ40",
+      "kana": "いそぐ",
+      "romaji": "isogu",
+      "meaning": "to hurry",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "遅刻しそうだから急いで！",
+          "en": "We're going to be late, so hurry up!"
+        }
+      ]
+    },
+    {
+      "word": "運転41",
+      "kana": "うんてん",
+      "romaji": "unten",
+      "meaning": "driving; operation (of a machine)",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "父は車の運転が上手です。",
+          "en": "My father is good at driving."
+        }
+      ]
+    },
+    {
+      "word": "決める42",
+      "kana": "きめる",
+      "romaji": "kimeru",
+      "meaning": "to decide",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "行くかどうか、まだ決めていません。",
+          "en": "I haven’t decided whether I’ll go yet."
+        }
+      ]
+    },
+    {
+      "word": "最近43",
+      "kana": "さいきん",
+      "romaji": "saikin",
+      "meaning": "recently; lately",
+      "pos": "adverb, noun",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "最近忙しいですか？",
+          "en": "Have you been busy lately?"
+        }
+      ]
+    },
+    {
+      "word": "急ぐ44",
+      "kana": "いそぐ",
+      "romaji": "isogu",
+      "meaning": "to hurry",
+      "pos": "verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "遅刻しそうだから急いで！",
+          "en": "We're going to be late, so hurry up!"
+        }
+      ]
+    },
+    {
+      "word": "最近45",
+      "kana": "さいきん",
+      "romaji": "saikin",
+      "meaning": "recently; lately",
+      "pos": "adverb, noun",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "最近忙しいですか？",
+          "en": "Have you been busy lately?"
+        }
+      ]
+    },
+    {
+      "word": "運転46",
+      "kana": "うんてん",
+      "romaji": "unten",
+      "meaning": "driving; operation (of a machine)",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "父は車の運転が上手です。",
+          "en": "My father is good at driving."
+        }
+      ]
+    },
+    {
+      "word": "最近47",
+      "kana": "さいきん",
+      "romaji": "saikin",
+      "meaning": "recently; lately",
+      "pos": "adverb, noun",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "最近忙しいですか？",
+          "en": "Have you been busy lately?"
+        }
+      ]
+    },
+    {
+      "word": "安心48",
+      "kana": "あんしん",
+      "romaji": "anshin",
+      "meaning": "relief; peace of mind",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "彼の声を聞いて安心しました。",
+          "en": "I felt relieved after hearing his voice."
+        }
+      ]
+    },
+    {
+      "word": "運転49",
+      "kana": "うんてん",
+      "romaji": "unten",
+      "meaning": "driving; operation (of a machine)",
+      "pos": "noun, suru-verb",
+      "jlpt": "N4",
+      "examples": [
+        {
+          "jp": "父は車の運転が上手です。",
+          "en": "My father is good at driving."
+        }
+      ]
+    }
+  ]
