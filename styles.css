@@ -42,6 +42,10 @@ width: 50%;
     display: block;
     margin: 0 auto;
 }
+.jlpt-button:hover {
+  scale: 1.05;
+  translate: 0 -10px;
+}
 .vocab-card {
   border: 1px solid #ccc;
   padding: 12px;
