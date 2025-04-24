@@ -113,7 +113,7 @@ body {
 /* Buttons for levels and categories */
 .jlpt-button {
   background-color: transparent;
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 0px;
   width: auto;
   height: auto;
