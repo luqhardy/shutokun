@@ -1,64 +1,114 @@
-body {
-    background-image: url('bg.png');
-    }
-div {
-display: flex;
-justify-content: center;
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-img {
-width: 50%;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  background-image: url('bg.png');
+  color: #333;
+  text-align: center;
+  padding: 20px;
 }
-.center {
-    display: block;
-    margin: 0 auto;
-}
+
+/* Logo styling */
 .logo {
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Center utility class */
+.center {
   display: block;
   margin: 0 auto;
-  width: 50%;
-  height: 50%;
 }
 
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    margin-top: 1em;
+/* Image styles */
+img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
+
+/* Button container (vertical or horizontal flex) */
+.button-container,
 .srs-button-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
   margin-top: 1em;
 }
+
+/* JLPT category buttons */
 .jlpt-button {
-    width: auto;
-    height: auto;
-    border: none;
-    background: none;
-    cursor: pointer;
-    padding: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  width: 100px;
+  height: 100px;
 }
-  .jlpt-button img {
-    width: 80%;
-    height: 80%;
-    display: block;
-    margin: 0 auto;
+
+.jlpt-button img {
+  width: 100%;
+  height: 100%;
 }
+
 .jlpt-button:hover {
-  scale: 1.05;
-  translate: 0 -10px;
+  transform: scale(1.05) translateY(-5px);
 }
+
+/* SRS word display card */
+#word-display {
+  font-size: 2rem;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* SRS button container */
+#srs-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* SRS buttons */
+.srs-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0078d7;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.srs-button:hover {
+  background-color: #005fa3;
+}
+
+/* Vocab card layout */
 .vocab-card {
   border: 1px solid #ccc;
   padding: 12px;
-  margin: 8px;
+  margin: 8px auto;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
 }
 
 .vocab-header {
@@ -80,102 +130,25 @@ width: 50%;
 .vocab-meaning {
   color: #333;
 }
-/* Reset and base styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f2f2f2;
-  color: #333;
-  text-align: center;
-  padding: 20px;
-}
-
-.logo {
-  max-width: 300px;
-  margin: 20px auto;
-  display: block;
-}
-
-/* Container for buttons */
-.button-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0px;
-  margin: 0px auto;
-}
-
-/* Buttons for levels and categories */
-.jlpt-button {
-  background-color: transparent;
-  border-radius: 0px;
-  padding: 0px;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  transition: all 0.1s ease-in-out;
-}
-
-.jlpt-button:hover {
-  transform: scale(1.05);
-  border-color: #0078d7;
-}
-
-.jlpt-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Text display for SRS UI */
-#word-display {
-  font-size: 2rem;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Basic layout for srs-ui controls */
-#srs-controls {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.srs-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #0078d7;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.srs-button:hover {
-  background-color: #005fa3;
-}
-
-/* Responsive adjustments */
+/* Mobile optimization */
 @media (max-width: 600px) {
   .jlpt-button {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
 
   #word-display {
     font-size: 1.5rem;
-    width: 90%;
+    width: 95%;
+  }
+
+  .srs-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .vocab-card {
+    padding: 10px;
   }
 }
