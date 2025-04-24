@@ -1,116 +1,85 @@
-// script.js
-
-let srsData = {};
-let words = [];
+let vocab = [];
 let currentIndex = 0;
 
-function loadSRSData() {
-  const saved = localStorage.getItem("srs-data");
-  srsData = saved ? JSON.parse(saved) : {};
+async function fetchVocab() {
+    try {
+        const response = await fetch("jlpt-db/goi/n1-goi.json"); // <-- make sure this file exists
+        const data = await response.json();
+
+        // Add default SRS fields if not present
+        vocab = data.map(item => ({
+            ...item,
+            srs: {
+                easeFactor: 2.5,
+                interval: 1,
+                repetitions: 0,
+                lastReviewed: null,
+                ...(item.srs || {})
+            }
+        }));
+
+        loadProgress();
+        showWord();
+    } catch (error) {
+        console.error("Failed to fetch json:", error);
+    }
 }
 
-function saveSRSData() {
-  localStorage.setItem("srs-data", JSON.stringify(srsData));
+function loadProgress() {
+    const saved = localStorage.getItem("srsData");
+    if (saved) {
+        const savedData = JSON.parse(saved);
+        savedData.forEach((item, i) => {
+            if (vocab[i]) vocab[i].srs = item.srs;
+        });
+    }
 }
 
-function getToday() {
-  return new Date().toISOString().split("T")[0];
+function saveProgress() {
+    const dataToSave = vocab.map(({ srs }) => ({ srs }));
+    localStorage.setItem("srsData", JSON.stringify(dataToSave));
 }
 
-function initCard(wordObj) {
-  const id = wordObj.word;
-  if (!srsData[id]) {
-    srsData[id] = {
-      interval: 0,
-      due: getToday(),
-      lastReviewed: null,
-    };
-  }
+function reviewResult(isCorrect) {
+    const item = vocab[currentIndex];
+    const srs = item.srs;
+    const now = Date.now();
+
+    if (isCorrect) {
+        srs.repetitions += 1;
+        srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.15 + 0.1 * srs.repetitions);
+        srs.interval = Math.round(srs.interval * srs.easeFactor);
+    } else {
+        srs.repetitions = 0;
+        srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.2);
+        srs.interval = 1;
+    }
+
+    srs.lastReviewed = now;
+
+    saveProgress();
+    currentIndex = (currentIndex + 1) % vocab.length;
+    showWord();
 }
 
-function isDue(id) {
-  return new Date(srsData[id].due) <= new Date(getToday());
+function showWord() {
+    const word = vocab[currentIndex];
+    document.querySelector(".card")?.remove(); // Remove previous card
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+        <h2>${word.word} (${word.kana})</h2>
+        <p><strong>Meaning:</strong> ${word.meaning}</p>
+        <p><strong>Romaji:</strong> ${word.romaji}</p>
+        <p><strong>Example:</strong><br>${word.examples[0].jp}<br>${word.examples[0].en}</p>
+    `;
+    document.body.insertBefore(card, document.querySelector(".srs-button-container"));
 }
 
-function scheduleReview(id, result) {
-  const today = new Date();
-  let interval = srsData[id].interval;
-
-  if (result === "know") {
-    interval = interval === 0 ? 1 : Math.round(interval * 2);
-  } else if (result === "dontknow") {
-    interval = 1;
-  }
-
-  const nextDue = new Date(today.getTime());
-  nextDue.setDate(today.getDate() + interval);
-
-  srsData[id] = {
-    interval,
-    due: nextDue.toISOString().split("T")[0],
-    lastReviewed: getToday(),
-  };
-
-  saveSRSData();
-}
-
-function showNextWord() {
-  if (currentIndex >= words.length) {
-    document.getElementById("quiz-container").innerHTML = "<p>All done for now!</p>";
-    return;
-  }
-
-  const word = words[currentIndex];
-  initCard(word);
-
-  if (!isDue(word.word)) {
-    currentIndex++;
-    showNextWord();
-    return;
-  }
-
-  document.getElementById("question").textContent = word.meaning;
-  document.getElementById("answer").textContent = word.word;
-  document.getElementById("answer").style.display = "none";
-  document.getElementById("srs-buttons").style.display = "none";
-  document.getElementById("show-answer").style.display = "block";
-}
-
-function revealAnswer() {
-  document.getElementById("answer").style.display = "block";
-  document.getElementById("show-answer").style.display = "none";
-  document.getElementById("srs-buttons").style.display = "flex";
-}
-
-function handleAnswer(result) {
-  const word = words[currentIndex];
-  scheduleReview(word.word, result);
-  currentIndex++;
-  showNextWord();
-}
-
-function startQuiz(level) {
-  fetch(`goi/level${level}.json`)
-    .then((res) => res.json())
-    .then((data) => {
-      words = data;
-      currentIndex = 0;
-      loadSRSData();
-      showNextWord();
-    });
-}
-
+// Event listeners
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".level-button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const level = btn.getAttribute("data-level");
-      document.getElementById("level-select").style.display = "none";
-      document.getElementById("quiz-container").style.display = "block";
-      startQuiz(level);
-    });
-  });
-
-  document.getElementById("show-answer").addEventListener("click", revealAnswer);
-  document.getElementById("know-button").addEventListener("click", () => handleAnswer("know"));
-  document.getElementById("dontknow-button").addEventListener("click", () => handleAnswer("dontknow"));
+    document.querySelectorAll(".jlpt-button")[0].addEventListener("click", () => reviewResult(false));
+    document.querySelectorAll(".jlpt-button")[1].addEventListener("click", () => reviewResult(true));
+    fetchVocab(); // Start app
 });

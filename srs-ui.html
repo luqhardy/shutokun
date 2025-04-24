@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<htm lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shutokun by ルクマン（開発中）</title>
-    <link rel="stylesheet" href="styles.css"> <!-- 外付けcss -->
-    <script src="script.js" defer></script>　<!-- 外付けjavascript -->
+    <link rel="stylesheet" href="styles.css"> <!-- 外付けCSS -->
 </head>
 <body>
-    <img src="assets/logo.png" alt="shutokun logo" class="logo">
-    <!-- 簡単な感覚反復アルゴリズムの実行-->
-    <div class="srs-button-container">
-        <button class="jlpt-button" onclick="location.href=''"><img src="assets/batsu.png" alt="Don't Know"></button>    
-        <button class="jlpt-button" onclick="location.href=''"><img src="assets/maru.png" alt="Know"></button>
 
+    <!-- 簡単な感覚反復アルゴリズムの実行 -->
+    <div class="srs-button-container">
+        <button id="dont-know-btn" class="jlpt-button">
+            <img src="assets/batsu.png" alt="Don't Know">
+        </button>    
+        <button id="know-btn" class="jlpt-button">
+            <img src="assets/maru.png" alt="Know">
+        </button>
     </div>
+    
+    <!-- Vocabulary word display container -->
+    <div class="card-container">
+        <!-- Word and meaning will be displayed here by the script -->
+    </div>
+
+    <script src="script.js" defer></script> <!-- 外付けJavaScript -->
 </body>
 </html>
