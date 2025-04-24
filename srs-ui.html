@@ -12,15 +12,21 @@
     <div class="srs-button-container">
         <button id="dont-know-btn" class="jlpt-button">
             <img src="assets/batsu.png" alt="Don't Know">
-        </button>    
+        </button>
         <button id="know-btn" class="jlpt-button">
             <img src="assets/maru.png" alt="Know">
         </button>
     </div>
-    
     <!-- Vocabulary word display container -->
     <div class="card-container">
         <!-- Word and meaning will be displayed here by the script -->
+    </div>
+
+    <!-- SRS Progress Container -->
+    <div class="srs-progress-container">
+        <p id="srs-repetitions">Repetitions: 0</p>
+        <p id="srs-interval">Next interval: 1 day</p>
+        <progress id="srs-progress" value="0" max="100"></progress>
     </div>
 
     <script src="script.js" defer></script> <!-- 外付けJavaScript -->

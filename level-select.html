@@ -7,12 +7,26 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="button-container">
-  <button class="jlpt-button" onclick="location.href='srs-ui.html'"><img src="assets/goi.png" alt="Vocabulary"></button>
-  <button class="jlpt-button" onclick="location.href='srs-ui.html'"><img src="assets/bunpou.png" alt="Grammar"></button>
-  <button class="jlpt-button" onclick="location.href='srs-ui.html'"><img src="assets/kanji.png" alt="Kanji"></button>
 
-</div>
+  <h1>Select Category for JLPT Level</h1>
+
+  <div class="button-container">
+    <button class="jlpt-button" onclick="selectCategory('goi')"><img src="assets/goi.png" alt="Vocabulary"></button>
+    <button class="jlpt-button" onclick="selectCategory('bunpou')"><img src="assets/bunpou.png" alt="Grammar"></button>
+    <button class="jlpt-button" onclick="selectCategory('kanji')"><img src="assets/kanji.png" alt="Kanji"></button>
+  </div>
+
+  <script>
+    // Get the level parameter from the URL query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const level = urlParams.get('level'); // Gets 'n5', 'n4', etc.
+
+    // Function to handle category selection and redirect to srs-ui.html
+    function selectCategory(category) {
+      // Construct the new URL with the level and category parameters
+      window.location.href = `srs-ui.html?level=${level}&category=${category}`;
+    }
+  </script>
 
 </body>
 </html>
