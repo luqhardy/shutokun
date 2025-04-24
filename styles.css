@@ -1,7 +1,6 @@
 body {
     background-image: url('bg.png');
     }
-    
 div {
 display: flex;
 justify-content: center;
@@ -80,4 +79,103 @@ width: 50%;
 
 .vocab-meaning {
   color: #333;
+}
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+.logo {
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Container for buttons */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0px;
+  margin: 0px auto;
+}
+
+/* Buttons for levels and categories */
+.jlpt-button {
+  border-radius: 12px;
+  padding: 0px;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.jlpt-button:hover {
+  transform: scale(1.05);
+  border-color: #0078d7;
+}
+
+.jlpt-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Text display for SRS UI */
+#word-display {
+  font-size: 2rem;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Basic layout for srs-ui controls */
+#srs-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.srs-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0078d7;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.srs-button:hover {
+  background-color: #005fa3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .jlpt-button {
+    width: 90px;
+    height: 90px;
+  }
+
+  #word-display {
+    font-size: 1.5rem;
+    width: 90%;
+  }
 }
