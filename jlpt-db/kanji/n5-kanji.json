@@ -1,0 +1,1683 @@
+[
+  {
+    "word": "学生",
+    "kana": "がくせい",
+    "romaji": "gakusei",
+    "meaning": "student",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "彼は学生です。",
+        "en": "He is a student."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "水",
+    "kana": "みず",
+    "romaji": "mizu",
+    "meaning": "water",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "水をください。",
+        "en": "Please give me water."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "人",
+    "kana": "ひと",
+    "romaji": "hito",
+    "meaning": "person",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "彼は良い人です。",
+        "en": "He is a good person."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "本",
+    "kana": "ほん",
+    "romaji": "hon",
+    "meaning": "book",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "私は本を読みます。",
+        "en": "I read a book."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "車",
+    "kana": "くるま",
+    "romaji": "kuruma",
+    "meaning": "car",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "車を運転します。",
+        "en": "I drive a car."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "時",
+    "kana": "じ",
+    "romaji": "ji",
+    "meaning": "time, hour",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "今は何時ですか？",
+        "en": "What time is it now?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "友達",
+    "kana": "ともだち",
+    "romaji": "tomodachi",
+    "meaning": "friend",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "私は友達と遊びます。",
+        "en": "I hang out with my friends."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "天気",
+    "kana": "てんき",
+    "romaji": "tenki",
+    "meaning": "weather",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "今日は天気がいいですね。",
+        "en": "The weather is nice today."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "食べる",
+    "kana": "たべる",
+    "romaji": "taberu",
+    "meaning": "to eat",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "朝ご飯を食べます。",
+        "en": "I eat breakfast."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "見る",
+    "kana": "みる",
+    "romaji": "miru",
+    "meaning": "to see, to look at",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "テレビを見ます。",
+        "en": "I watch TV."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "行く",
+    "kana": "いく",
+    "romaji": "iku",
+    "meaning": "to go",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "学校に行きます。",
+        "en": "I go to school."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "来る",
+    "kana": "くる",
+    "romaji": "kuru",
+    "meaning": "to come",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "友達が来ます。",
+        "en": "My friend is coming."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "帰る",
+    "kana": "かえる",
+    "romaji": "kaeru",
+    "meaning": "to return, to go back",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "家に帰ります。",
+        "en": "I will return home."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "大きい",
+    "kana": "おおきい",
+    "romaji": "ookii",
+    "meaning": "big, large",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "大きい犬がいます。",
+        "en": "There is a big dog."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "小さい",
+    "kana": "ちいさい",
+    "romaji": "chiisai",
+    "meaning": "small, little",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "小さい猫がいます。",
+        "en": "There is a small cat."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "新しい",
+    "kana": "あたらしい",
+    "romaji": "atarashii",
+    "meaning": "new",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "新しい本を買いました。",
+        "en": "I bought a new book."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "古い",
+    "kana": "ふるい",
+    "romaji": "furui",
+    "meaning": "old (not used for people)",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "古い車を売りました。",
+        "en": "I sold an old car."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "高い",
+    "kana": "たかい",
+    "romaji": "takai",
+    "meaning": "high, expensive",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "この店は高いです。",
+        "en": "This store is expensive."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "安い",
+    "kana": "やすい",
+    "romaji": "yasui",
+    "meaning": "cheap, inexpensive",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "安い靴を買いました。",
+        "en": "I bought cheap shoes."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "忙しい",
+    "kana": "いそがしい",
+    "romaji": "isogashii",
+    "meaning": "busy",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "今日は忙しいです。",
+        "en": "I am busy today."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "良い",
+    "kana": "よい",
+    "romaji": "yoi",
+    "meaning": "good",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "良い天気ですね。",
+        "en": "The weather is good, isn't it?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "悪い",
+    "kana": "わるい",
+    "romaji": "warui",
+    "meaning": "bad",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "今日は悪い日です。",
+        "en": "Today is a bad day."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "暑い",
+    "kana": "あつい",
+    "romaji": "atsui",
+    "meaning": "hot (weather)",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "今日は暑いですね。",
+        "en": "It's hot today, isn't it?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "寒い",
+    "kana": "さむい",
+    "romaji": "samui",
+    "meaning": "cold (weather)",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "今日は寒いです。",
+        "en": "It’s cold today."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "大丈夫",
+    "kana": "だいじょうぶ",
+    "romaji": "daijoubu",
+    "meaning": "okay, alright",
+    "pos": "adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "大丈夫ですか？",
+        "en": "Are you okay?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "元気",
+    "kana": "げんき",
+    "romaji": "genki",
+    "meaning": "healthy, energetic",
+    "pos": "noun, adjective",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "元気ですか？",
+        "en": "How are you?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "自分",
+    "kana": "じぶん",
+    "romaji": "jibun",
+    "meaning": "oneself",
+    "pos": "pronoun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "自分でやります。",
+        "en": "I will do it myself."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "色",
+    "kana": "いろ",
+    "romaji": "iro",
+    "meaning": "color",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "好きな色は何ですか？",
+        "en": "What is your favorite color?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "お金",
+    "kana": "おかね",
+    "romaji": "okane",
+    "meaning": "money",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "お金がありません。",
+        "en": "I don’t have money."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "車",
+    "kana": "くるま",
+    "romaji": "kuruma",
+    "meaning": "car",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "私は車を運転します。",
+        "en": "I drive a car."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "食べる",
+    "kana": "たべる",
+    "romaji": "taberu",
+    "meaning": "to eat",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "昼ごはんを食べます。",
+        "en": "I will eat lunch."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "飲む",
+    "kana": "のむ",
+    "romaji": "nomu",
+    "meaning": "to drink",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "水を飲みます。",
+        "en": "I will drink water."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "見る",
+    "kana": "みる",
+    "romaji": "miru",
+    "meaning": "to see, to look at",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "テレビを見ます。",
+        "en": "I will watch TV."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "聞く",
+    "kana": "きく",
+    "romaji": "kiku",
+    "meaning": "to ask, to listen",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "先生に聞きます。",
+        "en": "I will ask the teacher."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "話す",
+    "kana": "はなす",
+    "romaji": "hanasu",
+    "meaning": "to speak, to talk",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "日本語を話します。",
+        "en": "I speak Japanese."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "読む",
+    "kana": "よむ",
+    "romaji": "yomu",
+    "meaning": "to read",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "本を読みます。",
+        "en": "I read a book."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "書く",
+    "kana": "かく",
+    "romaji": "kaku",
+    "meaning": "to write",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "手紙を書きます。",
+        "en": "I will write a letter."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "買う",
+    "kana": "かう",
+    "romaji": "kau",
+    "meaning": "to buy",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "新しい靴を買いました。",
+        "en": "I bought new shoes."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "売る",
+    "kana": "うる",
+    "romaji": "uru",
+    "meaning": "to sell",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "店で服を売っています。",
+        "en": "They sell clothes at the store."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "立つ",
+    "kana": "たつ",
+    "romaji": "tatsu",
+    "meaning": "to stand",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "席に立ちます。",
+        "en": "I stand up at my seat."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "座る",
+    "kana": "すわる",
+    "romaji": "suwaru",
+    "meaning": "to sit",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ここに座ってください。",
+        "en": "Please sit here."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "歩く",
+    "kana": "あるく",
+    "romaji": "aruku",
+    "meaning": "to walk",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "公園を歩きます。",
+        "en": "I walk in the park."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "走る",
+    "kana": "はしる",
+    "romaji": "hashiru",
+    "meaning": "to run",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "毎朝走ります。",
+        "en": "I run every morning."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "泳ぐ",
+    "kana": "およぐ",
+    "romaji": "oyogu",
+    "meaning": "to swim",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "海で泳ぎます。",
+        "en": "I swim in the sea."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "入る",
+    "kana": "はいる",
+    "romaji": "hairu",
+    "meaning": "to enter",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "部屋に入ります。",
+        "en": "I enter the room."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "出る",
+    "kana": "でる",
+    "romaji": "deru",
+    "meaning": "to exit, to leave",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "家を出ます。",
+        "en": "I leave the house."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "乗る",
+    "kana": "のる",
+    "romaji": "noru",
+    "meaning": "to get on, to ride",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "電車に乗ります。",
+        "en": "I get on the train."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "降りる",
+    "kana": "おりる",
+    "romaji": "oriru",
+    "meaning": "to get off, to descend",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "バスを降ります。",
+        "en": "I get off the bus."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "着く",
+    "kana": "つく",
+    "romaji": "tsuku",
+    "meaning": "to arrive",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "駅に着きます。",
+        "en": "I arrive at the station."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "使う",
+    "kana": "つかう",
+    "romaji": "tsukau",
+    "meaning": "to use",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "パソコンを使います。",
+        "en": "I use a computer."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "作る",
+    "kana": "つくる",
+    "romaji": "tsukuru",
+    "meaning": "to make, to create",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ケーキを作ります。",
+        "en": "I make a cake."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "始まる",
+    "kana": "はじまる",
+    "romaji": "hajimaru",
+    "meaning": "to begin, to start",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "授業が始まります。",
+        "en": "The class starts."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "終わる",
+    "kana": "おわる",
+    "romaji": "owaru",
+    "meaning": "to end, to finish",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "仕事が終わりました。",
+        "en": "The work has finished."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "開ける",
+    "kana": "あける",
+    "romaji": "akeru",
+    "meaning": "to open (something)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "窓を開けます。",
+        "en": "I open the window."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "閉める",
+    "kana": "しめる",
+    "romaji": "shimeru",
+    "meaning": "to close (something)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ドアを閉めてください。",
+        "en": "Please close the door."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "切る",
+    "kana": "きる",
+    "romaji": "kiru",
+    "meaning": "to cut",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "紙を切ります。",
+        "en": "I cut the paper."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "売る",
+    "kana": "うる",
+    "romaji": "uru",
+    "meaning": "to sell",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "本を売ります。",
+        "en": "I sell books."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "買う",
+    "kana": "かう",
+    "romaji": "kau",
+    "meaning": "to buy",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "パンを買います。",
+        "en": "I buy bread."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "払う",
+    "kana": "はらう",
+    "romaji": "harau",
+    "meaning": "to pay",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "お金を払います。",
+        "en": "I pay money."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "借りる",
+    "kana": "かりる",
+    "romaji": "kariru",
+    "meaning": "to borrow",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "本を借ります。",
+        "en": "I borrow a book."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "貸す",
+    "kana": "かす",
+    "romaji": "kasu",
+    "meaning": "to lend",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "友達にお金を貸しました。",
+        "en": "I lent money to a friend."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "返す",
+    "kana": "かえす",
+    "romaji": "kaesu",
+    "meaning": "to return (something)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "本を図書館に返しました。",
+        "en": "I returned the book to the library."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "教える",
+    "kana": "おしえる",
+    "romaji": "oshieru",
+    "meaning": "to teach, to tell",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "日本語を教えます。",
+        "en": "I teach Japanese."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "習う",
+    "kana": "ならう",
+    "romaji": "narau",
+    "meaning": "to learn",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ピアノを習っています。",
+        "en": "I am learning the piano."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "覚える",
+    "kana": "おぼえる",
+    "romaji": "oboeru",
+    "meaning": "to memorize, to remember",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "漢字を覚えます。",
+        "en": "I memorize kanji."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "忘れる",
+    "kana": "わすれる",
+    "romaji": "wasureru",
+    "meaning": "to forget",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "宿題を忘れました。",
+        "en": "I forgot my homework."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "考える",
+    "kana": "かんがえる",
+    "romaji": "kangaeru",
+    "meaning": "to think",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "よく考えてください。",
+        "en": "Please think carefully."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "知る",
+    "kana": "しる",
+    "romaji": "shiru",
+    "meaning": "to know",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "彼の名前を知っています。",
+        "en": "I know his name."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "住む",
+    "kana": "すむ",
+    "romaji": "sumu",
+    "meaning": "to live (somewhere)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "東京に住んでいます。",
+        "en": "I live in Tokyo."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "働く",
+    "kana": "はたらく",
+    "romaji": "hataraku",
+    "meaning": "to work",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "会社で働いています。",
+        "en": "I work at a company."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "作る",
+    "kana": "つくる",
+    "romaji": "tsukuru",
+    "meaning": "to make, to create",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ケーキを作りました。",
+        "en": "I made a cake."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "使う",
+    "kana": "つかう",
+    "romaji": "tsukau",
+    "meaning": "to use",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "辞書を使います。",
+        "en": "I use a dictionary."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "立つ",
+    "kana": "たつ",
+    "romaji": "tatsu",
+    "meaning": "to stand",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "席に立ちます。",
+        "en": "I stand up from the seat."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "座る",
+    "kana": "すわる",
+    "romaji": "suwaru",
+    "meaning": "to sit",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ここに座ってください。",
+        "en": "Please sit here."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "歩く",
+    "kana": "あるく",
+    "romaji": "aruku",
+    "meaning": "to walk",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "駅まで歩きます。",
+        "en": "I walk to the station."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "走る",
+    "kana": "はしる",
+    "romaji": "hashiru",
+    "meaning": "to run",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "公園を走ります。",
+        "en": "I run in the park."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "開ける",
+    "kana": "あける",
+    "romaji": "akeru",
+    "meaning": "to open (something)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "窓を開けてください。",
+        "en": "Please open the window."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "閉める",
+    "kana": "しめる",
+    "romaji": "shimeru",
+    "meaning": "to close (something)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ドアを閉めます。",
+        "en": "I close the door."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "始まる",
+    "kana": "はじまる",
+    "romaji": "hajimaru",
+    "meaning": "to begin, to start (intransitive)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "授業が始まります。",
+        "en": "The class is starting."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "終わる",
+    "kana": "おわる",
+    "romaji": "owaru",
+    "meaning": "to finish, to end",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "仕事が終わりました。",
+        "en": "The work has finished."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  }
+]
+

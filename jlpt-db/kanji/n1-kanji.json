@@ -1,0 +1,44 @@
+[
+  {
+    "word": "学生",
+    "kana": "がくせい",
+    "romaji": "gakusei",
+    "meaning": "student",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "彼は学生です。",
+        "en": "He is a student."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "水",
+    "kana": "みず",
+    "romaji": "mizu",
+    "meaning": "water",
+    "pos": "noun",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "水をください。",
+        "en": "Please give me water."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  }
+]
