@@ -33,7 +33,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px; /* Clean vertical spacing */
+  gap: 0px;
   margin: 0;
 }
 
