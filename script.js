@@ -3,7 +3,15 @@ let currentIndex = 0;
 
 async function fetchVocab() {
     try {
-        const response = await fetch("jlpt-db/goi/n1-goi.json"); // <-- make sure this file exists
+        const urlParams = new URLSearchParams(window.location.search);
+        const level = urlParams.get("level"); // Get 'level' from the URL parameter
+
+        if (!level) {
+            throw new Error("Level parameter is missing in the URL.");
+        }
+
+        // Dynamically load the vocabulary JSON based on the level
+        const response = await fetch(`jlpt-db/goi/${level}-goi.json`);
         const data = await response.json();
 
         // Add default SRS fields if not present

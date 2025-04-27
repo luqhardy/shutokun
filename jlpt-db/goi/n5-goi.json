@@ -1468,6 +1468,216 @@
       "dueDate": null,
       "lastReviewed": null
     }
+  },
+  {
+    "word": "作る",
+    "kana": "つくる",
+    "romaji": "tsukuru",
+    "meaning": "to make, to create",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ケーキを作りました。",
+        "en": "I made a cake."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "使う",
+    "kana": "つかう",
+    "romaji": "tsukau",
+    "meaning": "to use",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "辞書を使います。",
+        "en": "I use a dictionary."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "立つ",
+    "kana": "たつ",
+    "romaji": "tatsu",
+    "meaning": "to stand",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "席に立ちます。",
+        "en": "I stand up from the seat."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "座る",
+    "kana": "すわる",
+    "romaji": "suwaru",
+    "meaning": "to sit",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ここに座ってください。",
+        "en": "Please sit here."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "歩く",
+    "kana": "あるく",
+    "romaji": "aruku",
+    "meaning": "to walk",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "駅まで歩きます。",
+        "en": "I walk to the station."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "走る",
+    "kana": "はしる",
+    "romaji": "hashiru",
+    "meaning": "to run",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "公園を走ります。",
+        "en": "I run in the park."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "開ける",
+    "kana": "あける",
+    "romaji": "akeru",
+    "meaning": "to open (something)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "窓を開けてください。",
+        "en": "Please open the window."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "閉める",
+    "kana": "しめる",
+    "romaji": "shimeru",
+    "meaning": "to close (something)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "ドアを閉めます。",
+        "en": "I close the door."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "始まる",
+    "kana": "はじまる",
+    "romaji": "hajimaru",
+    "meaning": "to begin, to start (intransitive)",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "授業が始まります。",
+        "en": "The class is starting."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "終わる",
+    "kana": "おわる",
+    "romaji": "owaru",
+    "meaning": "to finish, to end",
+    "pos": "verb",
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "仕事が終わりました。",
+        "en": "The work has finished."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
   }
 ]
 

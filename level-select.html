@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <h1>Select Category for JLPT Level</h1>
+  <h1>Select Category</h1>
 
   <div class="button-container">
     <button class="jlpt-button" onclick="selectCategory('goi')"><img src="assets/goi.png" alt="Vocabulary"></button>
@@ -17,13 +17,13 @@
   </div>
 
   <script>
-    // Get the level parameter from the URL query string
+    // urlのparameterからJLPTレベルを確認
     const urlParams = new URLSearchParams(window.location.search);
     const level = urlParams.get('level'); // Gets 'n5', 'n4', etc.
 
-    // Function to handle category selection and redirect to srs-ui.html
+    // カテゴリーを確認
     function selectCategory(category) {
-      // Construct the new URL with the level and category parameters
+      // 新しいURLを構成
       window.location.href = `srs-ui.html?level=${level}&category=${category}`;
     }
   </script>
