@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Shutokun Free Mode - 日本語OCR</title>
+
+  <!-- Tesseract.js -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+
+  <!-- OpenCV.js -->
+  <script async src="https://docs.opencv.org/4.x/opencv.js" onload="onOpenCvReady()"></script>
+</head>
+<body>
+  <h2>画像をアップロードしてください（日本語対応）</h2>
+  <input type="file" id="imageUpload" accept="image/*"><br><br>
+  <canvas id="canvas" style="display:none;"></canvas>
+  <pre id="output">画像を待機中...</pre>
+
+  <script>
+    let cvReady = false;
+
+    function onOpenCvReady() {
+      cvReady = true;
+      console.log("OpenCV.js loaded.");
+    }
+
+    document.getElementById('imageUpload').addEventListener('change', async (e) => {
+      if (!cvReady) {
+        alert("OpenCV.jsがまだ読み込まれていません。");
+        return;
+      }
+
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const img = new Image();
+      img.onload = async () => {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+
+        // OpenCV preprocessing
+        const src = cv.imread(canvas);
+        const gray = new cv.Mat();
+        const thresh = new cv.Mat();
+        cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY);
+        cv.threshold(gray, thresh, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU);
+        cv.imshow(canvas, thresh); // optional: view processed canvas
+
+        // OCR with Japanese
+        canvas.toBlob(async (blob) => {
+          document.getElementById('output').textContent = "日本語OCRを実行中...";
+
+          const worker = await Tesseract.createWorker({
+            logger: m => console.log(m),
+          });
+
+          await worker.load();
+          await worker.loadLanguage('jpn');
+          await worker.initialize('jpn');
+
+          const { data } = await worker.recognize(blob);
+
+          const words = data.words.map(w => ({
+            text: w.text,
+            confidence: w.confidence,
+            bbox: {
+              x: w.bbox.x0,
+              y: w.bbox.y0,
+              width: w.bbox.x1 - w.bbox.x0,
+              height: w.bbox.y1 - w.bbox.y0
+            }
+          }));
+
+          document.getElementById('output').textContent = JSON.stringify({ words }, null, 2);
+
+          await worker.terminate();
+          src.delete(); gray.delete(); thresh.delete();
+        });
+      };
+
+      img.src = URL.createObjectURL(file);
+    });
+  </script>
+</body>
+</html>
