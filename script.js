@@ -4,17 +4,16 @@ let currentIndex = 0;
 async function fetchVocab() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
-        const level = urlParams.get("level"); // Get 'level' from the URL parameter
-
+        const level = urlParams.get("level"); // URLのparameterからlevel確認
         if (!level) {
             throw new Error("Level parameter is missing in the URL.");
         }
 
-        // Dynamically load the vocabulary JSON based on the level
+        // URLのparameterを確認、適宜なJSONをfetch
         const response = await fetch(`jlpt-db/goi/${level}-goi.json`);
         const data = await response.json();
 
-        // Add default SRS fields if not present
+        //　間隔反復におけるデータ追加
         vocab = data.map(item => ({
             ...item,
             srs: {
@@ -72,7 +71,7 @@ function reviewResult(isCorrect) {
 
 function showWord() {
     const word = vocab[currentIndex];
-    document.querySelector(".card")?.remove(); // Remove previous card
+    document.querySelector(".card")?.remove(); // 以前表示されたカードを一時削除
 
     const card = document.createElement("div");
     card.className = "card";
@@ -85,9 +84,9 @@ function showWord() {
     document.body.insertBefore(card, document.querySelector(".srs-button-container"));
 }
 
-// Event listeners
+// eventの存在を常に確認
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".jlpt-button")[0].addEventListener("click", () => reviewResult(false));
     document.querySelectorAll(".jlpt-button")[1].addEventListener("click", () => reviewResult(true));
-    fetchVocab(); // Start app
+    fetchVocab(); // 実行（語彙をfetch)
 });

@@ -7,27 +7,27 @@ body {
   padding: 20px;
 }
 
-/* Logo styling */
+/* ロゴ*/
 .logo {
   max-width: 300px;
   margin: 20px auto;
   display: block;
 }
 
-/* Center utility class */
+/* センター */
 .center {
   display: block;
   margin: 0 auto;
 }
 
-/* General image styles */
+/* img 画像 */
 img {
   width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-/* Button containers */
+/* ボタンのcontainer */
 .button-container,
 .srs-button-container {
   display: flex;
@@ -37,7 +37,7 @@ img {
   margin: 0;
 }
 
-/* JLPT category buttons */
+/* JLPTカテゴリー */
 .jlpt-button {
   background: transparent;
   border: none;
@@ -58,7 +58,7 @@ img {
   transform: scale(1.05) translateY(-5px);
 }
 
-/* SRS word display card */
+/* 言葉カード */
 #word-display {
   font-size: 2rem;
   margin: 30px auto;
