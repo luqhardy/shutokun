@@ -1,15 +1,15 @@
 [
   {
-    "word": "学生",
-    "kana": "がくせい",
-    "romaji": "gakusei",
-    "meaning": "student",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "必要",
+    "kana": "ひつよう",
+    "romaji": "hitsuyou",
+    "meaning": "necessary; need",
+    "pos": "noun, na-adjective",
+    "jlpt": "N4",
     "examples": [
       {
-        "jp": "彼は学生です。",
-        "en": "He is a student."
+        "jp": "勉強は必要です。",
+        "en": "Studying is necessary."
       }
     ],
     "srs": {
@@ -21,16 +21,184 @@
     }
   },
   {
-    "word": "水",
-    "kana": "みず",
-    "romaji": "mizu",
-    "meaning": "water",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "準備",
+    "kana": "じゅんび",
+    "romaji": "junbi",
+    "meaning": "preparation",
+    "pos": "noun, verb (する)",
+    "jlpt": "N4",
     "examples": [
       {
-        "jp": "水をください。",
-        "en": "Please give me water."
+        "jp": "旅行の準備をしています。",
+        "en": "I am preparing for the trip."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "経験",
+    "kana": "けいけん",
+    "romaji": "keiken",
+    "meaning": "experience",
+    "pos": "noun, verb (する)",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "日本で働いた経験があります。",
+        "en": "I have experience working in Japan."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "大事",
+    "kana": "だいじ",
+    "romaji": "daiji",
+    "meaning": "important, valuable",
+    "pos": "na-adjective",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "それはとても大事なことです。",
+        "en": "That is a very important matter."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "引っ越す",
+    "kana": "ひっこす",
+    "romaji": "hikkosu",
+    "meaning": "to move (residence)",
+    "pos": "verb (Godan)",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "来月、大阪に引っ越します。",
+        "en": "I will move to Osaka next month."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "特に",
+    "kana": "とくに",
+    "romaji": "tokuni",
+    "meaning": "especially, particularly",
+    "pos": "adverb",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "私は特に音楽が好きです。",
+        "en": "I especially like music."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "案内",
+    "kana": "あんない",
+    "romaji": "annai",
+    "meaning": "guidance; information",
+    "pos": "noun, verb (する)",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "駅で案内を頼みました。",
+        "en": "I asked for guidance at the station."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "安全",
+    "kana": "あんぜん",
+    "romaji": "anzen",
+    "meaning": "safety; security",
+    "pos": "na-adjective, noun",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "この町はとても安全です。",
+        "en": "This town is very safe."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "安心",
+    "kana": "あんしん",
+    "romaji": "anshin",
+    "meaning": "relief; peace of mind",
+    "pos": "noun, verb (する)",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "無事に着いて安心しました。",
+        "en": "I was relieved to arrive safely."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "味",
+    "kana": "あじ",
+    "romaji": "aji",
+    "meaning": "taste; flavor",
+    "pos": "noun",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "このスープはいい味がします。",
+        "en": "This soup has a good taste."
       }
     ],
     "srs": {
