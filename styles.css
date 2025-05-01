@@ -1,7 +1,7 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: #f2f2f2;
-  background-image: url('bg.png');
+  /* background-image: url('bg.png'); */
   color: #333;
   text-align: center;
   padding: 20px;

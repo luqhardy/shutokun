@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shutokun JSON Editor</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f8f9fa;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    .entry {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.4rem;
+      margin-top: 0.2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-right: 0.5rem;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .actions {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shutokun JSON Editor</h1>
+  <div class="actions">
+    <button onclick="openJSONFile()">📂 Open JSON File</button>
+    <button onclick="saveJSON()">💾 Save & Override</button>
+  </div>
+  <div id="editor"></div>
+
+  <script>
+    let data = [];
+    let fileHandle = null;
+
+    async function openJSONFile() {
+      try {
+        [fileHandle] = await window.showOpenFilePicker({
+          types: [{
+            description: "JSON Files",
+            accept: { "application/json": [".json"] }
+          }]
+        });
+        const file = await fileHandle.getFile();
+        const text = await file.text();
+        data = JSON.parse(text);
+        renderEditor();
+      } catch (err) {
+        alert("File open cancelled or failed.");
+        console.error(err);
+      }
+    }
+
+    function renderEditor() {
+      const container = document.getElementById('editor');
+      container.innerHTML = '';
+      data.forEach((entry, index) => {
+        const div = document.createElement('div');
+        div.className = 'entry';
+        div.innerHTML = `
+          <label>Word <input value="${entry.word}" onchange="data[${index}].word = this.value" /></label>
+          <label>Kana <input value="${entry.kana}" onchange="data[${index}].kana = this.value" /></label>
+          <label>Romaji <input value="${entry.romaji}" onchange="data[${index}].romaji = this.value" /></label>
+          <label>Meaning <input value="${entry.meaning}" onchange="data[${index}].meaning = this.value" /></label>
+          <label>POS <input value="${entry.pos}" onchange="data[${index}].pos = this.value" /></label>
+          <label>JLPT <input value="${entry.jlpt}" onchange="data[${index}].jlpt = this.value" /></label>
+          <label>JP Example <input value="${entry.examples?.[0]?.jp || ''}" onchange="data[${index}].examples[0].jp = this.value" /></label>
+          <label>EN Example <input value="${entry.examples?.[0]?.en || ''}" onchange="data[${index}].examples[0].en = this.value" /></label>
+          <label>SRS EaseFactor <input value="${entry.srs?.easeFactor ?? ''}" onchange="data[${index}].srs.easeFactor = parseFloat(this.value)" /></label>
+          <label>SRS Interval <input value="${entry.srs?.interval ?? ''}" onchange="data[${index}].srs.interval = parseInt(this.value)" /></label>
+          <label>SRS Repetitions <input value="${entry.srs?.repetitions ?? ''}" onchange="data[${index}].srs.repetitions = parseInt(this.value)" /></label>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    async function saveJSON() {
+      if (!fileHandle) {
+        alert("No file loaded to save.");
+        return;
+      }
+      try {
+        const writable = await fileHandle.createWritable();
+        await writable.write(JSON.stringify(data, null, 2));
+        await writable.close();
+        alert("JSON saved successfully.");
+      } catch (err) {
+        alert("Save failed.");
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+</html>
