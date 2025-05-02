@@ -1,5 +1,8 @@
 let vocab = [];
 let currentIndex = 0;
+let showAnswerBtn;
+let srsButtons;
+
 
 async function fetchVocab() {
     try {
@@ -86,7 +89,20 @@ function showWord() {
 
 // eventの存在を常に確認
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".jlpt-button")[0].addEventListener("click", () => reviewResult(false));
-    document.querySelectorAll(".jlpt-button")[1].addEventListener("click", () => reviewResult(true));
-    fetchVocab(); // 実行（語彙をfetch)
+    showAnswerBtn = document.getElementById("show-answer-btn");
+    srsButtons = document.querySelector(".srs-button-container");
+
+    showAnswerBtn.addEventListener("click", () => {
+        const meaningElements = document.querySelectorAll(".card .hidden-on-start");
+        meaningElements.forEach(el => el.style.display = "block");
+
+        showAnswerBtn.style.display = "none";
+        srsButtons.style.display = "flex";
+    });
+    document.getElementById("dont-know-btn").addEventListener("click", () => reviewResult(false));
+    document.getElementById("know-btn").addEventListener("click", () => reviewResult(true));
+
+    fetchVocab(); // 語彙読み込み
 });
+
+
