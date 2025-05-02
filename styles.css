@@ -1,7 +1,9 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: white;
-  /* background-image: url('bg.png'); */
+  /* background-image: url('assets/bg.png'); */
+  background-position: center;
+  background-size: auto;
   color: #333;
   text-align: center;
   padding: 20px;
