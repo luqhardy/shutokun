@@ -91,47 +91,89 @@ document.addEventListener("DOMContentLoaded", () => {
     showAnswerBtn = document.getElementById("show-answer-btn");
     srsButtons = document.querySelector(".srs-button-container");
 
-    showAnswerBtn.addEventListener("click", () => {
-        const meaningElements = document.querySelectorAll(".card .hidden-on-start");
-        meaningElements.forEach(el => el.style.display = "block");
+    if (showAnswerBtn) {
+        showAnswerBtn.addEventListener("click", () => {
+            const meaningElements = document.querySelectorAll(".card .hidden-on-start");
+            meaningElements.forEach(el => el.style.display = "block");
 
-        showAnswerBtn.style.display = "none";
-        srsButtons.style.display = "flex";
-    });
-    document.getElementById("dont-know-btn").addEventListener("click", () => reviewResult(false));
-    document.getElementById("know-btn").addEventListener("click", () => reviewResult(true));
+            showAnswerBtn.style.display = "none";
+            srsButtons.style.display = "flex";
+        });
+    }
 
-    fetchVocab(); // 語彙読み込み
+    const dontKnowBtn = document.getElementById("dont-know-btn");
+    const knowBtn = document.getElementById("know-btn");
+    if (dontKnowBtn) dontKnowBtn.addEventListener("click", () => reviewResult(false));
+    if (knowBtn) knowBtn.addEventListener("click", () => reviewResult(true));
+
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    
+    if (loginBtn) {
+        loginBtn.addEventListener('click', signInWithGoogle);
+    }
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', signOut);
+    }
+
+    // Only fetch vocab if we're on a page that needs it
+    if (window.location.pathname.includes('level-select.html')) {
+        fetchVocab();
+    }
 });
-// 1. Initialize Firebase
+
+// Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "your-project-id.firebaseapp.com",
-    projectId: "your-project-id",
-    storageBucket: "your-project-id.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
+    authDomain: "shutokun.firebaseapp.com",
+    projectId: "shutokun",
+    storageBucket: "shutokun.firebasestorage.app",
+    messagingSenderId: "120770573657",
+    appId: "1:120770573657:web:692c54b821b0a51c138848",
+    measurementId: "G-GJG5NT05DH"
 };
+
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-  // 2. Google sign-in setup
+// Auth state observer
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in
+        document.getElementById('loginBtn').style.display = 'none';
+        document.getElementById('logoutBtn').style.display = 'block';
+        console.log("User is signed in:", user.displayName);
+    } else {
+        // User is signed out
+        document.getElementById('loginBtn').style.display = 'block';
+        document.getElementById('logoutBtn').style.display = 'none';
+        console.log("User is signed out");
+    }
+});
+
+// Google sign-in setup
 const provider = new firebase.auth.GoogleAuthProvider();
 function signInWithGoogle() {
     firebase.auth().signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user;
-        console.log("Signed in as:", user.displayName);
-        // Here you can update UI or save progress
-      })
-      .catch((error) => {
-        console.error("Error during sign-in:", error);
-      });
-  }
-  
-  function signOut() {
-    firebase.auth().signOut().then(() => {
-      console.log("Signed out.");
-    });
-  }
-  
+        .then((result) => {
+            const user = result.user;
+            console.log("Signed in as:", user.displayName);
+            // Here you can update UI or save progress
+        })
+        .catch((error) => {
+            console.error("Error during sign-in:", error);
+            alert("Sign-in failed. Please try again.");
+        });
+}
+
+function signOut() {
+    firebase.auth().signOut()
+        .then(() => {
+            console.log("Signed out successfully");
+        })
+        .catch((error) => {
+            console.error("Error during sign-out:", error);
+            alert("Sign-out failed. Please try again.");
+        });
+}
 
