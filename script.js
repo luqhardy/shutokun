@@ -3,7 +3,6 @@ let currentIndex = 0;
 let showAnswerBtn;
 let srsButtons;
 
-
 async function fetchVocab() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
@@ -104,5 +103,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetchVocab(); // 語彙読み込み
 });
+// 1. Initialize Firebase
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "your-project-id.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-project-id.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
 
+  // 2. Google sign-in setup
+const provider = new firebase.auth.GoogleAuthProvider();
+function signInWithGoogle() {
+    firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        console.log("Signed in as:", user.displayName);
+        // Here you can update UI or save progress
+      })
+      .catch((error) => {
+        console.error("Error during sign-in:", error);
+      });
+  }
+  
+  function signOut() {
+    firebase.auth().signOut().then(() => {
+      console.log("Signed out.");
+    });
+  }
+  
 
