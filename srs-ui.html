@@ -3,34 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shutokun by ルクマン（開発中）</title>
-    <link rel="stylesheet" href="styles.css"> <!-- 外付けCSS -->
+    <title>Shutokun - SRS Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+        <div class="auth-container">
+            <button id="loginBtn" class="auth-button">Sign in with Google</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+        </div>
+    </header>
 
-        <!-- Show Answer Button -->
-        <div class="show-answer-container">
-            <button id="show-answer-btn" class="jlpt-button">Show Answer</button>
-        </div>
-        <!-- Know / Don't Know Buttons (initially hidden) -->
-        <div class="srs-button-container" style="display: none;">
-            <button id="dont-know-btn" class="jlpt-button">
-                <img src="assets/batsu.png" alt="Don't Know">
-            </button>
-            <button id="know-btn" class="jlpt-button">
-                <img src="assets/maru.png" alt="Know">
-            </button>
-        </div>
+    <main class="study-container">
         <!-- Vocabulary word display container -->
         <div class="card-container">
             <!-- Word and meaning will be displayed here by the script -->
         </div>
+
+        <!-- Show Answer Button -->
+        <div class="show-answer-container">
+            <button id="show-answer-btn" class="action-button">Show Answer</button>
+        </div>
+
+        <!-- Know / Don't Know Buttons (initially hidden) -->
+        <div class="srs-button-container" style="display: none;">
+            <button id="dont-know-btn" class="srs-button">
+                <img src="assets/batsu.png" alt="Don't Know">
+            </button>
+            <button id="know-btn" class="srs-button">
+                <img src="assets/maru.png" alt="Know">
+            </button>
+        </div>
+
         <!-- SRS Progress Container -->
         <div class="srs-progress-container">
-            <p id="srs-repetitions">Repetitions: 0</p>
-            <p id="srs-interval">Next interval: 1 day</p>
+            <div class="progress-stats">
+                <p id="srs-repetitions">Repetitions: 0</p>
+                <p id="srs-interval">Next interval: 1 day</p>
+            </div>
             <progress id="srs-progress" value="0" max="100"></progress>
         </div>
-        <script src="script.js" defer></script>
-    </body>
+
+        <!-- Navigation -->
+        <div class="navigation-container">
+            <button onclick="window.location.href='index.html'" class="nav-button">Back to Home</button>
+            <button onclick="window.location.href='level-select.html'" class="nav-button">Change Level</button>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="firebase-db.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>

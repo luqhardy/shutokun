@@ -29,12 +29,9 @@ firebase.auth().onAuthStateChanged(async (user) => {
         document.getElementById('logoutBtn').style.display = 'block';
         console.log("User is signed in:", user.displayName);
         
-        // Load user's progress if we're on a level page
-        if (window.location.pathname.includes('level-select.html')) {
-            const level = new URLSearchParams(window.location.search).get("level");
-            if (level) {
-                await loadProgress();
-            }
+        // Load user's progress if we're on the SRS page
+        if (window.location.pathname.includes('srs-ui.html')) {
+            await loadProgress();
         }
     } else {
         // User is signed out
@@ -73,8 +70,10 @@ async function fetchVocab() {
 
         await loadProgress();
         showWord();
+        updateProgressDisplay();
     } catch (error) {
         console.error("Failed to fetch json:", error);
+        alert("Failed to load vocabulary. Please try again.");
     }
 }
 
@@ -152,11 +151,13 @@ function reviewResult(isCorrect) {
     saveProgress();
     currentIndex = (currentIndex + 1) % vocab.length;
     showWord();
+    updateProgressDisplay();
 }
 
 function showWord() {
     const word = vocab[currentIndex];
-    document.querySelector(".card")?.remove();
+    const cardContainer = document.querySelector(".card-container");
+    cardContainer.innerHTML = '';
 
     const card = document.createElement("div");
     card.className = "card";
@@ -166,7 +167,23 @@ function showWord() {
         <p class="hidden-on-start"><strong>Romaji:</strong> ${word.romaji}</p>
         <p class="hidden-on-start"><strong>Example:</strong><br>${word.examples[0].jp}<br>${word.examples[0].en}</p>
     `;
-    document.body.insertBefore(card, document.querySelector(".srs-button-container"));
+    cardContainer.appendChild(card);
+}
+
+function updateProgressDisplay() {
+    const item = vocab[currentIndex];
+    const srs = item.srs;
+    
+    // Update repetitions display
+    document.getElementById('srs-repetitions').textContent = `Repetitions: ${srs.repetitions}`;
+    
+    // Update interval display
+    const intervalText = srs.interval === 1 ? '1 day' : `${srs.interval} days`;
+    document.getElementById('srs-interval').textContent = `Next interval: ${intervalText}`;
+    
+    // Update progress bar
+    const progress = (srs.repetitions / 10) * 100; // Assuming 10 is max repetitions
+    document.getElementById('srs-progress').value = Math.min(progress, 100);
 }
 
 // Google sign-in setup
@@ -183,7 +200,6 @@ function signInWithGoogle() {
         })
         .catch((error) => {
             console.error("Error during sign-in:", error);
-            // Log more detailed error information
             if (error.code === 'auth/popup-blocked') {
                 alert('Please allow popups for this website to sign in.');
             } else if (error.code === 'auth/cancelled-popup-request') {
@@ -235,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
         logoutBtn.addEventListener('click', signOut);
     }
 
-    // Only fetch vocab if we're on a page that needs it
+    // Only fetch vocab if we're on the SRS page
     if (window.location.pathname.includes('srs-ui.html')) {
         fetchVocab();
     }

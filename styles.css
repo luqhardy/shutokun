@@ -1,177 +1,212 @@
+/* Base styles */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: white;
-  /* background-image: url('assets/bg.png'); */
-  background-position: center;
-  background-size: auto;
-  color: #333;
-  text-align: center;
-  padding: 20px;
-}
-
-/* ロゴ*/
-.logo {
-  max-width: 300px;
-  margin: 20px auto;
-  display: block;
-}
-
-/* センター */
-.center {
-  display: block;
-  margin: 0 auto;
-}
-
-/* img 画像 */
-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* ボタンのcontainer */
-.button-container,
-.srs-button-container {
-  display: flex;
-flex-direction: column;
-  align-items: center;
-  gap: 0px;
   margin: 0;
-}
-
-/* JLPTカテゴリー */
-.jlpt-button {
-  background: transparent;
-  border: none;
   padding: 0;
-  cursor: pointer;
-  transition: transform 0.1s ease-in-out;
-  width: 300px;
-  height: 80px;
-}
-
-.jlpt-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.jlpt-button:hover {
-  transform: scale(1.05) translateY(-5px);
-}
-
-/* 言葉カード */
-#word-display {
-  font-size: 2rem;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* SRS button layout */
-#srs-controls {
-  margin-top: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
 }
 
-/* SRS buttons */
-.srs-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #0078d7;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.srs-button:hover {
-  background-color: #005fa3;
-}
-
-/* Vocab card layout */
-.vocab-card {
-  border: 1px solid #ccc;
-  padding: 12px;
-  margin: 8px auto;
-  border-radius: 8px;
+header {
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 90%;
-}
-
-.vocab-header {
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
-  font-weight: bold;
-  margin-bottom: 4px;
+  align-items: center;
 }
 
-.vocab-word {
-  font-size: 1.2em;
+.logo {
+  height: 40px;
 }
 
-.vocab-reading {
-  font-size: 0.95em;
-  color: #888;
-}
-
-.vocab-meaning {
-  color: #333;
-}
-
-/* Responsive (mobile-first) layout */
-@media (max-width: 600px) {
-  .jlpt-button {
-    width: 90vw;
-    height: 100px;
-  }
-
-  #word-display {
-    font-size: 1.5rem;
-    width: 95%;
-  }
-
-  .srs-button {
-    font-size: 0.9rem;
-    padding: 8px 14px;
-  }
-
-  .vocab-card {
-    padding: 10px;
-  }
-}
-
-/* Auth container and buttons */
+/* Auth buttons */
 .auth-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
 }
 
 .auth-button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #4a90e2;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #4285f4;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
 }
 
 .auth-button:hover {
-    background-color: #357abd;
+  background-color: #357abd;
 }
 
-.auth-button:active {
-    background-color: #2a5f94;
+/* Study container */
+.study-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+/* Card styles */
+.card-container {
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.card p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.hidden-on-start {
+  display: none;
+}
+
+/* Button styles */
+.show-answer-container {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.action-button {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background-color: #45a049;
+}
+
+.srs-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.srs-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.srs-button:hover {
+  transform: scale(1.1);
+}
+
+.srs-button img {
+  width: 48px;
+  height: 48px;
+}
+
+/* Progress styles */
+.srs-progress-container {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+#srs-progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+#srs-progress::-webkit-progress-bar {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+#srs-progress::-webkit-progress-value {
+  background-color: #4CAF50;
+  border-radius: 4px;
+}
+
+/* Navigation */
+.navigation-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.nav-button {
+  padding: 0.8rem 1.5rem;
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+  background-color: #555;
+}
+
+/* JLPT Level buttons */
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.jlpt-button {
+  background: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jlpt-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.jlpt-button img {
+  max-width: 100%;
+  height: auto;
 }
