@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mode Select</title>
+  <title>Shutokun - Level Selection</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
+  <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+  <!-- Auth buttons -->
+  <div class="auth-container">
+    <button id="loginBtn" class="auth-button">Sign in with Google</button>
+    <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+  </div>
 
   <h1>Select Category</h1>
 
@@ -16,17 +26,18 @@
     <button class="jlpt-button" onclick="selectCategory('kanji')"><img src="assets/kanji.png" alt="Kanji"></button>
   </div>
 
+  <!-- Scripts -->
+  <script src="firebase-db.js"></script>
+  <script src="script.js"></script>
   <script>
-    // urlのparameterからJLPTレベルを確認
+    // Get JLPT level from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const level = urlParams.get('level'); // levelのparameter確認
+    const level = urlParams.get('level');
 
-    // カテゴリーを確認
+    // Category selection function
     function selectCategory(category) {
-      // 新しいURLを構成
       window.location.href = `srs-ui.html?level=${level}&category=${category}`;
     }
   </script>
-
 </body>
 </html>
