@@ -15,12 +15,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src="assets/logo.png" alt="Shutokun logo" class="logo">
-    <!-- Auth buttons -->
-    <div class="auth-container">
-        <button id="loginBtn" class="auth-button">Sign in with Google</button>
-        <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
-    </div>
+    <header>
+        <div class="header-left">
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+        </div>
+        <div class="auth-container">
+            <button id="loginBtn" class="auth-button">Sign in</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-to-use.html">How To Use</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
     <!-- JLPT Level buttons -->
     <div class="button-container">
         <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="assets/hirakata.png" alt="Hiragana/Katakana"></button>

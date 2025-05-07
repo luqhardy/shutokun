@@ -168,22 +168,48 @@ function showWord() {
         <p class="hidden-on-start"><strong>Example:</strong><br>${word.examples[0].jp}<br>${word.examples[0].en}</p>
     `;
     cardContainer.appendChild(card);
+
+    // Reset button states
+    const showAnswerBtn = document.getElementById("show-answer-btn");
+    const srsButtons = document.querySelector(".srs-button-container");
+    const meaningElements = document.querySelectorAll(".card .hidden-on-start");
+
+    showAnswerBtn.style.display = "block";
+    srsButtons.style.display = "none";
+    meaningElements.forEach(el => {
+        el.classList.remove("visible");
+        el.style.display = "none";
+    });
+
+    // Update progress display with animation
+    updateProgressDisplay();
 }
 
 function updateProgressDisplay() {
     const item = vocab[currentIndex];
     const srs = item.srs;
     
-    // Update repetitions display
-    document.getElementById('srs-repetitions').textContent = `Repetitions: ${srs.repetitions}`;
+    // Update repetitions display with animation
+    const repetitionsEl = document.getElementById('srs-repetitions');
+    repetitionsEl.style.opacity = '0';
+    setTimeout(() => {
+        repetitionsEl.textContent = `Repetitions: ${srs.repetitions}`;
+        repetitionsEl.style.opacity = '1';
+    }, 200);
     
-    // Update interval display
-    const intervalText = srs.interval === 1 ? '1 day' : `${srs.interval} days`;
-    document.getElementById('srs-interval').textContent = `Next interval: ${intervalText}`;
+    // Update interval display with animation
+    const intervalEl = document.getElementById('srs-interval');
+    intervalEl.style.opacity = '0';
+    setTimeout(() => {
+        const intervalText = srs.interval === 1 ? '1 day' : `${srs.interval} days`;
+        intervalEl.textContent = `Next interval: ${intervalText}`;
+        intervalEl.style.opacity = '1';
+    }, 200);
     
-    // Update progress bar
+    // Update progress bar with animation
     const progress = (srs.repetitions / 10) * 100; // Assuming 10 is max repetitions
-    document.getElementById('srs-progress').value = Math.min(progress, 100);
+    const progressBar = document.getElementById('srs-progress');
+    progressBar.value = Math.min(progress, 100);
 }
 
 // Google sign-in setup
@@ -223,16 +249,59 @@ function signOut() {
 
 // Initialize the app
 document.addEventListener("DOMContentLoaded", () => {
+    // Hamburger menu functionality
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+    let menuOverlay;
+
+    if (hamburgerMenu && navMenu) {
+        // Create overlay element
+        menuOverlay = document.createElement('div');
+        menuOverlay.className = 'menu-overlay';
+        document.body.appendChild(menuOverlay);
+
+        // Toggle menu function
+        function toggleMenu() {
+            hamburgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Event listeners
+        hamburgerMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    }
+
+    // Existing initialization code
     showAnswerBtn = document.getElementById("show-answer-btn");
     srsButtons = document.querySelector(".srs-button-container");
 
     if (showAnswerBtn) {
         showAnswerBtn.addEventListener("click", () => {
             const meaningElements = document.querySelectorAll(".card .hidden-on-start");
-            meaningElements.forEach(el => el.style.display = "block");
+            meaningElements.forEach(el => {
+                el.style.display = "block";
+                // Trigger reflow
+                el.offsetHeight;
+                el.classList.add("visible");
+            });
 
             showAnswerBtn.style.display = "none";
             srsButtons.style.display = "flex";
+            // Trigger reflow
+            srsButtons.offsetHeight;
+            srsButtons.classList.add("visible");
         });
     }
 
