@@ -9,14 +9,16 @@ const firebaseConfig = {
     apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
     authDomain: "shutokun.firebaseapp.com",
     projectId: "shutokun",
-    storageBucket: "shutokun.firebasestorage.app",
+    storageBucket: "shutokun.appspot.com",
     messagingSenderId: "120770573657",
     appId: "1:120770573657:web:692c54b821b0a51c138848",
     measurementId: "G-GJG5NT05DH"
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
 // Auth state observer
 firebase.auth().onAuthStateChanged(async (user) => {
@@ -169,6 +171,10 @@ function showWord() {
 
 // Google sign-in setup
 const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({
+    prompt: 'select_account'
+});
+
 function signInWithGoogle() {
     firebase.auth().signInWithPopup(provider)
         .then((result) => {
@@ -177,7 +183,14 @@ function signInWithGoogle() {
         })
         .catch((error) => {
             console.error("Error during sign-in:", error);
-            alert("Sign-in failed. Please try again.");
+            // Log more detailed error information
+            if (error.code === 'auth/popup-blocked') {
+                alert('Please allow popups for this website to sign in.');
+            } else if (error.code === 'auth/cancelled-popup-request') {
+                console.log('Sign-in popup was cancelled');
+            } else {
+                alert("Sign-in failed. Please try again. Error: " + error.message);
+            }
         });
 }
 
