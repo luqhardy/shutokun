@@ -9,7 +9,8 @@
     "examples": [
       {
         "jp": "彼は学生です。",
-        "en": "He is a student."
+        "en": "He is a student.",
+        "notes": "Basic polite form of だ"
       }
     ],
     "srs": {
@@ -492,7 +493,7 @@
     "examples": [
       {
         "jp": "今日は寒いです。",
-        "en": "It’s cold today."
+        "en": "It's cold today."
       }
     ],
     "srs": {
@@ -597,7 +598,7 @@
     "examples": [
       {
         "jp": "お金がありません。",
-        "en": "I don’t have money."
+        "en": "I don't have money."
       }
     ],
     "srs": {
@@ -1671,6 +1672,86 @@
         "en": "The work has finished."
       }
     ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "grammar_point": "です",
+    "meaning": "to be, is, are",
+    "usage": "Used to make polite statements about nouns and adjectives",
+    "conjugation": {
+      "present_affirmative": "です",
+      "present_negative": "ではありません",
+      "past_affirmative": "でした",
+      "past_negative": "ではありませんでした"
+    },
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "私は学生です。",
+        "en": "I am a student.",
+        "notes": "Basic polite form of だ"
+      },
+      {
+        "jp": "この本は面白いです。",
+        "en": "This book is interesting.",
+        "notes": "Used with い-adjectives"
+      }
+    ],
+    "common_mistakes": [
+      "Using です with verbs (incorrect: 食べますです)",
+      "Using です with な-adjectives without な (incorrect: 静かです)"
+    ],
+    "related_grammar": [
+      "だ (plain form)",
+      "である (formal written form)"
+    ],
+    "notes": "One of the most fundamental grammar points in Japanese, used to make polite statements.",
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "grammar_point": "ます",
+    "meaning": "polite form of verbs",
+    "usage": "Added to verb stems to create polite forms",
+    "conjugation": {
+      "present_affirmative": "ます",
+      "present_negative": "ません",
+      "past_affirmative": "ました",
+      "past_negative": "ませんでした"
+    },
+    "jlpt": "N5",
+    "examples": [
+      {
+        "jp": "毎日日本語を勉強します。",
+        "en": "I study Japanese every day.",
+        "notes": "Present tense, habitual action"
+      },
+      {
+        "jp": "昨日映画を見ました。",
+        "en": "I watched a movie yesterday.",
+        "notes": "Past tense"
+      }
+    ],
+    "common_mistakes": [
+      "Using ます with adjectives (incorrect: 楽しいます)",
+      "Using plain form after ます (incorrect: 食べますする)"
+    ],
+    "related_grammar": [
+      "Plain form (dictionary form)",
+      "て form + います"
+    ],
+    "notes": "Essential for polite speech, used in most formal situations.",
     "srs": {
       "easeFactor": 2.5,
       "interval": 1,

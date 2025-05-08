@@ -6,10 +6,27 @@
     "meaning": "student",
     "pos": "noun",
     "jlpt": "N5",
+    "usage_notes": "Common word for student, used in both formal and informal contexts",
+    "related_words": [
+      {
+        "word": "大学生",
+        "meaning": "university student"
+      },
+      {
+        "word": "留学生",
+        "meaning": "international student"
+      }
+    ],
     "examples": [
       {
         "jp": "彼は学生です。",
-        "en": "He is a student."
+        "en": "He is a student.",
+        "context": "Basic self-introduction"
+      },
+      {
+        "jp": "学生の時、よく図書館で勉強しました。",
+        "en": "When I was a student, I often studied at the library.",
+        "context": "Past experience"
       }
     ],
     "srs": {
@@ -492,7 +509,7 @@
     "examples": [
       {
         "jp": "今日は寒いです。",
-        "en": "It’s cold today."
+        "en": "It's cold today."
       }
     ],
     "srs": {
@@ -597,7 +614,7 @@
     "examples": [
       {
         "jp": "お金がありません。",
-        "en": "I don’t have money."
+        "en": "I don't have money."
       }
     ],
     "srs": {
@@ -1669,6 +1686,44 @@
       {
         "jp": "仕事が終わりました。",
         "en": "The work has finished."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "先生",
+    "kana": "せんせい",
+    "romaji": "sensei",
+    "meaning": "teacher, instructor, doctor",
+    "pos": "noun",
+    "jlpt": "N5",
+    "usage_notes": "Respectful term for teachers, doctors, and other professionals. Also used as a title after their name.",
+    "related_words": [
+      {
+        "word": "教師",
+        "meaning": "teacher (more formal)"
+      },
+      {
+        "word": "医者",
+        "meaning": "doctor (less formal)"
+      }
+    ],
+    "examples": [
+      {
+        "jp": "田中先生は日本語を教えています。",
+        "en": "Teacher Tanaka teaches Japanese.",
+        "context": "Referring to a teacher"
+      },
+      {
+        "jp": "先生になりたいです。",
+        "en": "I want to become a teacher.",
+        "context": "Career aspiration"
       }
     ],
     "srs": {

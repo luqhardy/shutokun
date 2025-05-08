@@ -208,5 +208,43 @@
       "dueDate": null,
       "lastReviewed": null
     }
+  },
+  {
+    "word": "料理",
+    "kana": "りょうり",
+    "romaji": "ryouri",
+    "meaning": "cooking, cuisine",
+    "pos": "noun, verbal noun (with する)",
+    "jlpt": "N4",
+    "usage_notes": "Can be used both as a noun for 'food/cuisine' and as a verb with する for 'to cook'",
+    "related_words": [
+      {
+        "word": "和食",
+        "meaning": "Japanese cuisine"
+      },
+      {
+        "word": "料理人",
+        "meaning": "cook, chef"
+      }
+    ],
+    "examples": [
+      {
+        "jp": "日本料理が好きです。",
+        "en": "I like Japanese cuisine.",
+        "context": "Expressing food preference"
+      },
+      {
+        "jp": "週末に料理をします。",
+        "en": "I cook on weekends.",
+        "context": "Talking about hobbies"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
   }
 ]

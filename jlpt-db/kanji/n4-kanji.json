@@ -1,5 +1,40 @@
 [
   {
+    "kanji": "新",
+    "meaning": "new",
+    "on_yomi": ["しん"],
+    "kun_yomi": ["あたら.しい", "あら.た", "にい"],
+    "strokes": 13,
+    "radical": "斤",
+    "jlpt": "N4",
+    "compounds": [
+      {
+        "word": "新聞",
+        "reading": "しんぶん",
+        "meaning": "newspaper"
+      },
+      {
+        "word": "新しい",
+        "reading": "あたらしい",
+        "meaning": "new"
+      }
+    ],
+    "examples": [
+      {
+        "jp": "新しい車を買いました。",
+        "en": "I bought a new car."
+      }
+    ],
+    "notes": "Common kanji used in words related to newness and novelty.",
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
     "word": "学生",
     "kana": "がくせい",
     "romaji": "gakusei",

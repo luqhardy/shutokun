@@ -40,5 +40,46 @@
       "dueDate": null,
       "lastReviewed": null
     }
+  },
+  {
+    "grammar_point": "ながら",
+    "meaning": "while doing ~, during ~",
+    "usage": "Verb stem + ながら to express two simultaneous actions",
+    "conjugation": {
+      "pattern": "Verb stem + ながら",
+      "examples": [
+        "食べる → 食べながら",
+        "聞く → 聞きながら"
+      ]
+    },
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "音楽を聞きながら勉強します。",
+        "en": "I study while listening to music.",
+        "notes": "Simultaneous actions"
+      },
+      {
+        "jp": "歩きながら電話をしないでください。",
+        "en": "Please don't talk on the phone while walking.",
+        "notes": "Safety warning"
+      }
+    ],
+    "common_mistakes": [
+      "Using ながら with state verbs (incorrect: いるながら)",
+      "Using ながら with adjectives (incorrect: 楽しいながら)"
+    ],
+    "related_grammar": [
+      "〜たり〜たり (multiple actions, not necessarily simultaneous)",
+      "〜ても (even if/though)"
+    ],
+    "notes": "Used for actions that occur at the same time, where one is usually less important than the other.",
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
   }
 ]

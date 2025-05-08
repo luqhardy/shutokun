@@ -1,5 +1,80 @@
 [
   {
+    "kanji": "日",
+    "meaning": "day, sun",
+    "on_yomi": ["にち", "じつ"],
+    "kun_yomi": ["ひ", "-び", "-か"],
+    "strokes": 4,
+    "radical": "日",
+    "jlpt": "N5",
+    "compounds": [
+      {
+        "word": "日本",
+        "reading": "にほん",
+        "meaning": "Japan"
+      },
+      {
+        "word": "今日",
+        "reading": "きょう",
+        "meaning": "today"
+      },
+      {
+        "word": "日曜日",
+        "reading": "にちようび",
+        "meaning": "Sunday"
+      }
+    ],
+    "examples": [
+      {
+        "jp": "今日は日曜日です。",
+        "en": "Today is Sunday."
+      }
+    ],
+    "notes": "One of the most fundamental kanji, used in words related to time, dates, and Japan itself.",
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "kanji": "本",
+    "meaning": "book, origin, real",
+    "on_yomi": ["ほん"],
+    "kun_yomi": ["もと"],
+    "strokes": 5,
+    "radical": "木",
+    "jlpt": "N5",
+    "compounds": [
+      {
+        "word": "日本",
+        "reading": "にほん",
+        "meaning": "Japan"
+      },
+      {
+        "word": "本当",
+        "reading": "ほんとう",
+        "meaning": "truth, reality"
+      }
+    ],
+    "examples": [
+      {
+        "jp": "この本は面白いです。",
+        "en": "This book is interesting."
+      }
+    ],
+    "notes": "Very common kanji used in words related to books and authenticity.",
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
     "word": "学生",
     "kana": "がくせい",
     "romaji": "gakusei",
@@ -52,27 +127,6 @@
       {
         "jp": "彼は良い人です。",
         "en": "He is a good person."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "本",
-    "kana": "ほん",
-    "romaji": "hon",
-    "meaning": "book",
-    "pos": "noun",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "私は本を読みます。",
-        "en": "I read a book."
       }
     ],
     "srs": {
@@ -492,7 +546,7 @@
     "examples": [
       {
         "jp": "今日は寒いです。",
-        "en": "It’s cold today."
+        "en": "It's cold today."
       }
     ],
     "srs": {
@@ -597,7 +651,7 @@
     "examples": [
       {
         "jp": "お金がありません。",
-        "en": "I don’t have money."
+        "en": "I don't have money."
       }
     ],
     "srs": {
