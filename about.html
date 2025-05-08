@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Shutokun</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .mission-statement {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4CAF50;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            border-left: 4px solid #4CAF50;
+            background: #f9f9f9;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 1.5rem;
+        }
+        .team-member-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
+        .team-member-info p {
+            margin: 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+        </div>
+        <div class="auth-container">
+            <button id="loginBtn" class="auth-button">Sign in</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-to-use.html">How To Use</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p class="mission-statement">
+                "To make Japanese language learning accessible, efficient, and enjoyable for everyone through innovative technology and proven learning methods."
+            </p>
+            <p>
+                Shutokun was born from a passion for Japanese language and culture, combined with a desire to create a better learning experience. We believe that learning Japanese should be engaging, effective, and tailored to each individual's needs.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>What Makes Shutokun Different?</h2>
+            <ul class="feature-list">
+                <li>Comprehensive JLPT preparation from N5 to N1</li>
+                <li>Smart SRS system that adapts to your learning pace</li>
+                <li>High-quality example sentences and audio</li>
+                <li>Progress tracking across all devices</li>
+                <li>Free access to core features</li>
+                <li>Regular updates with new content</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Our Team</h2>
+            <div class="team-member">
+                <img src="assets/luqman.jpg" alt="Luqman Hardy">
+                <div class="team-member-info">
+                    <h3>Luqman Hardy</h3>
+                    <p>Founder & Developer</p>
+                    <p>Passionate about Japanese language and technology, Luqman created Shutokun to help others achieve their Japanese learning goals.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Contact Us</h2>
+            <p>Have questions, suggestions, or feedback? We'd love to hear from you!</p>
+            <p>Email: <a href="mailto:contact@shutokun.com">contact@shutokun.com</a></p>
+            <p>Follow us on social media for updates and learning tips:</p>
+            <ul class="feature-list">
+                <li>Twitter: @ShutokunApp</li>
+                <li>Instagram: @shutokun</li>
+                <li>GitHub: github.com/luqmanhardy/shutokun</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="firebase-db.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

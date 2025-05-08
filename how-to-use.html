@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use - Shutokun</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "•";
+            color: #4CAF50;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+        </div>
+        <div class="auth-container">
+            <button id="loginBtn" class="auth-button">Sign in</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-to-use.html">How To Use</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <div class="section">
+            <h2>Getting Started</h2>
+            <p>Welcome to Shutokun! This guide will help you make the most of your Japanese learning journey.</p>
+            <ul class="feature-list">
+                <li>Sign in with your Google account to save your progress</li>
+                <li>Choose your JLPT level (N5 to N1)</li>
+                <li>Select your study category (Vocabulary, Kanji, or Grammar)</li>
+                <li>Start learning with our SRS system</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Study Modes</h2>
+            <h3>Hiragana/Katakana Practice</h3>
+            <p>Perfect for beginners! Master the Japanese writing system with our interactive practice mode.</p>
+            
+            <h3>JLPT Levels</h3>
+            <p>Choose from N5 (beginner) to N1 (advanced) to study vocabulary, kanji, and grammar specific to each level.</p>
+            
+            <h3>Free Mode</h3>
+            <p>Mix and match content from different levels to create your custom study session.</p>
+        </div>
+
+        <div class="section">
+            <h2>SRS System</h2>
+            <p>Our Spaced Repetition System helps you learn efficiently:</p>
+            <ul class="feature-list">
+                <li>Review cards at optimal intervals</li>
+                <li>Track your progress with detailed statistics</li>
+                <li>Focus on difficult items with smart scheduling</li>
+                <li>Save your progress across devices</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Tips for Success</h2>
+            <ul class="feature-list">
+                <li>Study regularly for best results</li>
+                <li>Use the SRS system consistently</li>
+                <li>Review difficult items more frequently</li>
+                <li>Take advantage of example sentences</li>
+                <li>Practice writing kanji and vocabulary</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="firebase-db.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
