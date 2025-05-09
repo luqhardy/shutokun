@@ -42,6 +42,43 @@ firebase.auth().onAuthStateChanged(async (user) => {
     }
 });
 
+function updateReviewQueueCounts() {
+    const now = Date.now();
+    const oneDayMs = 24 * 60 * 60 * 1000;
+    
+    // Count cards in different states
+    const counts = vocab.reduce((acc, item) => {
+        if (!item.srs.dueDate) {
+            return acc;
+        }
+        
+        const daysUntilDue = Math.ceil((item.srs.dueDate - now) / oneDayMs);
+        
+        if (daysUntilDue < 0) {
+            acc.overdue++;
+        } else if (daysUntilDue === 0) {
+            acc.dueToday++;
+        } else if (daysUntilDue <= 7) { // Show upcoming reviews for next 7 days
+            acc.upcoming++;
+        }
+        
+        return acc;
+    }, { overdue: 0, dueToday: 0, upcoming: 0 });
+    
+    // Update the display
+    document.getElementById('overdue-count').textContent = counts.overdue;
+    document.getElementById('due-today-count').textContent = counts.dueToday;
+    document.getElementById('upcoming-count').textContent = counts.upcoming;
+    
+    // Update the document title to show number of cards due
+    const totalDue = counts.overdue + counts.dueToday;
+    if (totalDue > 0) {
+        document.title = `(${totalDue}) Shutokun - SRS Study`;
+    } else {
+        document.title = 'Shutokun - SRS Study';
+    }
+}
+
 async function fetchVocab() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
@@ -64,11 +101,13 @@ async function fetchVocab() {
                 interval: 1,
                 repetitions: 0,
                 lastReviewed: null,
+                dueDate: null,
                 ...(item.srs || {})
             }
         }));
 
         await loadProgress();
+        updateReviewQueueCounts();
         showWord();
         updateProgressDisplay();
     } catch (error) {
@@ -107,7 +146,10 @@ async function loadProgress() {
                 if (vocab[i]) vocab[i].srs = item.srs;
             });
             updateProgressDisplay();
+            updateReviewQueueCounts();
         });
+        
+        updateReviewQueueCounts();
     } catch (error) {
         console.error("Error loading progress:", error);
         // Fallback to localStorage
@@ -148,19 +190,116 @@ function reviewResult(isCorrect) {
     if (isCorrect) {
         srs.repetitions += 1;
         srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.15 + 0.1 * srs.repetitions);
-        srs.interval = Math.round(srs.interval * srs.easeFactor);
+        // Calculate interval using a more sophisticated spaced repetition algorithm
+        if (srs.repetitions === 1) {
+            srs.interval = 1; // 1 day
+        } else if (srs.repetitions === 2) {
+            srs.interval = 3; // 3 days
+        } else {
+            srs.interval = Math.round(srs.interval * srs.easeFactor);
+        }
     } else {
-        srs.repetitions = 0;
+        srs.repetitions = Math.max(0, srs.repetitions - 1); // Don't go below 0
         srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.2);
         srs.interval = 1;
     }
 
+    // Set the due date based on the interval
     srs.lastReviewed = now;
+    srs.dueDate = now + (srs.interval * 24 * 60 * 60 * 1000); // Convert days to milliseconds
 
     saveProgress();
-    currentIndex = (currentIndex + 1) % vocab.length;
+    
+    // Find the next due card instead of just moving to the next one
+    findNextDueCard();
+    updateReviewQueueCounts();
     showWord();
     updateProgressDisplay();
+}
+
+// Function to find the next card due for review
+function findNextDueCard() {
+    const now = Date.now();
+    const oneDayMs = 24 * 60 * 60 * 1000;
+    
+    // Create an array of indices for all cards
+    const indices = Array.from({ length: vocab.length }, (_, i) => i);
+    
+    // Remove the current card from consideration
+    indices.splice(currentIndex, 1);
+    
+    // First, try to find an overdue card
+    const overdueCards = indices.filter(index => {
+        const item = vocab[index];
+        return item.srs.dueDate && item.srs.dueDate <= now;
+    });
+    
+    if (overdueCards.length > 0) {
+        // Randomly select from overdue cards to prevent repetition
+        currentIndex = overdueCards[Math.floor(Math.random() * overdueCards.length)];
+        return;
+    }
+    
+    // Then, try to find cards due today
+    const dueTodayCards = indices.filter(index => {
+        const item = vocab[index];
+        return item.srs.dueDate && 
+               item.srs.dueDate > now && 
+               item.srs.dueDate <= now + oneDayMs;
+    });
+    
+    if (dueTodayCards.length > 0) {
+        // Randomly select from due today cards
+        currentIndex = dueTodayCards[Math.floor(Math.random() * dueTodayCards.length)];
+        return;
+    }
+    
+    // Finally, find cards due in the next 7 days
+    const upcomingCards = indices.filter(index => {
+        const item = vocab[index];
+        return item.srs.dueDate && 
+               item.srs.dueDate > now + oneDayMs && 
+               item.srs.dueDate <= now + (7 * oneDayMs);
+    });
+    
+    if (upcomingCards.length > 0) {
+        // Randomly select from upcoming cards
+        currentIndex = upcomingCards[Math.floor(Math.random() * upcomingCards.length)];
+        return;
+    }
+    
+    // If no cards are due, find cards that have never been reviewed
+    const newCards = indices.filter(index => {
+        const item = vocab[index];
+        return !item.srs.lastReviewed;
+    });
+    
+    if (newCards.length > 0) {
+        // Randomly select from new cards
+        currentIndex = newCards[Math.floor(Math.random() * newCards.length)];
+        return;
+    }
+    
+    // If all cards have been reviewed, find the one with the lowest repetition count
+    const lowestRepetitionCards = indices.filter(index => {
+        const item = vocab[index];
+        return item.srs.repetitions === Math.min(...vocab.map(v => v.srs.repetitions));
+    });
+    
+    if (lowestRepetitionCards.length > 0) {
+        // Randomly select from cards with lowest repetition count
+        currentIndex = lowestRepetitionCards[Math.floor(Math.random() * lowestRepetitionCards.length)];
+        return;
+    }
+    
+    // Fallback: randomly select any card except the current one
+    const remainingCards = indices.filter(index => index !== currentIndex);
+    if (remainingCards.length > 0) {
+        currentIndex = remainingCards[Math.floor(Math.random() * remainingCards.length)];
+    } else {
+        // If there's only one card, we have to show it again
+        currentIndex = 0;
+    }
 }
 
 function showWord() {
@@ -214,6 +353,28 @@ function updateProgressDisplay() {
         intervalEl.textContent = `Next interval: ${intervalText}`;
         intervalEl.style.opacity = '1';
     }, 200);
+
+    // Update due date display
+    const dueDateEl = document.getElementById('srs-due-date');
+    if (dueDateEl) {
+        dueDateEl.style.opacity = '0';
+        setTimeout(() => {
+            const dueDate = new Date(srs.dueDate);
+            const daysUntilDue = Math.ceil((srs.dueDate - Date.now()) / (24 * 60 * 60 * 1000));
+            let dueText = '';
+            
+            if (daysUntilDue < 0) {
+                dueText = `Overdue by ${Math.abs(daysUntilDue)} days`;
+            } else if (daysUntilDue === 0) {
+                dueText = 'Due today';
+            } else {
+                dueText = `Due in ${daysUntilDue} days`;
+            }
+            
+            dueDateEl.textContent = dueText;
+            dueDateEl.style.opacity = '1';
+        }, 200);
+    }
     
     // Update progress bar with animation
     const progress = (srs.repetitions / 10) * 100; // Assuming 10 is max repetitions

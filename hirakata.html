@@ -1,116 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Kana Practice App</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #f9f9f9;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kana Practice - Shutokun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .practice-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
 
-    h1 {
-      margin-bottom: 20px;
-    }
+        .mode-selector {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
 
-    #kana-display {
-      font-size: 80px;
-      margin: 20px 0;
-    }
+        .mode-button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
 
-    input {
-      font-size: 24px;
-      padding: 10px;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      text-align: center;
-    }
+        .mode-button:hover {
+            background-color: #45a049;
+        }
 
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      background-color: #4a90e2;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+        .mode-button.active {
+            background-color: #357abd;
+        }
 
-    #feedback {
-      font-size: 18px;
-      margin-top: 10px;
-      height: 24px;
-    }
-  </style>
+        .kana-display {
+            font-size: 120px;
+            margin: 2rem 0;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .kana-display.correct {
+            transform: scale(1.1);
+            color: #4CAF50;
+        }
+
+        .kana-display.incorrect {
+            transform: scale(0.9);
+            color: #f44336;
+        }
+
+        .input-container {
+            margin: 2rem 0;
+        }
+
+        .answer-input {
+            font-size: 1.5rem;
+            padding: 1rem;
+            width: 200px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .feedback {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            min-height: 2rem;
+            transition: opacity 0.3s;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .keyboard-hints {
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .kana-display {
+                font-size: 80px;
+            }
+
+            .answer-input {
+                width: 150px;
+                font-size: 1.2rem;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-left">
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+        </div>
+        <div class="auth-container">
+            <button id="loginBtn" class="auth-button">Sign in with Google</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+        </div>
+    </header>
 
-  <h1>Kana Practice App</h1>
-  <div>
-    <button onclick="setMode('hiragana')">Hiragana</button>
-    <button onclick="setMode('katakana')">Katakana</button>
-  </div>
-  <div id="kana-display">あ</div>
-  <input type="text" id="answer" placeholder="Type romaji..." onkeyup="checkAnswer(event)">
-  <div id="feedback"></div>
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-to-use.html">How To Use</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
 
-  <script>
-    const kanaData = {
-      hiragana: [
-        { kana: 'あ', romaji: 'a' }, { kana: 'い', romaji: 'i' }, { kana: 'う', romaji: 'u' },
-        { kana: 'え', romaji: 'e' }, { kana: 'お', romaji: 'o' }, { kana: 'か', romaji: 'ka' },
-        { kana: 'き', romaji: 'ki' }, { kana: 'く', romaji: 'ku' }, { kana: 'け', romaji: 'ke' },
-        { kana: 'こ', romaji: 'ko' }, { kana: 'さ', romaji: 'sa' }, { kana: 'し', romaji: 'shi' },
-        { kana: 'す', romaji: 'su' }, { kana: 'せ', romaji: 'se' }, { kana: 'そ', romaji: 'so' },
-      ],
-      katakana: [
-        { kana: 'ア', romaji: 'a' }, { kana: 'イ', romaji: 'i' }, { kana: 'ウ', romaji: 'u' },
-        { kana: 'エ', romaji: 'e' }, { kana: 'オ', romaji: 'o' }, { kana: 'カ', romaji: 'ka' },
-        { kana: 'キ', romaji: 'ki' }, { kana: 'ク', romaji: 'ku' }, { kana: 'ケ', romaji: 'ke' },
-        { kana: 'コ', romaji: 'ko' }, { kana: 'サ', romaji: 'sa' }, { kana: 'シ', romaji: 'shi' },
-        { kana: 'ス', romaji: 'su' }, { kana: 'セ', romaji: 'se' }, { kana: 'ソ', romaji: 'so' },
-      ]
-    };
+    <main class="practice-container">
+        <div class="mode-selector">
+            <button class="mode-button active" onclick="setMode('hiragana')">Hiragana</button>
+            <button class="mode-button" onclick="setMode('katakana')">Katakana</button>
+            <button class="mode-button" onclick="setMode('mixed')">Mixed</button>
+        </div>
 
-    let currentMode = 'hiragana';
-    let currentKana = {};
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value" id="correct-count">0</div>
+                <div class="stat-label">Correct</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="incorrect-count">0</div>
+                <div class="stat-label">Incorrect</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="accuracy">0%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+        </div>
 
-    function setMode(mode) {
-      currentMode = mode;
-      document.getElementById('feedback').textContent = '';
-      nextKana();
-    }
+        <div class="kana-display" id="kana-display">あ</div>
 
-    function nextKana() {
-      const list = kanaData[currentMode];
-      currentKana = list[Math.floor(Math.random() * list.length)];
-      document.getElementById('kana-display').textContent = currentKana.kana;
-      document.getElementById('answer').value = '';
-      document.getElementById('answer').focus();
-    }
+        <div class="input-container">
+            <input type="text" id="answer" class="answer-input" placeholder="Type romaji..." autocomplete="off">
+            <div class="feedback" id="feedback"></div>
+            <div class="keyboard-hints">Press Enter to submit, Space for next kana</div>
+        </div>
+    </main>
 
-    function checkAnswer(event) {
-      if (event.key === 'Enter') {
-        const input = document.getElementById('answer').value.trim().toLowerCase();
-        const feedback = document.getElementById('feedback');
-        if (input === currentKana.romaji) {
-          feedback.textContent = '✅ Correct!';
-          setTimeout(nextKana, 1000);
-        } else {
-          feedback.textContent = '❌ Try again';
+    <script>
+        const kanaData = {
+            hiragana: [
+                // Basic vowels
+                { kana: 'あ', romaji: 'a' }, { kana: 'い', romaji: 'i' }, { kana: 'う', romaji: 'u' },
+                { kana: 'え', romaji: 'e' }, { kana: 'お', romaji: 'o' },
+                // K series
+                { kana: 'か', romaji: 'ka' }, { kana: 'き', romaji: 'ki' }, { kana: 'く', romaji: 'ku' },
+                { kana: 'け', romaji: 'ke' }, { kana: 'こ', romaji: 'ko' },
+                // S series
+                { kana: 'さ', romaji: 'sa' }, { kana: 'し', romaji: 'shi' }, { kana: 'す', romaji: 'su' },
+                { kana: 'せ', romaji: 'se' }, { kana: 'そ', romaji: 'so' },
+                // T series
+                { kana: 'た', romaji: 'ta' }, { kana: 'ち', romaji: 'chi' }, { kana: 'つ', romaji: 'tsu' },
+                { kana: 'て', romaji: 'te' }, { kana: 'と', romaji: 'to' },
+                // N series
+                { kana: 'な', romaji: 'na' }, { kana: 'に', romaji: 'ni' }, { kana: 'ぬ', romaji: 'nu' },
+                { kana: 'ね', romaji: 'ne' }, { kana: 'の', romaji: 'no' },
+                // H series
+                { kana: 'は', romaji: 'ha' }, { kana: 'ひ', romaji: 'hi' }, { kana: 'ふ', romaji: 'fu' },
+                { kana: 'へ', romaji: 'he' }, { kana: 'ほ', romaji: 'ho' },
+                // M series
+                { kana: 'ま', romaji: 'ma' }, { kana: 'み', romaji: 'mi' }, { kana: 'む', romaji: 'mu' },
+                { kana: 'め', romaji: 'me' }, { kana: 'も', romaji: 'mo' },
+                // Y series
+                { kana: 'や', romaji: 'ya' }, { kana: 'ゆ', romaji: 'yu' }, { kana: 'よ', romaji: 'yo' },
+                // R series
+                { kana: 'ら', romaji: 'ra' }, { kana: 'り', romaji: 'ri' }, { kana: 'る', romaji: 'ru' },
+                { kana: 'れ', romaji: 're' }, { kana: 'ろ', romaji: 'ro' },
+                // W series
+                { kana: 'わ', romaji: 'wa' }, { kana: 'を', romaji: 'wo' },
+                // N
+                { kana: 'ん', romaji: 'n' },
+                // Dakuten
+                { kana: 'が', romaji: 'ga' }, { kana: 'ぎ', romaji: 'gi' }, { kana: 'ぐ', romaji: 'gu' },
+                { kana: 'げ', romaji: 'ge' }, { kana: 'ご', romaji: 'go' },
+                { kana: 'ざ', romaji: 'za' }, { kana: 'じ', romaji: 'ji' }, { kana: 'ず', romaji: 'zu' },
+                { kana: 'ぜ', romaji: 'ze' }, { kana: 'ぞ', romaji: 'zo' },
+                { kana: 'だ', romaji: 'da' }, { kana: 'ぢ', romaji: 'ji' }, { kana: 'づ', romaji: 'zu' },
+                { kana: 'で', romaji: 'de' }, { kana: 'ど', romaji: 'do' },
+                { kana: 'ば', romaji: 'ba' }, { kana: 'び', romaji: 'bi' }, { kana: 'ぶ', romaji: 'bu' },
+                { kana: 'べ', romaji: 'be' }, { kana: 'ぼ', romaji: 'bo' },
+                // Handakuten
+                { kana: 'ぱ', romaji: 'pa' }, { kana: 'ぴ', romaji: 'pi' }, { kana: 'ぷ', romaji: 'pu' },
+                { kana: 'ぺ', romaji: 'pe' }, { kana: 'ぽ', romaji: 'po' },
+                // Small kana
+                { kana: 'ぁ', romaji: 'a' }, { kana: 'ぃ', romaji: 'i' }, { kana: 'ぅ', romaji: 'u' },
+                { kana: 'ぇ', romaji: 'e' }, { kana: 'ぉ', romaji: 'o' },
+                { kana: 'っ', romaji: 'tsu' },
+                { kana: 'ゃ', romaji: 'ya' }, { kana: 'ゅ', romaji: 'yu' }, { kana: 'ょ', romaji: 'yo' }
+            ],
+            katakana: [
+                // Basic vowels
+                { kana: 'ア', romaji: 'a' }, { kana: 'イ', romaji: 'i' }, { kana: 'ウ', romaji: 'u' },
+                { kana: 'エ', romaji: 'e' }, { kana: 'オ', romaji: 'o' },
+                // K series
+                { kana: 'カ', romaji: 'ka' }, { kana: 'キ', romaji: 'ki' }, { kana: 'ク', romaji: 'ku' },
+                { kana: 'ケ', romaji: 'ke' }, { kana: 'コ', romaji: 'ko' },
+                // S series
+                { kana: 'サ', romaji: 'sa' }, { kana: 'シ', romaji: 'shi' }, { kana: 'ス', romaji: 'su' },
+                { kana: 'セ', romaji: 'se' }, { kana: 'ソ', romaji: 'so' },
+                // T series
+                { kana: 'タ', romaji: 'ta' }, { kana: 'チ', romaji: 'chi' }, { kana: 'ツ', romaji: 'tsu' },
+                { kana: 'テ', romaji: 'te' }, { kana: 'ト', romaji: 'to' },
+                // N series
+                { kana: 'ナ', romaji: 'na' }, { kana: 'ニ', romaji: 'ni' }, { kana: 'ヌ', romaji: 'nu' },
+                { kana: 'ネ', romaji: 'ne' }, { kana: 'ノ', romaji: 'no' },
+                // H series
+                { kana: 'ハ', romaji: 'ha' }, { kana: 'ヒ', romaji: 'hi' }, { kana: 'フ', romaji: 'fu' },
+                { kana: 'ヘ', romaji: 'he' }, { kana: 'ホ', romaji: 'ho' },
+                // M series
+                { kana: 'マ', romaji: 'ma' }, { kana: 'ミ', romaji: 'mi' }, { kana: 'ム', romaji: 'mu' },
+                { kana: 'メ', romaji: 'me' }, { kana: 'モ', romaji: 'mo' },
+                // Y series
+                { kana: 'ヤ', romaji: 'ya' }, { kana: 'ユ', romaji: 'yu' }, { kana: 'ヨ', romaji: 'yo' },
+                // R series
+                { kana: 'ラ', romaji: 'ra' }, { kana: 'リ', romaji: 'ri' }, { kana: 'ル', romaji: 'ru' },
+                { kana: 'レ', romaji: 're' }, { kana: 'ロ', romaji: 'ro' },
+                // W series
+                { kana: 'ワ', romaji: 'wa' }, { kana: 'ヲ', romaji: 'wo' },
+                // N
+                { kana: 'ン', romaji: 'n' },
+                // Dakuten
+                { kana: 'ガ', romaji: 'ga' }, { kana: 'ギ', romaji: 'gi' }, { kana: 'グ', romaji: 'gu' },
+                { kana: 'ゲ', romaji: 'ge' }, { kana: 'ゴ', romaji: 'go' },
+                { kana: 'ザ', romaji: 'za' }, { kana: 'ジ', romaji: 'ji' }, { kana: 'ズ', romaji: 'zu' },
+                { kana: 'ゼ', romaji: 'ze' }, { kana: 'ゾ', romaji: 'zo' },
+                { kana: 'ダ', romaji: 'da' }, { kana: 'ヂ', romaji: 'ji' }, { kana: 'ヅ', romaji: 'zu' },
+                { kana: 'デ', romaji: 'de' }, { kana: 'ド', romaji: 'do' },
+                { kana: 'バ', romaji: 'ba' }, { kana: 'ビ', romaji: 'bi' }, { kana: 'ブ', romaji: 'bu' },
+                { kana: 'ベ', romaji: 'be' }, { kana: 'ボ', romaji: 'bo' },
+                // Handakuten
+                { kana: 'パ', romaji: 'pa' }, { kana: 'ピ', romaji: 'pi' }, { kana: 'プ', romaji: 'pu' },
+                { kana: 'ペ', romaji: 'pe' }, { kana: 'ポ', romaji: 'po' },
+                // Small kana
+                { kana: 'ァ', romaji: 'a' }, { kana: 'ィ', romaji: 'i' }, { kana: 'ゥ', romaji: 'u' },
+                { kana: 'ェ', romaji: 'e' }, { kana: 'ォ', romaji: 'o' },
+                { kana: 'ッ', romaji: 'tsu' },
+                { kana: 'ャ', romaji: 'ya' }, { kana: 'ュ', romaji: 'yu' }, { kana: 'ョ', romaji: 'yo' }
+            ]
+        };
+
+        let currentMode = 'hiragana';
+        let currentKana = {};
+        let stats = {
+            correct: 0,
+            incorrect: 0,
+            get accuracy() {
+                const total = this.correct + this.incorrect;
+                return total === 0 ? 0 : Math.round((this.correct / total) * 100);
+            }
+        };
+
+        function updateStats() {
+            document.getElementById('correct-count').textContent = stats.correct;
+            document.getElementById('incorrect-count').textContent = stats.incorrect;
+            document.getElementById('accuracy').textContent = `${stats.accuracy}%`;
         }
-      }
-    }
 
-    // Initialize with hiragana
-    setMode('hiragana');
-  </script>
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            document.getElementById('feedback').textContent = '';
+            nextKana();
+        }
+
+        function nextKana() {
+            const kanaDisplay = document.getElementById('kana-display');
+            kanaDisplay.classList.remove('correct', 'incorrect');
+            
+            let list;
+            if (currentMode === 'mixed') {
+                const randomMode = Math.random() < 0.5 ? 'hiragana' : 'katakana';
+                list = kanaData[randomMode];
+            } else {
+                list = kanaData[currentMode];
+            }
+            
+            currentKana = list[Math.floor(Math.random() * list.length)];
+            kanaDisplay.textContent = currentKana.kana;
+            
+            const answerInput = document.getElementById('answer');
+            answerInput.value = '';
+            answerInput.focus();
+        }
+
+        function checkAnswer(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                const input = document.getElementById('answer').value.trim().toLowerCase();
+                const feedback = document.getElementById('feedback');
+                const kanaDisplay = document.getElementById('kana-display');
+                
+                if (input === currentKana.romaji) {
+                    feedback.textContent = '✅ Correct!';
+                    kanaDisplay.classList.add('correct');
+                    stats.correct++;
+                } else {
+                    feedback.textContent = `❌ Incorrect. The answer was "${currentKana.romaji}"`;
+                    kanaDisplay.classList.add('incorrect');
+                    stats.incorrect++;
+                }
+                
+                updateStats();
+                setTimeout(nextKana, 1000);
+            }
+        }
+
+        // Initialize
+        document.getElementById('answer').addEventListener('keyup', checkAnswer);
+        setMode('hiragana');
+    </script>
 </body>
 </html>

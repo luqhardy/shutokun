@@ -193,6 +193,7 @@ header {
 }
 
 .action-button {
+  margin: auto;
   padding: 0.8rem 2rem;
   font-size: 1.1rem;
   background-color: #4CAF50;
@@ -344,4 +345,42 @@ header {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
     100% { opacity: 1; }
+}
+
+/* Review Queue Status */
+.review-status {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.review-count {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: #666;
+}
+
+.review-count span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+#overdue-count {
+    color: #e74c3c;
+}
+
+#due-today-count {
+    color: #f39c12;
+}
+
+#upcoming-count {
+    color: #2ecc71;
 }
