@@ -319,3 +319,29 @@ header {
   max-width: 100%;
   height: auto;
 }
+
+/* Sync Status Styles */
+#sync-status {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+#sync-status.synced {
+    color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+#sync-status.syncing {
+    color: #2196F3;
+    background-color: rgba(33, 150, 243, 0.1);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

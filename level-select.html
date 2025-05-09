@@ -4,27 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shutokun - Level Selection</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <img src="assets/logo.png" alt="Shutokun logo" class="logo">
-  <!-- Auth buttons -->
-  <div class="auth-container">
-    <button id="loginBtn" class="auth-button">Sign in with Google</button>
-    <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
-  </div>
+  <header>
+    <div class="header-left">
+      <button class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+    </div>
+    <div class="auth-container">
+      <button id="loginBtn" class="auth-button">Sign in</button>
+      <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+    </div>
+  </header>
 
-  <h1>Select Category</h1>
+  <!-- Navigation Menu -->
+  <nav class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-to-use.html">How To Use</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
 
-  <div class="button-container">
-    <button class="jlpt-button" onclick="selectCategory('goi')"><img src="assets/goi.png" alt="Vocabulary"></button>
-    <button class="jlpt-button" onclick="selectCategory('bunpou')"><img src="assets/bunpou.png" alt="Grammar"></button>
-    <button class="jlpt-button" onclick="selectCategory('kanji')"><img src="assets/kanji.png" alt="Kanji"></button>
-  </div>
+  <main class="study-container">
+    <h1>Select Category</h1>
+
+    <div class="button-container">
+      <button class="jlpt-button" onclick="selectCategory('goi')"><img src="assets/goi.png" alt="Vocabulary"></button>
+      <button class="jlpt-button" onclick="selectCategory('bunpou')"><img src="assets/bunpou.png" alt="Grammar"></button>
+      <button class="jlpt-button" onclick="selectCategory('kanji')"><img src="assets/kanji.png" alt="Kanji"></button>
+    </div>
+  </main>
 
   <!-- Scripts -->
   <script src="firebase-db.js"></script>

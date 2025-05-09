@@ -99,6 +99,15 @@ async function loadProgress() {
                 if (vocab[i]) vocab[i].srs = item.srs;
             });
         }
+        
+        // Listen for real-time updates
+        window.addEventListener('progressUpdated', (event) => {
+            const updatedData = event.detail.data;
+            updatedData.forEach((item, i) => {
+                if (vocab[i]) vocab[i].srs = item.srs;
+            });
+            updateProgressDisplay();
+        });
     } catch (error) {
         console.error("Error loading progress:", error);
         // Fallback to localStorage
@@ -246,6 +255,29 @@ function signOut() {
             alert("Sign-out failed. Please try again.");
         });
 }
+
+// Add sync status indicator
+function updateSyncStatus(isSyncing) {
+    const syncIndicator = document.getElementById('sync-status');
+    if (syncIndicator) {
+        syncIndicator.textContent = isSyncing ? 'Syncing...' : 'Synced';
+        syncIndicator.className = isSyncing ? 'syncing' : 'synced';
+    }
+}
+
+// Add error handling for network issues
+window.addEventListener('online', () => {
+    console.log('Back online, syncing progress...');
+    updateSyncStatus(true);
+    saveProgress().then(() => {
+        updateSyncStatus(false);
+    });
+});
+
+window.addEventListener('offline', () => {
+    console.log('Offline mode, using local storage');
+    updateSyncStatus(false);
+});
 
 // Initialize the app
 document.addEventListener("DOMContentLoaded", () => {
