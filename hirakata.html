@@ -139,6 +139,69 @@
                 gap: 1rem;
             }
         }
+
+        /* Loading and Error States */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .sync-status {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .sync-status.syncing {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .sync-status.synced {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .sync-status.error {
+            background: #ffebee;
+            color: #c62828;
+        }
     </style>
 </head>
 <body>
@@ -164,6 +227,13 @@
             <li><a href="about.html">About Us</a></li>
         </ul>
     </nav>
+
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="error-message" id="error-message"></div>
+    <div class="sync-status" id="sync-status"></div>
 
     <main class="practice-container">
         <div class="mode-selector">
@@ -393,9 +463,85 @@
             }
         });
 
+        // Performance optimization: Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Performance optimization: Throttle function
+        function throttle(func, limit) {
+            let inThrottle;
+            return function executedFunction(...args) {
+                if (!inThrottle) {
+                    func(...args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+
+        // Error handling utility
+        function showError(message, duration = 5000) {
+            const errorElement = document.getElementById('error-message');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, duration);
+        }
+
+        // Loading state management
+        function showLoading() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+
+        // Sync status management
+        function updateSyncStatus(status, message) {
+            const syncElement = document.getElementById('sync-status');
+            syncElement.textContent = message;
+            syncElement.className = `sync-status ${status}`;
+            syncElement.style.display = 'block';
+            setTimeout(() => {
+                syncElement.style.display = 'none';
+            }, 3000);
+        }
+
+        // Optimized progress saving with debounce
+        const debouncedSaveProgress = debounce(async () => {
+            try {
+                updateSyncStatus('syncing', 'Saving progress...');
+                await saveProgress();
+                updateSyncStatus('synced', 'Progress saved');
+            } catch (error) {
+                console.error('Error saving progress:', error);
+                updateSyncStatus('error', 'Failed to save progress');
+                showError('Failed to save progress. Changes will be saved locally.');
+            }
+        }, 1000);
+
+        // Optimized stats update with throttle
+        const throttledUpdateStats = throttle(() => {
+            updateStats();
+            updateKanaProgress();
+        }, 100);
+
+        // Enhanced error handling for Firebase operations
         async function loadProgress() {
             if (!currentUser) return;
 
+            showLoading();
             try {
                 const progressRef = firebase.database().ref(`users/${currentUser.uid}/kana-progress`);
                 const snapshot = await progressRef.once('value');
@@ -404,26 +550,34 @@
                 if (data) {
                     kanaProgress = data.progress || {};
                     stats = data.stats || stats;
-                    updateStats();
-                    updateKanaProgress();
+                    throttledUpdateStats();
                 }
             } catch (error) {
                 console.error("Error loading progress:", error);
+                showError('Failed to load progress from server. Using local data.');
                 loadFromLocalStorage();
+            } finally {
+                hideLoading();
             }
         }
 
+        // Enhanced localStorage operations with error handling
         function loadFromLocalStorage() {
-            const savedProgress = localStorage.getItem('kanaProgress');
-            if (savedProgress) {
-                const data = JSON.parse(savedProgress);
-                kanaProgress = data.progress || {};
-                stats = data.stats || stats;
-                updateStats();
-                updateKanaProgress();
+            try {
+                const savedProgress = localStorage.getItem('kanaProgress');
+                if (savedProgress) {
+                    const data = JSON.parse(savedProgress);
+                    kanaProgress = data.progress || {};
+                    stats = data.stats || stats;
+                    throttledUpdateStats();
+                }
+            } catch (error) {
+                console.error("Error loading from localStorage:", error);
+                showError('Failed to load local progress data.');
             }
         }
 
+        // Enhanced save progress with error handling and retry logic
         async function saveProgress() {
             const data = {
                 progress: kanaProgress,
@@ -432,17 +586,30 @@
             };
 
             if (currentUser) {
-                try {
-                    const progressRef = firebase.database().ref(`users/${currentUser.uid}/kana-progress`);
-                    await progressRef.set(data);
-                } catch (error) {
-                    console.error("Error saving progress:", error);
-                    // Fallback to localStorage
-                    localStorage.setItem('kanaProgress', JSON.stringify(data));
+                let retryCount = 0;
+                const maxRetries = 3;
+
+                while (retryCount < maxRetries) {
+                    try {
+                        const progressRef = firebase.database().ref(`users/${currentUser.uid}/kana-progress`);
+                        await progressRef.set(data);
+                        return;
+                    } catch (error) {
+                        retryCount++;
+                        if (retryCount === maxRetries) {
+                            throw error;
+                        }
+                        await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
+                    }
                 }
-            } else {
-                // Save to localStorage if not logged in
+            }
+
+            // Fallback to localStorage
+            try {
                 localStorage.setItem('kanaProgress', JSON.stringify(data));
+            } catch (error) {
+                console.error("Error saving to localStorage:", error);
+                showError('Failed to save progress locally.');
             }
         }
 
@@ -537,43 +704,47 @@
                 const feedback = document.getElementById('feedback');
                 const kanaDisplay = document.getElementById('kana-display');
                 
-                // Initialize progress for this kana if not exists
-                if (!kanaProgress[currentKana.kana]) {
-                    kanaProgress[currentKana.kana] = { correct: 0, incorrect: 0 };
-                }
-                
-                const isCorrect = practiceMode === 'writing' ? 
-                    input === currentKana.kana : 
-                    input === currentKana.romaji;
-                
-                if (isCorrect) {
-                    feedback.textContent = '✅ Correct!';
-                    kanaDisplay.classList.add('correct');
-                    stats.correct++;
-                    stats.streak++;
-                    kanaProgress[currentKana.kana].correct++;
-                    sessionStats.correct++;
-                } else {
-                    feedback.textContent = `❌ Incorrect. The answer was "${practiceMode === 'writing' ? currentKana.kana : currentKana.romaji}"`;
-                    kanaDisplay.classList.add('incorrect');
-                    stats.incorrect++;
-                    stats.streak = 0;
-                    kanaProgress[currentKana.kana].incorrect++;
-                    sessionStats.incorrect++;
-                }
-                
-                sessionStats.kanaAttempted.add(currentKana.kana);
-                sessionStats.timeSpent = Math.floor((Date.now() - sessionStartTime) / 1000);
-                
-                updateStats();
-                updateKanaProgress();
-                saveProgress();
-                
-                // Show session summary after 20 attempts
-                if (sessionStats.correct + sessionStats.incorrect >= 20) {
-                    showSessionSummary();
-                } else {
-                    setTimeout(nextKana, 1000);
+                try {
+                    // Initialize progress for this kana if not exists
+                    if (!kanaProgress[currentKana.kana]) {
+                        kanaProgress[currentKana.kana] = { correct: 0, incorrect: 0 };
+                    }
+                    
+                    const isCorrect = practiceMode === 'writing' ? 
+                        input === currentKana.kana : 
+                        input === currentKana.romaji;
+                    
+                    if (isCorrect) {
+                        feedback.textContent = '✅ Correct!';
+                        kanaDisplay.classList.add('correct');
+                        stats.correct++;
+                        stats.streak++;
+                        kanaProgress[currentKana.kana].correct++;
+                        sessionStats.correct++;
+                    } else {
+                        feedback.textContent = `❌ Incorrect. The answer was "${practiceMode === 'writing' ? currentKana.kana : currentKana.romaji}"`;
+                        kanaDisplay.classList.add('incorrect');
+                        stats.incorrect++;
+                        stats.streak = 0;
+                        kanaProgress[currentKana.kana].incorrect++;
+                        sessionStats.incorrect++;
+                    }
+                    
+                    sessionStats.kanaAttempted.add(currentKana.kana);
+                    sessionStats.timeSpent = Math.floor((Date.now() - sessionStartTime) / 1000);
+                    
+                    throttledUpdateStats();
+                    debouncedSaveProgress();
+                    
+                    // Show session summary after 20 attempts
+                    if (sessionStats.correct + sessionStats.incorrect >= 20) {
+                        showSessionSummary();
+                    } else {
+                        setTimeout(nextKana, 1000);
+                    }
+                } catch (error) {
+                    console.error('Error processing answer:', error);
+                    showError('An error occurred while processing your answer.');
                 }
             }
         }
@@ -629,9 +800,36 @@
             }
         });
 
-        // Initialize
-        document.getElementById('answer').addEventListener('keyup', checkAnswer);
-        setMode('hiragana');
+        // Network status handling
+        window.addEventListener('online', () => {
+            updateSyncStatus('syncing', 'Back online, syncing...');
+            debouncedSaveProgress();
+        });
+
+        window.addEventListener('offline', () => {
+            updateSyncStatus('error', 'Offline mode - changes saved locally');
+        });
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                // Set up event listeners
+                document.getElementById('answer').addEventListener('keyup', checkAnswer);
+                
+                // Initialize the app
+                setMode('hiragana');
+                
+                // Set up network status indicator
+                if (navigator.onLine) {
+                    updateSyncStatus('synced', 'Online');
+                } else {
+                    updateSyncStatus('error', 'Offline mode');
+                }
+            } catch (error) {
+                console.error('Error initializing app:', error);
+                showError('Failed to initialize the app. Please refresh the page.');
+            }
+        });
     </script>
 </body>
 </html>

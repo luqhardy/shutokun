@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spaced Repetition System for Japanese vocabulary learning">
     <title>Shutokun - SRS Study</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +14,139 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Loading States */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Error Messages */
+        .error-message {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4444;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Enhanced Card Container */
+        .card-container {
+            position: relative;
+            min-height: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-container.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Keyboard Shortcuts Help */
+        .keyboard-shortcuts {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: none;
+        }
+
+        .keyboard-shortcuts.show {
+            display: block;
+        }
+
+        /* Progress Bar Animation */
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+
+        /* Accessibility Improvements */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Responsive Design Improvements */
+        @media (max-width: 768px) {
+            .review-status {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .srs-button-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .keyboard-shortcuts {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message" role="alert"></div>
+
     <header>
         <div class="header-left">
-            <button class="hamburger-menu" id="hamburger-menu">
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -25,13 +154,13 @@
             <img src="assets/logo.png" alt="Shutokun logo" class="logo">
         </div>
         <div class="auth-container">
-            <button id="loginBtn" class="auth-button">Sign in with Google</button>
-            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+            <button id="loginBtn" class="auth-button" aria-label="Sign in with Google">Sign in with Google</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;" aria-label="Sign out">Sign out</button>
         </div>
     </header>
 
     <!-- Navigation Menu -->
-    <nav class="nav-menu" id="nav-menu">
+    <nav class="nav-menu" id="nav-menu" role="navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="how-to-use.html">How To Use</a></li>
@@ -41,7 +170,7 @@
 
     <main class="study-container">
         <!-- Review Queue Status -->
-        <div class="review-status">
+        <div class="review-status" role="status" aria-live="polite">
             <div class="review-count">
                 <span id="overdue-count">0</span> cards overdue
             </div>
@@ -54,45 +183,96 @@
         </div>
 
         <!-- Vocabulary word display container -->
-        <div class="card-container">
-            <!-- Word and meaning will be displayed here by the script -->
+        <div class="card-container" role="region" aria-label="Vocabulary card">
+            <div class="card-front">
+                <!-- Word will be displayed here -->
+            </div>
+            <div class="card-back">
+                <!-- Meaning will be displayed here -->
+            </div>
         </div>
 
         <!-- Show Answer Button -->
         <div class="show-answer-container">
-            <button id="show-answer-btn" class="action-button">Show Answer</button>
+            <button id="show-answer-btn" class="action-button" aria-label="Show answer">Show Answer</button>
         </div>
 
-        <!-- Know / Don't Know Buttons (initially hidden) -->
-        <div class="srs-button-container" style="display: none;">
-            <button id="dont-know-btn" class="srs-button">
+        <!-- Know / Don't Know Buttons -->
+        <div class="srs-button-container" style="display: none;" role="group" aria-label="Answer options">
+            <button id="dont-know-btn" class="srs-button" aria-label="Mark as don't know">
                 <img src="assets/batsu.png" alt="Don't Know">
             </button>
-            <button id="know-btn" class="srs-button">
+            <button id="know-btn" class="srs-button" aria-label="Mark as know">
                 <img src="assets/maru.png" alt="Know">
             </button>
         </div>
 
         <!-- SRS Progress Container -->
-        <div class="srs-progress-container">
+        <div class="srs-progress-container" role="status" aria-live="polite">
             <div class="progress-stats">
                 <p id="srs-repetitions">Repetitions: 0</p>
                 <p id="srs-interval">Next interval: 1 day</p>
                 <p id="srs-due-date">Due: Not reviewed yet</p>
                 <p id="sync-status" class="synced">Synced</p>
             </div>
-            <progress id="srs-progress" value="0" max="100"></progress>
+            <progress id="srs-progress" value="0" max="100" aria-label="Study progress"></progress>
         </div>
 
         <!-- Navigation -->
         <div class="navigation-container">
-            <button onclick="window.location.href='index.html'" class="nav-button">Back to Home</button>
-            <button onclick="window.location.href='level-select.html'" class="nav-button">Change Level</button>
+            <button onclick="window.location.href='index.html'" class="nav-button" aria-label="Return to home page">Back to Home</button>
+            <button onclick="window.location.href='level-select.html'" class="nav-button" aria-label="Change study level">Change Level</button>
+        </div>
+
+        <!-- Keyboard Shortcuts Help -->
+        <div class="keyboard-shortcuts" id="keyboard-shortcuts">
+            <h3>Keyboard Shortcuts</h3>
+            <ul>
+                <li><kbd>Space</kbd> - Show/Hide Answer</li>
+                <li><kbd>1</kbd> - Don't Know</li>
+                <li><kbd>2</kbd> - Know</li>
+                <li><kbd>?</kbd> - Toggle this help</li>
+            </ul>
         </div>
     </main>
 
     <!-- Scripts -->
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '?' || e.key === '/') {
+                const shortcuts = document.getElementById('keyboard-shortcuts');
+                shortcuts.classList.toggle('show');
+            } else if (e.key === ' ') {
+                e.preventDefault();
+                document.getElementById('show-answer-btn').click();
+            } else if (e.key === '1') {
+                document.getElementById('dont-know-btn').click();
+            } else if (e.key === '2') {
+                document.getElementById('know-btn').click();
+            }
+        });
+
+        // Loading state management
+        window.showLoading = () => {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        };
+
+        window.hideLoading = () => {
+            document.getElementById('loading-overlay').style.display = 'none';
+        };
+
+        // Error handling
+        window.showError = (message) => {
+            const errorElement = document.getElementById('error-message');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 5000);
+        };
+    </script>
 </body>
 </html>

@@ -4,17 +4,207 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <!-- Firebaseスクリプト -->
+    <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shutokun - JLPT Vocabulary Learning</title>
+    <title>Shutokun - Japanese Learning App</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Loading and Error States */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4444;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translate(-50%, -100%); }
+            to { transform: translate(-50%, 0); }
+        }
+
+        /* Sync Status */
+        .sync-status {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .sync-status.syncing { background: #3498db; }
+        .sync-status.synced { background: #2ecc71; }
+        .sync-status.error { background: #e74c3c; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Enhanced Card Animations */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .feature-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        /* Progress Indicators */
+        .progress-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #3498db;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        /* Enhanced Navigation */
+        .nav-menu {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .nav-menu.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .feature-card {
+                margin: 0;
+            }
+
+            .sync-status {
+                bottom: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 8px 15px;
+            }
+        }
+
+        /* Accessibility Improvements */
+        .feature-card:focus {
+            outline: 3px solid #3498db;
+            outline-offset: 2px;
+        }
+
+        .feature-card:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        .feature-card:focus-visible {
+            outline: 3px solid #3498db;
+            outline-offset: 2px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .loading-overlay,
+            .error-message,
+            .sync-status,
+            .nav-menu {
+                display: none !important;
+            }
+
+            .feature-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message"></div>
+
+    <!-- Sync Status -->
+    <div id="sync-status" class="sync-status"></div>
+
     <header>
         <div class="header-left">
             <button class="hamburger-menu" id="hamburger-menu">
@@ -32,11 +222,15 @@
 
     <!-- Navigation Menu -->
     <nav class="nav-menu" id="nav-menu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="how-to-use.html">How To Use</a></li>
-            <li><a href="about.html">About Us</a></li>
-        </ul>
+        <div class="nav-content">
+            <a href="index.html" class="active">Home</a>
+            <a href="srs-ui.html">SRS Study</a>
+            <a href="hirakata.html">Kana Practice</a>
+            <a href="about.html">About</a>
+            <a href="how-to-use.html">How to Use</a>
+            <button id="loginBtn" class="login-btn">Sign in</button>
+            <button id="logoutBtn" class="logout-btn" style="display: none;">Sign out</button>
+        </div>
     </nav>
 
     <!-- JLPT Level buttons -->
@@ -54,5 +248,211 @@
     <!-- Scripts -->
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
+            authDomain: "shutokun.firebaseapp.com",
+            projectId: "shutokun",
+            storageBucket: "shutokun.appspot.com",
+            messagingSenderId: "120770573657",
+            appId: "1:120770573657:web:692c54b821b0a51c138848",
+            measurementId: "G-GJG5NT05DH"
+        };
+
+        // Initialize Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        }
+
+        // Performance optimization: Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Error handling utility
+        function showError(message, duration = 5000) {
+            const errorElement = document.getElementById('error-message');
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+                setTimeout(() => {
+                    errorElement.style.display = 'none';
+                }, duration);
+            } else {
+                console.error(message);
+            }
+        }
+
+        // Loading state management
+        function showLoading() {
+            const loadingElement = document.getElementById('loading-overlay');
+            if (loadingElement) {
+                loadingElement.style.display = 'flex';
+            }
+        }
+
+        function hideLoading() {
+            const loadingElement = document.getElementById('loading-overlay');
+            if (loadingElement) {
+                loadingElement.style.display = 'none';
+            }
+        }
+
+        // Sync status management
+        function updateSyncStatus(status, message) {
+            const syncElement = document.getElementById('sync-status');
+            if (syncElement) {
+                syncElement.textContent = message;
+                syncElement.className = `sync-status ${status}`;
+                syncElement.style.display = 'block';
+                setTimeout(() => {
+                    syncElement.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Update progress bars with animation
+        async function updateProgressBars() {
+            try {
+                const user = firebase.auth().currentUser;
+                if (!user) return;
+
+                const progress = await window.firebaseDB.getUserOverallProgress(user.uid);
+                
+                // Update SRS progress
+                const srsProgress = document.getElementById('srs-progress');
+                if (srsProgress) {
+                    const srsData = progress['n5-goi'] || [];
+                    const completed = srsData.filter(item => item.srs?.repetitions > 0).length;
+                    const total = srsData.length;
+                    const percentage = total > 0 ? (completed / total) * 100 : 0;
+                    srsProgress.style.width = `${percentage}%`;
+                }
+
+                // Update Kana progress
+                const kanaProgress = document.getElementById('kana-progress');
+                if (kanaProgress) {
+                    const kanaData = progress['kana'] || [];
+                    const completed = kanaData.filter(item => item.srs?.repetitions > 0).length;
+                    const total = kanaData.length;
+                    const percentage = total > 0 ? (completed / total) * 100 : 0;
+                    kanaProgress.style.width = `${percentage}%`;
+                }
+            } catch (error) {
+                console.error('Error updating progress bars:', error);
+                showError('Failed to load progress data');
+            }
+        }
+
+        // Enhanced authentication with error handling
+        function signInWithGoogle() {
+            showLoading();
+            const provider = new firebase.auth.GoogleAuthProvider();
+            provider.setCustomParameters({
+                prompt: 'select_account'
+            });
+
+            firebase.auth().signInWithPopup(provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log("Signed in as:", user.displayName);
+                    updateSyncStatus('synced', 'Signed in successfully');
+                    updateProgressBars();
+                })
+                .catch((error) => {
+                    console.error("Error during sign-in:", error);
+                    if (error.code === 'auth/popup-blocked') {
+                        showError('Please allow popups for this website to sign in.');
+                    } else if (error.code === 'auth/cancelled-popup-request') {
+                        console.log('Sign-in popup was cancelled');
+                    } else {
+                        showError("Sign-in failed. Please try again.");
+                    }
+                })
+                .finally(() => {
+                    hideLoading();
+                });
+        }
+
+        function signOut() {
+            showLoading();
+            firebase.auth().signOut()
+                .then(() => {
+                    console.log("Signed out successfully");
+                    updateSyncStatus('synced', 'Signed out successfully');
+                })
+                .catch((error) => {
+                    console.error("Error during sign-out:", error);
+                    showError("Sign-out failed. Please try again.");
+                })
+                .finally(() => {
+                    hideLoading();
+                });
+        }
+
+        // Network status handling
+        window.addEventListener('online', () => {
+            updateSyncStatus('syncing', 'Back online, syncing...');
+            updateProgressBars();
+        });
+
+        window.addEventListener('offline', () => {
+            updateSyncStatus('error', 'Offline mode - changes saved locally');
+        });
+
+        // Initialize the app
+        document.addEventListener("DOMContentLoaded", () => {
+            try {
+                // Set up authentication state observer
+                firebase.auth().onAuthStateChanged((user) => {
+                    const loginBtn = document.getElementById('loginBtn');
+                    const logoutBtn = document.getElementById('logoutBtn');
+                    
+                    if (user) {
+                        if (loginBtn) loginBtn.style.display = 'none';
+                        if (logoutBtn) logoutBtn.style.display = 'block';
+                        updateProgressBars();
+                    } else {
+                        if (loginBtn) loginBtn.style.display = 'block';
+                        if (logoutBtn) logoutBtn.style.display = 'none';
+                    }
+                });
+
+                // Set up event listeners
+                const loginBtn = document.getElementById('loginBtn');
+                const logoutBtn = document.getElementById('logoutBtn');
+                
+                if (loginBtn) {
+                    loginBtn.addEventListener('click', signInWithGoogle);
+                }
+                if (logoutBtn) {
+                    logoutBtn.addEventListener('click', signOut);
+                }
+
+                // Set up network status indicator
+                if (navigator.onLine) {
+                    updateSyncStatus('synced', 'Online');
+                } else {
+                    updateSyncStatus('error', 'Offline mode');
+                }
+
+                // Initialize progress bars
+                updateProgressBars();
+            } catch (error) {
+                console.error('Error initializing app:', error);
+                showError('Failed to initialize the app. Please refresh the page.');
+            }
+        });
+    </script>
 </body>
 </html>

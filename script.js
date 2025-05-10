@@ -79,7 +79,144 @@ function updateReviewQueueCounts() {
     }
 }
 
+// Performance optimization: Debounce function
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Performance optimization: Throttle function
+function throttle(func, limit) {
+    let inThrottle;
+    return function executedFunction(...args) {
+        if (!inThrottle) {
+            func(...args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Error handling utility
+function showError(message, duration = 5000) {
+    const errorElement = document.getElementById('error-message');
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+        setTimeout(() => {
+            errorElement.style.display = 'none';
+        }, duration);
+    } else {
+        console.error(message);
+    }
+}
+
+// Loading state management
+function showLoading() {
+    const loadingElement = document.getElementById('loading-overlay');
+    if (loadingElement) {
+        loadingElement.style.display = 'flex';
+    }
+}
+
+function hideLoading() {
+    const loadingElement = document.getElementById('loading-overlay');
+    if (loadingElement) {
+        loadingElement.style.display = 'none';
+    }
+}
+
+// Sync status management
+function updateSyncStatus(status, message) {
+    const syncElement = document.getElementById('sync-status');
+    if (syncElement) {
+        syncElement.textContent = message;
+        syncElement.className = `sync-status ${status}`;
+        syncElement.style.display = 'block';
+        setTimeout(() => {
+            syncElement.style.display = 'none';
+        }, 3000);
+    }
+}
+
+// Sync queue management
+const syncQueue = {
+    queue: [],
+    isProcessing: false,
+    
+    add: function(data) {
+        this.queue.push({
+            data,
+            timestamp: Date.now(),
+            retries: 0
+        });
+        this.process();
+    },
+    
+    process: async function() {
+        if (this.isProcessing || this.queue.length === 0) return;
+        
+        this.isProcessing = true;
+        const item = this.queue[0];
+        
+        try {
+            await saveProgress(item.data);
+            this.queue.shift(); // Remove processed item
+            updateSyncStatus('synced', 'Progress saved');
+        } catch (error) {
+            console.error('Sync error:', error);
+            item.retries++;
+            
+            if (item.retries < 3) {
+                // Retry after exponential backoff
+                setTimeout(() => {
+                    this.isProcessing = false;
+                    this.process();
+                }, Math.pow(2, item.retries) * 1000);
+            } else {
+                // Move to failed queue after max retries
+                this.queue.shift();
+                updateSyncStatus('error', 'Failed to sync after multiple attempts');
+                showError('Failed to sync. Changes will be saved locally.');
+            }
+        }
+        
+        this.isProcessing = false;
+        if (this.queue.length > 0) {
+            this.process();
+        }
+    }
+};
+
+// Optimized progress saving with debounce
+const debouncedSaveProgress = debounce(async () => {
+    try {
+        updateSyncStatus('syncing', 'Saving progress...');
+        await saveProgress();
+        updateSyncStatus('synced', 'Progress saved');
+    } catch (error) {
+        console.error('Error saving progress:', error);
+        updateSyncStatus('error', 'Failed to save progress');
+        showError('Failed to save progress. Changes will be saved locally.');
+    }
+}, 1000);
+
+// Optimized UI updates with throttle
+const throttledUpdateUI = throttle(() => {
+    updateProgressDisplay();
+    updateReviewQueueCounts();
+}, 100);
+
+// Enhanced error handling for Firebase operations
 async function fetchVocab() {
+    showLoading();
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const level = urlParams.get("level");
@@ -91,6 +228,9 @@ async function fetchVocab() {
 
         // Fetch vocabulary data
         const response = await fetch(`jlpt-db/${category}/${level}-${category}.json`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
 
         // Initialize SRS data
@@ -107,36 +247,126 @@ async function fetchVocab() {
         }));
 
         await loadProgress();
-        updateReviewQueueCounts();
+        throttledUpdateUI();
         showWord();
-        updateProgressDisplay();
     } catch (error) {
-        console.error("Failed to fetch json:", error);
-        alert("Failed to load vocabulary. Please try again.");
+        console.error("Failed to fetch vocabulary:", error);
+        showError("Failed to load vocabulary. Please try again.");
+    } finally {
+        hideLoading();
     }
 }
 
+// Network status monitoring
+let isOnline = navigator.onLine;
+window.addEventListener('online', () => {
+    isOnline = true;
+    updateSyncStatus('syncing', 'Back online. Syncing...');
+    debouncedSaveProgress();
+});
+window.addEventListener('offline', () => {
+    isOnline = false;
+    updateSyncStatus('error', 'Offline mode');
+    showError('You are offline. Changes will be saved locally.');
+});
+
+// Enhanced progress saving with sync queue
+async function saveProgress(data = null) {
+    const dataToSave = data || vocab.map(({ srs }) => ({ srs }));
+    
+    if (currentUser && isOnline) {
+        try {
+            const level = new URLSearchParams(window.location.search).get("level");
+            const category = new URLSearchParams(window.location.search).get("category") || "goi";
+            
+            // Get current server version
+            const currentData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
+            
+            // Merge with server data if it exists
+            if (currentData) {
+                const mergedData = mergeProgressData(currentData, dataToSave);
+                await window.firebaseDB.saveUserProgress(currentUser.uid, `${level}-${category}`, mergedData);
+            } else {
+                await window.firebaseDB.saveUserProgress(currentUser.uid, `${level}-${category}`, dataToSave);
+            }
+            
+            // Update local storage as backup
+            localStorage.setItem("srsData", JSON.stringify(dataToSave));
+            localStorage.setItem("lastSync", Date.now().toString());
+            
+            return true;
+        } catch (error) {
+            console.error("Error saving to Firebase:", error);
+            // Add to sync queue for retry
+            syncQueue.add(dataToSave);
+            throw error;
+        }
+    }
+
+    // Fallback to localStorage
+    try {
+        localStorage.setItem("srsData", JSON.stringify(dataToSave));
+        localStorage.setItem("lastSync", Date.now().toString());
+        return true;
+    } catch (error) {
+        console.error("Error saving to localStorage:", error);
+        showError("Failed to save progress locally.");
+        return false;
+    }
+}
+
+// Enhanced progress loading with sync status
 async function loadProgress() {
     if (!currentUser) {
-        // Fallback to localStorage if not logged in
-        const saved = localStorage.getItem("srsData");
-        if (saved) {
-            const savedData = JSON.parse(saved);
-            savedData.forEach((item, i) => {
-                if (vocab[i]) vocab[i].srs = item.srs;
-            });
+        try {
+            const saved = localStorage.getItem("srsData");
+            if (saved) {
+                const savedData = JSON.parse(saved);
+                savedData.forEach((item, i) => {
+                    if (vocab[i]) vocab[i].srs = item.srs;
+                });
+            }
+        } catch (error) {
+            console.error("Error loading from localStorage:", error);
+            showError("Failed to load local progress data.");
         }
         return;
     }
 
+    showLoading();
     try {
         const level = new URLSearchParams(window.location.search).get("level");
         const category = new URLSearchParams(window.location.search).get("category") || "goi";
-        const savedData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
-        if (savedData) {
-            savedData.forEach((item, i) => {
-                if (vocab[i]) vocab[i].srs = item.srs;
-            });
+        
+        // Check if we need to sync
+        const lastSync = localStorage.getItem("lastSync");
+        const needsSync = !lastSync || (Date.now() - parseInt(lastSync)) > 5 * 60 * 1000; // 5 minutes
+        
+        if (needsSync && isOnline) {
+            updateSyncStatus('syncing', 'Syncing with server...');
+            const savedData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
+            
+            if (savedData) {
+                // Merge with local data
+                const localData = JSON.parse(localStorage.getItem("srsData") || "[]");
+                const mergedData = mergeProgressData(savedData, localData);
+                
+                mergedData.forEach((item, i) => {
+                    if (vocab[i]) vocab[i].srs = item.srs;
+                });
+                
+                // Save merged data back to server
+                await saveProgress(mergedData);
+            }
+        } else {
+            // Load from local storage
+            const saved = localStorage.getItem("srsData");
+            if (saved) {
+                const savedData = JSON.parse(saved);
+                savedData.forEach((item, i) => {
+                    if (vocab[i]) vocab[i].srs = item.srs;
+                });
+            }
         }
         
         // Listen for real-time updates
@@ -145,40 +375,27 @@ async function loadProgress() {
             updatedData.forEach((item, i) => {
                 if (vocab[i]) vocab[i].srs = item.srs;
             });
-            updateProgressDisplay();
-            updateReviewQueueCounts();
+            throttledUpdateUI();
         });
         
-        updateReviewQueueCounts();
+        throttledUpdateUI();
     } catch (error) {
         console.error("Error loading progress:", error);
+        showError("Failed to load progress from server. Using local data.");
         // Fallback to localStorage
         const saved = localStorage.getItem("srsData");
         if (saved) {
-            const savedData = JSON.parse(saved);
-            savedData.forEach((item, i) => {
-                if (vocab[i]) vocab[i].srs = item.srs;
-            });
+            try {
+                const savedData = JSON.parse(saved);
+                savedData.forEach((item, i) => {
+                    if (vocab[i]) vocab[i].srs = item.srs;
+                });
+            } catch (parseError) {
+                console.error("Error parsing localStorage data:", parseError);
+            }
         }
-    }
-}
-
-async function saveProgress() {
-    const dataToSave = vocab.map(({ srs }) => ({ srs }));
-    
-    if (currentUser) {
-        try {
-            const level = new URLSearchParams(window.location.search).get("level");
-            const category = new URLSearchParams(window.location.search).get("category") || "goi";
-            await window.firebaseDB.saveUserProgress(currentUser.uid, `${level}-${category}`, dataToSave);
-        } catch (error) {
-            console.error("Error saving progress to Firebase:", error);
-            // Fallback to localStorage
-            localStorage.setItem("srsData", JSON.stringify(dataToSave));
-        }
-    } else {
-        // Save to localStorage if not logged in
-        localStorage.setItem("srsData", JSON.stringify(dataToSave));
+    } finally {
+        hideLoading();
     }
 }
 
@@ -388,21 +605,27 @@ provider.setCustomParameters({
     prompt: 'select_account'
 });
 
+// Enhanced authentication with error handling
 function signInWithGoogle() {
+    showLoading();
     firebase.auth().signInWithPopup(provider)
         .then((result) => {
             const user = result.user;
             console.log("Signed in as:", user.displayName);
+            updateSyncStatus('synced', 'Signed in successfully');
         })
         .catch((error) => {
             console.error("Error during sign-in:", error);
             if (error.code === 'auth/popup-blocked') {
-                alert('Please allow popups for this website to sign in.');
+                showError('Please allow popups for this website to sign in.');
             } else if (error.code === 'auth/cancelled-popup-request') {
                 console.log('Sign-in popup was cancelled');
             } else {
-                alert("Sign-in failed. Please try again. Error: " + error.message);
+                showError("Sign-in failed. Please try again.");
             }
+        })
+        .finally(() => {
+            hideLoading();
         });
 }
 
@@ -417,105 +640,92 @@ function signOut() {
         });
 }
 
-// Add sync status indicator
-function updateSyncStatus(isSyncing) {
-    const syncIndicator = document.getElementById('sync-status');
-    if (syncIndicator) {
-        syncIndicator.textContent = isSyncing ? 'Syncing...' : 'Synced';
-        syncIndicator.className = isSyncing ? 'syncing' : 'synced';
-    }
-}
-
-// Add error handling for network issues
-window.addEventListener('online', () => {
-    console.log('Back online, syncing progress...');
-    updateSyncStatus(true);
-    saveProgress().then(() => {
-        updateSyncStatus(false);
-    });
-});
-
-window.addEventListener('offline', () => {
-    console.log('Offline mode, using local storage');
-    updateSyncStatus(false);
-});
-
 // Initialize the app
 document.addEventListener("DOMContentLoaded", () => {
-    // Hamburger menu functionality
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-    const navMenu = document.getElementById('nav-menu');
-    let menuOverlay;
+    try {
+        // Hamburger menu functionality
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        let menuOverlay;
 
-    if (hamburgerMenu && navMenu) {
-        // Create overlay element
-        menuOverlay = document.createElement('div');
-        menuOverlay.className = 'menu-overlay';
-        document.body.appendChild(menuOverlay);
+        if (hamburgerMenu && navMenu) {
+            // Create overlay element
+            menuOverlay = document.createElement('div');
+            menuOverlay.className = 'menu-overlay';
+            document.body.appendChild(menuOverlay);
 
-        // Toggle menu function
-        function toggleMenu() {
-            hamburgerMenu.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            // Toggle menu function
+            function toggleMenu() {
+                hamburgerMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            // Event listeners
+            hamburgerMenu.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
         }
 
-        // Event listeners
-        hamburgerMenu.addEventListener('click', toggleMenu);
-        menuOverlay.addEventListener('click', toggleMenu);
+        // Existing initialization code
+        showAnswerBtn = document.getElementById("show-answer-btn");
+        srsButtons = document.querySelector(".srs-button-container");
 
-        // Close menu when clicking a link
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu.classList.contains('active')) {
-                    toggleMenu();
-                }
+        if (showAnswerBtn) {
+            showAnswerBtn.addEventListener("click", () => {
+                const meaningElements = document.querySelectorAll(".card .hidden-on-start");
+                meaningElements.forEach(el => {
+                    el.style.display = "block";
+                    el.offsetHeight; // Trigger reflow
+                    el.classList.add("visible");
+                });
+
+                showAnswerBtn.style.display = "none";
+                srsButtons.style.display = "flex";
+                srsButtons.offsetHeight; // Trigger reflow
+                srsButtons.classList.add("visible");
             });
-        });
-    }
+        }
 
-    // Existing initialization code
-    showAnswerBtn = document.getElementById("show-answer-btn");
-    srsButtons = document.querySelector(".srs-button-container");
+        const dontKnowBtn = document.getElementById("dont-know-btn");
+        const knowBtn = document.getElementById("know-btn");
+        if (dontKnowBtn) dontKnowBtn.addEventListener("click", () => reviewResult(false));
+        if (knowBtn) knowBtn.addEventListener("click", () => reviewResult(true));
 
-    if (showAnswerBtn) {
-        showAnswerBtn.addEventListener("click", () => {
-            const meaningElements = document.querySelectorAll(".card .hidden-on-start");
-            meaningElements.forEach(el => {
-                el.style.display = "block";
-                // Trigger reflow
-                el.offsetHeight;
-                el.classList.add("visible");
-            });
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        if (loginBtn) {
+            loginBtn.addEventListener('click', signInWithGoogle);
+        }
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', signOut);
+        }
 
-            showAnswerBtn.style.display = "none";
-            srsButtons.style.display = "flex";
-            // Trigger reflow
-            srsButtons.offsetHeight;
-            srsButtons.classList.add("visible");
-        });
-    }
+        // Set up network status indicator
+        if (navigator.onLine) {
+            updateSyncStatus('synced', 'Online');
+        } else {
+            updateSyncStatus('error', 'Offline mode');
+        }
 
-    const dontKnowBtn = document.getElementById("dont-know-btn");
-    const knowBtn = document.getElementById("know-btn");
-    if (dontKnowBtn) dontKnowBtn.addEventListener("click", () => reviewResult(false));
-    if (knowBtn) knowBtn.addEventListener("click", () => reviewResult(true));
-
-    const loginBtn = document.getElementById('loginBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
-    
-    if (loginBtn) {
-        loginBtn.addEventListener('click', signInWithGoogle);
-    }
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', signOut);
-    }
-
-    // Only fetch vocab if we're on the SRS page
-    if (window.location.pathname.includes('srs-ui.html')) {
-        fetchVocab();
+        // Only fetch vocab if we're on the SRS page
+        if (window.location.pathname.includes('srs-ui.html')) {
+            fetchVocab();
+        }
+    } catch (error) {
+        console.error('Error initializing app:', error);
+        showError('Failed to initialize the app. Please refresh the page.');
     }
 });
 
