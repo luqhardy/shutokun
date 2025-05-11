@@ -384,3 +384,82 @@ header {
 #upcoming-count {
     color: #2ecc71;
 }
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .card {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .srs-button-container button {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+body.dark-mode .srs-button-container button:hover {
+    background-color: #4d4d4d;
+}
+
+body.dark-mode .progress-container {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .sync-status {
+    background-color: #2d2d2d;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+body.dark-mode #theme-toggle {
+    background-color: #2d2d2d;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Keyboard shortcuts hint */
+.keyboard-shortcuts {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+}
+
+.keyboard-shortcuts.visible {
+    display: block;
+}
+
+body.dark-mode .keyboard-shortcuts {
+    background-color: rgba(255, 255, 255, 0.1);
+}

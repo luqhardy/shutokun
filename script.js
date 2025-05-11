@@ -399,126 +399,113 @@ async function loadProgress() {
     }
 }
 
+// Keyboard shortcuts
+const keyboardShortcuts = {
+    init() {
+        document.addEventListener('keydown', (e) => {
+            // Don't trigger shortcuts if user is typing in an input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            
+            switch(e.key) {
+                case ' ': // Space bar to show answer
+                    if (showAnswerBtn && showAnswerBtn.style.display !== 'none') {
+                        showAnswerBtn.click();
+                    }
+                    break;
+                case '1': // 1 for "Don't Know"
+                    if (srsButtons && srsButtons.style.display !== 'none') {
+                        document.getElementById('dont-know-btn').click();
+                    }
+                    break;
+                case '2': // 2 for "Know"
+                    if (srsButtons && srsButtons.style.display !== 'none') {
+                        document.getElementById('know-btn').click();
+                    }
+                    break;
+                case 'd': // Toggle dark mode
+                    toggleDarkMode();
+                    break;
+            }
+        });
+    }
+};
+
+// Dark mode support
+const darkMode = {
+    init() {
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        
+        // Add theme toggle button
+        const themeToggle = document.createElement('button');
+        themeToggle.id = 'theme-toggle';
+        themeToggle.innerHTML = '🌙';
+        themeToggle.title = 'Toggle dark mode';
+        themeToggle.onclick = toggleDarkMode;
+        document.body.appendChild(themeToggle);
+    }
+};
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.getElementById('theme-toggle').innerHTML = isDark ? '☀️' : '🌙';
+}
+
+// Sound effects
+const soundEffects = {
+    correct: new Audio('assets/sounds/correct.mp3'),
+    incorrect: new Audio('assets/sounds/incorrect.mp3'),
+    showAnswer: new Audio('assets/sounds/show-answer.mp3'),
+    
+    play(sound) {
+        if (this[sound]) {
+            this[sound].currentTime = 0;
+            this[sound].play().catch(e => console.log('Audio play failed:', e));
+        }
+    }
+};
+
+// Enhanced review result with sound effects
 function reviewResult(isCorrect) {
     const item = vocab[currentIndex];
     const srs = item.srs;
     const now = Date.now();
 
+    // Play sound effect
+    soundEffects.play(isCorrect ? 'correct' : 'incorrect');
+
     if (isCorrect) {
         srs.repetitions += 1;
         srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.15 + 0.1 * srs.repetitions);
-        // Calculate interval using a more sophisticated spaced repetition algorithm
         if (srs.repetitions === 1) {
-            srs.interval = 1; // 1 day
+            srs.interval = 1;
         } else if (srs.repetitions === 2) {
-            srs.interval = 3; // 3 days
+            srs.interval = 3;
         } else {
             srs.interval = Math.round(srs.interval * srs.easeFactor);
         }
     } else {
-        srs.repetitions = Math.max(0, srs.repetitions - 1); // Don't go below 0
+        srs.repetitions = Math.max(0, srs.repetitions - 1);
         srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.2);
         srs.interval = 1;
     }
 
-    // Set the due date based on the interval
     srs.lastReviewed = now;
-    srs.dueDate = now + (srs.interval * 24 * 60 * 60 * 1000); // Convert days to milliseconds
+    srs.dueDate = now + (srs.interval * 24 * 60 * 60 * 1000);
 
     saveProgress();
-    
-    // Find the next due card instead of just moving to the next one
     findNextDueCard();
     updateReviewQueueCounts();
     showWord();
     updateProgressDisplay();
 }
 
-// Function to find the next card due for review
-function findNextDueCard() {
-    const now = Date.now();
-    const oneDayMs = 24 * 60 * 60 * 1000;
-    
-    // Create an array of indices for all cards
-    const indices = Array.from({ length: vocab.length }, (_, i) => i);
-    
-    // Remove the current card from consideration
-    indices.splice(currentIndex, 1);
-    
-    // First, try to find an overdue card
-    const overdueCards = indices.filter(index => {
-        const item = vocab[index];
-        return item.srs.dueDate && item.srs.dueDate <= now;
-    });
-    
-    if (overdueCards.length > 0) {
-        // Randomly select from overdue cards to prevent repetition
-        currentIndex = overdueCards[Math.floor(Math.random() * overdueCards.length)];
-        return;
-    }
-    
-    // Then, try to find cards due today
-    const dueTodayCards = indices.filter(index => {
-        const item = vocab[index];
-        return item.srs.dueDate && 
-               item.srs.dueDate > now && 
-               item.srs.dueDate <= now + oneDayMs;
-    });
-    
-    if (dueTodayCards.length > 0) {
-        // Randomly select from due today cards
-        currentIndex = dueTodayCards[Math.floor(Math.random() * dueTodayCards.length)];
-        return;
-    }
-    
-    // Finally, find cards due in the next 7 days
-    const upcomingCards = indices.filter(index => {
-        const item = vocab[index];
-        return item.srs.dueDate && 
-               item.srs.dueDate > now + oneDayMs && 
-               item.srs.dueDate <= now + (7 * oneDayMs);
-    });
-    
-    if (upcomingCards.length > 0) {
-        // Randomly select from upcoming cards
-        currentIndex = upcomingCards[Math.floor(Math.random() * upcomingCards.length)];
-        return;
-    }
-    
-    // If no cards are due, find cards that have never been reviewed
-    const newCards = indices.filter(index => {
-        const item = vocab[index];
-        return !item.srs.lastReviewed;
-    });
-    
-    if (newCards.length > 0) {
-        // Randomly select from new cards
-        currentIndex = newCards[Math.floor(Math.random() * newCards.length)];
-        return;
-    }
-    
-    // If all cards have been reviewed, find the one with the lowest repetition count
-    const lowestRepetitionCards = indices.filter(index => {
-        const item = vocab[index];
-        return item.srs.repetitions === Math.min(...vocab.map(v => v.srs.repetitions));
-    });
-    
-    if (lowestRepetitionCards.length > 0) {
-        // Randomly select from cards with lowest repetition count
-        currentIndex = lowestRepetitionCards[Math.floor(Math.random() * lowestRepetitionCards.length)];
-        return;
-    }
-    
-    // Fallback: randomly select any card except the current one
-    const remainingCards = indices.filter(index => index !== currentIndex);
-    if (remainingCards.length > 0) {
-        currentIndex = remainingCards[Math.floor(Math.random() * remainingCards.length)];
-    } else {
-        // If there's only one card, we have to show it again
-        currentIndex = 0;
-    }
-}
-
+// Enhanced show word with sound effect
 function showWord() {
     const word = vocab[currentIndex];
     const cardContainer = document.querySelector(".card-container");
@@ -723,6 +710,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (window.location.pathname.includes('srs-ui.html')) {
             fetchVocab();
         }
+
+        // Initialize keyboard shortcuts
+        keyboardShortcuts.init();
+        
+        // Initialize dark mode
+        darkMode.init();
     } catch (error) {
         console.error('Error initializing app:', error);
         showError('Failed to initialize the app. Please refresh the page.');
