@@ -1,56 +1,630 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Shutokun Free Mode - 日本語OCR</title>
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shutokun Free Mode - 日本語OCR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.1/dist/tesseract.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tiny-segmenter@0.2.0/dist/tiny-segmenter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dist/kuromoji.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --info-color: #17a2b8;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --border-color: #dee2e6;
+            --background-color: #ffffff;
+            --text-color: #212529;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #0d6efd;
+            --secondary-color: #adb5bd;
+            --background-color: #1a1a1a;
+            --text-color: #ffffff;
+            --border-color: #495057;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--secondary-color);
+        }
+
+        .upload-container {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .upload-container.dragover {
+            border-color: var(--primary-color);
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+
+        .upload-container input[type="file"] {
+            display: none;
+        }
+
+        .upload-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .upload-button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .preview-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .preview-box {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1rem;
+            min-height: 300px;
+        }
+
+        .preview-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        #imagePreview {
+            max-width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        #canvas {
+            max-width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .progress-container {
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background-color: var(--border-color);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .status {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .results {
+            margin-top: 1rem;
+        }
+
+        .word-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .word-item:last-child {
+            border-bottom: none;
+        }
+
+        .word-text {
+            font-size: 1.1rem;
+        }
+
+        .word-confidence {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .toast {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 1rem;
+            border-radius: 4px;
+            color: white;
+            animation: slideIn 0.3s ease-out;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        .toast-success { background-color: var(--success-color); }
+        .toast-error { background-color: var(--danger-color); }
+        .toast-warning { background-color: var(--warning-color); }
+
+        @media (max-width: 768px) {
+            .preview-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h2>画像をアップロードしてください（GitHub Pages対応）</h2>
-  <input type="file" id="imageUpload" accept="image/*"><br><br>
-  <canvas id="canvas" style="display:none;"></canvas>
-  <pre id="output">画像を待機中...</pre>
+    <div class="container">
+        <header class="header">
+            <h1>Shutokun Free Mode - 日本語OCR</h1>
+            <p>Upload an image containing Japanese text for OCR processing</p>
+        </header>
 
-  <script>
-    document.getElementById('imageUpload').addEventListener('change', async (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
+        <div class="upload-container" id="dropZone">
+            <input type="file" id="imageUpload" accept="image/*">
+            <button class="upload-button" onclick="document.getElementById('imageUpload').click()">
+                <i class="fas fa-upload"></i> Choose Image or Drag & Drop
+            </button>
+        </div>
 
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0);
+        <div class="preview-container">
+            <div class="preview-box">
+                <h3>Original Image</h3>
+                <img id="imagePreview" alt="Preview">
+            </div>
+            <div class="preview-box">
+                <h3>Processed Image</h3>
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
 
-        canvas.toBlob((blob) => {
-          document.getElementById('output').textContent = "OCR実行中...";
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <div class="status" id="status">Initializing...</div>
+        </div>
 
-          Tesseract.recognize(
-            blob,
-            'jpn',
-            {
-              langPath: 'https://tessdata.projectnaptha.com/4.0.0_best', // Japanese traineddata
-              tessedit_pageseg_mode: Tesseract.PSM.SINGLE_BLOCK
+        <div class="results" id="results"></div>
+
+        <div class="actions">
+            <button class="btn btn-primary" onclick="processImage()" id="processButton" disabled>
+                <i class="fas fa-cog"></i> Process Image
+            </button>
+            <button class="btn btn-secondary" onclick="exportResults()" id="exportButton" disabled>
+                <i class="fas fa-file-export"></i> Export Results
+            </button>
+            <button class="btn btn-success" onclick="saveVocab()" id="saveVocabButton" style="display:none;">
+                <i class="fas fa-save"></i> Save to Vocabulary
+            </button>
+            <button class="btn btn-info" onclick="goToPractice()" id="goToPracticeButton" style="display:none;">
+                <i class="fas fa-play"></i> Go to Practice
+            </button>
+            <button class="btn btn-warning" onclick="editVocabulary()" id="editVocabButton" style="display:none;">
+                <i class="fas fa-edit"></i> Edit Vocabulary
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentImage = null;
+        let processedImage = null;
+        let ocrResults = null;
+        let worker = null;
+        let srsVocab = [];
+        let kuromojiTokenizer = null;
+        let kuromojiLoading = false;
+
+        // Initialize Tesseract worker
+        async function initWorker() {
+            if (!worker) {
+                worker = await Tesseract.createWorker({
+                    logger: m => {
+                        if (m.status === 'recognizing text') {
+                            updateProgress(m.progress);
+                        }
+                        updateStatus(m.status);
+                    }
+                });
+                await worker.loadLanguage('jpn');
+                await worker.initialize('jpn');
+                await worker.setParameters({
+                    tessedit_pageseg_mode: Tesseract.PSM.SINGLE_BLOCK,
+                    preserve_interword_spaces: '1'
+                });
             }
-          ).then(({ data }) => {
-            const words = data.words.map(w => ({
-              text: w.text,
-              confidence: w.confidence,
-              bbox: {
-                x: w.bbox.x0,
-                y: w.bbox.y0,
-                width: w.bbox.x1 - w.bbox.x0,
-                height: w.bbox.y1 - w.bbox.y0
-              }
-            }));
-            document.getElementById('output').textContent = JSON.stringify({ words }, null, 2);
-          });
+        }
+
+        // Handle file upload
+        document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
+        
+        // Handle drag and drop
+        const dropZone = document.getElementById('dropZone');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
         });
-      };
-      img.src = URL.createObjectURL(file);
-    });
-  </script>
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            dropZone.classList.add('dragover');
+        }
+
+        function unhighlight(e) {
+            dropZone.classList.remove('dragover');
+        }
+
+        dropZone.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const file = dt.files[0];
+            handleFile(file);
+        }
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            handleFile(file);
+        }
+
+        async function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                showToast('Please select a valid image file', 'error');
+                return;
+            }
+
+            try {
+                currentImage = await createImageBitmap(file);
+                document.getElementById('imagePreview').src = URL.createObjectURL(file);
+                document.getElementById('imagePreview').style.display = 'block';
+                document.getElementById('processButton').disabled = false;
+                showToast('Image loaded successfully', 'success');
+            } catch (err) {
+                showToast('Error loading image', 'error');
+                console.error(err);
+            }
+        }
+
+        // Load kuromoji tokenizer
+        function loadKuromojiTokenizer(callback) {
+            if (kuromojiTokenizer) {
+                callback();
+                return;
+            }
+            if (kuromojiLoading) return;
+            kuromojiLoading = true;
+            showToast('Loading Japanese tokenizer...', 'info');
+            kuromoji.builder({
+                dicPath: 'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/'
+            }).build(function (err, tokenizer) {
+                kuromojiLoading = false;
+                if (err) {
+                    showToast('Failed to load tokenizer', 'error');
+                    console.error(err);
+                    return;
+                }
+                kuromojiTokenizer = tokenizer;
+                showToast('Tokenizer loaded!', 'success');
+                callback();
+            });
+        }
+
+        // Process image with OCR
+        async function processImage() {
+            if (!currentImage) return;
+
+            try {
+                document.getElementById('progressContainer').style.display = 'block';
+                document.getElementById('processButton').disabled = true;
+                document.getElementById('exportButton').disabled = true;
+
+                await initWorker();
+
+                // Preprocess image
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = currentImage.width;
+                canvas.height = currentImage.height;
+                ctx.drawImage(currentImage, 0, 0);
+
+                // Apply image processing
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const processedData = preprocessImage(imageData);
+                ctx.putImageData(processedData, 0, 0);
+
+                // Perform OCR
+                const { data } = await worker.recognize(canvas);
+                ocrResults = data;
+
+                // --- Use kuromoji.js to split data.text into words ---
+                let cleanText = data.text ? data.text.replace(/[\n\r\s]+/g, '') : '';
+                if (window.kuromoji) {
+                    loadKuromojiTokenizer(function() {
+                        let tokens = kuromojiTokenizer.tokenize(cleanText);
+                        // Only keep words with at least one Japanese character and not punctuation
+                        let words = tokens.filter(t => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(t.surface_form) && t.pos !== '記号')
+                            .map(t => ({
+                                word: t.surface_form,
+                                kana: t.reading || '',
+                                romaji: '',
+                                meaning: '',
+                                pos: t.pos,
+                                jlpt: '',
+                                examples: [],
+                                srs: {
+                                    easeFactor: 2.5,
+                                    interval: 1,
+                                    repetitions: 0,
+                                    dueDate: null,
+                                    lastReviewed: null
+                                }
+                            }));
+                        displayResults(words);
+                        document.getElementById('exportButton').disabled = false;
+                        showToast('OCR completed successfully', 'success');
+                    });
+                } else {
+                    // Fallback: TinySegmenter
+                    let words = [];
+                    if (window.TinySegmenter && cleanText) {
+                        const segmenter = new TinySegmenter();
+                        words = segmenter.segment(cleanText)
+                            .map(w => w.trim())
+                            .filter(w => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(w));
+                    }
+                    if (!words || words.length === 0) {
+                        words = (data.words || []).map(w => w.text.trim()).filter(w => w.length > 0);
+                    }
+                    displayResults(words.map(word => ({ word, kana: '', romaji: '', meaning: '', pos: '', jlpt: '', examples: [], srs: { easeFactor: 2.5, interval: 1, repetitions: 0, dueDate: null, lastReviewed: null } })));
+                    document.getElementById('exportButton').disabled = false;
+                    showToast('OCR completed (fallback)', 'warning');
+                }
+            } catch (err) {
+                showToast('Error processing image', 'error');
+                console.error(err);
+            } finally {
+                document.getElementById('processButton').disabled = false;
+            }
+        }
+
+        // Image preprocessing
+        function preprocessImage(imageData) {
+            const data = imageData.data;
+            
+            // Convert to grayscale
+            for (let i = 0; i < data.length; i += 4) {
+                const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = data[i + 1] = data[i + 2] = avg;
+            }
+
+            // Apply threshold
+            const threshold = 128;
+            for (let i = 0; i < data.length; i += 4) {
+                const value = data[i] < threshold ? 0 : 255;
+                data[i] = data[i + 1] = data[i + 2] = value;
+            }
+
+            return imageData;
+        }
+
+        // Display OCR results and allow editing as vocab cards
+        function displayResults(vocabArray) {
+            const container = document.getElementById('results');
+            container.innerHTML = '';
+            if (!vocabArray || vocabArray.length === 0) {
+                container.innerHTML = '<p>No words detected.</p>';
+                return;
+            }
+            // Use vocabArray directly
+            srsVocab = vocabArray.filter(v => v.word.length > 0);
+
+            // Render editable table
+            const table = document.createElement('table');
+            table.style.width = '100%';
+            table.style.marginTop = '1rem';
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>Kana</th>
+                        <th>Meaning</th>
+                        <th>Romaji</th>
+                        <th>POS</th>
+                        <th>JLPT</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${srsVocab.map((v, i) => `
+                        <tr>
+                            <td><input value="${v.word}" onchange="updateVocabField(${i}, 'word', this.value)"></td>
+                            <td><input value="${v.kana}" onchange="updateVocabField(${i}, 'kana', this.value)"></td>
+                            <td><input value="${v.meaning}" onchange="updateVocabField(${i}, 'meaning', this.value)"></td>
+                            <td><input value="${v.romaji}" onchange="updateVocabField(${i}, 'romaji', this.value)"></td>
+                            <td><input value="${v.pos}" onchange="updateVocabField(${i}, 'pos', this.value)"></td>
+                            <td><input value="${v.jlpt}" onchange="updateVocabField(${i}, 'jlpt', this.value)"></td>
+                            <td><input value="${v.examples && v.examples[0] ? v.examples[0].jp : ''}" onchange="updateExample(${i}, this.value)"></td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            container.appendChild(table);
+            document.getElementById('saveVocabButton').style.display = 'inline-flex';
+            document.getElementById('goToPracticeButton').style.display = 'inline-flex';
+            document.getElementById('editVocabButton').style.display = 'inline-flex';
+        }
+
+        // Update vocab field
+        function updateVocabField(index, field, value) {
+            srsVocab[index][field] = value;
+        }
+        function updateExample(index, value) {
+            if (!srsVocab[index].examples) srsVocab[index].examples = [{}];
+            srsVocab[index].examples[0].jp = value;
+        }
+
+        // Save vocab to localStorage
+        function saveVocab() {
+            if (!srsVocab || srsVocab.length === 0) {
+                showToast('No vocabulary to save', 'warning');
+                return;
+            }
+            localStorage.setItem('vocabulary', JSON.stringify(srsVocab));
+            showToast('Vocabulary saved!', 'success');
+        }
+        // Go to practice mode
+        function goToPractice() {
+            window.location.href = 'free-mode.html?practice=1';
+        }
+        // Edit vocabulary
+        function editVocabulary() {
+            window.location.href = 'json-editor.html';
+        }
+
+        // Export results
+        function exportResults() {
+            if (!ocrResults) return;
+
+            const blob = new Blob([JSON.stringify(ocrResults, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'ocr-results.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // UI helpers
+        function updateProgress(progress) {
+            document.getElementById('progressBar').style.width = `${progress * 100}%`;
+        }
+
+        function updateStatus(status) {
+            document.getElementById('status').textContent = status;
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Cleanup
+        window.addEventListener('beforeunload', async () => {
+            if (worker) {
+                await worker.terminate();
+            }
+        });
+    </script>
 </body>
 </html>

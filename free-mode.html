@@ -1,18 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Mode</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shutokun Free Mode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="button-container">
-  <button class="jlpt-button" onclick="location.href='free-mode-import.html'"><img src="assets/import.png" alt="Upload/Import File"></button>
-  <button class="jlpt-button" ><img src="assets/start.png" alt="Start"></button>
-  <button class="jlpt-button" ><img src="assets/edit.png" alt="Edit"></button>
+    <header>
+        <div class="header-left">
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+        </div>
+        <div class="auth-container">
+            <button id="loginBtn" class="auth-button">Sign in</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+        </div>
+    </header>
 
-</div>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-to-use.html">How To Use</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
 
+    <main class="study-container">
+        <div class="button-container">
+            <button class="jlpt-button" onclick="window.location.href='free-mode-import.html'" aria-label="Import Text"><img src="assets/import.png" alt="Import/Scan"></button>
+            <button class="jlpt-button" onclick="startPractice()" aria-label="Start Practice"><img src="assets/start.png" alt="Start"></button>
+            <button class="jlpt-button" onclick="editVocabulary()" aria-label="Edit Vocabulary"><img src="assets/edit.png" alt="Edit"></button>
+        </div>
+    </main>
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="firebase-db.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('nav-open');
+        });
+
+        // Auth button logic (optional, can be customized)
+        document.getElementById('loginBtn').onclick = function() {
+            // Implement login logic
+        };
+        document.getElementById('logoutBtn').onclick = function() {
+            // Implement logout logic
+        };
+
+        // Theme management
+        function loadTheme() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', theme);
+            updateThemeIcon(theme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = document.querySelector('.theme-toggle i');
+            icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+
+        // Feature handlers
+        function startPractice() {
+            // Navigate to srs-ui.html in free mode
+            window.location.href = 'srs-ui.html?mode=free';
+        }
+
+        function editVocabulary() {
+            window.location.href = 'json-editor.html';
+        }
+
+        // Initialize
+        loadTheme();
+    </script>
 </body>
 </html>

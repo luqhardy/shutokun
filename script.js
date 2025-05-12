@@ -219,6 +219,47 @@ async function fetchVocab() {
     showLoading();
     try {
         const urlParams = new URLSearchParams(window.location.search);
+        const mode = urlParams.get("mode");
+        if (mode === "free") {
+            // Free Mode: Load vocab from localStorage
+            const localVocab = localStorage.getItem('vocabulary');
+            if (!localVocab) {
+                showError('No vocabulary found. Please import and save vocabulary first.');
+                setTimeout(() => window.location.href = 'free-mode-import.html', 2000);
+                return;
+            }
+            vocab = JSON.parse(localVocab);
+            // Load SRS progress for Free Mode
+            const srsProgress = localStorage.getItem('srsData_free');
+            if (srsProgress) {
+                const progressArr = JSON.parse(srsProgress);
+                vocab = vocab.map((item, i) => ({
+                    ...item,
+                    srs: progressArr[i]?.srs || {
+                        easeFactor: 2.5,
+                        interval: 1,
+                        repetitions: 0,
+                        lastReviewed: null,
+                        dueDate: null
+                    }
+                }));
+            } else {
+                vocab = vocab.map(item => ({
+                    ...item,
+                    srs: {
+                        easeFactor: item.srs?.easeFactor ?? 2.5,
+                        interval: item.srs?.interval ?? 1,
+                        repetitions: item.srs?.repetitions ?? 0,
+                        lastReviewed: item.srs?.lastReviewed ?? null,
+                        dueDate: item.srs?.dueDate ?? null
+                    }
+                }));
+            }
+            throttledUpdateUI();
+            showWord();
+            hideLoading();
+            return;
+        }
         const level = urlParams.get("level");
         const category = urlParams.get("category") || "goi";
         
@@ -272,7 +313,20 @@ window.addEventListener('offline', () => {
 
 // Enhanced progress saving with sync queue
 async function saveProgress(data = null) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get("mode");
     const dataToSave = data || vocab.map(({ srs }) => ({ srs }));
+    if (mode === "free") {
+        // Save SRS progress for Free Mode
+        try {
+            localStorage.setItem("srsData_free", JSON.stringify(vocab));
+            return true;
+        } catch (error) {
+            console.error("Error saving Free Mode progress to localStorage:", error);
+            showError("Failed to save Free Mode progress locally.");
+            return false;
+        }
+    }
     
     if (currentUser && isOnline) {
         try {
@@ -721,4 +775,35 @@ document.addEventListener("DOMContentLoaded", () => {
         showError('Failed to initialize the app. Please refresh the page.');
     }
 });
+
+// Show friendly empty state if all cards are reviewed (Free Mode)
+function findNextDueCard() {
+    // ... existing code ...
+    // After finding next due card, if none, show empty state
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get("mode");
+    const dueCards = vocab.filter(item => {
+        if (!item.srs.dueDate) return false;
+        const daysUntilDue = Math.ceil((item.srs.dueDate - Date.now()) / (24 * 60 * 60 * 1000));
+        return daysUntilDue <= 0;
+    });
+    if (mode === "free" && dueCards.length === 0) {
+        const cardContainer = document.querySelector(".card-container");
+        cardContainer.innerHTML = `<div class='card' style='text-align:center;padding:2rem;'>
+            <h2>All done!</h2>
+            <p>You've reviewed all your imported vocabulary.</p>
+            <button onclick="window.location.href='free-mode-import.html'" class="action-button">Import or Edit More Vocab</button>
+            <button onclick="resetFreeModeProgress()" class="action-button" style="margin-top:1rem;">Reset Progress</button>
+        </div>`;
+        // Hide answer and SRS buttons
+        if (showAnswerBtn) showAnswerBtn.style.display = "none";
+        if (srsButtons) srsButtons.style.display = "none";
+    }
+}
+
+// Reset Free Mode SRS progress
+function resetFreeModeProgress() {
+    localStorage.removeItem('srsData_free');
+    window.location.reload();
+}
 

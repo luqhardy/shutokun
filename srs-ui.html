@@ -169,6 +169,10 @@
     </nav>
 
     <main class="study-container">
+        <!-- Free Mode Banner -->
+        <div id="free-mode-banner" style="display:none; margin-bottom:1rem; padding:1rem; background:#e3f2fd; color:#1565c0; border-radius:8px; text-align:center; font-weight:500;">
+            Practicing with your <b>imported vocabulary</b> (Free Mode)
+        </div>
         <!-- Review Queue Status -->
         <div class="review-status" role="status" aria-live="polite">
             <div class="review-count">
@@ -222,6 +226,7 @@
         <div class="navigation-container">
             <button onclick="window.location.href='index.html'" class="nav-button" aria-label="Return to home page">Back to Home</button>
             <button onclick="window.location.href='level-select.html'" class="nav-button" aria-label="Change study level">Change Level</button>
+            <button id="back-to-import" style="display:none;" onclick="window.location.href='free-mode-import.html'" class="nav-button" aria-label="Back to Import/Edit">Back to Import/Edit</button>
         </div>
 
         <!-- Keyboard Shortcuts Help -->
@@ -273,6 +278,16 @@
                 errorElement.style.display = 'none';
             }, 5000);
         };
+
+        // Free Mode UI polish
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const mode = urlParams.get('mode');
+            if (mode === 'free') {
+                document.getElementById('free-mode-banner').style.display = 'block';
+                document.getElementById('back-to-import').style.display = 'inline-block';
+            }
+        });
     </script>
 </body>
 </html>
