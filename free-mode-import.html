@@ -277,6 +277,11 @@
         </div>
 
         <div class="results" id="results"></div>
+        <div class="ocr-edit-container" id="ocrEditContainer" style="display:none; margin-top:1rem;">
+            <label for="ocrTextArea"><b>OCR Text (edit if needed):</b></label><br>
+            <textarea id="ocrTextArea" rows="6" style="width:100%;font-size:1.1em;"></textarea><br>
+            <button class="btn btn-primary" id="segmentTextButton" style="margin-top:0.5rem;">Segment Text</button>
+        </div>
 
         <div class="actions">
             <button class="btn btn-primary" onclick="processImage()" id="processButton" disabled>
@@ -439,49 +444,15 @@
                 const { data } = await worker.recognize(canvas);
                 ocrResults = data;
 
-                // --- Use kuromoji.js to split data.text into words ---
-                let cleanText = data.text ? data.text.replace(/[\n\r\s]+/g, '') : '';
-                if (window.kuromoji) {
-                    loadKuromojiTokenizer(function() {
-                        let tokens = kuromojiTokenizer.tokenize(cleanText);
-                        // Only keep words with at least one Japanese character and not punctuation
-                        let words = tokens.filter(t => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(t.surface_form) && t.pos !== '記号')
-                            .map(t => ({
-                                word: t.surface_form,
-                                kana: t.reading || '',
-                                romaji: '',
-                                meaning: '',
-                                pos: t.pos,
-                                jlpt: '',
-                                examples: [],
-                                srs: {
-                                    easeFactor: 2.5,
-                                    interval: 1,
-                                    repetitions: 0,
-                                    dueDate: null,
-                                    lastReviewed: null
-                                }
-                            }));
-                        displayResults(words);
-                        document.getElementById('exportButton').disabled = false;
-                        showToast('OCR completed successfully', 'success');
-                    });
-                } else {
-                    // Fallback: TinySegmenter
-                    let words = [];
-                    if (window.TinySegmenter && cleanText) {
-                        const segmenter = new TinySegmenter();
-                        words = segmenter.segment(cleanText)
-                            .map(w => w.trim())
-                            .filter(w => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(w));
-                    }
-                    if (!words || words.length === 0) {
-                        words = (data.words || []).map(w => w.text.trim()).filter(w => w.length > 0);
-                    }
-                    displayResults(words.map(word => ({ word, kana: '', romaji: '', meaning: '', pos: '', jlpt: '', examples: [], srs: { easeFactor: 2.5, interval: 1, repetitions: 0, dueDate: null, lastReviewed: null } })));
-                    document.getElementById('exportButton').disabled = false;
-                    showToast('OCR completed (fallback)', 'warning');
-                }
+                // Show OCR text for manual correction
+                document.getElementById('ocrEditContainer').style.display = 'block';
+                document.getElementById('ocrTextArea').value = data.text || '';
+                document.getElementById('results').innerHTML = '';
+                document.getElementById('saveVocabButton').style.display = 'none';
+                document.getElementById('goToPracticeButton').style.display = 'none';
+                document.getElementById('editVocabButton').style.display = 'none';
+                document.getElementById('exportButton').disabled = false;
+                showToast('OCR completed. Please review and segment.', 'info');
             } catch (err) {
                 showToast('Error processing image', 'error');
                 console.error(err);
@@ -489,6 +460,52 @@
                 document.getElementById('processButton').disabled = false;
             }
         }
+
+        // Segment text using kuromoji.js when user clicks the button
+        document.getElementById('segmentTextButton').onclick = function() {
+            const rawText = document.getElementById('ocrTextArea').value;
+            // Aggressively join all lines and remove all whitespace (including full-width and invisible spaces)
+            let cleanText = rawText ? rawText.replace(/[\s\u3000\u00A0\u200B\u200C\u200D\uFEFF]+/g, '') : '';
+            if (window.kuromoji) {
+                loadKuromojiTokenizer(function() {
+                    let tokens = kuromojiTokenizer.tokenize(cleanText);
+                    // Only keep words with at least one Japanese character and not punctuation
+                    let words = tokens.filter(t => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(t.surface_form) && t.pos !== '記号')
+                        .map(t => ({
+                            word: t.surface_form,
+                            kana: t.reading || '',
+                            romaji: '',
+                            meaning: '',
+                            pos: t.pos,
+                            jlpt: '',
+                            examples: [],
+                            srs: {
+                                easeFactor: 2.5,
+                                interval: 1,
+                                repetitions: 0,
+                                dueDate: null,
+                                lastReviewed: null
+                            }
+                        }));
+                    displayResults(words);
+                    showToast('Segmentation complete!', 'success');
+                });
+            } else {
+                // Fallback: TinySegmenter
+                let words = [];
+                if (window.TinySegmenter && cleanText) {
+                    const segmenter = new TinySegmenter();
+                    words = segmenter.segment(cleanText)
+                        .map(w => w.trim())
+                        .filter(w => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(w));
+                }
+                if (!words || words.length === 0) {
+                    words = [cleanText];
+                }
+                displayResults(words.map(word => ({ word, kana: '', romaji: '', meaning: '', pos: '', jlpt: '', examples: [], srs: { easeFactor: 2.5, interval: 1, repetitions: 0, dueDate: null, lastReviewed: null } })));
+                showToast('Segmentation complete (fallback)', 'warning');
+            }
+        };
 
         // Image preprocessing
         function preprocessImage(imageData) {
