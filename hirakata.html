@@ -237,9 +237,9 @@
 
     <main class="practice-container">
         <div class="mode-selector">
-            <button class="mode-button active" onclick="setMode('hiragana')">Hiragana</button>
-            <button class="mode-button" onclick="setMode('katakana')">Katakana</button>
-            <button class="mode-button" onclick="setMode('mixed')">Mixed</button>
+            <button class="mode-button active" onclick="setMode('hiragana', event)">Hiragana</button>
+            <button class="mode-button" onclick="setMode('katakana', event)">Katakana</button>
+            <button class="mode-button" onclick="setMode('mixed', event)">Mixed</button>
         </div>
 
         <div class="practice-settings" style="margin: 1rem 0; display: flex; gap: 1rem; justify-content: center;">
@@ -537,7 +537,17 @@
             updateKanaProgress();
         }, 100);
 
-        // Enhanced error handling for Firebase operations
+        // Initialize kanaProgress with default values
+        function initializeKanaProgress() {
+            const allKana = [...kanaData.hiragana, ...kanaData.katakana];
+            allKana.forEach(kana => {
+                if (!kanaProgress[kana.kana]) {
+                    kanaProgress[kana.kana] = { correct: 0, incorrect: 0 };
+                }
+            });
+        }
+
+        // Call initialization when loading progress
         async function loadProgress() {
             if (!currentUser) return;
 
@@ -550,8 +560,9 @@
                 if (data) {
                     kanaProgress = data.progress || {};
                     stats = data.stats || stats;
-                    throttledUpdateStats();
                 }
+                initializeKanaProgress();
+                throttledUpdateStats();
             } catch (error) {
                 console.error("Error loading progress:", error);
                 showError('Failed to load progress from server. Using local data.');
@@ -642,12 +653,14 @@
             document.getElementById('streak').textContent = stats.streak;
         }
 
-        function setMode(mode) {
+        function setMode(mode, event) {
             currentMode = mode;
             document.querySelectorAll('.mode-button').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             document.getElementById('feedback').textContent = '';
             nextKana();
         }
@@ -705,6 +718,10 @@
                 const kanaDisplay = document.getElementById('kana-display');
                 
                 try {
+                    if (!currentKana || !currentKana.kana || !currentKana.romaji) {
+                        throw new Error('Invalid kana data');
+                    }
+
                     // Initialize progress for this kana if not exists
                     if (!kanaProgress[currentKana.kana]) {
                         kanaProgress[currentKana.kana] = { correct: 0, incorrect: 0 };
@@ -736,7 +753,7 @@
                     throttledUpdateStats();
                     debouncedSaveProgress();
                     
-                    // Show session summary after 20 attempts
+                    // Show session summary after 20 attempts or if there's an error
                     if (sessionStats.correct + sessionStats.incorrect >= 20) {
                         showSessionSummary();
                     } else {
@@ -744,7 +761,8 @@
                     }
                 } catch (error) {
                     console.error('Error processing answer:', error);
-                    showError('An error occurred while processing your answer.');
+                    showError('An error occurred while processing your answer. Please try again.');
+                    setTimeout(nextKana, 1000);
                 }
             }
         }

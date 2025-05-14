@@ -1,0 +1,12 @@
+{
+  "name": "shutokun-db-builder",
+  "version": "1.0.0",
+  "description": "Database builder for Shutokun JLPT vocabulary",
+  "main": "build-db.js",
+  "scripts": {
+    "build": "node build-db.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.11.0"
+  }
+} 
