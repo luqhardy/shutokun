@@ -524,3 +524,54 @@ body.dark-mode .keyboard-shortcuts {
 [data-theme="dark"] .feature-button:hover {
   border-color: #0d6efd;
 }
+
+.content-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+                .section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .mission-statement {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4CAF50;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            border-left: 4px solid #4CAF50;
+            background: #f9f9f9;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 1.5rem;
+        }
+        .team-member-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
+        .team-member-info p {
+            margin: 0;
+            color: #666;
+        }
