@@ -6,7 +6,7 @@ const path = require('path');
 const serviceAccount = require('../serviceAccountKey.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://shutokun.firebaseio.com"
+  databaseURL: "https://shutokun-default-rtdb.asia-southeast1.firebasedatabase.app/"
 });
 
 const db = admin.database();
