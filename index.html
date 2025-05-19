@@ -248,6 +248,15 @@
     <!-- Scripts -->
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
+    <script type="module">
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+        window.debounce = debounce;
+        window.throttle = throttle;
+        window.showError = showError;
+        window.showLoading = showLoading;
+        window.hideLoading = hideLoading;
+        window.updateSyncStatus = updateSyncStatus;
+    </script>
     
     <!-- Service Worker Registration -->
     <script>
@@ -291,61 +300,6 @@
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
             firebase.analytics();
-        }
-
-        // Performance optimization: Debounce function
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Error handling utility
-        function showError(message, duration = 5000) {
-            const errorElement = document.getElementById('error-message');
-            if (errorElement) {
-                errorElement.textContent = message;
-                errorElement.style.display = 'block';
-                setTimeout(() => {
-                    errorElement.style.display = 'none';
-                }, duration);
-            } else {
-                console.error(message);
-            }
-        }
-
-        // Loading state management
-        function showLoading() {
-            const loadingElement = document.getElementById('loading-overlay');
-            if (loadingElement) {
-                loadingElement.style.display = 'flex';
-            }
-        }
-
-        function hideLoading() {
-            const loadingElement = document.getElementById('loading-overlay');
-            if (loadingElement) {
-                loadingElement.style.display = 'none';
-            }
-        }
-
-        // Sync status management
-        function updateSyncStatus(status, message) {
-            const syncElement = document.getElementById('sync-status');
-            if (syncElement) {
-                syncElement.textContent = message;
-                syncElement.className = `sync-status ${status}`;
-                syncElement.style.display = 'block';
-                setTimeout(() => {
-                    syncElement.style.display = 'none';
-                }, 3000);
-            }
         }
 
         // Update progress bars with animation

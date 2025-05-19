@@ -243,10 +243,9 @@
 
     <!-- Scripts -->
     <script src="firebase-db.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     <script type="module">
         import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
-        // Attach to window for legacy code compatibility
         window.debounce = debounce;
         window.throttle = throttle;
         window.showError = showError;
