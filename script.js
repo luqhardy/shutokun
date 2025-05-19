@@ -1,3 +1,5 @@
+import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+
 let vocab = [];
 let currentIndex = 0;
 let showAnswerBtn;
@@ -76,60 +78,6 @@ function updateReviewQueueCounts() {
         document.title = `(${totalDue}) Shutokun - SRS Study`;
     } else {
         document.title = 'Shutokun - SRS Study';
-    }
-}
-
-// Performance optimization: Debounce function
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Performance optimization: Throttle function
-function throttle(func, limit) {
-    let inThrottle;
-    return function executedFunction(...args) {
-        if (!inThrottle) {
-            func(...args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
-// Error handling utility
-function showError(message, duration = 5000) {
-    const errorElement = document.getElementById('error-message');
-    if (errorElement) {
-        errorElement.textContent = message;
-        errorElement.style.display = 'block';
-        setTimeout(() => {
-            errorElement.style.display = 'none';
-        }, duration);
-    } else {
-        console.error(message);
-    }
-}
-
-// Loading state management
-function showLoading() {
-    const loadingElement = document.getElementById('loading-overlay');
-    if (loadingElement) {
-        loadingElement.style.display = 'flex';
-    }
-}
-
-function hideLoading() {
-    const loadingElement = document.getElementById('loading-overlay');
-    if (loadingElement) {
-        loadingElement.style.display = 'none';
     }
 }
 

@@ -304,7 +304,9 @@
         </div>
     </main>
 
-    <script>
+    <script type="module">
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+
         const kanaData = {
             hiragana: [
                 // Basic vowels
@@ -462,31 +464,6 @@
                 loadFromLocalStorage();
             }
         });
-
-        // Performance optimization: Debounce function
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Performance optimization: Throttle function
-        function throttle(func, limit) {
-            let inThrottle;
-            return function executedFunction(...args) {
-                if (!inThrottle) {
-                    func(...args);
-                    inThrottle = true;
-                    setTimeout(() => inThrottle = false, limit);
-                }
-            };
-        }
 
         // Error handling utility
         function showError(message, duration = 5000) {
