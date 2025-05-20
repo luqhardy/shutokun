@@ -243,9 +243,10 @@
 
     <!-- Scripts -->
     <script src="firebase-db.js"></script>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
     <script type="module">
         import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+        // Attach to window for legacy code compatibility
         window.debounce = debounce;
         window.throttle = throttle;
         window.showError = showError;
@@ -268,6 +269,25 @@
                 document.getElementById('know-btn').click();
             }
         });
+
+        // Loading state management
+        window.showLoading = () => {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        };
+
+        window.hideLoading = () => {
+            document.getElementById('loading-overlay').style.display = 'none';
+        };
+
+        // Error handling
+        window.showError = (message) => {
+            const errorElement = document.getElementById('error-message');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 5000);
+        };
 
         // Free Mode UI polish
         document.addEventListener('DOMContentLoaded', () => {
