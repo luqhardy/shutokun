@@ -9,6 +9,22 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <!-- Firebase Config & Initialization (firebase-db.jsより前に移動) -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
+            authDomain: "shutokun.firebaseapp.com",
+            projectId: "shutokun",
+            storageBucket: "shutokun.appspot.com",
+            messagingSenderId: "120770573657",
+            appId: "1:120770573657:web:692c54b821b0a51c138848",
+            measurementId: "G-GJG5NT05DH"
+        };
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shutokun - Japanese Learning App</title>
@@ -285,23 +301,6 @@
     </div>
 
     <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
-            authDomain: "shutokun.firebaseapp.com",
-            projectId: "shutokun",
-            storageBucket: "shutokun.appspot.com",
-            messagingSenderId: "120770573657",
-            appId: "1:120770573657:web:692c54b821b0a51c138848",
-            measurementId: "G-GJG5NT05DH"
-        };
-
-        // Initialize Firebase
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
-        }
-
         // Update progress bars with animation
         async function updateProgressBars() {
             try {
