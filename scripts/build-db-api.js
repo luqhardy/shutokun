@@ -14,9 +14,21 @@ admin.initializeApp({
 const db = admin.database();
 
 // Rate limiting configuration
-const RATE_LIMIT = 1000; // 1 second between requests
-const BATCH_SIZE = 50; // Number of words to process in parallel
+const RATE_LIMIT = 2000; // 2 seconds between requests
+const BATCH_SIZE = 20; // Reduced batch size
+const MAX_RETRIES = 3; // Maximum number of retries for failed requests
 
+// Create axios instance with default config
+const api = axios.create({
+  headers: {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'Accept': 'application/json',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Origin': 'https://jisho.org',
+    'Referer': 'https://jisho.org/'
+  },
+  timeout: 10000 // 10 second timeout
+});
 // JLPT level word lists
 const JLPT_WORDS = {
   N5: [
@@ -315,59 +327,87 @@ const JLPT_WORDS = {
 // Sleep function for rate limiting
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Fetch word data from Jisho API
-async function fetchWordData(word) {
+// Retry function with exponential backoff
+async function retry(fn, retries = MAX_RETRIES, delay = 1000) {
   try {
-    const response = await axios.get(`https://jisho.org/api/v1/search/words?keyword=${encodeURIComponent(word)}`);
-    const data = response.data.data[0]; // Get first result
-    
-    if (!data) {
-      console.warn(`No data found for word: ${word}`);
-      return null;
-    }
-
-    // Extract relevant information
-    const japanese = data.japanese[0];
-    const senses = data.senses[0];
-    const kana = japanese.reading || '';
-
-    return {
-      word: japanese.word || word,
-      kana: kana,
-      romaji: convertToRomaji(kana),
-      meaning: senses.english_definitions.join(', '),
-      pos: senses.parts_of_speech.join(', '),
-      usage_notes: senses.info ? senses.info.join(', ') : null,
-      related_words: senses.see_also ? senses.see_also.map(word => ({
-        word,
-        meaning: '' // We'll need to fetch these separately if needed
-      })) : null,
-      examples: data.jlpt ? [{
-        jp: japanese.word,
-        en: senses.english_definitions[0],
-        context: 'Basic usage'
-      }] : null
-    };
+    return await fn();
   } catch (error) {
-    console.error(`Error fetching data for word ${word}:`, error.message);
-    return null;
+    if (retries === 0) {
+      throw error;
+    }
+    console.log(`Retrying... (${retries} attempts left)`);
+    await sleep(delay);
+    return retry(fn, retries - 1, delay * 2);
   }
 }
 
+// Fetch word data from Jisho API with retry logic
+async function fetchWordData(word) {
+  return retry(async () => {
+    try {
+      const response = await api.get(`https://jisho.org/api/v1/search/words?keyword=${encodeURIComponent(word)}`);
+      const data = response.data.data[0]; // Get first result
+      if (!data) {
+        console.warn(`No data found for word: ${word}`);
+        return null;
+      }
+
+      // Extract relevant information
+      const japanese = data.japanese[0];
+      const senses = data.senses[0];
+      const kana = japanese.reading || '';
+
+      return {
+        word: japanese.word || word,
+        kana: kana,
+        romaji: convertToRomaji(kana),
+        meaning: senses.english_definitions.join(', '),
+        pos: senses.parts_of_speech.join(', '),
+        usage_notes: senses.info ? senses.info.join(', ') : null,
+        related_words: senses.see_also ? senses.see_also.map(word => ({
+          word,
+          meaning: '' // We'll need to fetch these separately if needed
+        })) : null,
+        examples: data.jlpt ? [{
+          jp: japanese.word,
+          en: senses.english_definitions[0],
+          context: 'Basic usage'
+        }] : null
+      };
+    } catch (error) {
+      if (error.response) {
+        console.error(`Error fetching data for word ${word}:`, {
+          status: error.response.status,
+          statusText: error.response.statusText,
+          data: error.response.data
+        });
+      } else {
+        console.error(`Error fetching data for word ${word}:`, error.message);
+      }
+      throw error; // Let the retry function handle it
+    }
+  });
+  }
+
+// Process words in batches with improved error handling
 // Process words in batches
 async function processWordBatch(words, level) {
   const results = [];
   for (const word of words) {
     try {
+      console.log(`Processing word: ${word}`);
       const wordData = await fetchWordData(word);
       if (wordData) {
         results.push({
           ...wordData,
           jlpt: level
         });
+        console.log(`Successfully processed: ${word}`);
       }
       await sleep(RATE_LIMIT); // Rate limiting
     } catch (error) {
+      console.error(`Failed to process word ${word} after all retries:`, error.message);
+      // Continue with next word instead of failing the entire batch
       console.error(`Error processing word ${word}:`, error.message);
     }
   }
@@ -382,12 +422,14 @@ async function buildVocabularyDatabase() {
 
     for (const [level, words] of Object.entries(JLPT_WORDS)) {
       console.log(`Processing ${level} words...`);
-      
+
       // Process words in batches
       for (let i = 0; i < words.length; i += BATCH_SIZE) {
         const batch = words.slice(i, i + BATCH_SIZE);
-        const batchResults = await processWordBatch(batch, level);
+        console.log(`Processing batch ${i/BATCH_SIZE + 1} of ${Math.ceil(words.length/BATCH_SIZE)} for ${level}`);
         
+        const batchResults = await processWordBatch(batch, level);
+
         // Add to updates
         batchResults.forEach(word => {
           if (word.kana) {
@@ -396,6 +438,14 @@ async function buildVocabularyDatabase() {
         });
 
         console.log(`Processed ${i + batch.length}/${words.length} words for ${level}`);
+        
+        // Save progress after each batch
+        try {
+          await vocabularyRef.update(updates);
+          console.log('Progress saved to database');
+        } catch (error) {
+          console.error('Error saving progress:', error);
+        }
       }
 
       // Add metadata
@@ -406,6 +456,7 @@ async function buildVocabularyDatabase() {
       };
     }
 
+    // Final update
     // Update database
     await vocabularyRef.update(updates);
     console.log('Database build completed successfully!');
@@ -426,4 +477,4 @@ async function main() {
   }
 }
 
-main(); 
+main();
