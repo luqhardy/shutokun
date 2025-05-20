@@ -1,44 +1,4910 @@
 [
-  {
-    "word": "学生",
-    "kana": "がくせい",
-    "romaji": "gakusei",
-    "meaning": "student",
-    "pos": "noun",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "彼は学生です。",
-        "en": "He is a student."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
+ {
+  "word": "意識",
+  "kana": "いしき",
+  "readings": {
+   "hiragana": [
+    "いしき"
+   ],
+   "katakana": []
   },
-  {
-    "word": "水",
-    "kana": "みず",
-    "romaji": "mizu",
-    "meaning": "water",
-    "pos": "noun",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "水をください。",
-        "en": "Please give me water."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
+  "meanings": {
+   "en": [
+    "consciousness",
+    "awareness"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼は意識を取り戻した。",
+    "en": "He regained consciousness."
+   },
+   {
+    "jp": "環境問題への意識が高まっている。",
+    "en": "Awareness of environmental issues is increasing."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
   }
+ },
+ {
+  "word": "安定",
+  "kana": "あんてい",
+  "readings": {
+   "hiragana": [
+    "あんてい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "stability"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この地域は政治的に安定している。",
+    "en": "This region is politically stable."
+   },
+   {
+    "jp": "生活が安定する。",
+    "en": "My life is becoming stable."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "違反",
+  "kana": "いはん",
+  "readings": {
+   "hiragana": [
+    "いはん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "violation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "交通規則に違反する。",
+    "en": "Violate traffic rules."
+   },
+   {
+    "jp": "契約違反だ。",
+    "en": "It's a breach of contract."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "依頼",
+  "kana": "いらい",
+  "readings": {
+   "hiragana": [
+    "いらい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "request"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼に仕事の依頼をした。",
+    "en": "I made a request for work to him."
+   },
+   {
+    "jp": "ご依頼ありがとうございました。",
+    "en": "Thank you for your request."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "医療",
+  "kana": "いりょう",
+  "readings": {
+   "hiragana": [
+    "いりょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "medical care"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この病院は医療設備が充実している。",
+    "en": "This hospital has excellent medical facilities."
+   },
+   {
+    "jp": "医療費が高い。",
+    "en": "Medical expenses are high."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "営業",
+  "kana": "えいぎょう",
+  "readings": {
+   "hiragana": [
+    "えいぎょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "business",
+    "sales"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "営業時間は午前9時から午後5時までです。",
+    "en": "Business hours are from 9 AM to 5 PM."
+   },
+   {
+    "jp": "彼は営業部に配属された。",
+    "en": "He was assigned to the sales department."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "温暖化",
+  "kana": "おんだんか",
+  "readings": {
+   "hiragana": [
+    "おんだんか"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "global warming"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "地球温暖化が深刻な問題だ。",
+    "en": "Global warming is a serious problem."
+   },
+   {
+    "jp": "温暖化対策が必要だ。",
+    "en": "Measures against global warming are necessary."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "価格",
+  "kana": "かかく",
+  "readings": {
+   "hiragana": [
+    "かかく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "price"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この商品の価格はいくらですか？",
+    "en": "What is the price of this product?"
+   },
+   {
+    "jp": "価格競争が激しい。",
+    "en": "Price competition is intense."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "活躍",
+  "kana": "かつやく",
+  "readings": {
+   "hiragana": [
+    "かつやく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "activity",
+    "success"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼は様々な分野で活躍している。",
+    "en": "He is active in various fields."
+   },
+   {
+    "jp": "今後の活躍を期待しています。",
+    "en": "I look forward to your future success."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "過程",
+  "kana": "かてい",
+  "readings": {
+   "hiragana": [
+    "かてい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "process"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "その製造過程を見学した。",
+    "en": "I observed the manufacturing process."
+   },
+   {
+    "jp": "結果よりも過程が重要だ。",
+    "en": "The process is more important than the result."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "価値",
+  "kana": "かち",
+  "readings": {
+   "hiragana": [
+    "かち"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "value"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この絵は高い価値がある。",
+    "en": "This painting has high value."
+   },
+   {
+    "jp": "その経験は貴重な価値がある。",
+    "en": "That experience has precious value."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "仮定",
+  "kana": "かてい",
+  "readings": {
+   "hiragana": [
+    "かてい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "assumption",
+    "hypothesis"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "仮定の話だが…",
+    "en": "It's a hypothetical situation, but..."
+   },
+   {
+    "jp": "その仮定は間違っていた。",
+    "en": "That assumption was wrong."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "競争",
+  "kana": "きょうそう",
+  "readings": {
+   "hiragana": [
+    "きょうそう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "competition"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "激しい競争が繰り広げられている。",
+    "en": "Fierce competition is unfolding."
+   },
+   {
+    "jp": "競争社会で生き抜く。",
+    "en": "To survive in a competitive society."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "共通",
+  "kana": "きょうつう",
+  "readings": {
+   "hiragana": [
+    "きょうつう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "commonness"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "私たちには共通の趣味がある。",
+    "en": "We have common interests."
+   },
+   {
+    "jp": "共通の認識を持つ。",
+    "en": "To have a common understanding."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "協力",
+  "kana": "きょうりょく",
+  "readings": {
+   "hiragana": [
+    "きょうりょく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "cooperation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "皆で協力して作業を進めた。",
+    "en": "We all cooperated to proceed with the work."
+   },
+   {
+    "jp": "ご協力ありがとうございました。",
+    "en": "Thank you for your cooperation."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "許可",
+  "kana": "きょか",
+  "readings": {
+   "hiragana": [
+    "きょか"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "permission"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "先生の許可を得て、早退した。",
+    "en": "I left early with the teacher's permission."
+   },
+   {
+    "jp": "駐車禁止、許可なく駐車するな。",
+    "en": "No parking, do not park without permission."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "吸収",
+  "kana": "きゅうしゅう",
+  "readings": {
+   "hiragana": [
+    "きゅうしゅう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "absorption"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "スポンジは水をよく吸収する。",
+    "en": "Sponges absorb water well."
+   },
+   {
+    "jp": "新しい知識を吸収する。",
+    "en": "To absorb new knowledge."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "強調",
+  "kana": "きょうちょう",
+  "readings": {
+   "hiragana": [
+    "きょうちょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "emphasis"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼はその点の重要性を強調した。",
+    "en": "He emphasized the importance of that point."
+   },
+   {
+    "jp": "言葉を強調して話す。",
+    "en": "To speak with emphasis on words."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "共同",
+  "kana": "きょうどう",
+  "readings": {
+   "hiragana": [
+    "きょうどう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "cooperation",
+    "collaboration"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼らは共同でプロジェクトを進めている。",
+    "en": "They are jointly carrying out the project."
+   },
+   {
+    "jp": "共同開発。",
+    "en": "Joint development."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "記録",
+  "kana": "きろく",
+  "readings": {
+   "hiragana": [
+    "きろく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "record"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "会議の記録をとる。",
+    "en": "To take minutes of the meeting."
+   },
+   {
+    "jp": "世界記録を更新した。",
+    "en": "Set a new world record."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "議論",
+  "kana": "ぎろん",
+  "readings": {
+   "hiragana": [
+    "ぎろん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "argument",
+    "discussion"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "私たちはその問題について議論した。",
+    "en": "We discussed that problem."
+   },
+   {
+    "jp": "活発な議論が交わされた。",
+    "en": "A lively discussion took place."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "禁止",
+  "kana": "きんし",
+  "readings": {
+   "hiragana": [
+    "きんし"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "prohibition"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "立ち入り禁止。",
+    "en": "No entry."
+   },
+   {
+    "jp": "喫煙は禁止されています。",
+    "en": "Smoking is prohibited."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "緊張",
+  "kana": "きんちょう",
+  "readings": {
+   "hiragana": [
+    "きんちょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "tension"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "試験で緊張した。",
+    "en": "I was nervous for the exam."
+   },
+   {
+    "jp": "国際情勢が緊張している。",
+    "en": "International relations are tense."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "偶然",
+  "kana": "ぐうぜん",
+  "readings": {
+   "hiragana": [
+    "ぐうぜん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "coincidence"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "駅で偶然彼に会った。",
+    "en": "I met him by chance at the station."
+   },
+   {
+    "jp": "それは単なる偶然だ。",
+    "en": "That's just a coincidence."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "具体",
+  "kana": "ぐたい",
+  "readings": {
+   "hiragana": [
+    "ぐたい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "concreteness"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "具体例を挙げる。",
+    "en": "To give concrete examples."
+   },
+   {
+    "jp": "もっと具体的に説明してください。",
+    "en": "Please explain in more detail."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "継続",
+  "kana": "けいぞく",
+  "readings": {
+   "hiragana": [
+    "けいぞく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "continuation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この契約は来年も継続される。",
+    "en": "This contract will be continued next year."
+   },
+   {
+    "jp": "学習を継続する。",
+    "en": "To continue studying."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "景気",
+  "kana": "けいき",
+  "readings": {
+   "hiragana": [
+    "けいき"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "business conditions"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "景気が回復してきた。",
+    "en": "Business conditions have recovered."
+   },
+   {
+    "jp": "不景気だ。",
+    "en": "It's a recession."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "警告",
+  "kana": "けいこく",
+  "readings": {
+   "hiragana": [
+    "けいこく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "warning"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "警報が鳴った。",
+    "en": "The alarm sounded."
+   },
+   {
+    "jp": "交通安全に関する警告。",
+    "en": "A warning about traffic safety."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "芸術",
+  "kana": "げいじゅつ",
+  "readings": {
+   "hiragana": [
+    "げいじゅつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "art"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼は芸術に深い理解がある。",
+    "en": "He has a deep understanding of art."
+   },
+   {
+    "jp": "芸術作品。",
+    "en": "Work of art."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "経費",
+  "kana": "けいひ",
+  "readings": {
+   "hiragana": [
+    "けいひ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "expenses"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "出張経費を精算する。",
+    "en": "To settle business trip expenses."
+   },
+   {
+    "jp": "経費削減。",
+    "en": "Cost reduction."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "結果",
+  "kana": "けっか",
+  "readings": {
+   "hiragana": [
+    "けっか"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "result"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "試験の結果が発表された。",
+    "en": "The results of the exam were announced."
+   },
+   {
+    "jp": "努力の結果、成功した。",
+    "en": "As a result of effort, I succeeded."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "結構",
+  "kana": "けっこう",
+  "readings": {
+   "hiragana": [
+    "けっこう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "splendid",
+    "fine"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この料理は結構美味しい。",
+    "en": "This dish is quite delicious."
+   },
+   {
+    "jp": "「お手伝いしましょうか？」「結構です。」",
+    "en": "'Can I help you?' 'No, thank you. (I'm fine).'"
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "健康",
+  "kana": "けんこう",
+  "readings": {
+   "hiragana": [
+    "けんこう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "health"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "健康に気を配る。",
+    "en": "To take care of one's health."
+   },
+   {
+    "jp": "健康診断を受ける。",
+    "en": "To undergo a health check-up."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "現象",
+  "kana": "げんしょう",
+  "readings": {
+   "hiragana": [
+    "げんしょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "phenomenon"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "不思議な現象が起きた。",
+    "en": "A strange phenomenon occurred."
+   },
+   {
+    "jp": "社会現象。",
+    "en": "Social phenomenon."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "現在",
+  "kana": "げんざい",
+  "readings": {
+   "hiragana": [
+    "げんざい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "present"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "現在、東京に住んでいます。",
+    "en": "I currently live in Tokyo."
+   },
+   {
+    "jp": "現在の状況を説明します。",
+    "en": "I will explain the current situation."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "建築",
+  "kana": "けんちく",
+  "readings": {
+   "hiragana": [
+    "けんちく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "construction",
+    "architecture"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新しいビルを建築する。",
+    "en": "To construct a new building."
+   },
+   {
+    "jp": "日本の伝統建築。",
+    "en": "Traditional Japanese architecture."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "貢献",
+  "kana": "こうけん",
+  "readings": {
+   "hiragana": [
+    "こうけん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "contribution"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼は社会に大きく貢献した。",
+    "en": "He made a great contribution to society."
+   },
+   {
+    "jp": "会社の発展に貢献する。",
+    "en": "To contribute to the company's development."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "広告",
+  "kana": "こうこく",
+  "readings": {
+   "hiragana": [
+    "こうこく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "advertisement"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "テレビで新しい車の広告を見た。",
+    "en": "I saw an advertisement for a new car on TV."
+   },
+   {
+    "jp": "インターネット広告。",
+    "en": "Internet advertising."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "攻撃",
+  "kana": "こうげき",
+  "readings": {
+   "hiragana": [
+    "こうげき"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "attack"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "敵を攻撃する。",
+    "en": "To attack the enemy."
+   },
+   {
+    "jp": "サイバー攻撃。",
+    "en": "Cyber attack."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "公正",
+  "kana": "こうせい",
+  "readings": {
+   "hiragana": [
+    "こうせい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "justice",
+    "fairness"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "公正な判断を下す。",
+    "en": "To make a fair judgment."
+   },
+   {
+    "jp": "公正な競争。",
+    "en": "Fair competition."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "構造",
+  "kana": "こうぞう",
+  "readings": {
+   "hiragana": [
+    "こうぞう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "structure"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "建物の構造を調べる。",
+    "en": "To examine the structure of the building."
+   },
+   {
+    "jp": "社会構造。",
+    "en": "Social structure."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "行動",
+  "kana": "こうどう",
+  "readings": {
+   "hiragana": [
+    "こうどう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "action",
+    "behavior"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の行動は理解できない。",
+    "en": "His behavior is incomprehensible."
+   },
+   {
+    "jp": "すぐに行動を起こす。",
+    "en": "To take action immediately."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "効率",
+  "kana": "こうりつ",
+  "readings": {
+   "hiragana": [
+    "こうりつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "efficiency"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "仕事の効率を上げる。",
+    "en": "To increase work efficiency."
+   },
+   {
+    "jp": "効率的な方法。",
+    "en": "An efficient method."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "克服",
+  "kana": "こくふく",
+  "readings": {
+   "hiragana": [
+    "こくふく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "overcoming"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "困難を克服する。",
+    "en": "To overcome difficulties."
+   },
+   {
+    "jp": "病気を克服した。",
+    "en": "Overcame the illness."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "国民",
+  "kana": "こくみん",
+  "readings": {
+   "hiragana": [
+    "こくみん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "citizen",
+    "nation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "国民の義務。",
+    "en": "Citizen's duty."
+   },
+   {
+    "jp": "国民投票が行われる。",
+    "en": "A national referendum is held."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "国内",
+  "kana": "こくない",
+  "readings": {
+   "hiragana": [
+    "こくない"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "domestic"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "国内旅行に行く。",
+    "en": "To go on a domestic trip."
+   },
+   {
+    "jp": "国内の経済状況。",
+    "en": "Domestic economic situation."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "困難",
+  "kana": "こんなん",
+  "readings": {
+   "hiragana": [
+    "こんなん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "difficulty"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "困難に立ち向かう。",
+    "en": "To face difficulties."
+   },
+   {
+    "jp": "解決が困難な問題。",
+    "en": "A difficult problem to solve."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "混乱",
+  "kana": "こんらん",
+  "readings": {
+   "hiragana": [
+    "こんらん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "confusion"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "会議は混乱に陥った。",
+    "en": "The meeting fell into confusion."
+   },
+   {
+    "jp": "情報が混乱している。",
+    "en": "The information is confused."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "差別",
+  "kana": "さべつ",
+  "readings": {
+   "hiragana": [
+    "さべつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "discrimination"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "人種差別をなくす。",
+    "en": "To eliminate racial discrimination."
+   },
+   {
+    "jp": "男女差別。",
+    "en": "Gender discrimination."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "裁判",
+  "kana": "さいばん",
+  "readings": {
+   "hiragana": [
+    "さいばん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "trial",
+    "judgment"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "裁判で争う。",
+    "en": "To contend in court."
+   },
+   {
+    "jp": "裁判官。",
+    "en": "Judge."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "作業",
+  "kana": "さぎょう",
+  "readings": {
+   "hiragana": [
+    "さぎょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "work",
+    "operation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "パソコンでの作業。",
+    "en": "Work on a computer."
+   },
+   {
+    "jp": "危険な作業。",
+    "en": "Dangerous work."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "作者",
+  "kana": "さくしゃ",
+  "readings": {
+   "hiragana": [
+    "さくしゃ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "author"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この小説の作者は誰ですか？",
+    "en": "Who is the author of this novel?"
+   },
+   {
+    "jp": "作者不明の作品。",
+    "en": "Work by an unknown author."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "作品",
+  "kana": "さくひん",
+  "readings": {
+   "hiragana": [
+    "さくひん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "work",
+    "piece of art"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の最新作。",
+    "en": "His latest work."
+   },
+   {
+    "jp": "美術作品。",
+    "en": "Artistic work."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "削除",
+  "kana": "さくじょ",
+  "readings": {
+   "hiragana": [
+    "さくじょ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "deletion"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "ファイルを削除する。",
+    "en": "To delete a file."
+   },
+   {
+    "jp": "リストから名前を削除する。",
+    "en": "To remove a name from the list."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "支持",
+  "kana": "しじ",
+  "readings": {
+   "hiragana": [
+    "しじ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "support"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼は多くの人々の支持を得ている。",
+    "en": "He has the support of many people."
+   },
+   {
+    "jp": "政府を支持する。",
+    "en": "To support the government."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "支出",
+  "kana": "ししゅつ",
+  "readings": {
+   "hiragana": [
+    "ししゅつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "expenditure"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "支出を抑える。",
+    "en": "To curb expenditures."
+   },
+   {
+    "jp": "家計の支出。",
+    "en": "Household expenses."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "事情",
+  "kana": "じじょう",
+  "readings": {
+   "hiragana": [
+    "じじょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "circumstances"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "家庭の事情で退職した。",
+    "en": "I resigned due to family circumstances."
+   },
+   {
+    "jp": "詳しい事情は分かりません。",
+    "en": "I don't know the detailed circumstances."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "施設",
+  "kana": "しせつ",
+  "readings": {
+   "hiragana": [
+    "しせつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "facility"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "公共施設を利用する。",
+    "en": "To use public facilities."
+   },
+   {
+    "jp": "医療施設。",
+    "en": "Medical facility."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "自然",
+  "kana": "しぜん",
+  "readings": {
+   "hiragana": [
+    "しぜん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "nature"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "自然の美しさに感動した。",
+    "en": "I was moved by the beauty of nature."
+   },
+   {
+    "jp": "自然に囲まれた生活。",
+    "en": "Life surrounded by nature."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "市場",
+  "kana": "しじょう",
+  "readings": {
+   "hiragana": [
+    "しじょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "market"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新しい市場を開拓する。",
+    "en": "To develop a new market."
+   },
+   {
+    "jp": "魚市場。",
+    "en": "Fish market."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "システム",
+  "kana": "システム",
+  "readings": {
+   "hiragana": [],
+   "katakana": [
+    "システム"
+   ]
+  },
+  "meanings": {
+   "en": [
+    "system"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "コンピュータシステムを導入する。",
+    "en": "To introduce a computer system."
+   },
+   {
+    "jp": "管理システム。",
+    "en": "Management system."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "指導",
+  "kana": "しどう",
+  "readings": {
+   "hiragana": [
+    "しどう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "guidance"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "先生の指導を受ける。",
+    "en": "To receive guidance from the teacher."
+   },
+   {
+    "jp": "指導者。",
+    "en": "Leader."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "支配",
+  "kana": "しはい",
+  "readings": {
+   "hiragana": [
+    "しはい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "control",
+    "domination"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼はその組織を支配している。",
+    "en": "He controls that organization."
+   },
+   {
+    "jp": "感情に支配される。",
+    "en": "To be controlled by emotions."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "実験",
+  "kana": "じっけん",
+  "readings": {
+   "hiragana": [
+    "じっけん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "experiment"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "科学の実験を行う。",
+    "en": "To conduct a science experiment."
+   },
+   {
+    "jp": "動物実験。",
+    "en": "Animal experiment."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "実現",
+  "kana": "じつげん",
+  "readings": {
+   "hiragana": [
+    "じつげん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "realization",
+    "implementation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "夢を実現する。",
+    "en": "To realize a dream."
+   },
+   {
+    "jp": "計画の実現。",
+    "en": "Implementation of the plan."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "実力",
+  "kana": "じつりょく",
+  "readings": {
+   "hiragana": [
+    "じつりょく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "real ability"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の実力は高い。",
+    "en": "His real ability is high."
+   },
+   {
+    "jp": "実力テスト。",
+    "en": "Ability test."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "収入",
+  "kana": "しゅうにゅう",
+  "readings": {
+   "hiragana": [
+    "しゅうにゅう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "income"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "毎月の収入。",
+    "en": "Monthly income."
+   },
+   {
+    "jp": "収入を増やす。",
+    "en": "To increase income."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "集中",
+  "kana": "しゅうちゅう",
+  "readings": {
+   "hiragana": [
+    "しゅうちゅう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "concentration"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "勉強に集中する。",
+    "en": "To concentrate on studying."
+   },
+   {
+    "jp": "集中力がない。",
+    "en": "Lack of concentration."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "主張",
+  "kana": "しゅちょう",
+  "readings": {
+   "hiragana": [
+    "しゅちょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "assertion",
+    "claim"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "自分の意見を主張する。",
+    "en": "To assert one's opinion."
+   },
+   {
+    "jp": "彼の主張は正しい。",
+    "en": "His claim is correct."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "出発",
+  "kana": "しゅっぱつ",
+  "readings": {
+   "hiragana": [
+    "しゅっぱつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "departure"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "電車が出発する。",
+    "en": "The train departs."
+   },
+   {
+    "jp": "出発時間。",
+    "en": "Departure time."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "出版",
+  "kana": "しゅっぱん",
+  "readings": {
+   "hiragana": [
+    "しゅっぱん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "publication"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新しい本を出版する。",
+    "en": "To publish a new book."
+   },
+   {
+    "jp": "出版社。",
+    "en": "Publisher."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "寿命",
+  "kana": "じゅみょう",
+  "readings": {
+   "hiragana": [
+    "じゅみょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "life span"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "平均寿命が延びた。",
+    "en": "Average life expectancy has increased."
+   },
+   {
+    "jp": "機械の寿命が来た。",
+    "en": "The machine's life span has ended."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "種類",
+  "kana": "しゅるい",
+  "readings": {
+   "hiragana": [
+    "しゅるい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "kind",
+    "type"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "様々な種類の花。",
+    "en": "Various kinds of flowers."
+   },
+   {
+    "jp": "この種類の鳥は珍しい。",
+    "en": "This type of bird is rare."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "瞬間",
+  "kana": "しゅんかん",
+  "readings": {
+   "hiragana": [
+    "しゅんかん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "moment"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "その瞬間、時間が止まったように感じた。",
+    "en": "At that moment, I felt as if time had stopped."
+   },
+   {
+    "jp": "決定的瞬間。",
+    "en": "Decisive moment."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "順番",
+  "kana": "じゅんばん",
+  "readings": {
+   "hiragana": [
+    "じゅんばん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "order",
+    "turn"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "順番に並ぶ。",
+    "en": "To line up in order."
+   },
+   {
+    "jp": "次は私の順番だ。",
+    "en": "It's my turn next."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "処理",
+  "kana": "しょり",
+  "readings": {
+   "hiragana": [
+    "しょり"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "processing",
+    "treatment"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "データを処理する。",
+    "en": "To process data."
+   },
+   {
+    "jp": "ごみ処理施設。",
+    "en": "Waste treatment facility."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "奨学金",
+  "kana": "しょうがくきん",
+  "readings": {
+   "hiragana": [
+    "しょうがくきん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "scholarship"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "奨学金を申請する。",
+    "en": "To apply for a scholarship."
+   },
+   {
+    "jp": "彼は奨学金で大学に通っている。",
+    "en": "He attends university on a scholarship."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "承認",
+  "kana": "しょうにん",
+  "readings": {
+   "hiragana": [
+    "しょうにん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "approval"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "計画が承認された。",
+    "en": "The plan was approved."
+   },
+   {
+    "jp": "上司の承認を得る。",
+    "en": "To get approval from one's boss."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "症状",
+  "kana": "しょうじょう",
+  "readings": {
+   "hiragana": [
+    "しょうじょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "symptom"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "風邪の症状。",
+    "en": "Symptoms of a cold."
+   },
+   {
+    "jp": "症状が改善した。",
+    "en": "Symptoms have improved."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "情報",
+  "kana": "じょうほう",
+  "readings": {
+   "hiragana": [
+    "じょうほう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "information"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新しい情報を得る。",
+    "en": "To obtain new information."
+   },
+   {
+    "jp": "個人情報保護。",
+    "en": "Protection of personal information."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "証明",
+  "kana": "しょうめい",
+  "readings": {
+   "hiragana": [
+    "しょうめい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "proof",
+    "certification"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "身分証明書。",
+    "en": "Identification card."
+   },
+   {
+    "jp": "彼の無実を証明する。",
+    "en": "To prove his innocence."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "消費",
+  "kana": "しょうひ",
+  "readings": {
+   "hiragana": [
+    "しょうひ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "consumption"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "エネルギー消費を抑える。",
+    "en": "To reduce energy consumption."
+   },
+   {
+    "jp": "消費税。",
+    "en": "Consumption tax."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "商品",
+  "kana": "しょうひん",
+  "readings": {
+   "hiragana": [
+    "しょうひん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "product"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新商品を開発する。",
+    "en": "To develop a new product."
+   },
+   {
+    "jp": "人気商品。",
+    "en": "Popular product."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "衝突",
+  "kana": "しょうとつ",
+  "readings": {
+   "hiragana": [
+    "しょうとつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "collision",
+    "conflict"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "車が壁に衝突した。",
+    "en": "The car collided with the wall."
+   },
+   {
+    "jp": "意見の衝突。",
+    "en": "Conflict of opinions."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "信頼",
+  "kana": "しんらい",
+  "readings": {
+   "hiragana": [
+    "しんらい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "trust"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼を信頼している。",
+    "en": "I trust him."
+   },
+   {
+    "jp": "信頼関係を築く。",
+    "en": "To build a trusting relationship."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "深刻",
+  "kana": "しんこく",
+  "readings": {
+   "hiragana": [
+    "しんこく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "serious"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "深刻な問題に直面している。",
+    "en": "Facing serious problems."
+   },
+   {
+    "jp": "彼の表情は深刻だった。",
+    "en": "His expression was serious."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "進学",
+  "kana": "しんがく",
+  "readings": {
+   "hiragana": [
+    "しんがく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "advancing to higher education"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "大学進学を希望する。",
+    "en": "To wish to advance to university."
+   },
+   {
+    "jp": "進学相談。",
+    "en": "Higher education counseling."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "診断",
+  "kana": "しんだん",
+  "readings": {
+   "hiragana": [
+    "しんだん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "diagnosis"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "医師が病気を診断する。",
+    "en": "The doctor diagnoses the illness."
+   },
+   {
+    "jp": "健康診断。",
+    "en": "Health check-up."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "信仰",
+  "kana": "しんこう",
+  "readings": {
+   "hiragana": [
+    "しんこう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "faith",
+    "belief"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "宗教的な信仰。",
+    "en": "Religious faith."
+   },
+   {
+    "jp": "信仰の自由。",
+    "en": "Freedom of belief."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "人工",
+  "kana": "じんこう",
+  "readings": {
+   "hiragana": [
+    "じんこう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "artificial",
+    "human-made"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "人工知能 (AI)。",
+    "en": "Artificial intelligence (AI)."
+   },
+   {
+    "jp": "人工の島。",
+    "en": "Artificial island."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "申請",
+  "kana": "しんせい",
+  "readings": {
+   "hiragana": [
+    "しんせい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "application"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "ビザを申請する。",
+    "en": "To apply for a visa."
+   },
+   {
+    "jp": "申請書を提出する。",
+    "en": "To submit an application form."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "信用",
+  "kana": "しんよう",
+  "readings": {
+   "hiragana": [
+    "しんよう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "trust",
+    "credit"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の言葉を信用する。",
+    "en": "To trust his words."
+   },
+   {
+    "jp": "信用できる人物。",
+    "en": "A trustworthy person."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "心理",
+  "kana": "しんり",
+  "readings": {
+   "hiragana": [
+    "しんり"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "psychology"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "人間の心理を理解する。",
+    "en": "To understand human psychology."
+   },
+   {
+    "jp": "心理学。",
+    "en": "Psychology (academic field)."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "推薦",
+  "kana": "すいせん",
+  "readings": {
+   "hiragana": [
+    "すいせん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "recommendation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼を推薦する。",
+    "en": "To recommend him."
+   },
+   {
+    "jp": "推薦状。",
+    "en": "Letter of recommendation."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "推測",
+  "kana": "すいそく",
+  "readings": {
+   "hiragana": [
+    "すいそく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "guess",
+    "conjecture"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の行動を推測する。",
+    "en": "To guess his actions."
+   },
+   {
+    "jp": "それは単なる推測にすぎない。",
+    "en": "That's just a guess."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "数字",
+  "kana": "すうじ",
+  "readings": {
+   "hiragana": [
+    "すうじ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "number"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "数字を数える。",
+    "en": "To count numbers."
+   },
+   {
+    "jp": "電話番号の数字。",
+    "en": "The digits of a phone number."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "制作",
+  "kana": "せいさく",
+  "readings": {
+   "hiragana": [
+    "せいさく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "production",
+    "creation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "映画を制作する。",
+    "en": "To produce a movie."
+   },
+   {
+    "jp": "アニメーション制作。",
+    "en": "Animation production."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "成長",
+  "kana": "せいちょう",
+  "readings": {
+   "hiragana": [
+    "せいちょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "growth"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "子供の成長を見守る。",
+    "en": "To watch over a child's growth."
+   },
+   {
+    "jp": "経済成長。",
+    "en": "Economic growth."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "製品",
+  "kana": "せいひん",
+  "readings": {
+   "hiragana": [
+    "せいひん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "product"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新製品を発売する。",
+    "en": "To release a new product."
+   },
+   {
+    "jp": "高品質な製品。",
+    "en": "High-quality products."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "政策",
+  "kana": "せいさく",
+  "readings": {
+   "hiragana": [
+    "せいさく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "policy"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "政府の政策。",
+    "en": "Government policy."
+   },
+   {
+    "jp": "新しい政策を導入する。",
+    "en": "To introduce a new policy."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "精神",
+  "kana": "せいしん",
+  "readings": {
+   "hiragana": [
+    "せいしん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "spirit",
+    "mind"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "精神的なサポート。",
+    "en": "Mental support."
+   },
+   {
+    "jp": "スポーツマンシップの精神。",
+    "en": "The spirit of sportsmanship."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "制限",
+  "kana": "せいげん",
+  "readings": {
+   "hiragana": [
+    "せいげん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "restriction"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "スピード制限。",
+    "en": "Speed limit."
+   },
+   {
+    "jp": "使用を制限する。",
+    "en": "To restrict use."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "精算",
+  "kana": "せいさん",
+  "readings": {
+   "hiragana": [
+    "せいさん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "adjustment of accounts"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "交通費を精算する。",
+    "en": "To adjust transportation expenses."
+   },
+   {
+    "jp": "精算機で切符を買う。",
+    "en": "To buy a ticket at the fare adjustment machine."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "製造",
+  "kana": "せいぞう",
+  "readings": {
+   "hiragana": [
+    "せいぞう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "manufacture"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "自動車の製造。",
+    "en": "Automobile manufacturing."
+   },
+   {
+    "jp": "製造工場。",
+    "en": "Manufacturing plant."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "責任",
+  "kana": "せきにん",
+  "readings": {
+   "hiragana": [
+    "せきにん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "responsibility"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼は自分の行動に責任を持つ。",
+    "en": "He takes responsibility for his actions."
+   },
+   {
+    "jp": "重大な責任。",
+    "en": "Serious responsibility."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "積極的",
+  "kana": "せっきょくてき",
+  "readings": {
+   "hiragana": [
+    "せっきょくてき"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "positive",
+    "active"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "積極的に意見を述べる。",
+    "en": "To actively state one's opinion."
+   },
+   {
+    "jp": "積極的な姿勢。",
+    "en": "Positive attitude."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "接近",
+  "kana": "せっきん",
+  "readings": {
+   "hiragana": [
+    "せっきん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "approach"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "台風が接近している。",
+    "en": "A typhoon is approaching."
+   },
+   {
+    "jp": "目標に接近する。",
+    "en": "To approach the goal."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "接続",
+  "kana": "せつぞく",
+  "readings": {
+   "hiragana": [
+    "せつぞく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "connection"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "インターネットに接続する。",
+    "en": "To connect to the internet."
+   },
+   {
+    "jp": "接続詞。",
+    "en": "Conjunction."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "設備",
+  "kana": "せつび",
+  "readings": {
+   "hiragana": [
+    "せつび"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "equipment"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "最新の設備が整っている。",
+    "en": "Equipped with the latest facilities."
+   },
+   {
+    "jp": "冷暖房設備。",
+    "en": "Air conditioning and heating equipment."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "説得",
+  "kana": "せっとく",
+  "readings": {
+   "hiragana": [
+    "せっとく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "persuasion"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼を説得して、参加してもらった。",
+    "en": "I persuaded him to participate."
+   },
+   {
+    "jp": "説得力がある。",
+    "en": "To be persuasive."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "節約",
+  "kana": "せつやく",
+  "readings": {
+   "hiragana": [
+    "せつやく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "saving"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "電気を節約する。",
+    "en": "To save electricity."
+   },
+   {
+    "jp": "生活費の節約。",
+    "en": "Saving on living expenses."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "選択",
+  "kana": "せんたく",
+  "readings": {
+   "hiragana": [
+    "せんたく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "choice",
+    "selection"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "複数の選択肢がある。",
+    "en": "There are multiple choices."
+   },
+   {
+    "jp": "慎重に選択する。",
+    "en": "To choose carefully."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "専用",
+  "kana": "せんよう",
+  "readings": {
+   "hiragana": [
+    "せんよう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "exclusive use"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この駐車場は関係者専用です。",
+    "en": "This parking lot is for authorized personnel only."
+   },
+   {
+    "jp": "女性専用車両。",
+    "en": "Women-only car (on a train)."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "専門",
+  "kana": "せんもん",
+  "readings": {
+   "hiragana": [
+    "せんもん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "specialty"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "私の専門は経済学です。",
+    "en": "My specialty is economics."
+   },
+   {
+    "jp": "専門家。",
+    "en": "Specialist."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "組織",
+  "kana": "そしき",
+  "readings": {
+   "hiragana": [
+    "そしき"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "organization"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "会社組織。",
+    "en": "Company organization."
+   },
+   {
+    "jp": "新しい組織を作る。",
+    "en": "To create a new organization."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "操作",
+  "kana": "そうさ",
+  "readings": {
+   "hiragana": [
+    "そうさ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "operation",
+    "manipulation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "機械を操作する。",
+    "en": "To operate a machine."
+   },
+   {
+    "jp": "パソコン操作。",
+    "en": "Computer operation."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "総合",
+  "kana": "そうごう",
+  "readings": {
+   "hiragana": [
+    "そうごう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "comprehensive",
+    "overall"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "総合病院。",
+    "en": "General hospital."
+   },
+   {
+    "jp": "総合的な評価。",
+    "en": "Comprehensive evaluation."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "想像",
+  "kana": "そうぞう",
+  "readings": {
+   "hiragana": [
+    "そうぞう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "imagination"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "想像力を働かせる。",
+    "en": "To use one's imagination."
+   },
+   {
+    "jp": "想像を超える出来事。",
+    "en": "Events beyond imagination."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "騒音",
+  "kana": "そうおん",
+  "readings": {
+   "hiragana": [
+    "そうおん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "noise"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "騒音問題。",
+    "en": "Noise problem."
+   },
+   {
+    "jp": "隣の部屋から騒音が聞こえる。",
+    "en": "I hear noise from the next room."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "相対",
+  "kana": "そうたい",
+  "readings": {
+   "hiragana": [
+    "そうたい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "relativity"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "相対的な評価。",
+    "en": "Relative evaluation."
+   },
+   {
+    "jp": "相対性理論。",
+    "en": "Theory of relativity."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "存在",
+  "kana": "そんざい",
+  "readings": {
+   "hiragana": [
+    "そんざい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "existence"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "神の存在を信じる。",
+    "en": "To believe in the existence of God."
+   },
+   {
+    "jp": "その問題は今も存在している。",
+    "en": "That problem still exists."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "尊重",
+  "kana": "そんちょう",
+  "readings": {
+   "hiragana": [
+    "そんちょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "respect"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "相手の意見を尊重する。",
+    "en": "To respect the other person's opinion."
+   },
+   {
+    "jp": "人権を尊重する。",
+    "en": "To respect human rights."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "態度",
+  "kana": "たいど",
+  "readings": {
+   "hiragana": [
+    "たいど"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "attitude"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "真剣な態度で話を聞く。",
+    "en": "To listen with a serious attitude."
+   },
+   {
+    "jp": "彼の態度は失礼だ。",
+    "en": "His attitude is rude."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "逮捕",
+  "kana": "たいほ",
+  "readings": {
+   "hiragana": [
+    "たいほ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "arrest"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "犯人が逮捕された。",
+    "en": "The culprit was arrested."
+   },
+   {
+    "jp": "逮捕状。",
+    "en": "Arrest warrant."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "対策",
+  "kana": "たいさく",
+  "readings": {
+   "hiragana": [
+    "たいさく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "countermeasure"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "問題への対策を考える。",
+    "en": "To consider countermeasures for the problem."
+   },
+   {
+    "jp": "地震対策。",
+    "en": "Earthquake countermeasures."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "単純",
+  "kana": "たんじゅん",
+  "readings": {
+   "hiragana": [
+    "たんじゅん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "simplicity"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "単純な質問。",
+    "en": "A simple question."
+   },
+   {
+    "jp": "問題は単純ではない。",
+    "en": "The problem is not simple."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "担当",
+  "kana": "たんとう",
+  "readings": {
+   "hiragana": [
+    "たんとう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "charge",
+    "responsibility"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "このプロジェクトの担当は彼だ。",
+    "en": "He is in charge of this project."
+   },
+   {
+    "jp": "担当者。",
+    "en": "Person in charge."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "地域",
+  "kana": "ちいき",
+  "readings": {
+   "hiragana": [
+    "ちいき"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "area",
+    "region"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この地域の住民。",
+    "en": "Residents of this area."
+   },
+   {
+    "jp": "地域社会。",
+    "en": "Local community."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "地位",
+  "kana": "ちい",
+  "readings": {
+   "hiragana": [
+    "ちい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "position",
+    "status"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "高い地位に就く。",
+    "en": "To attain a high position."
+   },
+   {
+    "jp": "社会的地位。",
+    "en": "Social status."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "注目",
+  "kana": "ちゅうもく",
+  "readings": {
+   "hiragana": [
+    "ちゅうもく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "attention"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の発言に注目が集まった。",
+    "en": "Attention was focused on his remarks."
+   },
+   {
+    "jp": "世界の注目を集める。",
+    "en": "To attract global attention."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "注文",
+  "kana": "ちゅうもん",
+  "readings": {
+   "hiragana": [
+    "ちゅうもん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "order"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "コーヒーを注文する。",
+    "en": "To order coffee."
+   },
+   {
+    "jp": "インターネットで注文した。",
+    "en": "I ordered it online."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "長所",
+  "kana": "ちょうしょ",
+  "readings": {
+   "hiragana": [
+    "ちょうしょ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "strong point"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の長所は明るい性格だ。",
+    "en": "His strong point is his bright personality."
+   },
+   {
+    "jp": "自分の長所を活かす。",
+    "en": "To make the most of one's strengths."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "短所",
+  "kana": "たんしょ",
+  "readings": {
+   "hiragana": [
+    "たんしょ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "weak point"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の短所は優柔不断なところだ。",
+    "en": "His weak point is his indecisiveness."
+   },
+   {
+    "jp": "長所と短所。",
+    "en": "Strengths and weaknesses."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "調査",
+  "kana": "ちょうさ",
+  "readings": {
+   "hiragana": [
+    "ちょうさ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "investigation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "事故の原因を調査する。",
+    "en": "To investigate the cause of the accident."
+   },
+   {
+    "jp": "市場調査。",
+    "en": "Market research."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "挑戦",
+  "kana": "ちょうせん",
+  "readings": {
+   "hiragana": [
+    "ちょうせん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "challenge"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新しいことに挑戦する。",
+    "en": "To challenge oneself with something new."
+   },
+   {
+    "jp": "世界記録への挑戦。",
+    "en": "Challenge for the world record."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "直接",
+  "kana": "ちょくせつ",
+  "readings": {
+   "hiragana": [
+    "ちょくせつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "direct"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼に直接話す。",
+    "en": "To speak directly to him."
+   },
+   {
+    "jp": "直接的な原因。",
+    "en": "Direct cause."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "提案",
+  "kana": "ていあん",
+  "readings": {
+   "hiragana": [
+    "ていあん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "proposal"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新しい計画を提案する。",
+    "en": "To propose a new plan."
+   },
+   {
+    "jp": "彼の提案に賛成する。",
+    "en": "To agree with his proposal."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "提供",
+  "kana": "ていきょう",
+  "readings": {
+   "hiragana": [
+    "ていきょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "offer",
+    "provision"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "情報を提供する。",
+    "en": "To provide information."
+   },
+   {
+    "jp": "サービス提供。",
+    "en": "Service provision."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "程度",
+  "kana": "ていど",
+  "readings": {
+   "hiragana": [
+    "ていど"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "degree",
+    "extent"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "この程度の仕事ならできる。",
+    "en": "I can do this much work."
+   },
+   {
+    "jp": "どの程度進んでいますか？",
+    "en": "To what extent has it progressed?"
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "典型",
+  "kana": "てんけい",
+  "readings": {
+   "hiragana": [
+    "てんけい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "type",
+    "model"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "典型的な例。",
+    "en": "A typical example."
+   },
+   {
+    "jp": "彼は日本人の典型だ。",
+    "en": "He is a typical Japanese person."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "伝統",
+  "kana": "でんとう",
+  "readings": {
+   "hiragana": [
+    "でんとう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "tradition"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "日本の伝統文化。",
+    "en": "Traditional Japanese culture."
+   },
+   {
+    "jp": "伝統を守る。",
+    "en": "To preserve tradition."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "天然",
+  "kana": "てんねん",
+  "readings": {
+   "hiragana": [
+    "てんねん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "nature",
+    "natural"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "天然温泉。",
+    "en": "Natural hot spring."
+   },
+   {
+    "jp": "天然記念物。",
+    "en": "Natural monument."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "統一",
+  "kana": "とういつ",
+  "readings": {
+   "hiragana": [
+    "とういつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "unity",
+    "unification"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "意見を統一する。",
+    "en": "To unify opinions."
+   },
+   {
+    "jp": "南北統一。",
+    "en": "North-South unification."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "到着",
+  "kana": "とうちゃく",
+  "readings": {
+   "hiragana": [
+    "とうちゃく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "arrival"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "電車が駅に到着した。",
+    "en": "The train arrived at the station."
+   },
+   {
+    "jp": "到着時刻。",
+    "en": "Arrival time."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "登録",
+  "kana": "とうろく",
+  "readings": {
+   "hiragana": [
+    "とうろく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "registration"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "会員登録をする。",
+    "en": "To register as a member."
+   },
+   {
+    "jp": "登録番号。",
+    "en": "Registration number."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "投票",
+  "kana": "とうひょう",
+  "readings": {
+   "hiragana": [
+    "とうひょう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "vote"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "選挙で投票する。",
+    "en": "To vote in an election."
+   },
+   {
+    "jp": "投票率が高い。",
+    "en": "Voter turnout is high."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "導入",
+  "kana": "どうにゅう",
+  "readings": {
+   "hiragana": [
+    "どうにゅう"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "introduction",
+    "installation"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "新しいシステムを導入する。",
+    "en": "To introduce a new system."
+   },
+   {
+    "jp": "IT技術の導入。",
+    "en": "Introduction of IT technology."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "特定",
+  "kana": "とくてい",
+  "readings": {
+   "hiragana": [
+    "とくてい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "specific",
+    "particular"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "特定の人物。",
+    "en": "A specific person."
+   },
+   {
+    "jp": "原因を特定する。",
+    "en": "To identify the cause."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "独立",
+  "kana": "どくりつ",
+  "readings": {
+   "hiragana": [
+    "どくりつ"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "independence"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "国が独立する。",
+    "en": "A country becomes independent."
+   },
+   {
+    "jp": "精神的に独立する。",
+    "en": "To become mentally independent."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "突然",
+  "kana": "とつぜん",
+  "readings": {
+   "hiragana": [
+    "とつぜん"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "sudden"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "突然雨が降ってきた。",
+    "en": "It suddenly started raining."
+   },
+   {
+    "jp": "突然の訪問。",
+    "en": "A sudden visit."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "納得",
+  "kana": "なっとく",
+  "readings": {
+   "hiragana": [
+    "なっとく"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "understanding",
+    "consent"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "彼の説明に納得した。",
+    "en": "I was convinced by his explanation."
+   },
+   {
+    "jp": "納得がいかない。",
+    "en": "I can't accept it / It doesn't make sense."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ },
+ {
+  "word": "日程",
+  "kana": "にってい",
+  "readings": {
+   "hiragana": [
+    "にってい"
+   ],
+   "katakana": []
+  },
+  "meanings": {
+   "en": [
+    "schedule",
+    "itinerary"
+   ]
+  },
+  "examples": [
+   {
+    "jp": "旅行の日程を決める。",
+    "en": "To decide the travel itinerary."
+   },
+   {
+    "jp": "会議の日程。",
+    "en": "Meeting schedule."
+   }
+  ],
+  "srs": {
+   "easeFactor": 2.5,
+   "interval": 1,
+   "repetitions": 0,
+   "dueDate": null,
+   "lastReviewed": null
+  }
+ }
 ]

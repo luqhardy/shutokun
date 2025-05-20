@@ -262,7 +262,6 @@ async function fetchVocab() {
         }
         const level = urlParams.get("level");
         const category = urlParams.get("category") || "goi";
-        
         if (!level) {
             throw new Error("Level parameter is missing in the URL.");
         }
@@ -391,24 +390,20 @@ async function loadProgress() {
     try {
         const level = new URLSearchParams(window.location.search).get("level");
         const category = new URLSearchParams(window.location.search).get("category") || "goi";
-        
         // Check if we need to sync
         const lastSync = localStorage.getItem("lastSync");
         const needsSync = !lastSync || (Date.now() - parseInt(lastSync)) > 5 * 60 * 1000; // 5 minutes
-        
         if (needsSync && isOnline) {
             updateSyncStatus('syncing', 'Syncing with server...');
             const savedData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
-            
             if (savedData) {
                 // Merge with local data
                 const localData = JSON.parse(localStorage.getItem("srsData") || "[]");
                 const mergedData = mergeProgressData(savedData, localData);
-                
                 mergedData.forEach((item, i) => {
                     if (vocab[i]) vocab[i].srs = item.srs;
                 });
-                
+
                 // Save merged data back to server
                 await saveProgress(mergedData);
             }
@@ -568,10 +563,13 @@ function showWord() {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
-        <h2>${word.word} (${word.kana})</h2>
-        <p class="hidden-on-start"><strong>Meaning:</strong> ${word.meaning}</p>
-        <p class="hidden-on-start"><strong>Romaji:</strong> ${word.romaji}</p>
-        <p class="hidden-on-start"><strong>Example:</strong><br>${word.examples[0].jp}<br>${word.examples[0].en}</p>
+        <center>
+        <h2>${word.word}</h2>
+        </center>
+        <p class="hidden-on-start"><strong>Reading:</strong> ${word.readings && word.readings.hiragana ? word.readings.hiragana.join(', ') : ''}</p>
+        <p class="hidden-on-start"><strong>Meaning:</strong> ${word.meanings && word.meanings.en ? word.meanings.en.join(', ') : ''}</p>
+        <p class="hidden-on-start"><strong>Romaji:</strong> ${word.romaji || ''}</p>
+        <p class="hidden-on-start"><strong>Example:</strong><br>${word.examples && word.examples[0] ? word.examples[0].jp : ''}<br>${word.examples && word.examples[0] ? word.examples[0].en : ''}</p>
     `;
     cardContainer.appendChild(card);
 
