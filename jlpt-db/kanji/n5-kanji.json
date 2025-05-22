@@ -1,90 +1,18 @@
 [
   {
-    "kanji": "日",
-    "meaning": "day, sun",
-    "on_yomi": ["にち", "じつ"],
-    "kun_yomi": ["ひ", "-び", "-か"],
-    "strokes": 4,
-    "radical": "日",
-    "jlpt": "N5",
-    "compounds": [
-      {
-        "word": "日本",
-        "reading": "にほん",
-        "meaning": "Japan"
-      },
-      {
-        "word": "今日",
-        "reading": "きょう",
-        "meaning": "today"
-      },
-      {
-        "word": "日曜日",
-        "reading": "にちようび",
-        "meaning": "Sunday"
-      }
-    ],
+    "word": "一",
+    "kana": "いち",
+    "readings": {
+      "hiragana": ["いち", "ひと"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["one", "1"]
+    },
     "examples": [
       {
-        "jp": "今日は日曜日です。",
-        "en": "Today is Sunday."
-      }
-    ],
-    "notes": "One of the most fundamental kanji, used in words related to time, dates, and Japan itself.",
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "kanji": "本",
-    "meaning": "book, origin, real",
-    "on_yomi": ["ほん"],
-    "kun_yomi": ["もと"],
-    "strokes": 5,
-    "radical": "木",
-    "jlpt": "N5",
-    "compounds": [
-      {
-        "word": "日本",
-        "reading": "にほん",
-        "meaning": "Japan"
-      },
-      {
-        "word": "本当",
-        "reading": "ほんとう",
-        "meaning": "truth, reality"
-      }
-    ],
-    "examples": [
-      {
-        "jp": "この本は面白いです。",
-        "en": "This book is interesting."
-      }
-    ],
-    "notes": "Very common kanji used in words related to books and authenticity.",
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "学生",
-    "kana": "がくせい",
-    "romaji": "gakusei",
-    "meaning": "student",
-    "pos": "noun",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "彼は学生です。",
-        "en": "He is a student."
+        "jp": "一人",
+        "en": "One person"
       }
     ],
     "srs": {
@@ -96,16 +24,211 @@
     }
   },
   {
-    "word": "水",
-    "kana": "みず",
-    "romaji": "mizu",
-    "meaning": "water",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "七",
+    "kana": "しち",
+    "readings": {
+      "hiragana": ["しち", "なな"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["seven", "7"]
+    },
     "examples": [
       {
-        "jp": "水をください。",
-        "en": "Please give me water."
+        "jp": "七時",
+        "en": "Seven o'clock"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "万",
+    "kana": "まん",
+    "readings": {
+      "hiragana": ["まん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["ten thousand", "10,000"]
+    },
+    "examples": [
+      {
+        "jp": "一万円",
+        "en": "10,000 yen"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "三",
+    "kana": "さん",
+    "readings": {
+      "hiragana": ["さん", "み"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["three", "3"]
+    },
+    "examples": [
+      {
+        "jp": "三人",
+        "en": "Three people"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "上",
+    "kana": "うえ",
+    "readings": {
+      "hiragana": ["うえ", "うわ", "かみ", "あ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["above", "up", "top"]
+    },
+    "examples": [
+      {
+        "jp": "上手",
+        "en": "Skilled"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "下",
+    "kana": "した",
+    "readings": {
+      "hiragana": ["した", "もと", "さ", "くだ", "お"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["below", "down", "under"]
+    },
+    "examples": [
+      {
+        "jp": "下手",
+        "en": "Unskilled"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "中",
+    "kana": "なか",
+    "readings": {
+      "hiragana": ["なか", "ちゅう", "あた"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["middle", "inside", "center"]
+    },
+    "examples": [
+      {
+        "jp": "中国",
+        "en": "China"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "九",
+    "kana": "きゅう",
+    "readings": {
+      "hiragana": ["きゅう", "く", "ここの"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["nine", "9"]
+    },
+    "examples": [
+      {
+        "jp": "九時",
+        "en": "Nine o'clock"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "二",
+    "kana": "に",
+    "readings": {
+      "hiragana": ["に", "ふた"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["two", "2"]
+    },
+    "examples": [
+      {
+        "jp": "二人",
+        "en": "Two people"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "五",
+    "kana": "ご",
+    "readings": {
+      "hiragana": ["ご", "いつ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["five", "5"]
+    },
+    "examples": [
+      {
+        "jp": "五人",
+        "en": "Five people"
       }
     ],
     "srs": {
@@ -119,14 +242,1073 @@
   {
     "word": "人",
     "kana": "ひと",
-    "romaji": "hito",
-    "meaning": "person",
-    "pos": "noun",
-    "jlpt": "N5",
+    "readings": {
+      "hiragana": ["ひと", "じん", "にん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["person", "people"]
+    },
     "examples": [
       {
-        "jp": "彼は良い人です。",
-        "en": "He is a good person."
+        "jp": "日本人",
+        "en": "Japanese person"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "今",
+    "kana": "いま",
+    "readings": {
+      "hiragana": ["いま", "こん", "きん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["now", "present", "current"]
+    },
+    "examples": [
+      {
+        "jp": "今日",
+        "en": "Today"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "休",
+    "kana": "やす",
+    "readings": {
+      "hiragana": ["やす", "きゅう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["rest", "break", "holiday"]
+    },
+    "examples": [
+      {
+        "jp": "休日",
+        "en": "Holiday"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "会",
+    "kana": "かい",
+    "readings": {
+      "hiragana": ["かい", "え", "あ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["meeting", "meet", "party"]
+    },
+    "examples": [
+      {
+        "jp": "会社",
+        "en": "Company"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "何",
+    "kana": "なに",
+    "readings": {
+      "hiragana": ["なに", "なん", "か"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["what", "which"]
+    },
+    "examples": [
+      {
+        "jp": "何時",
+        "en": "What time"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "先",
+    "kana": "さき",
+    "readings": {
+      "hiragana": ["さき", "せん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["before", "ahead", "previous"]
+    },
+    "examples": [
+      {
+        "jp": "先生",
+        "en": "Teacher"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "入",
+    "kana": "いり",
+    "readings": {
+      "hiragana": ["いり", "はい", "い"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["enter", "insert"]
+    },
+    "examples": [
+      {
+        "jp": "入口",
+        "en": "Entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "八",
+    "kana": "はち",
+    "readings": {
+      "hiragana": ["はち", "や"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["eight", "8"]
+    },
+    "examples": [
+      {
+        "jp": "八時",
+        "en": "Eight o'clock"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "六",
+    "kana": "ろく",
+    "readings": {
+      "hiragana": ["ろく", "む"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["six", "6"]
+    },
+    "examples": [
+      {
+        "jp": "六日",
+        "en": "Sixth day"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "円",
+    "kana": "えん",
+    "readings": {
+      "hiragana": ["えん", "まる"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["yen", "circle", "round"]
+    },
+    "examples": [
+      {
+        "jp": "百円",
+        "en": "100 yen"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "出",
+    "kana": "で",
+    "readings": {
+      "hiragana": ["で", "しゅつ", "だ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["exit", "leave", "go out"]
+    },
+    "examples": [
+      {
+        "jp": "出口",
+        "en": "Exit"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "分",
+    "kana": "ぶん",
+    "readings": {
+      "hiragana": ["ぶん", "ふん", "わ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["part", "minute", "divide"]
+    },
+    "examples": [
+      {
+        "jp": "五分",
+        "en": "Five minutes"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "前",
+    "kana": "まえ",
+    "readings": {
+      "hiragana": ["まえ", "ぜん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["before", "in front"]
+    },
+    "examples": [
+      {
+        "jp": "前日",
+        "en": "The previous day"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "北",
+    "kana": "きた",
+    "readings": {
+      "hiragana": ["きた", "ほく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["north"]
+    },
+    "examples": [
+      {
+        "jp": "北口",
+        "en": "North entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "十",
+    "kana": "じゅう",
+    "readings": {
+      "hiragana": ["じゅう", "とお"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["ten", "10"]
+    },
+    "examples": [
+      {
+        "jp": "十日",
+        "en": "Tenth day"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "千",
+    "kana": "せん",
+    "readings": {
+      "hiragana": ["せん", "ち"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["thousand", "1,000"]
+    },
+    "examples": [
+      {
+        "jp": "千円",
+        "en": "1,000 yen"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "午",
+    "kana": "ご",
+    "readings": {
+      "hiragana": ["ご"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["noon", "midday"]
+    },
+    "examples": [
+      {
+        "jp": "午後",
+        "en": "Afternoon"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "半",
+    "kana": "はん",
+    "readings": {
+      "hiragana": ["はん", "なか"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["half", "middle"]
+    },
+    "examples": [
+      {
+        "jp": "半分",
+        "en": "Half"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "南",
+    "kana": "みなみ",
+    "readings": {
+      "hiragana": ["みなみ", "なん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["south"]
+    },
+    "examples": [
+      {
+        "jp": "南口",
+        "en": "South entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "友",
+    "kana": "とも",
+    "readings": {
+      "hiragana": ["とも", "ゆう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["friend"]
+    },
+    "examples": [
+      {
+        "jp": "友達",
+        "en": "Friend"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "口",
+    "kana": "くち",
+    "readings": {
+      "hiragana": ["くち", "こう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["mouth", "opening"]
+    },
+    "examples": [
+      {
+        "jp": "入口",
+        "en": "Entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "古",
+    "kana": "ふる",
+    "readings": {
+      "hiragana": ["ふる", "こ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["old", "ancient"]
+    },
+    "examples": [
+      {
+        "jp": "古い",
+        "en": "Old"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "右",
+    "kana": "みぎ",
+    "readings": {
+      "hiragana": ["みぎ", "う", "ゆう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["right"]
+    },
+    "examples": [
+      {
+        "jp": "右手",
+        "en": "Right hand"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "名",
+    "kana": "な",
+    "readings": {
+      "hiragana": ["な", "めい", "みょう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["name", "famous"]
+    },
+    "examples": [
+      {
+        "jp": "名前",
+        "en": "Name"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "四",
+    "kana": "し",
+    "readings": {
+      "hiragana": ["し", "よん", "よ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["four", "4"]
+    },
+    "examples": [
+      {
+        "jp": "四時",
+        "en": "Four o'clock"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "国",
+    "kana": "くに",
+    "readings": {
+      "hiragana": ["くに", "こく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["country", "nation"]
+    },
+    "examples": [
+      {
+        "jp": "外国",
+        "en": "Foreign country"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "土",
+    "kana": "つち",
+    "readings": {
+      "hiragana": ["つち", "ど"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["soil", "earth", "ground"]
+    },
+    "examples": [
+      {
+        "jp": "土曜日",
+        "en": "Saturday"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "外",
+    "kana": "そと",
+    "readings": {
+      "hiragana": ["そと", "がい", "げ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["outside", "exterior"]
+    },
+    "examples": [
+      {
+        "jp": "外国人",
+        "en": "Foreigner"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "多",
+    "kana": "おお",
+    "readings": {
+      "hiragana": ["おお", "た"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["many", "much", "numerous"]
+    },
+    "examples": [
+      {
+        "jp": "多い",
+        "en": "Many"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "大",
+    "kana": "おお",
+    "readings": {
+      "hiragana": ["おお", "だい", "たい"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["big", "large", "great"]
+    },
+    "examples": [
+      {
+        "jp": "大学",
+        "en": "University"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "天",
+    "kana": "てん",
+    "readings": {
+      "hiragana": ["てん", "あめ", "あま"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["heaven", "sky"]
+    },
+    "examples": [
+      {
+        "jp": "天気",
+        "en": "Weather"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "女",
+    "kana": "おんな",
+    "readings": {
+      "hiragana": ["おんな", "じょ", "にょ", "め"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["woman", "female"]
+    },
+    "examples": [
+      {
+        "jp": "女の子",
+        "en": "Girl"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "子",
+    "kana": "こ",
+    "readings": {
+      "hiragana": ["こ", "し", "す"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["child", "kid"]
+    },
+    "examples": [
+      {
+        "jp": "男の子",
+        "en": "Boy"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "学",
+    "kana": "がく",
+    "readings": {
+      "hiragana": ["がく", "まな"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["study", "learning", "science"]
+    },
+    "examples": [
+      {
+        "jp": "学校",
+        "en": "School"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "安",
+    "kana": "やす",
+    "readings": {
+      "hiragana": ["やす", "あん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["cheap", "peaceful", "safe"]
+    },
+    "examples": [
+      {
+        "jp": "安い",
+        "en": "Cheap"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "小",
+    "kana": "ちい",
+    "readings": {
+      "hiragana": ["ちい", "しょう", "こ", "お"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["small", "little"]
+    },
+    "examples": [
+      {
+        "jp": "小さい",
+        "en": "Small"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "少",
+    "kana": "すこ",
+    "readings": {
+      "hiragana": ["すこ", "しょう", "すく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["few", "little", "small quantity"]
+    },
+    "examples": [
+      {
+        "jp": "少ない",
+        "en": "Few"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+{
+    "word": "西",
+    "kana": "にし",
+    "readings": {
+      "hiragana": ["にし", "せい", "さい"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["west"]
+    },
+    "examples": [
+      {
+        "jp": "西口",
+        "en": "West entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "見",
+    "kana": "み",
+    "readings": {
+      "hiragana": ["み", "けん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["see", "look"]
+    },
+    "examples": [
+      {
+        "jp": "見る",
+        "en": "To see"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "言",
+    "kana": "い",
+    "readings": {
+      "hiragana": ["い", "げん", "ごん", "こと"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["say", "word"]
+    },
+    "examples": [
+      {
+        "jp": "言う",
+        "en": "To say"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "話",
+    "kana": "はな",
+    "readings": {
+      "hiragana": ["はな", "わ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["talk", "speak", "story"]
+    },
+    "examples": [
+      {
+        "jp": "電話",
+        "en": "Telephone"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "語",
+    "kana": "かた",
+    "readings": {
+      "hiragana": ["かた", "ご"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["language", "word"]
+    },
+    "examples": [
+      {
+        "jp": "日本語",
+        "en": "Japanese language"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "読",
+    "kana": "よ",
+    "readings": {
+      "hiragana": ["よ", "どく", "とく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["read"]
+    },
+    "examples": [
+      {
+        "jp": "読む",
+        "en": "To read"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "買",
+    "kana": "か",
+    "readings": {
+      "hiragana": ["か", "ばい"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["buy"]
+    },
+    "examples": [
+      {
+        "jp": "買う",
+        "en": "To buy"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "足",
+    "kana": "あし",
+    "readings": {
+      "hiragana": ["あし", "そく", "た"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["foot", "leg", "sufficient"]
+    },
+    "examples": [
+      {
+        "jp": "足りる",
+        "en": "To be sufficient"
       }
     ],
     "srs": {
@@ -140,14 +1322,1337 @@
   {
     "word": "車",
     "kana": "くるま",
-    "romaji": "kuruma",
-    "meaning": "car",
-    "pos": "noun",
-    "jlpt": "N5",
+    "readings": {
+      "hiragana": ["くるま", "しゃ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["car", "vehicle"]
+    },
     "examples": [
       {
-        "jp": "車を運転します。",
-        "en": "I drive a car."
+        "jp": "電車",
+        "en": "Train"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "七",
+    "kana": "しち",
+    "readings": {
+      "hiragana": ["しち", "なな"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["seven", "7"]
+    },
+    "examples": [
+      {
+        "jp": "七時",
+        "en": "Seven o'clock"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "万",
+    "kana": "まん",
+    "readings": {
+      "hiragana": ["まん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["ten thousand", "10,000"]
+    },
+    "examples": [
+      {
+        "jp": "一万円",
+        "en": "10,000 yen"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "三",
+    "kana": "さん",
+    "readings": {
+      "hiragana": ["さん", "み"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["three", "3"]
+    },
+    "examples": [
+      {
+        "jp": "三人",
+        "en": "Three people"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "上",
+    "kana": "うえ",
+    "readings": {
+      "hiragana": ["うえ", "うわ", "かみ", "あ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["above", "up", "top"]
+    },
+    "examples": [
+      {
+        "jp": "上手",
+        "en": "Skilled"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "下",
+    "kana": "した",
+    "readings": {
+      "hiragana": ["した", "もと", "さ", "くだ", "お"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["below", "down", "under"]
+    },
+    "examples": [
+      {
+        "jp": "下手",
+        "en": "Unskilled"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "中",
+    "kana": "なか",
+    "readings": {
+      "hiragana": ["なか", "ちゅう", "あた"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["middle", "inside", "center"]
+    },
+    "examples": [
+      {
+        "jp": "中国",
+        "en": "China"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "九",
+    "kana": "きゅう",
+    "readings": {
+      "hiragana": ["きゅう", "く", "ここの"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["nine", "9"]
+    },
+    "examples": [
+      {
+        "jp": "九時",
+        "en": "Nine o'clock"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "二",
+    "kana": "に",
+    "readings": {
+      "hiragana": ["に", "ふた"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["two", "2"]
+    },
+    "examples": [
+      {
+        "jp": "二人",
+        "en": "Two people"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "五",
+    "kana": "ご",
+    "readings": {
+      "hiragana": ["ご", "いつ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["five", "5"]
+    },
+    "examples": [
+      {
+        "jp": "五人",
+        "en": "Five people"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "人",
+    "kana": "ひと",
+    "readings": {
+      "hiragana": ["ひと", "じん", "にん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["person", "people"]
+    },
+    "examples": [
+      {
+        "jp": "日本人",
+        "en": "Japanese person"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "今",
+    "kana": "いま",
+    "readings": {
+      "hiragana": ["いま", "こん", "きん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["now", "present", "current"]
+    },
+    "examples": [
+      {
+        "jp": "今日",
+        "en": "Today"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "休",
+    "kana": "やす",
+    "readings": {
+      "hiragana": ["やす", "きゅう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["rest", "break", "holiday"]
+    },
+    "examples": [
+      {
+        "jp": "休日",
+        "en": "Holiday"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "会",
+    "kana": "かい",
+    "readings": {
+      "hiragana": ["かい", "え", "あ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["meeting", "meet", "party"]
+    },
+    "examples": [
+      {
+        "jp": "会社",
+        "en": "Company"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "何",
+    "kana": "なに",
+    "readings": {
+      "hiragana": ["なに", "なん", "か"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["what", "which"]
+    },
+    "examples": [
+      {
+        "jp": "何時",
+        "en": "What time"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "先",
+    "kana": "さき",
+    "readings": {
+      "hiragana": ["さき", "せん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["before", "ahead", "previous"]
+    },
+    "examples": [
+      {
+        "jp": "先生",
+        "en": "Teacher"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "入",
+    "kana": "いり",
+    "readings": {
+      "hiragana": ["いり", "はい", "い"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["enter", "insert"]
+    },
+    "examples": [
+      {
+        "jp": "入口",
+        "en": "Entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "八",
+    "kana": "はち",
+    "readings": {
+      "hiragana": ["はち", "や"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["eight", "8"]
+    },
+    "examples": [
+      {
+        "jp": "八時",
+        "en": "Eight o'clock"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "六",
+    "kana": "ろく",
+    "readings": {
+      "hiragana": ["ろく", "む"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["six", "6"]
+    },
+    "examples": [
+      {
+        "jp": "六日",
+        "en": "Sixth day"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "円",
+    "kana": "えん",
+    "readings": {
+      "hiragana": ["えん", "まる"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["yen", "circle", "round"]
+    },
+    "examples": [
+      {
+        "jp": "百円",
+        "en": "100 yen"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "出",
+    "kana": "で",
+    "readings": {
+      "hiragana": ["で", "しゅつ", "だ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["exit", "leave", "go out"]
+    },
+    "examples": [
+      {
+        "jp": "出口",
+        "en": "Exit"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "分",
+    "kana": "ぶん",
+    "readings": {
+      "hiragana": ["ぶん", "ふん", "わ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["part", "minute", "divide"]
+    },
+    "examples": [
+      {
+        "jp": "五分",
+        "en": "Five minutes"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "前",
+    "kana": "まえ",
+    "readings": {
+      "hiragana": ["まえ", "ぜん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["before", "in front"]
+    },
+    "examples": [
+      {
+        "jp": "前日",
+        "en": "The previous day"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "北",
+    "kana": "きた",
+    "readings": {
+      "hiragana": ["きた", "ほく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["north"]
+    },
+    "examples": [
+      {
+        "jp": "北口",
+        "en": "North entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "十",
+    "kana": "じゅう",
+    "readings": {
+      "hiragana": ["じゅう", "とお"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["ten", "10"]
+    },
+    "examples": [
+      {
+        "jp": "十日",
+        "en": "Tenth day"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "千",
+    "kana": "せん",
+    "readings": {
+      "hiragana": ["せん", "ち"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["thousand", "1,000"]
+    },
+    "examples": [
+      {
+        "jp": "千円",
+        "en": "1,000 yen"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "午",
+    "kana": "ご",
+    "readings": {
+      "hiragana": ["ご"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["noon", "midday"]
+    },
+    "examples": [
+      {
+        "jp": "午後",
+        "en": "Afternoon"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "半",
+    "kana": "はん",
+    "readings": {
+      "hiragana": ["はん", "なか"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["half", "middle"]
+    },
+    "examples": [
+      {
+        "jp": "半分",
+        "en": "Half"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "南",
+    "kana": "みなみ",
+    "readings": {
+      "hiragana": ["みなみ", "なん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["south"]
+    },
+    "examples": [
+      {
+        "jp": "南口",
+        "en": "South entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "友",
+    "kana": "とも",
+    "readings": {
+      "hiragana": ["とも", "ゆう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["friend"]
+    },
+    "examples": [
+      {
+        "jp": "友達",
+        "en": "Friend"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "口",
+    "kana": "くち",
+    "readings": {
+      "hiragana": ["くち", "こう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["mouth", "opening"]
+    },
+    "examples": [
+      {
+        "jp": "入口",
+        "en": "Entrance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "古",
+    "kana": "ふる",
+    "readings": {
+      "hiragana": ["ふる", "こ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["old", "ancient"]
+    },
+    "examples": [
+      {
+        "jp": "古い",
+        "en": "Old"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "右",
+    "kana": "みぎ",
+    "readings": {
+      "hiragana": ["みぎ", "う", "ゆう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["right"]
+    },
+    "examples": [
+      {
+        "jp": "右手",
+        "en": "Right hand"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "名",
+    "kana": "な",
+    "readings": {
+      "hiragana": ["な", "めい", "みょう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["name", "famous"]
+    },
+    "examples": [
+      {
+        "jp": "名前",
+        "en": "Name"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "四",
+    "kana": "し",
+    "readings": {
+      "hiragana": ["し", "よん", "よ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["four", "4"]
+    },
+    "examples": [
+      {
+        "jp": "四時",
+        "en": "Four o'clock"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "国",
+    "kana": "くに",
+    "readings": {
+      "hiragana": ["くに", "こく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["country", "nation"]
+    },
+    "examples": [
+      {
+        "jp": "外国",
+        "en": "Foreign country"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "土",
+    "kana": "つち",
+    "readings": {
+      "hiragana": ["つち", "ど"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["soil", "earth", "ground"]
+    },
+    "examples": [
+      {
+        "jp": "土曜日",
+        "en": "Saturday"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "外",
+    "kana": "そと",
+    "readings": {
+      "hiragana": ["そと", "がい", "げ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["outside", "exterior"]
+    },
+    "examples": [
+      {
+        "jp": "外国人",
+        "en": "Foreigner"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "多",
+    "kana": "おお",
+    "readings": {
+      "hiragana": ["おお", "た"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["many", "much", "numerous"]
+    },
+    "examples": [
+      {
+        "jp": "多い",
+        "en": "Many"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "大",
+    "kana": "おお",
+    "readings": {
+      "hiragana": ["おお", "だい", "たい"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["big", "large", "great"]
+    },
+    "examples": [
+      {
+        "jp": "大学",
+        "en": "University"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "天",
+    "kana": "てん",
+    "readings": {
+      "hiragana": ["てん", "あめ", "あま"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["heaven", "sky"]
+    },
+    "examples": [
+      {
+        "jp": "天気",
+        "en": "Weather"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "女",
+    "kana": "おんな",
+    "readings": {
+      "hiragana": ["おんな", "じょ", "にょ", "め"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["woman", "female"]
+    },
+    "examples": [
+      {
+        "jp": "女の子",
+        "en": "Girl"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "子",
+    "kana": "こ",
+    "readings": {
+      "hiragana": ["こ", "し", "す"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["child", "kid"]
+    },
+    "examples": [
+      {
+        "jp": "男の子",
+        "en": "Boy"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "学",
+    "kana": "がく",
+    "readings": {
+      "hiragana": ["がく", "まな"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["study", "learning", "science"]
+    },
+    "examples": [
+      {
+        "jp": "学校",
+        "en": "School"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "安",
+    "kana": "やす",
+    "readings": {
+      "hiragana": ["やす", "あん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["cheap", "peaceful", "safe"]
+    },
+    "examples": [
+      {
+        "jp": "安い",
+        "en": "Cheap"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "小",
+    "kana": "ちい",
+    "readings": {
+      "hiragana": ["ちい", "しょう", "こ", "お"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["small", "little"]
+    },
+    "examples": [
+      {
+        "jp": "小さい",
+        "en": "Small"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "少",
+    "kana": "すこ",
+    "readings": {
+      "hiragana": ["すこ", "しょう", "すく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["few", "little", "small quantity"]
+    },
+    "examples": [
+      {
+        "jp": "少ない",
+        "en": "Few"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "山",
+    "kana": "やま",
+    "readings": {
+      "hiragana": ["やま", "さん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["mountain"]
+    },
+    "examples": [
+      {
+        "jp": "山田",
+        "en": "Yamada (surname)"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "川",
+    "kana": "かわ",
+    "readings": {
+      "hiragana": ["かわ", "せん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["river", "stream"]
+    },
+    "examples": [
+      {
+        "jp": "川口",
+        "en": "Kawaguchi (place name)"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "左",
+    "kana": "ひだり",
+    "readings": {
+      "hiragana": ["ひだり", "さ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["left"]
+    },
+    "examples": [
+      {
+        "jp": "左手",
+        "en": "Left hand"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "年",
+    "kana": "とし",
+    "readings": {
+      "hiragana": ["とし", "ねん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["year"]
+    },
+    "examples": [
+      {
+        "jp": "今年",
+        "en": "This year"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "店",
+    "kana": "みせ",
+    "readings": {
+      "hiragana": ["みせ", "てん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["store", "shop"]
+    },
+    "examples": [
+      {
+        "jp": "本屋さん",
+        "en": "Bookstore"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "後",
+    "kana": "あと",
+    "readings": {
+      "hiragana": ["あと", "ご", "のち"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["after", "behind", "later"]
+    },
+    "examples": [
+      {
+        "jp": "後ろ",
+        "en": "Behind"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "手",
+    "kana": "て",
+    "readings": {
+      "hiragana": ["て", "しゅ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["hand"]
+    },
+    "examples": [
+      {
+        "jp": "手紙",
+        "en": "Letter"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "新",
+    "kana": "あたら",
+    "readings": {
+      "hiragana": ["あたら", "しん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["new"]
+    },
+    "examples": [
+      {
+        "jp": "新聞",
+        "en": "Newspaper"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "日",
+    "kana": "ひ",
+    "readings": {
+      "hiragana": ["ひ", "にち", "か", "じつ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["day", "sun", "Japan"]
+    },
+    "examples": [
+      {
+        "jp": "日本",
+        "en": "Japan"
       }
     ],
     "srs": {
@@ -160,15 +2665,18 @@
   },
   {
     "word": "時",
-    "kana": "じ",
-    "romaji": "ji",
-    "meaning": "time, hour",
-    "pos": "noun",
-    "jlpt": "N5",
+    "kana": "とき",
+    "readings": {
+      "hiragana": ["とき", "じ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["time", "hour", "occasion"]
+    },
     "examples": [
       {
-        "jp": "今は何時ですか？",
-        "en": "What time is it now?"
+        "jp": "時間",
+        "en": "Time"
       }
     ],
     "srs": {
@@ -180,16 +2688,19 @@
     }
   },
   {
-    "word": "友達",
-    "kana": "ともだち",
-    "romaji": "tomodachi",
-    "meaning": "friend",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "書",
+    "kana": "か",
+    "readings": {
+      "hiragana": ["か", "しょ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["write", "book"]
+    },
     "examples": [
       {
-        "jp": "私は友達と遊びます。",
-        "en": "I hang out with my friends."
+        "jp": "辞書",
+        "en": "Dictionary"
       }
     ],
     "srs": {
@@ -201,16 +2712,19 @@
     }
   },
   {
-    "word": "天気",
-    "kana": "てんき",
-    "romaji": "tenki",
-    "meaning": "weather",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "月",
+    "kana": "つき",
+    "readings": {
+      "hiragana": ["つき", "がつ", "げつ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["moon", "month"]
+    },
     "examples": [
       {
-        "jp": "今日は天気がいいですね。",
-        "en": "The weather is nice today."
+        "jp": "一月",
+        "en": "January"
       }
     ],
     "srs": {
@@ -222,16 +2736,19 @@
     }
   },
   {
-    "word": "食べる",
-    "kana": "たべる",
-    "romaji": "taberu",
-    "meaning": "to eat",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "木",
+    "kana": "き",
+    "readings": {
+      "hiragana": ["き", "もく", "こ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["tree", "wood"]
+    },
     "examples": [
       {
-        "jp": "朝ご飯を食べます。",
-        "en": "I eat breakfast."
+        "jp": "木曜日",
+        "en": "Thursday"
       }
     ],
     "srs": {
@@ -243,16 +2760,19 @@
     }
   },
   {
-    "word": "見る",
-    "kana": "みる",
-    "romaji": "miru",
-    "meaning": "to see, to look at",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "本",
+    "kana": "ほん",
+    "readings": {
+      "hiragana": ["ほん", "もと"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["book", "origin", "true"]
+    },
     "examples": [
       {
-        "jp": "テレビを見ます。",
-        "en": "I watch TV."
+        "jp": "日本",
+        "en": "Japan"
       }
     ],
     "srs": {
@@ -264,16 +2784,19 @@
     }
   },
   {
-    "word": "行く",
-    "kana": "いく",
-    "romaji": "iku",
-    "meaning": "to go",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "来",
+    "kana": "く",
+    "readings": {
+      "hiragana": ["く", "らい", "きた"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["come", "arrive", "next"]
+    },
     "examples": [
       {
-        "jp": "学校に行きます。",
-        "en": "I go to school."
+        "jp": "来月",
+        "en": "Next month"
       }
     ],
     "srs": {
@@ -285,16 +2808,19 @@
     }
   },
   {
-    "word": "来る",
-    "kana": "くる",
-    "romaji": "kuru",
-    "meaning": "to come",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "東",
+    "kana": "ひがし",
+    "readings": {
+      "hiragana": ["ひがし", "とう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["east"]
+    },
     "examples": [
       {
-        "jp": "友達が来ます。",
-        "en": "My friend is coming."
+        "jp": "東京",
+        "en": "Tokyo"
       }
     ],
     "srs": {
@@ -306,16 +2832,19 @@
     }
   },
   {
-    "word": "帰る",
-    "kana": "かえる",
-    "romaji": "kaeru",
-    "meaning": "to return, to go back",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "母",
+    "kana": "はは",
+    "readings": {
+      "hiragana": ["はは", "ぼ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["mother"]
+    },
     "examples": [
       {
-        "jp": "家に帰ります。",
-        "en": "I will return home."
+        "jp": "母親",
+        "en": "Mother"
       }
     ],
     "srs": {
@@ -327,16 +2856,19 @@
     }
   },
   {
-    "word": "大きい",
-    "kana": "おおきい",
-    "romaji": "ookii",
-    "meaning": "big, large",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "毎",
+    "kana": "まい",
+    "readings": {
+      "hiragana": ["まい"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["every", "each"]
+    },
     "examples": [
       {
-        "jp": "大きい犬がいます。",
-        "en": "There is a big dog."
+        "jp": "毎日",
+        "en": "Every day"
       }
     ],
     "srs": {
@@ -348,16 +2880,19 @@
     }
   },
   {
-    "word": "小さい",
-    "kana": "ちいさい",
-    "romaji": "chiisai",
-    "meaning": "small, little",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "気",
+    "kana": "き",
+    "readings": {
+      "hiragana": ["き", "け"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["spirit", "mind", "air"]
+    },
     "examples": [
       {
-        "jp": "小さい猫がいます。",
-        "en": "There is a small cat."
+        "jp": "天気",
+        "en": "Weather"
       }
     ],
     "srs": {
@@ -369,16 +2904,19 @@
     }
   },
   {
-    "word": "新しい",
-    "kana": "あたらしい",
-    "romaji": "atarashii",
-    "meaning": "new",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "水",
+    "kana": "みず",
+    "readings": {
+      "hiragana": ["みず", "すい"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["water"]
+    },
     "examples": [
       {
-        "jp": "新しい本を買いました。",
-        "en": "I bought a new book."
+        "jp": "水曜日",
+        "en": "Wednesday"
       }
     ],
     "srs": {
@@ -390,16 +2928,19 @@
     }
   },
   {
-    "word": "古い",
-    "kana": "ふるい",
-    "romaji": "furui",
-    "meaning": "old (not used for people)",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "火",
+    "kana": "ひ",
+    "readings": {
+      "hiragana": ["ひ", "か"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["fire"]
+    },
     "examples": [
       {
-        "jp": "古い車を売りました。",
-        "en": "I sold an old car."
+        "jp": "火曜日",
+        "en": "Tuesday"
       }
     ],
     "srs": {
@@ -411,16 +2952,19 @@
     }
   },
   {
-    "word": "高い",
-    "kana": "たかい",
-    "romaji": "takai",
-    "meaning": "high, expensive",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "父",
+    "kana": "ちち",
+    "readings": {
+      "hiragana": ["ちち", "ふ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["father"]
+    },
     "examples": [
       {
-        "jp": "この店は高いです。",
-        "en": "This store is expensive."
+        "jp": "父親",
+        "en": "Father"
       }
     ],
     "srs": {
@@ -432,16 +2976,19 @@
     }
   },
   {
-    "word": "安い",
-    "kana": "やすい",
-    "romaji": "yasui",
-    "meaning": "cheap, inexpensive",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "生",
+    "kana": "い",
+    "readings": {
+      "hiragana": ["い", "せい", "しょう", "き", "なま", "う"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["life", "birth", "raw"]
+    },
     "examples": [
       {
-        "jp": "安い靴を買いました。",
-        "en": "I bought cheap shoes."
+        "jp": "学生",
+        "en": "Student"
       }
     ],
     "srs": {
@@ -453,16 +3000,19 @@
     }
   },
   {
-    "word": "忙しい",
-    "kana": "いそがしい",
-    "romaji": "isogashii",
-    "meaning": "busy",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "男",
+    "kana": "おとこ",
+    "readings": {
+      "hiragana": ["おとこ", "だん", "なん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["man", "male"]
+    },
     "examples": [
       {
-        "jp": "今日は忙しいです。",
-        "en": "I am busy today."
+        "jp": "男の人",
+        "en": "Man"
       }
     ],
     "srs": {
@@ -474,16 +3024,19 @@
     }
   },
   {
-    "word": "良い",
-    "kana": "よい",
-    "romaji": "yoi",
-    "meaning": "good",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "白",
+    "kana": "しろ",
+    "readings": {
+      "hiragana": ["しろ", "はく", "しら"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["white"]
+    },
     "examples": [
       {
-        "jp": "良い天気ですね。",
-        "en": "The weather is good, isn't it?"
+        "jp": "白い",
+        "en": "White"
       }
     ],
     "srs": {
@@ -495,16 +3048,19 @@
     }
   },
   {
-    "word": "悪い",
-    "kana": "わるい",
-    "romaji": "warui",
-    "meaning": "bad",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "百",
+    "kana": "ひゃく",
+    "readings": {
+      "hiragana": ["ひゃく", "もも"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["hundred", "100"]
+    },
     "examples": [
       {
-        "jp": "今日は悪い日です。",
-        "en": "Today is a bad day."
+        "jp": "百円",
+        "en": "100 yen"
       }
     ],
     "srs": {
@@ -516,16 +3072,19 @@
     }
   },
   {
-    "word": "暑い",
-    "kana": "あつい",
-    "romaji": "atsui",
-    "meaning": "hot (weather)",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "目",
+    "kana": "め",
+    "readings": {
+      "hiragana": ["め", "もく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["eye", "item"]
+    },
     "examples": [
       {
-        "jp": "今日は暑いですね。",
-        "en": "It's hot today, isn't it?"
+        "jp": "目的",
+        "en": "Purpose"
       }
     ],
     "srs": {
@@ -537,16 +3096,19 @@
     }
   },
   {
-    "word": "寒い",
-    "kana": "さむい",
-    "romaji": "samui",
-    "meaning": "cold (weather)",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "社",
+    "kana": "しゃ",
+    "readings": {
+      "hiragana": ["しゃ", "やしろ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["company", "shrine", "society"]
+    },
     "examples": [
       {
-        "jp": "今日は寒いです。",
-        "en": "It's cold today."
+        "jp": "会社",
+        "en": "Company"
       }
     ],
     "srs": {
@@ -558,16 +3120,19 @@
     }
   },
   {
-    "word": "大丈夫",
-    "kana": "だいじょうぶ",
-    "romaji": "daijoubu",
-    "meaning": "okay, alright",
-    "pos": "adjective",
-    "jlpt": "N5",
+    "word": "空",
+    "kana": "そら",
+    "readings": {
+      "hiragana": ["そら", "くう", "あ", "から"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["sky", "empty"]
+    },
     "examples": [
       {
-        "jp": "大丈夫ですか？",
-        "en": "Are you okay?"
+        "jp": "空港",
+        "en": "Airport"
       }
     ],
     "srs": {
@@ -579,16 +3144,19 @@
     }
   },
   {
-    "word": "元気",
-    "kana": "げんき",
-    "romaji": "genki",
-    "meaning": "healthy, energetic",
-    "pos": "noun, adjective",
-    "jlpt": "N5",
+    "word": "立",
+    "kana": "た",
+    "readings": {
+      "hiragana": ["た", "りつ", "りゅう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["stand", "establish"]
+    },
     "examples": [
       {
-        "jp": "元気ですか？",
-        "en": "How are you?"
+        "jp": "立つ",
+        "en": "To stand"
       }
     ],
     "srs": {
@@ -600,16 +3168,19 @@
     }
   },
   {
-    "word": "自分",
-    "kana": "じぶん",
-    "romaji": "jibun",
-    "meaning": "oneself",
-    "pos": "pronoun",
-    "jlpt": "N5",
+    "word": "耳",
+    "kana": "みみ",
+    "readings": {
+      "hiragana": ["みみ", "じ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["ear"]
+    },
     "examples": [
       {
-        "jp": "自分でやります。",
-        "en": "I will do it myself."
+        "jp": "耳が痛い",
+        "en": "Ear hurts"
       }
     ],
     "srs": {
@@ -621,16 +3192,19 @@
     }
   },
   {
-    "word": "色",
-    "kana": "いろ",
-    "romaji": "iro",
-    "meaning": "color",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "聞",
+    "kana": "き",
+    "readings": {
+      "hiragana": ["き", "ぶん", "もん"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["hear", "ask", "listen"]
+    },
     "examples": [
       {
-        "jp": "好きな色は何ですか？",
-        "en": "What is your favorite color?"
+        "jp": "聞く",
+        "en": "To hear/listen"
       }
     ],
     "srs": {
@@ -642,16 +3216,19 @@
     }
   },
   {
-    "word": "お金",
-    "kana": "おかね",
-    "romaji": "okane",
-    "meaning": "money",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "花",
+    "kana": "はな",
+    "readings": {
+      "hiragana": ["はな", "か"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["flower"]
+    },
     "examples": [
       {
-        "jp": "お金がありません。",
-        "en": "I don't have money."
+        "jp": "花見",
+        "en": "Cherry blossom viewing"
       }
     ],
     "srs": {
@@ -663,16 +3240,19 @@
     }
   },
   {
-    "word": "車",
-    "kana": "くるま",
-    "romaji": "kuruma",
-    "meaning": "car",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "行",
+    "kana": "い",
+    "readings": {
+      "hiragana": ["い", "こう", "ぎょう", "ゆ", "おこな"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["go", "travel", "conduct"]
+    },
     "examples": [
       {
-        "jp": "私は車を運転します。",
-        "en": "I drive a car."
+        "jp": "行く",
+        "en": "To go"
       }
     ],
     "srs": {
@@ -684,16 +3264,19 @@
     }
   },
   {
-    "word": "食べる",
-    "kana": "たべる",
-    "romaji": "taberu",
-    "meaning": "to eat",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "話",
+    "kana": "はなし",
+    "readings": {
+      "hiragana": ["はなし", "わ"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["talk", "story"]
+    },
     "examples": [
       {
-        "jp": "昼ごはんを食べます。",
-        "en": "I will eat lunch."
+        "jp": "話す",
+        "en": "To talk"
       }
     ],
     "srs": {
@@ -705,16 +3288,19 @@
     }
   },
   {
-    "word": "飲む",
-    "kana": "のむ",
-    "romaji": "nomu",
-    "meaning": "to drink",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "米",
+    "kana": "こめ",
+    "readings": {
+      "hiragana": ["こめ", "べい", "まい"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["rice", "USA"]
+    },
     "examples": [
       {
-        "jp": "水を飲みます。",
-        "en": "I will drink water."
+        "jp": "米国",
+        "en": "United States"
       }
     ],
     "srs": {
@@ -726,16 +3312,19 @@
     }
   },
   {
-    "word": "見る",
-    "kana": "みる",
-    "romaji": "miru",
-    "meaning": "to see, to look at",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "米",
+    "kana": "こめ",
+    "readings": {
+      "hiragana": ["こめ", "べい", "まい"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["rice", "USA"]
+    },
     "examples": [
       {
-        "jp": "テレビを見ます。",
-        "en": "I will watch TV."
+        "jp": "米国",
+        "en": "United States"
       }
     ],
     "srs": {
@@ -747,16 +3336,19 @@
     }
   },
   {
-    "word": "聞く",
-    "kana": "きく",
-    "romaji": "kiku",
-    "meaning": "to ask, to listen",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "青",
+    "kana": "あお",
+    "readings": {
+      "hiragana": ["あお", "せい", "しょう"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["blue", "green"]
+    },
     "examples": [
       {
-        "jp": "先生に聞きます。",
-        "en": "I will ask the teacher."
+        "jp": "青い",
+        "en": "Blue"
       }
     ],
     "srs": {
@@ -768,16 +3360,19 @@
     }
   },
   {
-    "word": "話す",
-    "kana": "はなす",
-    "romaji": "hanasu",
-    "meaning": "to speak, to talk",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "赤",
+    "kana": "あか",
+    "readings": {
+      "hiragana": ["あか", "せき", "しゃく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["red"]
+    },
     "examples": [
       {
-        "jp": "日本語を話します。",
-        "en": "I speak Japanese."
+        "jp": "赤い",
+        "en": "Red"
       }
     ],
     "srs": {
@@ -789,940 +3384,19 @@
     }
   },
   {
-    "word": "読む",
-    "kana": "よむ",
-    "romaji": "yomu",
-    "meaning": "to read",
-    "pos": "verb",
-    "jlpt": "N5",
+    "word": "黒",
+    "kana": "くろ",
+    "readings": {
+      "hiragana": ["くろ", "こく"],
+      "katakana": []
+    },
+    "meanings": {
+      "en": ["black"]
+    },
     "examples": [
       {
-        "jp": "本を読みます。",
-        "en": "I read a book."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "書く",
-    "kana": "かく",
-    "romaji": "kaku",
-    "meaning": "to write",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "手紙を書きます。",
-        "en": "I will write a letter."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "買う",
-    "kana": "かう",
-    "romaji": "kau",
-    "meaning": "to buy",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "新しい靴を買いました。",
-        "en": "I bought new shoes."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "売る",
-    "kana": "うる",
-    "romaji": "uru",
-    "meaning": "to sell",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "店で服を売っています。",
-        "en": "They sell clothes at the store."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "立つ",
-    "kana": "たつ",
-    "romaji": "tatsu",
-    "meaning": "to stand",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "席に立ちます。",
-        "en": "I stand up at my seat."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "座る",
-    "kana": "すわる",
-    "romaji": "suwaru",
-    "meaning": "to sit",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "ここに座ってください。",
-        "en": "Please sit here."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "歩く",
-    "kana": "あるく",
-    "romaji": "aruku",
-    "meaning": "to walk",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "公園を歩きます。",
-        "en": "I walk in the park."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "走る",
-    "kana": "はしる",
-    "romaji": "hashiru",
-    "meaning": "to run",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "毎朝走ります。",
-        "en": "I run every morning."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "泳ぐ",
-    "kana": "およぐ",
-    "romaji": "oyogu",
-    "meaning": "to swim",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "海で泳ぎます。",
-        "en": "I swim in the sea."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "入る",
-    "kana": "はいる",
-    "romaji": "hairu",
-    "meaning": "to enter",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "部屋に入ります。",
-        "en": "I enter the room."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "出る",
-    "kana": "でる",
-    "romaji": "deru",
-    "meaning": "to exit, to leave",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "家を出ます。",
-        "en": "I leave the house."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "乗る",
-    "kana": "のる",
-    "romaji": "noru",
-    "meaning": "to get on, to ride",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "電車に乗ります。",
-        "en": "I get on the train."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "降りる",
-    "kana": "おりる",
-    "romaji": "oriru",
-    "meaning": "to get off, to descend",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "バスを降ります。",
-        "en": "I get off the bus."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "着く",
-    "kana": "つく",
-    "romaji": "tsuku",
-    "meaning": "to arrive",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "駅に着きます。",
-        "en": "I arrive at the station."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "使う",
-    "kana": "つかう",
-    "romaji": "tsukau",
-    "meaning": "to use",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "パソコンを使います。",
-        "en": "I use a computer."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "作る",
-    "kana": "つくる",
-    "romaji": "tsukuru",
-    "meaning": "to make, to create",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "ケーキを作ります。",
-        "en": "I make a cake."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "始まる",
-    "kana": "はじまる",
-    "romaji": "hajimaru",
-    "meaning": "to begin, to start",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "授業が始まります。",
-        "en": "The class starts."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "終わる",
-    "kana": "おわる",
-    "romaji": "owaru",
-    "meaning": "to end, to finish",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "仕事が終わりました。",
-        "en": "The work has finished."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "開ける",
-    "kana": "あける",
-    "romaji": "akeru",
-    "meaning": "to open (something)",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "窓を開けます。",
-        "en": "I open the window."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "閉める",
-    "kana": "しめる",
-    "romaji": "shimeru",
-    "meaning": "to close (something)",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "ドアを閉めてください。",
-        "en": "Please close the door."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "切る",
-    "kana": "きる",
-    "romaji": "kiru",
-    "meaning": "to cut",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "紙を切ります。",
-        "en": "I cut the paper."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "売る",
-    "kana": "うる",
-    "romaji": "uru",
-    "meaning": "to sell",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "本を売ります。",
-        "en": "I sell books."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "買う",
-    "kana": "かう",
-    "romaji": "kau",
-    "meaning": "to buy",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "パンを買います。",
-        "en": "I buy bread."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "払う",
-    "kana": "はらう",
-    "romaji": "harau",
-    "meaning": "to pay",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "お金を払います。",
-        "en": "I pay money."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "借りる",
-    "kana": "かりる",
-    "romaji": "kariru",
-    "meaning": "to borrow",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "本を借ります。",
-        "en": "I borrow a book."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "貸す",
-    "kana": "かす",
-    "romaji": "kasu",
-    "meaning": "to lend",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "友達にお金を貸しました。",
-        "en": "I lent money to a friend."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "返す",
-    "kana": "かえす",
-    "romaji": "kaesu",
-    "meaning": "to return (something)",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "本を図書館に返しました。",
-        "en": "I returned the book to the library."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "教える",
-    "kana": "おしえる",
-    "romaji": "oshieru",
-    "meaning": "to teach, to tell",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "日本語を教えます。",
-        "en": "I teach Japanese."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "習う",
-    "kana": "ならう",
-    "romaji": "narau",
-    "meaning": "to learn",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "ピアノを習っています。",
-        "en": "I am learning the piano."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "覚える",
-    "kana": "おぼえる",
-    "romaji": "oboeru",
-    "meaning": "to memorize, to remember",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "漢字を覚えます。",
-        "en": "I memorize kanji."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "忘れる",
-    "kana": "わすれる",
-    "romaji": "wasureru",
-    "meaning": "to forget",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "宿題を忘れました。",
-        "en": "I forgot my homework."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "考える",
-    "kana": "かんがえる",
-    "romaji": "kangaeru",
-    "meaning": "to think",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "よく考えてください。",
-        "en": "Please think carefully."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "知る",
-    "kana": "しる",
-    "romaji": "shiru",
-    "meaning": "to know",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "彼の名前を知っています。",
-        "en": "I know his name."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "住む",
-    "kana": "すむ",
-    "romaji": "sumu",
-    "meaning": "to live (somewhere)",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "東京に住んでいます。",
-        "en": "I live in Tokyo."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "働く",
-    "kana": "はたらく",
-    "romaji": "hataraku",
-    "meaning": "to work",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "会社で働いています。",
-        "en": "I work at a company."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "作る",
-    "kana": "つくる",
-    "romaji": "tsukuru",
-    "meaning": "to make, to create",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "ケーキを作りました。",
-        "en": "I made a cake."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "使う",
-    "kana": "つかう",
-    "romaji": "tsukau",
-    "meaning": "to use",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "辞書を使います。",
-        "en": "I use a dictionary."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "立つ",
-    "kana": "たつ",
-    "romaji": "tatsu",
-    "meaning": "to stand",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "席に立ちます。",
-        "en": "I stand up from the seat."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "座る",
-    "kana": "すわる",
-    "romaji": "suwaru",
-    "meaning": "to sit",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "ここに座ってください。",
-        "en": "Please sit here."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "歩く",
-    "kana": "あるく",
-    "romaji": "aruku",
-    "meaning": "to walk",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "駅まで歩きます。",
-        "en": "I walk to the station."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "走る",
-    "kana": "はしる",
-    "romaji": "hashiru",
-    "meaning": "to run",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "公園を走ります。",
-        "en": "I run in the park."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "開ける",
-    "kana": "あける",
-    "romaji": "akeru",
-    "meaning": "to open (something)",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "窓を開けてください。",
-        "en": "Please open the window."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "閉める",
-    "kana": "しめる",
-    "romaji": "shimeru",
-    "meaning": "to close (something)",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "ドアを閉めます。",
-        "en": "I close the door."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "始まる",
-    "kana": "はじまる",
-    "romaji": "hajimaru",
-    "meaning": "to begin, to start (intransitive)",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "授業が始まります。",
-        "en": "The class is starting."
-      }
-    ],
-    "srs": {
-      "easeFactor": 2.5,
-      "interval": 1,
-      "repetitions": 0,
-      "dueDate": null,
-      "lastReviewed": null
-    }
-  },
-  {
-    "word": "終わる",
-    "kana": "おわる",
-    "romaji": "owaru",
-    "meaning": "to finish, to end",
-    "pos": "verb",
-    "jlpt": "N5",
-    "examples": [
-      {
-        "jp": "仕事が終わりました。",
-        "en": "The work has finished."
+        "jp": "黒い",
+        "en": "Black"
       }
     ],
     "srs": {
@@ -1734,4 +3408,3 @@
     }
   }
 ]
-
