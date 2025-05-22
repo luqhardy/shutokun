@@ -16,5 +16,7 @@ yarn-error.log
 *.swo
 
 # OS
+assets/Thumbs.db
+assets/.DS_Store
 .DS_Store
 Thumbs.db
