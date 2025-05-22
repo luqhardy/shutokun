@@ -585,10 +585,5 @@ const queryOptimizations = {
 // Add the query optimizations to the firebaseDB object
 Object.assign(firebaseDB, queryOptimizations);
 
-// Initialize offline persistence when the script loads
-firebaseDB.enableOfflinePersistence().catch(error => {
-    console.error("Failed to enable offline persistence:", error);
-});
-
 // Make firebaseDB available globally
-window.firebaseDB = firebaseDB; 
+window.firebaseDB = firebaseDB;
