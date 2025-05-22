@@ -221,33 +221,29 @@
     <!-- Sync Status -->
     <div id="sync-status" class="sync-status"></div>
 
-    <header>
-        <div class="header-left">
-            <button class="hamburger-menu" id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
-        </div>
-        <div class="auth-container">
-            <button id="loginBtn" class="auth-button">Sign in</button>
-            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
-        </div>
-    </header>
+<header>
+    <div class="header-left">
+    <button class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+    </div>
+    <div class="auth-container">
+    <button id="loginBtn" class="auth-button">Sign in</button>
+    <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+    </div>
+</header>
 
-    <!-- Navigation Menu -->
-    <nav class="nav-menu" id="nav-menu">
-        <div class="nav-content">
-            <a href="index.html" class="active">Home</a>
-            <a href="srs-ui.html">SRS Study</a>
-            <a href="hirakata.html">Kana Practice</a>
-            <a href="about.html">About</a>
-            <a href="how-to-use.html">How to Use</a>
-            <button id="loginBtn" class="login-btn">Sign in</button>
-            <button id="logoutBtn" class="logout-btn" style="display: none;">Sign out</button>
-        </div>
-    </nav>
+<!-- Navigation Menu -->
+<nav class="nav-menu" id="nav-menu">
+    <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="how-to-use.html">How To Use</a></li>
+    <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
 
     <!-- JLPT Level buttons -->
     <div class="button-container">
@@ -264,6 +260,7 @@
     <!-- Scripts -->
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
+    <!-- script.jsの読み込みをbody直前に移動 -->
     <script type="module">
         import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
         window.debounce = debounce;
@@ -273,7 +270,6 @@
         window.hideLoading = hideLoading;
         window.updateSyncStatus = updateSyncStatus;
     </script>
-    
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
@@ -395,28 +391,42 @@
             try {
                 // Set up authentication state observer
                 firebase.auth().onAuthStateChanged((user) => {
-                    const loginBtn = document.getElementById('loginBtn');
-                    const logoutBtn = document.getElementById('logoutBtn');
+                    const loginBtnHeader = document.getElementById('loginBtnHeader');
+                    const logoutBtnHeader = document.getElementById('logoutBtnHeader');
+                    const loginBtnNav = document.getElementById('loginBtnNav');
+                    const logoutBtnNav = document.getElementById('logoutBtnNav');
                     
                     if (user) {
-                        if (loginBtn) loginBtn.style.display = 'none';
-                        if (logoutBtn) logoutBtn.style.display = 'block';
+                        if (loginBtnHeader) loginBtnHeader.style.display = 'none';
+                        if (logoutBtnHeader) logoutBtnHeader.style.display = 'block';
+                        if (loginBtnNav) loginBtnNav.style.display = 'none';
+                        if (logoutBtnNav) logoutBtnNav.style.display = 'block';
                         updateProgressBars();
                     } else {
-                        if (loginBtn) loginBtn.style.display = 'block';
-                        if (logoutBtn) logoutBtn.style.display = 'none';
+                        if (loginBtnHeader) loginBtnHeader.style.display = 'block';
+                        if (logoutBtnHeader) logoutBtnHeader.style.display = 'none';
+                        if (loginBtnNav) loginBtnNav.style.display = 'block';
+                        if (logoutBtnNav) logoutBtnNav.style.display = 'none';
                     }
                 });
 
                 // Set up event listeners
-                const loginBtn = document.getElementById('loginBtn');
-                const logoutBtn = document.getElementById('logoutBtn');
+                const loginBtnHeader = document.getElementById('loginBtnHeader');
+                const logoutBtnHeader = document.getElementById('logoutBtnHeader');
+                const loginBtnNav = document.getElementById('loginBtnNav');
+                const logoutBtnNav = document.getElementById('logoutBtnNav');
                 
-                if (loginBtn) {
-                    loginBtn.addEventListener('click', signInWithGoogle);
+                if (loginBtnHeader) {
+                    loginBtnHeader.addEventListener('click', signInWithGoogle);
                 }
-                if (logoutBtn) {
-                    logoutBtn.addEventListener('click', signOut);
+                if (logoutBtnHeader) {
+                    logoutBtnHeader.addEventListener('click', signOut);
+                }
+                if (loginBtnNav) {
+                    loginBtnNav.addEventListener('click', signInWithGoogle);
+                }
+                if (logoutBtnNav) {
+                    logoutBtnNav.addEventListener('click', signOut);
                 }
 
                 // Set up network status indicator
@@ -435,4 +445,5 @@
         });
     </script>
 </body>
+<script src="script.js"></script>
 </html>

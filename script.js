@@ -751,6 +751,15 @@ document.addEventListener("DOMContentLoaded", () => {
             logoutBtn.addEventListener('click', signOut);
         }
 
+        const loginBtnHeader = document.getElementById('loginBtnHeader');
+        const logoutBtnHeader = document.getElementById('logoutBtnHeader');
+        const loginBtnNav = document.getElementById('loginBtnNav');
+        const logoutBtnNav = document.getElementById('logoutBtnNav');
+        if (loginBtnHeader) loginBtnHeader.addEventListener('click', signInWithGoogle);
+        if (logoutBtnHeader) logoutBtnHeader.addEventListener('click', signOut);
+        if (loginBtnNav) loginBtnNav.addEventListener('click', signInWithGoogle);
+        if (logoutBtnNav) logoutBtnNav.addEventListener('click', signOut);
+
         // Set up network status indicator
         if (navigator.onLine) {
             updateSyncStatus('synced', 'Online');

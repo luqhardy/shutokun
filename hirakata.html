@@ -207,7 +207,7 @@
 <body>
     <header>
         <div class="header-left">
-            <button class="hamburger-menu" id="hamburger-menu">
+            <button class="hamburger-menu" id="hamburger-menu" type="button">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -215,8 +215,8 @@
             <img src="assets/logo.png" alt="Shutokun logo" class="logo">
         </div>
         <div class="auth-container">
-            <button id="loginBtn" class="auth-button">Sign in with Google</button>
-            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+            <button id="loginBtn" class="auth-button" type="button">Sign in with Google</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;" type="button">Sign out</button>
         </div>
     </header>
 
@@ -237,9 +237,9 @@
 
     <main class="practice-container">
         <div class="mode-selector">
-            <button class="mode-button active" onclick="setMode('hiragana', event)">Hiragana</button>
-            <button class="mode-button" onclick="setMode('katakana', event)">Katakana</button>
-            <button class="mode-button" onclick="setMode('mixed', event)">Mixed</button>
+            <button class="mode-button active" onclick="setMode('hiragana', event)" type="button">Hiragana</button>
+            <button class="mode-button" onclick="setMode('katakana', event)" type="button">Katakana</button>
+            <button class="mode-button" onclick="setMode('mixed', event)" type="button">Mixed</button>
         </div>
 
         <div class="practice-settings" style="margin: 1rem 0; display: flex; gap: 1rem; justify-content: center;">
@@ -420,6 +420,7 @@
         // Initialize Firebase
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
+            firebase.analytics(); // Analytics初期化
         }
 
         let currentUser = null;
@@ -560,6 +561,10 @@
                 if (data) {
                     kanaProgress = data.progress || {};
                     stats = data.stats || stats;
+                    // セッション統計のkanaAttemptedも復元
+                    if (data.sessionStats && Array.isArray(data.sessionStats.kanaAttempted)) {
+                        sessionStats.kanaAttempted = new Set(data.sessionStats.kanaAttempted);
+                    }
                 }
                 initializeKanaProgress();
                 throttledUpdateStats();
@@ -580,6 +585,11 @@
                     const data = JSON.parse(savedProgress);
                     kanaProgress = data.progress || {};
                     stats = data.stats || stats;
+                    // セッション統計のkanaAttemptedも復元
+                    if (data.sessionStats && Array.isArray(data.sessionStats.kanaAttempted)) {
+                        sessionStats.kanaAttempted = new Set(data.sessionStats.kanaAttempted);
+                    }
+                    initializeKanaProgress();
                     throttledUpdateStats();
                 }
             } catch (error) {
@@ -593,7 +603,11 @@
             const data = {
                 progress: kanaProgress,
                 stats: stats,
-                lastModified: Date.now()
+                lastModified: Date.now(),
+                sessionStats: {
+                    ...sessionStats,
+                    kanaAttempted: Array.from(sessionStats.kanaAttempted) // Set→配列で保存
+                }
             };
 
             if (currentUser) {
@@ -653,6 +667,28 @@
             document.getElementById('streak').textContent = stats.streak;
         }
 
+        // 難易度フィルタのロジック修正版
+        function getFilteredKanaList() {
+            let list;
+            if (currentMode === 'mixed') {
+                const randomMode = Math.random() < 0.5 ? 'hiragana' : 'katakana';
+                list = kanaData[randomMode];
+            } else {
+                list = kanaData[currentMode];
+            }
+
+            if (difficulty === 'basic') {
+                // 清音（濁点・半濁点・小書き文字を除外）
+                list = list.filter(k => k.kana.match(/^[\u3042-\u3093\u30A2-\u30F3]$/));
+            } else if (difficulty === 'dakuten') {
+                // 濁点・半濁点のみ
+                list = list.filter(k => k.kana.match(/^[が-ぽガ-ポぱ-ぽパ-ポ]$/));
+            }
+            // all: すべて
+            return list;
+        }
+
+        // setModeのevent未定義時の処理
         function setMode(mode, event) {
             currentMode = mode;
             document.querySelectorAll('.mode-button').forEach(btn => {
@@ -665,38 +701,17 @@
             nextKana();
         }
 
-        function updatePracticeSettings() {
-            practiceMode = document.getElementById('practice-mode').value;
-            difficulty = document.getElementById('difficulty').value;
-            nextKana();
-        }
-
-        function getFilteredKanaList() {
-            let list;
-            if (currentMode === 'mixed') {
-                const randomMode = Math.random() < 0.5 ? 'hiragana' : 'katakana';
-                list = kanaData[randomMode];
-            } else {
-                list = kanaData[currentMode];
-            }
-
-            // Filter based on difficulty
-            if (difficulty === 'basic') {
-                list = list.filter(k => !k.kana.match(/[が-ぽガ-ポ]/));
-            } else if (difficulty === 'dakuten') {
-                list = list.filter(k => k.kana.match(/[が-ぽガ-ポ]/) && !k.kana.match(/[ぱ-ぽパ-ポ]/));
-            }
-
-            return list;
-        }
-
+        // nextKanaでリストが空の場合のエラーハンドリング
         function nextKana() {
             const kanaDisplay = document.getElementById('kana-display');
             kanaDisplay.classList.remove('correct', 'incorrect');
-            
             const list = getFilteredKanaList();
+            if (!list || list.length === 0) {
+                kanaDisplay.textContent = 'No kana for this setting.';
+                document.getElementById('answer').placeholder = '';
+                return;
+            }
             currentKana = list[Math.floor(Math.random() * list.length)];
-            
             if (practiceMode === 'writing') {
                 kanaDisplay.textContent = currentKana.romaji;
                 document.getElementById('answer').placeholder = 'Type kana...';
@@ -704,7 +719,6 @@
                 kanaDisplay.textContent = currentKana.kana;
                 document.getElementById('answer').placeholder = 'Type romaji...';
             }
-            
             const answerInput = document.getElementById('answer');
             answerInput.value = '';
             answerInput.focus();
@@ -789,6 +803,7 @@
             summary.style.display = 'block';
         }
 
+        // startNewSessionでSetを正しく初期化
         function startNewSession() {
             sessionStartTime = Date.now();
             sessionStats = {
@@ -849,5 +864,7 @@
             }
         });
     </script>
+    <script src="firebase-db.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
