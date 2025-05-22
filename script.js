@@ -4,28 +4,14 @@ let showAnswerBtn;
 let srsButtons;
 let currentUser = null;
 
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
-    authDomain: "shutokun.firebaseapp.com",
-    projectId: "shutokun",
-    storageBucket: "shutokun.appspot.com",
-    messagingSenderId: "120770573657",
-    appId: "1:120770573657:web:692c54b821b0a51c138848",
-    measurementId: "G-GJG5NT05DH"
-};
-
-// Initialize Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+// Firebase initialization will be handled by firebase-connection.js
 
 // Auth state observer
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
         // User is signed in
         currentUser = user;
-        document.getElementById('loginBtn').style.display = 'none';
+        document.getE// Connection monitoring is handled by firebase-connection.js'loginBtn').style.display = 'none';
         document.getElementById('logoutBtn').style.display = 'block';
         console.log("User is signed in:", user.displayName);
         
@@ -297,17 +283,69 @@ async function fetchVocab() {
     }
 }
 
-// Network status monitoring
+// Network status monitoring with reconnection logic
 let isOnline = navigator.onLine;
-window.addEventListener('online', () => {
+let reconnectAttempts = 0;
+const maxReconnectAttempts = 5;
+
+function handleOnline() {
     isOnline = true;
+    reconnectAttempts = 0;
     updateSyncStatus('syncing', 'Back online. Syncing...');
-    debouncedSaveProgress();
-});
-window.addEventListener('offline', () => {
+    
+    // Get database instance and try to reconnect
+    const db = firebase.database();
+    db.goOnline();
+    
+    // Try to sync any pending changes
+    if (currentUser) {
+        debouncedSaveProgress();
+    }
+}
+
+function handleOffline() {
     isOnline = false;
-    updateSyncStatus('error', 'Offline mode');
-    showError('You are offline. Changes will be saved locally.');
+    updateSyncStatus('error', 'Offline mode - changes saved locally');
+}
+
+// Enhanced reconnection logic
+async function attemptReconnect() {
+    if (!isOnline && reconnectAttempts < maxReconnectAttempts) {
+        reconnectAttempts++;
+        updateSyncStatus('syncing', `Attempting to reconnect (${reconnectAttempts}/${maxReconnectAttempts})...`);
+        
+        try {
+            const db = firebase.database();
+            await db.goOnline();
+            console.log('Reconnection successful');
+            handleOnline();
+        } catch (error) {
+            console.warn('Reconnection attempt failed:', error);
+            if (reconnectAttempts < maxReconnectAttempts) {
+                // Exponential backoff for retry
+                const delay = Math.min(1000 * Math.pow(2, reconnectAttempts - 1), 30000);
+                setTimeout(attemptReconnect, delay);
+            } else {
+                updateSyncStatus('error', 'Could not reconnect to server');
+            }
+        }
+    }
+}
+
+// Set up network status listeners
+window.addEventListener('online', handleOnline);
+window.addEventListener('offline', handleOffline);
+
+// Monitor Firebase connection state
+const db = firebase.database();
+const connectedRef = db.ref('.info/connected');
+connectedRef.on('value', (snap) => {
+    if (snap.val() === true) {
+        handleOnline();
+    } else if (isOnline) {
+        // If we think we're online but Firebase says we're not, try to reconnect
+        attemptReconnect();
+    }
 });
 
 // Enhanced progress saving with sync queue

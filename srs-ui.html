@@ -13,23 +13,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
-    
-    <!-- Application Scripts -->
-    <script src="firebase-connection.js"></script>
-    <script src="firebase-db.js"></script>
-    <script type="module">
-        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
-        // Attach to window for legacy code compatibility
-        window.debounce = debounce;
-        window.throttle = throttle;
-        window.showError = showError;
-        window.showLoading = showLoading;
-        window.hideLoading = hideLoading;
-        window.updateSyncStatus = updateSyncStatus;
-    </script>
-    <script src="auth-navigation.js"></script>
-    <script src="script.js"></script>
-    
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Loading States */
@@ -187,17 +170,10 @@
     </nav>
 
     <main class="study-container">
-        <!-- SRS Progress Container -->
-        <div class="srs-progress-container" role="status" aria-live="polite">
-            <div class="progress-stats">
-                <p id="srs-repetitions">Repetitions: 0</p>
-                <p id="srs-interval">Next interval: 1 day</p>
-                <p id="srs-due-date">Due: Not reviewed yet</p>
-                <p id="sync-status" class="synced">Synced</p>
-            </div>
-            <progress id="srs-progress" value="0" max="100" aria-label="Study progress"></progress>
+        <!-- Free Mode Banner -->
+        <div id="free-mode-banner" style="display:none; margin-bottom:1rem; padding:1rem; background:#e3f2fd; color:#1565c0; border-radius:8px; text-align:center; font-weight:500;">
+            Practicing with your <b>imported vocabulary</b> (Free Mode)
         </div>
-
         <!-- Review Queue Status -->
         <div class="review-status" role="status" aria-live="polite">
             <div class="review-count">
@@ -236,6 +212,17 @@
             </button>
         </div>
 
+        <!-- SRS Progress Container -->
+        <div class="srs-progress-container" role="status" aria-live="polite">
+            <div class="progress-stats">
+                <p id="srs-repetitions">Repetitions: 0</p>
+                <p id="srs-interval">Next interval: 1 day</p>
+                <p id="srs-due-date">Due: Not reviewed yet</p>
+                <p id="sync-status" class="synced">Synced</p>
+            </div>
+            <progress id="srs-progress" value="0" max="100" aria-label="Study progress"></progress>
+        </div>
+
         <!-- Navigation -->
         <div class="navigation-container">
             <button onclick="window.location.href='index.html'" class="nav-button" aria-label="Return to home page">Back to Home</button>
@@ -254,13 +241,13 @@
             </ul>
         </div>
     </main>
-    <!-- Scripts: ensure correct order and after DOM -->
-    <script src="firebase-connection.js"></script>
+
+    <!-- Scripts -->
     <script src="firebase-db.js"></script>
-    <script src="auth-navigation.js"></script>
     <script src="script.js"></script>
     <script type="module">
         import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+        // Attach to window for legacy code compatibility
         window.debounce = debounce;
         window.throttle = throttle;
         window.showError = showError;
