@@ -20,6 +20,13 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 
+// Enable offline persistence after Firebase is initialized
+if (window.firebaseDB && typeof window.firebaseDB.enableOfflinePersistence === 'function') {
+    window.firebaseDB.enableOfflinePersistence().catch(error => {
+        console.error("Failed to enable offline persistence:", error);
+    });
+}
+
 // Auth state observer
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {

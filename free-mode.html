@@ -45,10 +45,22 @@
         <i class="fas fa-moon"></i>
     </button>
 
+    <!-- Application Scripts -->
+    <script src="firebase-connection.js"></script>
     <script src="firebase-db.js"></script>
+    <script type="module">
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+        // Attach to window for legacy code compatibility
+        window.debounce = debounce;
+        window.throttle = throttle;
+        window.showError = showError;
+        window.showLoading = showLoading;
+        window.hideLoading = hideLoading;
+        window.updateSyncStatus = updateSyncStatus;
+    </script>
+    <script src="auth-navigation.js"></script>
     <script src="script.js"></script>
     <script>
-        // Hamburger menu toggle
         const hamburger = document.getElementById('hamburger-menu');
         const navMenu = document.getElementById('nav-menu');
         hamburger.addEventListener('click', () => {

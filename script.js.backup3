@@ -4,29 +4,14 @@ let showAnswerBtn;
 let srsButtons;
 let currentUser = null;
 
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
-    authDomain: "shutokun.firebaseapp.com",
-    projectId: "shutokun",
-    storageBucket: "shutokun.appspot.com",
-    messagingSenderId: "120770573657",
-    appId: "1:120770573657:web:692c54b821b0a51c138848",
-    measurementId: "G-GJG5NT05DH"
-};
-
-// Initialize Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+// Firebase initialization will be handled by firebase-connection.js
 
 // Auth state observer
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
         // User is signed in
         currentUser = user;
-        document.getElementById('loginBtn').style.display = 'none';
-        document.getElementById('logoutBtn').style.display = 'block';
+        updateAuthButtons(true);
         console.log("User is signed in:", user.displayName);
         
         // Load user's progress if we're on the SRS page
@@ -41,6 +26,22 @@ firebase.auth().onAuthStateChanged(async (user) => {
         console.log("User is signed out");
     }
 });
+
+// Update auth buttons visibility
+function updateAuthButtons(isSignedIn) {
+    const buttonsToShow = isSignedIn ? ['logoutBtn', 'logoutBtnHeader', 'logoutBtnNav'] : ['loginBtn', 'loginBtnHeader', 'loginBtnNav'];
+    const buttonsToHide = isSignedIn ? ['loginBtn', 'loginBtnHeader', 'loginBtnNav'] : ['logoutBtn', 'logoutBtnHeader', 'logoutBtnNav'];
+    
+    buttonsToShow.forEach(id => {
+        const button = document.getElementById(id);
+        if (button) button.style.display = 'block';
+    });
+    
+    buttonsToHide.forEach(id => {
+        const button = document.getElementById(id);
+        if (button) button.style.display = 'none';
+    });
+}
 
 function updateReviewQueueCounts() {
     const now = Date.now();
@@ -228,12 +229,12 @@ async function fetchVocab() {
                 setTimeout(() => window.location.href = 'free-mode-import.html', 2000);
                 return;
             }
-            vocab = JSON.parse(localVocab);
+            shutokun.srs.vocab = JSON.parse(localVocab);
             // Load SRS progress for Free Mode
             const srsProgress = localStorage.getItem('srsData_free');
             if (srsProgress) {
                 const progressArr = JSON.parse(srsProgress);
-                vocab = vocab.map((item, i) => ({
+                shutokun.srs.vocab = shutokun.srs.vocab.map((item, i) => ({
                     ...item,
                     srs: progressArr[i]?.srs || {
                         easeFactor: 2.5,
@@ -243,23 +244,13 @@ async function fetchVocab() {
                         dueDate: null
                     }
                 }));
-            } else {
-                vocab = vocab.map(item => ({
-                    ...item,
-                    srs: {
-                        easeFactor: item.srs?.easeFactor ?? 2.5,
-                        interval: item.srs?.interval ?? 1,
-                        repetitions: item.srs?.repetitions ?? 0,
-                        lastReviewed: item.srs?.lastReviewed ?? null,
-                        dueDate: item.srs?.dueDate ?? null
-                    }
-                }));
             }
             throttledUpdateUI();
-            showWord();
+            shutokun.srs.showWord();
             hideLoading();
             return;
         }
+
         const level = urlParams.get("level");
         const category = urlParams.get("category") || "goi";
         if (!level) {
@@ -274,7 +265,7 @@ async function fetchVocab() {
         const data = await response.json();
 
         // Initialize SRS data
-        vocab = data.map(item => ({
+        shutokun.srs.vocab = data.map(item => ({
             ...item,
             srs: {
                 easeFactor: 2.5,
@@ -288,7 +279,7 @@ async function fetchVocab() {
 
         await loadProgress();
         throttledUpdateUI();
-        showWord();
+        shutokun.srs.showWord();
     } catch (error) {
         console.error("Failed to fetch vocabulary:", error);
         showError("Failed to load vocabulary. Please try again.");
@@ -297,17 +288,69 @@ async function fetchVocab() {
     }
 }
 
-// Network status monitoring
+// Network status monitoring with reconnection logic
 let isOnline = navigator.onLine;
-window.addEventListener('online', () => {
+let reconnectAttempts = 0;
+const maxReconnectAttempts = 5;
+
+function handleOnline() {
     isOnline = true;
+    reconnectAttempts = 0;
     updateSyncStatus('syncing', 'Back online. Syncing...');
-    debouncedSaveProgress();
-});
-window.addEventListener('offline', () => {
+    
+    // Get database instance and try to reconnect
+    const db = firebase.database();
+    db.goOnline();
+    
+    // Try to sync any pending changes
+    if (currentUser) {
+        debouncedSaveProgress();
+    }
+}
+
+function handleOffline() {
     isOnline = false;
-    updateSyncStatus('error', 'Offline mode');
-    showError('You are offline. Changes will be saved locally.');
+    updateSyncStatus('error', 'Offline mode - changes saved locally');
+}
+
+// Enhanced reconnection logic
+async function attemptReconnect() {
+    if (!isOnline && reconnectAttempts < maxReconnectAttempts) {
+        reconnectAttempts++;
+        updateSyncStatus('syncing', `Attempting to reconnect (${reconnectAttempts}/${maxReconnectAttempts})...`);
+        
+        try {
+            const db = firebase.database();
+            await db.goOnline();
+            console.log('Reconnection successful');
+            handleOnline();
+        } catch (error) {
+            console.warn('Reconnection attempt failed:', error);
+            if (reconnectAttempts < maxReconnectAttempts) {
+                // Exponential backoff for retry
+                const delay = Math.min(1000 * Math.pow(2, reconnectAttempts - 1), 30000);
+                setTimeout(attemptReconnect, delay);
+            } else {
+                updateSyncStatus('error', 'Could not reconnect to server');
+            }
+        }
+    }
+}
+
+// Set up network status listeners
+window.addEventListener('online', handleOnline);
+window.addEventListener('offline', handleOffline);
+
+// Monitor Firebase connection state
+const db = firebase.database();
+const connectedRef = db.ref('.info/connected');
+connectedRef.on('value', (snap) => {
+    if (snap.val() === true) {
+        handleOnline();
+    } else if (isOnline) {
+        // If we think we're online but Firebase says we're not, try to reconnect
+        attemptReconnect();
+    }
 });
 
 // Enhanced progress saving with sync queue
@@ -446,6 +489,62 @@ async function loadProgress() {
     } finally {
         hideLoading();
     }
+}
+
+// Navigation initialization
+function initNavigation() {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (hamburgerMenu && navMenu) {
+        // Create overlay element if it doesn't exist
+        let menuOverlay = document.querySelector('.menu-overlay');
+        if (!menuOverlay) {
+            menuOverlay = document.createElement('div');
+            menuOverlay.className = 'menu-overlay';
+            document.body.appendChild(menuOverlay);
+        }
+
+        // Toggle menu function
+        function toggleMenu() {
+            hamburgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Event listeners
+        hamburgerMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    }
+
+    // Initialize auth buttons
+    const loginBtns = ['loginBtn', 'loginBtnHeader', 'loginBtnNav'];
+    const logoutBtns = ['logoutBtn', 'logoutBtnHeader', 'logoutBtnNav'];
+
+    loginBtns.forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', signInWithGoogle);
+        }
+    });
+
+    logoutBtns.forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', signOut);
+        }
+    });
 }
 
 // Keyboard shortcuts
@@ -679,42 +778,56 @@ function signOut() {
         });
 }
 
+// SRS Module initialization
+const SRS = {
+    init() {
+        showAnswerBtn = document.getElementById("show-answer-btn");
+        srsButtons = document.querySelector(".srs-button-container");
+
+        if (showAnswerBtn) {
+            showAnswerBtn.addEventListener("click", () => {
+                const meaningElements = document.querySelectorAll(".card .hidden-on-start");
+                meaningElements.forEach(el => {
+                    el.style.display = "block";
+                    el.offsetHeight; // Trigger reflow
+                    el.classList.add("visible");
+                });
+
+                showAnswerBtn.style.display = "none";
+                srsButtons.style.display = "flex";
+                srsButtons.offsetHeight; // Trigger reflow
+                srsButtons.classList.add("visible");
+            });
+        }
+
+        const dontKnowBtn = document.getElementById("dont-know-btn");
+        const knowBtn = document.getElementById("know-btn");
+        if (dontKnowBtn) dontKnowBtn.addEventListener("click", () => reviewResult(false));
+        if (knowBtn) knowBtn.addEventListener("click", () => reviewResult(true));
+    }
+};
+
 // Initialize the app
 document.addEventListener("DOMContentLoaded", () => {
     try {
-        // Hamburger menu functionality
-        const hamburgerMenu = document.getElementById('hamburger-menu');
-        const navMenu = document.getElementById('nav-menu');
-        let menuOverlay;
-
-        if (hamburgerMenu && navMenu) {
-            // Create overlay element
-            menuOverlay = document.createElement('div');
-            menuOverlay.className = 'menu-overlay';
-            document.body.appendChild(menuOverlay);
-
-            // Toggle menu function
-            function toggleMenu() {
-                hamburgerMenu.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                menuOverlay.classList.toggle('active');
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            }
-
-            // Event listeners
-            hamburgerMenu.addEventListener('click', toggleMenu);
-            menuOverlay.addEventListener('click', toggleMenu);
-
-            // Close menu when clicking a link
-            const navLinks = navMenu.querySelectorAll('a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
+        // Initialize auth and navigation
+        initNavigation();
+        
+        // Initialize SRS module
+        shutokun.srs.init();
+        
+        // Set up network status indicator
+        if (navigator.onLine) {
+            updateSyncStatus('synced', 'Online');
+        } else {
+            updateSyncStatus('error', 'Offline mode');
         }
+
+        // Initialize keyboard shortcuts
+        keyboardShortcuts.init();
+        
+        // Initialize dark mode
+        darkMode.init();
 
         // Existing initialization code
         showAnswerBtn = document.getElementById("show-answer-btn");
@@ -813,4 +926,363 @@ function resetFreeModeProgress() {
     localStorage.removeItem('srsData_free');
     window.location.reload();
 }
+
+// Initialize namespaces
+window.shutokun = window.shutokun || {};
+shutokun.srs = {
+    vocab: [],
+    currentIndex: 0,
+    showAnswerBtn: null,
+    srsButtons: null,
+
+    async init() {
+        // Initialize UI elements
+        this.showAnswerBtn = document.getElementById("show-answer-btn");
+        this.srsButtons = document.querySelector(".srs-button-container");
+        this.setupEventListeners();
+        
+        // If we're on the SRS page, fetch vocabulary
+        if (window.location.pathname.includes('srs-ui.html')) {
+            await this.fetchVocab();
+        }
+    },
+
+    setupEventListeners() {
+        if (this.showAnswerBtn) {
+            this.showAnswerBtn.addEventListener("click", () => {
+                const meaningElements = document.querySelectorAll(".card .hidden-on-start");
+                meaningElements.forEach(el => {
+                    el.style.display = "block";
+                    el.offsetHeight; // Trigger reflow
+                    el.classList.add("visible");
+                });
+
+                this.showAnswerBtn.style.display = "none";
+                this.srsButtons.style.display = "flex";
+                this.srsButtons.offsetHeight; // Trigger reflow
+                this.srsButtons.classList.add("visible");
+            });
+        }
+
+        const dontKnowBtn = document.getElementById("dont-know-btn");
+        const knowBtn = document.getElementById("know-btn");
+        if (dontKnowBtn) dontKnowBtn.addEventListener("click", () => this.reviewResult(false));
+        if (knowBtn) knowBtn.addEventListener("click", () => this.reviewResult(true));
+    },
+
+    async fetchVocab() {
+        showLoading();
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const mode = urlParams.get("mode");
+            if (mode === "free") {
+                // Free Mode: Load vocab from localStorage
+                const localVocab = localStorage.getItem('vocabulary');
+                if (!localVocab) {
+                    showError('No vocabulary found. Please import and save vocabulary first.');
+                    setTimeout(() => window.location.href = 'free-mode-import.html', 2000);
+                    return;
+                }
+                this.vocab = JSON.parse(localVocab);
+                // Load SRS progress for Free Mode
+                const srsProgress = localStorage.getItem('srsData_free');
+                if (srsProgress) {
+                    const progressArr = JSON.parse(srsProgress);
+                    this.vocab = this.vocab.map((item, i) => ({
+                        ...item,
+                        srs: progressArr[i]?.srs || {
+                            easeFactor: 2.5,
+                            interval: 1,
+                            repetitions: 0,
+                            lastReviewed: null,
+                            dueDate: null
+                        }
+                    }));
+                }
+                this.throttledUpdateUI();
+                this.showWord();
+                hideLoading();
+                return;
+            }
+
+            const level = urlParams.get("level");
+            const category = urlParams.get("category") || "goi";
+            if (!level) {
+                throw new Error("Level parameter is missing in the URL.");
+            }
+
+            // Fetch vocabulary data
+            const response = await fetch(`jlpt-db/${category}/${level}-${category}.json`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+
+            // Initialize SRS data
+            this.vocab = data.map(item => ({
+                ...item,
+                srs: {
+                    easeFactor: 2.5,
+                    interval: 1,
+                    repetitions: 0,
+                    lastReviewed: null,
+                    dueDate: null,
+                    ...(item.srs || {})
+                }
+            }));
+
+            await this.loadProgress();
+            this.throttledUpdateUI();
+            this.showWord();
+        } catch (error) {
+            console.error("Failed to fetch vocabulary:", error);
+            showError("Failed to load vocabulary. Please try again.");
+        } finally {
+            hideLoading();
+        }
+    },
+
+    showWord() {
+        const word = this.vocab[this.currentIndex];
+        const cardContainer = document.querySelector(".card-container");
+        cardContainer.innerHTML = '';
+
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+            <center>
+            <h2>${word.word}</h2>
+            </center>
+            <p class="hidden-on-start"><strong>Reading:</strong> ${word.readings?.hiragana?.join(', ') || ''}</p>
+            <p class="hidden-on-start"><strong>Meaning:</strong> ${word.meanings?.en?.join(', ') || ''}</p>
+            <p class="hidden-on-start"><strong>Romaji:</strong> ${word.romaji || ''}</p>
+            <p class="hidden-on-start"><strong>Example:</strong><br>${word.examples?.[0]?.jp || ''}<br>${word.examples?.[0]?.en || ''}</p>
+        `;
+        cardContainer.appendChild(card);
+
+        // Reset button states
+        this.showAnswerBtn.style.display = "block";
+        this.srsButtons.style.display = "none";
+        const meaningElements = document.querySelectorAll(".card .hidden-on-start");
+        meaningElements.forEach(el => {
+            el.classList.remove("visible");
+            el.style.display = "none";
+        });
+
+        // Update progress display with animation
+        this.updateProgressDisplay();
+    },
+
+    reviewResult(isCorrect) {
+        const item = this.vocab[this.currentIndex];
+        const srs = item.srs;
+        const now = Date.now();
+
+        // Play sound effect if available
+        if (window.soundEffects) {
+            soundEffects.play(isCorrect ? 'correct' : 'incorrect');
+        }
+
+        if (isCorrect) {
+            srs.repetitions += 1;
+            srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.15 + 0.1 * srs.repetitions);
+            if (srs.repetitions === 1) {
+                srs.interval = 1;
+            } else if (srs.repetitions === 2) {
+                srs.interval = 3;
+            } else {
+                srs.interval = Math.round(srs.interval * srs.easeFactor);
+            }
+        } else {
+            srs.repetitions = Math.max(0, srs.repetitions - 1);
+            srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.2);
+            srs.interval = 1;
+        }
+
+        srs.lastReviewed = now;
+        srs.dueDate = now + (srs.interval * 24 * 60 * 60 * 1000);
+
+        this.saveProgress();
+        this.findNextDueCard();
+        this.updateReviewQueueCounts();
+        this.showWord();
+        this.updateProgressDisplay();
+    },
+
+    findNextDueCard() {
+        const now = Date.now();
+        let found = false;
+        
+        for (let i = 0; i < this.vocab.length; i++) {
+            const item = this.vocab[i];
+            if (!item.srs.dueDate || item.srs.dueDate <= now) {
+                this.currentIndex = i;
+                found = true;
+                break;
+            }
+        }
+
+        // Show friendly empty state if all cards are reviewed (Free Mode)
+        const urlParams = new URLSearchParams(window.location.search);
+        const mode = urlParams.get("mode");
+        const dueCards = this.vocab.filter(item => {
+            if (!item.srs.dueDate) return false;
+            const daysUntilDue = Math.ceil((item.srs.dueDate - now) / (24 * 60 * 60 * 1000));
+            return daysUntilDue <= 0;
+        });
+
+        if (mode === "free" && dueCards.length === 0) {
+            const cardContainer = document.querySelector(".card-container");
+            cardContainer.innerHTML = `
+                <div class='card' style='text-align:center;padding:2rem;'>
+                    <h2>All done!</h2>
+                    <p>You've reviewed all your imported vocabulary.</p>
+                    <button onclick="window.location.href='free-mode-import.html'" class="action-button">Import or Edit More Vocab</button>
+                    <button onclick="shutokun.srs.resetFreeModeProgress()" class="action-button" style="margin-top:1rem;">Reset Progress</button>
+                </div>`;
+            // Hide answer and SRS buttons
+            if (this.showAnswerBtn) this.showAnswerBtn.style.display = "none";
+            if (this.srsButtons) this.srsButtons.style.display = "none";
+        }
+    },
+
+    resetFreeModeProgress() {
+        localStorage.removeItem('srsData_free');
+        window.location.reload();
+    },
+
+    async saveProgress() {
+        const mode = new URLSearchParams(window.location.search).get("mode");
+        if (mode === "free") {
+            // Save progress to localStorage for Free Mode
+            localStorage.setItem('srsData_free', JSON.stringify(this.vocab));
+            return;
+        }
+
+        if (!currentUser) {
+            console.warn('No user signed in, progress not saved');
+            return;
+        }
+
+        try {
+            const progressData = this.vocab.map(item => ({
+                id: item.id,
+                srs: item.srs
+            }));
+
+            await firebase.database()
+                .ref(`users/${currentUser.uid}/progress`)
+                .set(progressData);
+            
+            updateSyncStatus('synced');
+        } catch (error) {
+            console.error('Error saving progress:', error);
+            updateSyncStatus('error');
+            showError('Failed to save progress');
+        }
+    },
+
+    async loadProgress() {
+        const mode = new URLSearchParams(window.location.search).get("mode");
+        if (mode === "free") {
+            // Progress loading for Free Mode is handled in fetchVocab
+            return;
+        }
+
+        if (!currentUser) {
+            console.warn('No user signed in, no progress to load');
+            return;
+        }
+
+        try {
+            const snapshot = await firebase.database()
+                .ref(`users/${currentUser.uid}/progress`)
+                .once('value');
+            
+            const progress = snapshot.val();
+            if (progress) {
+                this.vocab = this.vocab.map(item => {
+                    const savedProgress = progress.find(p => p.id === item.id);
+                    if (savedProgress) {
+                        return {
+                            ...item,
+                            srs: savedProgress.srs
+                        };
+                    }
+                    return item;
+                });
+            }
+        } catch (error) {
+            console.error('Error loading progress:', error);
+            showError('Failed to load progress');
+        }
+    },
+
+    updateReviewQueueCounts() {
+        const now = Date.now();
+        const oneDayMs = 24 * 60 * 60 * 1000;
+        
+        // Count cards in different states
+        const counts = this.vocab.reduce((acc, item) => {
+            if (!item.srs.dueDate) {
+                return acc;
+            }
+            
+            const daysUntilDue = Math.ceil((item.srs.dueDate - now) / oneDayMs);
+            
+            if (daysUntilDue < 0) {
+                acc.overdue++;
+            } else if (daysUntilDue === 0) {
+                acc.dueToday++;
+            } else if (daysUntilDue <= 7) { // Show upcoming reviews for next 7 days
+                acc.upcoming++;
+            }
+            
+            return acc;
+        }, { overdue: 0, dueToday: 0, upcoming: 0 });
+        
+        // Update the display
+        document.getElementById('overdue-count').textContent = counts.overdue;
+        document.getElementById('due-today-count').textContent = counts.dueToday;
+        document.getElementById('upcoming-count').textContent = counts.upcoming;
+        
+        // Update the document title to show number of cards due
+        const totalDue = counts.overdue + counts.dueToday;
+        document.title = totalDue > 0 ? `(${totalDue}) Shutokun - SRS Study` : 'Shutokun - SRS Study';
+    },
+    
+    updateProgressDisplay() {
+        const totals = this.vocab.reduce((acc, item) => {
+            if (item.srs.repetitions > 0) acc.reviewed++;
+            if (item.srs.repetitions >= 4) acc.mastered++;
+            return acc;
+        }, { reviewed: 0, mastered: 0 });
+
+        document.getElementById('srs-repetitions').textContent = `Words reviewed: ${totals.reviewed}/${this.vocab.length}`;
+        document.getElementById('srs-progress').value = (totals.reviewed / this.vocab.length) * 100;
+        
+        const item = this.vocab[this.currentIndex];
+        const srs = item.srs;
+
+        document.getElementById('srs-interval').textContent = `Next interval: ${srs.interval || 1} day${srs.interval !== 1 ? 's' : ''}`;
+        document.getElementById('srs-due-date').textContent = srs.lastReviewed 
+            ? `Due: ${new Date(srs.dueDate).toLocaleDateString()}`
+            : 'Due: Not reviewed yet';
+    },
+
+    throttledUpdateUI: throttle(function() {
+        this.updateReviewQueueCounts();
+        this.updateProgressDisplay();
+    }, 1000)
+};
+
+// Initialize when DOMContentLoaded
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        await shutokun.srs.init();
+    } catch (error) {
+        console.error('Failed to initialize SRS:', error);
+        showError('Failed to initialize the app. Please refresh the page.');
+    }
+});
 

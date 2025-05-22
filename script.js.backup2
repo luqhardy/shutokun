@@ -1,0 +1,123 @@
+// Firebase initialization will be handled by firebase-connection.js
+
+let vocab = [];
+let currentIndex = 0;
+let showAnswerBtn;
+let srsButtons;
+let currentUser = null;
+
+// Auth state observer with fixed ID references
+firebase.auth().onAuthStateChanged(async (user) => {
+    if (user) {
+        // User is signed in
+        currentUser = user;
+        updateAuthButtons(true);
+        console.log("User is signed in:", user.displayName);
+        
+        // Load user's progress if we're on the SRS page
+        if (window.location.pathname.includes('srs-ui.html')) {
+            await loadProgress();
+        }
+    } else {
+        // User is signed out
+        currentUser = null;
+        updateAuthButtons(false);
+        console.log("User is signed out");
+    }
+});
+
+// Update auth buttons visibility
+function updateAuthButtons(isSignedIn) {
+    const buttonsToShow = isSignedIn ? ['logoutBtn', 'logoutBtnHeader', 'logoutBtnNav'] : ['loginBtn', 'loginBtnHeader', 'loginBtnNav'];
+    const buttonsToHide = isSignedIn ? ['loginBtn', 'loginBtnHeader', 'loginBtnNav'] : ['logoutBtn', 'logoutBtnHeader', 'logoutBtnNav'];
+    
+    buttonsToShow.forEach(id => {
+        const button = document.getElementById(id);
+        if (button) button.style.display = 'block';
+    });
+    
+    buttonsToHide.forEach(id => {
+        const button = document.getElementById(id);
+        if (button) button.style.display = 'none';
+    });
+}
+
+// Navigation initialization
+function initNavigation() {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (hamburgerMenu && navMenu) {
+        // Create overlay element if it doesn't exist
+        let menuOverlay = document.querySelector('.menu-overlay');
+        if (!menuOverlay) {
+            menuOverlay = document.createElement('div');
+            menuOverlay.className = 'menu-overlay';
+            document.body.appendChild(menuOverlay);
+        }
+
+        // Toggle menu function
+        function toggleMenu() {
+            hamburgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Event listeners
+        hamburgerMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    }
+}
+
+// Initialize the app
+document.addEventListener("DOMContentLoaded", () => {
+    try {
+        // Initialize navigation first
+        initNavigation();
+
+        // Initialize auth buttons
+        ['loginBtn', 'loginBtnHeader', 'loginBtnNav'].forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', signInWithGoogle);
+        });
+        
+        ['logoutBtn', 'logoutBtnHeader', 'logoutBtnNav'].forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', signOut);
+        });
+
+        // Set initial auth button states based on current user
+        updateAuthButtons(!!currentUser);
+        
+        // Set up network status indicator
+        if (navigator.onLine) {
+            updateSyncStatus('synced', 'Online');
+        } else {
+            updateSyncStatus('error', 'Offline mode');
+        }
+
+        // Initialize keyboard shortcuts and dark mode
+        keyboardShortcuts.init();
+        darkMode.init();
+
+        // Initialize SRS UI if on the appropriate page
+        if (window.location.pathname.includes('srs-ui.html')) {
+            initializeSRSUI();
+        }
+
+    } catch (error) {
+        console.error('Error initializing app:', error);
+        showError('Failed to initialize the app. Please refresh the page.');
+    }
+});
