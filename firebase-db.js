@@ -13,9 +13,9 @@ const firebaseDB = {
 
         while (retryCount < maxRetries) {
             try {
-                await db.setPersistenceEnabled(true);
-                console.log("Offline persistence enabled");
-                return;
+                await db.enablePersistence({
+                    synchronizeTabs: true
+                });
             } catch (error) {
                 retryCount++;
                 if (retryCount === maxRetries) {
