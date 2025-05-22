@@ -1,30 +1,19 @@
 // Firebase Database operations
 const firebaseDB = {
-    // Initialize database reference
+    // Initialize database reference with connection monitoring
     getDB() {
-        return firebase.database();
+        return window.firebaseDB.getDB();
     },
 
-    // Enable offline persistence with retry logic
+    // Enable offline persistence with retry logic and proper error handling
     async enableOfflinePersistence() {
-        const db = this.getDB();
-        let retryCount = 0;
-        const maxRetries = 3;
-
-        while (retryCount < maxRetries) {
-            try {
-                await db.setPersistenceEnabled(true);
-                console.log("Offline persistence enabled");
-                return;
-            } catch (error) {
-                retryCount++;
-                if (retryCount === maxRetries) {
-                    console.error("Error enabling offline persistence:", error);
-                    throw error;
-                }
-                await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
-            }
-        }
+        return withRetry(async () => {
+            const db = this.getDB();
+            await db.setPersistenceEnabled(true);
+            await db.goOnline();
+            console.log("Offline persistence enabled");
+            return true;
+        }, 3, 1000);
     },
 
     // Add database rules and indexes
@@ -95,7 +84,7 @@ const firebaseDB = {
 
     // Save user progress to Firebase with timestamp and conflict resolution
     async saveUserProgress(userId, level, data) {
-        return this.withErrorHandling(async () => {
+        return withRetry(async () => {
             // Validate data before saving
             this.validateProgressData(data);
             
@@ -139,50 +128,28 @@ const firebaseDB = {
 
     // Load user progress from Firebase with offline fallback
     async loadUserProgress(userId, level) {
-        try {
+        return withRetry(async () => {
             const db = this.getDB();
             const progressRef = db.ref(`users/${userId}/progress/${level}`);
             
-            // Set up real-time listener with error handling
-            progressRef.on('value', (snapshot) => {
-                try {
-                    const data = snapshot.val();
-                    if (data) {
-                        // Update local storage when Firebase data changes
-                        this.saveToLocalStorage(userId, level, data);
-                        // Dispatch event for UI update
-                        window.dispatchEvent(new CustomEvent('progressUpdated', { 
-                            detail: data,
-                            timestamp: Date.now()
-                        }));
-                    }
-                } catch (error) {
-                    console.error("Error processing real-time update:", error);
-                }
-            }, (error) => {
-                console.error("Error setting up real-time listener:", error);
-            });
-
-            // Get initial data with timeout
-            const snapshot = await Promise.race([
-                progressRef.once('value'),
-                new Promise((_, reject) => 
-                    setTimeout(() => reject(new Error('Timeout')), 5000)
-                )
-            ]);
+            // First try to get data from local storage
+            const localData = this.loadFromLocalStorage(userId, level);
             
-            const data = snapshot.val();
-            if (data) {
-                return data.data;
+            try {
+                const snapshot = await progressRef.once('value');
+                const data = snapshot.val();
+                if (data) {
+                    // Update local storage when Firebase data changes
+                    this.saveToLocalStorage(userId, level, data);
+                    return data.data;
+                }
+            } catch (error) {
+                console.warn('Error loading from Firebase, using local data:', error);
             }
 
-            // If no Firebase data, try local storage
-            return this.loadFromLocalStorage(userId, level);
-        } catch (error) {
-            console.error("Error loading from Firebase:", error);
-            // Fallback to local storage
-            return this.loadFromLocalStorage(userId, level);
-        }
+            // If no Firebase data or error, return local data
+            return localData;
+        }, 3, 1000);
     },
 
     // Enhanced merge progress data with conflict resolution
@@ -470,6 +437,33 @@ const firebaseDB = {
         }
     }
 };
+
+// Enhanced error handling wrapper with retry logic
+async function withRetry(operation, maxRetries = 3, baseDelay = 1000) {
+    let lastError;
+    
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+        try {
+            return await operation();
+        } catch (error) {
+            lastError = error;
+            console.warn(`Operation failed (attempt ${attempt + 1}/${maxRetries}):`, error);
+            
+            // Check if we should retry based on error type
+            if (error.code === 'PERMISSION_DENIED') {
+                throw error; // Don't retry permission errors
+            }
+            
+            if (attempt < maxRetries - 1) {
+                // Exponential backoff with jitter
+                const delay = baseDelay * Math.pow(2, attempt) * (0.5 + Math.random());
+                await new Promise(resolve => setTimeout(resolve, delay));
+            }
+        }
+    }
+    
+    throw lastError;
+}
 
 // Optimized query functions
 const queryOptimizations = {
