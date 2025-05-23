@@ -21,12 +21,29 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 
-// Enable offline persistence after Firebase is initialized
-if (window.firebaseDB && typeof window.firebaseDB.enableOfflinePersistence === 'function') {
-    window.firebaseDB.enableOfflinePersistence().catch(error => {
-        console.error("Failed to enable offline persistence:", error);
+// --- FIX: Remove offline persistence for Realtime Database ---
+// Realtime Database does not require enablePersistence (Firestore only)
+// if (window.firebaseDB && typeof window.firebaseDB.enableOfflinePersistence === 'function') {
+//     window.firebaseDB.enableOfflinePersistence().catch(error => {
+//         console.error("Failed to enable offline persistence:", error);
+//     });
+// }
+
+// --- FIX: Add mergeProgressData utility ---
+// Merge two SRS progress arrays by item index (or id if available)
+function mergeProgressData(serverData, localData) {
+    // If items have unique IDs, use them for matching; otherwise, fallback to index
+    return serverData.map((item, i) => {
+        const localItem = localData[i] || {};
+       return {
+         ...item,
+            srs: {
+                ...item.srs,
+                ...localItem.srs // Local progress takes precedence
+            }
+        };
     });
-}
+ }
 
 // Auth state observer
 firebase.auth().onAuthStateChanged(async (user) => {
@@ -179,7 +196,8 @@ const syncQueue = {
             this.queue.shift(); // Remove processed item
             updateSyncStatus('synced', 'Progress saved');
         } catch (error) {
-            console.error('Sync error:', error);
+            const errMsg = error && (error.stack || error.message || JSON.stringify(error));
+            console.error('Sync error:', errMsg);
             item.retries++;
             
             if (item.retries < 3) {
