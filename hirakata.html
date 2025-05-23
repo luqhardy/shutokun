@@ -13,7 +13,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script>
+
+    </script>
     <style>
         .practice-container {
             max-width: 800px;
@@ -853,7 +855,40 @@
 
         // Initialize the app
         document.addEventListener('DOMContentLoaded', () => {
-            try {
+    try {
+        // Hamburger menu functionality
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        let menuOverlay;
+
+        if (hamburgerMenu && navMenu) {
+            // Create overlay element
+            menuOverlay = document.createElement('div');
+            menuOverlay.className = 'menu-overlay';
+            document.body.appendChild(menuOverlay);
+
+            // Toggle menu function
+            function toggleMenu() {
+                hamburgerMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            // Event listeners
+            hamburgerMenu.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        }
                 // Set up event listeners
                 document.getElementById('answer').addEventListener('keyup', checkAnswer);
                 
