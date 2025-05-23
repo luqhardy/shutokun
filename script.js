@@ -535,9 +535,15 @@ function reviewResult(isCorrect) {
     // Play sound effect
     soundEffects.play(isCorrect ? 'correct' : 'incorrect');
 
+    // 上限値の設定
+    const MAX_REPETITIONS = 10;
+    const MAX_INTERVAL = 365; // 1年
+    const MIN_EASE = 1.3;
+    const MAX_EASE = 2.5;
+
     if (isCorrect) {
-        srs.repetitions += 1;
-        srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.15 + 0.1 * srs.repetitions);
+        srs.repetitions = Math.min(srs.repetitions + 1, MAX_REPETITIONS);
+        srs.easeFactor = Math.min(MAX_EASE, Math.max(MIN_EASE, srs.easeFactor - 0.15 + 0.1 * srs.repetitions));
         if (srs.repetitions === 1) {
             srs.interval = 1;
         } else if (srs.repetitions === 2) {
@@ -547,9 +553,12 @@ function reviewResult(isCorrect) {
         }
     } else {
         srs.repetitions = Math.max(0, srs.repetitions - 1);
-        srs.easeFactor = Math.max(1.3, srs.easeFactor - 0.2);
+        srs.easeFactor = Math.max(MIN_EASE, srs.easeFactor - 0.2);
         srs.interval = 1;
     }
+
+    // intervalの上限
+    srs.interval = Math.min(srs.interval, MAX_INTERVAL);
 
     srs.lastReviewed = now;
     srs.dueDate = now + (srs.interval * 24 * 60 * 60 * 1000);
@@ -604,7 +613,7 @@ function updateProgressDisplay() {
     const repetitionsEl = document.getElementById('srs-repetitions');
     repetitionsEl.style.opacity = '0';
     setTimeout(() => {
-        repetitionsEl.textContent = `Repetitions: ${srs.repetitions}`;
+        repetitionsEl.textContent = `Repetitions: ${srs.repetitions ?? 0}`;
         repetitionsEl.style.opacity = '1';
     }, 200);
     
@@ -612,7 +621,7 @@ function updateProgressDisplay() {
     const intervalEl = document.getElementById('srs-interval');
     intervalEl.style.opacity = '0';
     setTimeout(() => {
-        const intervalText = srs.interval === 1 ? '1 day' : `${srs.interval} days`;
+        const intervalText = !srs.interval || srs.interval === 1 ? '1 day' : `${srs.interval} days`;
         intervalEl.textContent = `Next interval: ${intervalText}`;
         intervalEl.style.opacity = '1';
     }, 200);
@@ -622,18 +631,19 @@ function updateProgressDisplay() {
     if (dueDateEl) {
         dueDateEl.style.opacity = '0';
         setTimeout(() => {
-            const dueDate = new Date(srs.dueDate);
-            const daysUntilDue = Math.ceil((srs.dueDate - Date.now()) / (24 * 60 * 60 * 1000));
             let dueText = '';
-            
-            if (daysUntilDue < 0) {
-                dueText = `Overdue by ${Math.abs(daysUntilDue)} days`;
-            } else if (daysUntilDue === 0) {
-                dueText = 'Due today';
+            if (!srs.dueDate) {
+                dueText = 'Not reviewed yet';
             } else {
-                dueText = `Due in ${daysUntilDue} days`;
+                const daysUntilDue = Math.ceil((srs.dueDate - Date.now()) / (24 * 60 * 60 * 1000));
+                if (daysUntilDue < 0) {
+                    dueText = `Overdue by ${Math.abs(daysUntilDue)} days`;
+                } else if (daysUntilDue === 0) {
+                    dueText = 'Due today';
+                } else {
+                    dueText = `Due in ${daysUntilDue} days`;
+                }
             }
-            
             dueDateEl.textContent = dueText;
             dueDateEl.style.opacity = '1';
         }, 200);
@@ -784,6 +794,30 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Initialize dark mode
         darkMode.init();
+
+        // Reset All Progress button
+        const resetAllBtn = document.getElementById('resetAllProgressBtn');
+        if (resetAllBtn) {
+            resetAllBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to reset ALL SRS progress for this level? This cannot be undone.')) {
+                    // Reset all vocab SRS progress to defaults
+                    vocab.forEach(item => {
+                        item.srs = {
+                            easeFactor: 2.5,
+                            interval: 1,
+                            repetitions: 0,
+                            lastReviewed: null,
+                            dueDate: null
+                        };
+                    });
+                    saveProgress();
+                    showWord();
+                    updateReviewQueueCounts();
+                    updateProgressDisplay();
+                    showError('All SRS progress has been reset.', 3000);
+                }
+            });
+        }
     } catch (error) {
         console.error('Error initializing app:', error);
         showError('Failed to initialize the app. Please refresh the page.');
@@ -792,26 +826,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Show friendly empty state if all cards are reviewed (Free Mode)
 function findNextDueCard() {
-    // ... existing code ...
-    // After finding next due card, if none, show empty state
-    const urlParams = new URLSearchParams(window.location.search);
-    const mode = urlParams.get("mode");
-    const dueCards = vocab.filter(item => {
-        if (!item.srs.dueDate) return false;
-        const daysUntilDue = Math.ceil((item.srs.dueDate - Date.now()) / (24 * 60 * 60 * 1000));
-        return daysUntilDue <= 0;
-    });
-    if (mode === "free" && dueCards.length === 0) {
-        const cardContainer = document.querySelector(".card-container");
-        cardContainer.innerHTML = `<div class='card' style='text-align:center;padding:2rem;'>
-            <h2>All done!</h2>
-            <p>You've reviewed all your imported vocabulary.</p>
-            <button onclick="window.location.href='free-mode-import.html'" class="action-button">Import or Edit More Vocab</button>
-            <button onclick="resetFreeModeProgress()" class="action-button" style="margin-top:1rem;">Reset Progress</button>
-        </div>`;
-        // Hide answer and SRS buttons
-        if (showAnswerBtn) showAnswerBtn.style.display = "none";
-        if (srsButtons) srsButtons.style.display = "none";
+    const now = Date.now();
+    // dueDateがnullまたは今日以前のカードを探す（未学習も含む）
+    const dueCards = vocab
+        .map((item, idx) => ({ ...item, idx }))
+        .filter(item => !item.srs.dueDate || item.srs.dueDate <= now);
+
+    if (dueCards.length > 0) {
+        // 今のカードの次から順にdueカードを探す
+        const startIdx = currentIndex;
+        let found = false;
+        for (let i = 1; i <= vocab.length; i++) {
+            const nextIdx = (startIdx + i) % vocab.length;
+            const nextDue = dueCards.find(item => item.idx === nextIdx);
+            if (nextDue) {
+                currentIndex = nextDue.idx;
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            // すべて終わった場合はフレンドリーな空状態を表示
+            const urlParams = new URLSearchParams(window.location.search);
+            const mode = urlParams.get("mode");
+            if (mode === "free") {
+                const cardContainer = document.querySelector(".card-container");
+                cardContainer.innerHTML = `<div class='card' style='text-align:center;padding:2rem;'>
+                    <h2>All done!</h2>
+                    <p>You've reviewed all your imported vocabulary.</p>
+                    <button onclick=\"window.location.href='free-mode-import.html'\" class='action-button'>Import or Edit More Vocab</button>
+                    <button onclick=\"resetFreeModeProgress()\" class='action-button' style='margin-top:1rem;'>Reset Progress</button>
+                </div>`;
+                if (showAnswerBtn) showAnswerBtn.style.display = "none";
+                if (srsButtons) srsButtons.style.display = "none";
+            }
+        }
+    } else {
+        // dueカードがない場合
+        const urlParams = new URLSearchParams(window.location.search);
+        const mode = urlParams.get("mode");
+        if (mode === "free") {
+            const cardContainer = document.querySelector(".card-container");
+            cardContainer.innerHTML = `<div class='card' style='text-align:center;padding:2rem;'>
+                <h2>All done!</h2>
+                <p>You've reviewed all your imported vocabulary.</p>
+                <button onclick=\"window.location.href='free-mode-import.html'\" class='action-button'>Import or Edit More Vocab</button>
+                <button onclick=\"resetFreeModeProgress()\" class='action-button' style='margin-top:1rem;'>Reset Progress</button>
+            </div>`;
+            if (showAnswerBtn) showAnswerBtn.style.display = "none";
+            if (srsButtons) srsButtons.style.display = "none";
+        }
     }
 }
 

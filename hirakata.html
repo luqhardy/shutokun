@@ -302,6 +302,13 @@
             <div id="summary-content"></div>
             <button onclick="startNewSession()" class="mode-button" style="margin-top: 1rem;">Start New Session</button>
         </div>
+
+        <!-- Navigation -->
+        <div class="navigation-container">
+            <button class="nav-button" onclick="window.location.href='index.html'">Back to Home</button>
+            <button class="nav-button reset-all-progress" id="resetAllProgressBtn" style="background:#e74c3c;color:white;">Reset All Progress</button>
+            <button class="nav-button" onclick="window.location.href='level-select.html'">Change Level</button>
+        </div>
     </main>
 
     <script>
@@ -863,6 +870,20 @@
                 showError('Failed to initialize the app. Please refresh the page.');
             }
         });
+
+        // Reset All Progress button
+        const resetAllBtn = document.getElementById('resetAllProgressBtn');
+        if (resetAllBtn) {
+            resetAllBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to reset ALL kana progress? This cannot be undone.')) {
+                    // Reset all kana progress in localStorage and Firebase (if used)
+                    localStorage.removeItem('kanaProgress');
+                    // もしFirebase保存があれば、ここで削除処理を追加
+                    // 画面リロードで初期状態に
+                    location.reload();
+                }
+            });
+        }
     </script>
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
