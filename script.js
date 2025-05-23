@@ -30,20 +30,20 @@ if (!firebase.apps.length) {
 // }
 
 // --- FIX: Add mergeProgressData utility ---
-// Merge two SRS progress arrays by item index (or id if available)
+// Merge two vocab arrays (with srs) by index (or id if available)
 function mergeProgressData(serverData, localData) {
     // If items have unique IDs, use them for matching; otherwise, fallback to index
     return serverData.map((item, i) => {
         const localItem = localData[i] || {};
-       return {
-         ...item,
+        return {
+            ...item,
             srs: {
                 ...item.srs,
                 ...localItem.srs // Local progress takes precedence
             }
         };
     });
- }
+}
 
 // Auth state observer
 firebase.auth().onAuthStateChanged(async (user) => {
@@ -340,7 +340,8 @@ window.addEventListener('offline', () => {
 async function saveProgress(data = null) {
     const urlParams = new URLSearchParams(window.location.search);
     const mode = urlParams.get("mode");
-    const dataToSave = data || vocab.map(({ srs }) => ({ srs }));
+    // --- FIX: Always save vocab (with srs) for server/local ---
+    const dataToSave = data || vocab;
     if (mode === "free") {
         // Save SRS progress for Free Mode
         try {
@@ -402,7 +403,7 @@ async function loadProgress() {
             if (saved) {
                 const savedData = JSON.parse(saved);
                 savedData.forEach((item, i) => {
-                    if (vocab[i]) vocab[i].srs = item.srs;
+                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
                 });
             }
         } catch (error) {
@@ -427,7 +428,7 @@ async function loadProgress() {
                 const localData = JSON.parse(localStorage.getItem("srsData") || "[]");
                 const mergedData = mergeProgressData(savedData, localData);
                 mergedData.forEach((item, i) => {
-                    if (vocab[i]) vocab[i].srs = item.srs;
+                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
                 });
 
                 // Save merged data back to server
@@ -439,7 +440,7 @@ async function loadProgress() {
             if (saved) {
                 const savedData = JSON.parse(saved);
                 savedData.forEach((item, i) => {
-                    if (vocab[i]) vocab[i].srs = item.srs;
+                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
                 });
             }
         }
@@ -448,7 +449,7 @@ async function loadProgress() {
         window.addEventListener('progressUpdated', (event) => {
             const updatedData = event.detail.data;
             updatedData.forEach((item, i) => {
-                if (vocab[i]) vocab[i].srs = item.srs;
+                if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
             });
             throttledUpdateUI();
         });
@@ -463,7 +464,7 @@ async function loadProgress() {
             try {
                 const savedData = JSON.parse(saved);
                 savedData.forEach((item, i) => {
-                    if (vocab[i]) vocab[i].srs = item.srs;
+                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
                 });
             } catch (parseError) {
                 console.error("Error parsing localStorage data:", parseError);
