@@ -402,9 +402,11 @@ async function loadProgress() {
             const saved = localStorage.getItem("srsData");
             if (saved) {
                 const savedData = JSON.parse(saved);
-                savedData.forEach((item, i) => {
-                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-                });
+                if (Array.isArray(savedData)) {
+                    savedData.forEach((item, i) => {
+                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+                    });
+                }
             }
         } catch (error) {
             console.error("Error loading from localStorage:", error);
@@ -423,14 +425,15 @@ async function loadProgress() {
         if (needsSync && isOnline) {
             updateSyncStatus('syncing', 'Syncing with server...');
             const savedData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
-            if (savedData) {
+            if (Array.isArray(savedData)) {
                 // Merge with local data
                 const localData = JSON.parse(localStorage.getItem("srsData") || "[]");
                 const mergedData = mergeProgressData(savedData, localData);
-                mergedData.forEach((item, i) => {
-                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-                });
-
+                if (Array.isArray(mergedData)) {
+                    mergedData.forEach((item, i) => {
+                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+                    });
+                }
                 // Save merged data back to server
                 await saveProgress(mergedData);
             }
@@ -439,18 +442,22 @@ async function loadProgress() {
             const saved = localStorage.getItem("srsData");
             if (saved) {
                 const savedData = JSON.parse(saved);
-                savedData.forEach((item, i) => {
-                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-                });
+                if (Array.isArray(savedData)) {
+                    savedData.forEach((item, i) => {
+                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+                    });
+                }
             }
         }
         
         // Listen for real-time updates
         window.addEventListener('progressUpdated', (event) => {
             const updatedData = event.detail.data;
-            updatedData.forEach((item, i) => {
-                if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-            });
+            if (Array.isArray(updatedData)) {
+                updatedData.forEach((item, i) => {
+                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+                });
+            }
             throttledUpdateUI();
         });
         
@@ -463,9 +470,11 @@ async function loadProgress() {
         if (saved) {
             try {
                 const savedData = JSON.parse(saved);
-                savedData.forEach((item, i) => {
-                    if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-                });
+                if (Array.isArray(savedData)) {
+                    savedData.forEach((item, i) => {
+                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+                    });
+                }
             } catch (parseError) {
                 console.error("Error parsing localStorage data:", parseError);
             }
