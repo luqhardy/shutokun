@@ -6,13 +6,14 @@ let currentUser = null;
 
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
-    authDomain: "shutokun.firebaseapp.com",
-    projectId: "shutokun",
-    storageBucket: "shutokun.appspot.com",
-    messagingSenderId: "120770573657",
-    appId: "1:120770573657:web:692c54b821b0a51c138848",
-    measurementId: "G-GJG5NT05DH"
+  apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
+  authDomain: "shutokun.firebaseapp.com",
+  databaseURL: "https://shutokun-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "shutokun",
+  storageBucket: "shutokun.firebasestorage.app",
+  messagingSenderId: "120770573657",
+  appId: "1:120770573657:web:692c54b821b0a51c138848",
+  measurementId: "G-GJG5NT05DH"
 };
 
 // Initialize Firebase
