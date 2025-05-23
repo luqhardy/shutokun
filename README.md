@@ -95,7 +95,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## Credits
 
-- JLPT data: [https://jlptstudy.net/] (https://jlptstudy.net/)
+- JLPT data: [https://jlptstudy.net/](https://jlptstudy.net/)
 - Built with [Firebase](https://firebase.google.com/), [Inter](https://fonts.google.com/specimen/Inter), [Noto Sans JP](https://fonts.google.com/specimen/Noto+Sans+JP)
 
 ---
