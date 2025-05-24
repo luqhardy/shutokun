@@ -341,7 +341,12 @@ async function saveProgress(data = null) {
     const urlParams = new URLSearchParams(window.location.search);
     const mode = urlParams.get("mode");
     // --- FIX: Always save vocab (with srs) for server/local ---
-    const dataToSave = data || vocab;
+   // const dataToSave = data || vocab;
+   const dataToSave = (data || vocab).map(item => ({
+    ...item,
+    reading: item.readings && item.readings.hiragana ? item.readings.hiragana.join(', ') : '',
+    meaning: item.meanings && item.meanings.en ? item.meanings.en.join(', ') : '',
+}));
     if (mode === "free") {
         // Save SRS progress for Free Mode
         try {
