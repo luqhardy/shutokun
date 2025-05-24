@@ -159,15 +159,15 @@ header {
 
 /* Card styles */
 .card-container {
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 
 .card {
   background: white;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .card h2 {
@@ -392,7 +392,7 @@ body.dark-mode {
 }
 
 body.dark-mode .card {
-    background-color: #2d2d2d;
+    background-color: #ffffff;;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -481,6 +481,27 @@ body.dark-mode .keyboard-shortcuts {
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 600px) {
+  .review-status {
+    flex-direction: row !important;
+    align-items: stretch;
+    font-size: 1rem;
+    padding: 0.5rem !important;
+    border-radius: 6px !important;
+    margin-bottom: 1rem !important;
+    gap: 0.5rem;
+  }
+  .review-status > div {
+    font-size: 1rem;
+    padding: 0.5rem 0.25rem;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .review-status span {
+    font-size: 1.2rem !important;
+  }
+}
+
 
 .feature-button {
   background-color: var(--background-color, #fff);
