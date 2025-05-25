@@ -289,18 +289,19 @@
             </div>
         </header>
 
+        <div id="db-file-selector" style="margin-bottom: 1em;"></div>
         <div class="toolbar">
-            <button class="btn" onclick="openJSONFile()">
-                <i class="fas fa-folder-open"></i>
-                Open JSON
-            </button>
             <button class="btn btn-success" onclick="saveJSON()">
                 <i class="fas fa-save"></i>
                 Save
             </button>
             <button class="btn btn-secondary" onclick="exportJSON()">
                 <i class="fas fa-file-export"></i>
-                Export
+                Export My Vocab
+            </button>
+            <button class="btn btn-secondary" onclick="exportDbFile()">
+                <i class="fas fa-file-export"></i>
+                Export JLPT DB
             </button>
             <button class="btn btn-danger" onclick="clearEditor()">
                 <i class="fas fa-trash"></i>
@@ -325,18 +326,91 @@
 
     <script>
         let data = [];
-        let fileHandle = null;
         let currentIndex = -1;
         let undoStack = [];
         let redoStack = [];
         let autoSaveTimeout = null;
         let filteredEntries = [];
 
+        // JLPT DB file options
+        const jlptDbFiles = [
+            { label: 'N5 Vocabulary', path: 'jlpt-db/goi/n5-goi.json' },
+            { label: 'N4 Vocabulary', path: 'jlpt-db/goi/n4-goi.json' },
+            { label: 'N3 Vocabulary', path: 'jlpt-db/goi/n3-goi.json' },
+            { label: 'N2 Vocabulary', path: 'jlpt-db/goi/n2-goi.json' },
+            { label: 'N1 Vocabulary', path: 'jlpt-db/goi/n1-goi.json' },
+            { label: 'N5 Kanji', path: 'jlpt-db/kanji/n5-kanji.json' },
+            { label: 'N4 Kanji', path: 'jlpt-db/kanji/n4-kanji.json' },
+            { label: 'N3 Kanji', path: 'jlpt-db/kanji/n3-kanji.json' },
+            { label: 'N2 Kanji', path: 'jlpt-db/kanji/n2-kanji.json' },
+            { label: 'N1 Kanji', path: 'jlpt-db/kanji/n1-kanji.json' },
+            { label: 'N5 Grammar', path: 'jlpt-db/bunpou/n5-bunpou.json' },
+            { label: 'N4 Grammar', path: 'jlpt-db/bunpou/n4-bunpou.json' },
+            { label: 'N3 Grammar', path: 'jlpt-db/bunpou/n3-bunpou.json' },
+            { label: 'N2 Grammar', path: 'jlpt-db/bunpou/n2-bunpou.json' },
+            { label: 'N1 Grammar', path: 'jlpt-db/bunpou/n1-bunpou.json' },
+            { label: 'Free Mode Vocabulary', path: '__free_mode__' }
+        ];
+        let currentDbFile = null;
+
         // Initialize the editor
         function init() {
             loadTheme();
+            loadFromLocalStorage();
             updateStatus('Ready');
             updateEntryCount();
+        }
+
+        // Load vocabulary from localStorage
+        function loadFromLocalStorage() {
+            try {
+                const vocab = localStorage.getItem('vocabulary');
+                data = vocab ? JSON.parse(vocab) : [];
+                saveToUndoStack();
+                renderEntryList();
+                renderEntryEditor();
+                updateStatus('Loaded from local storage');
+            } catch (err) {
+                showToast('Error loading from local storage', 'error');
+                data = [];
+            }
+        }
+
+        // Save vocabulary to localStorage
+        function saveJSON() {
+            try {
+                localStorage.setItem('vocabulary', JSON.stringify(data));
+                showToast('Saved to local storage', 'success');
+                updateStatus('Saved to local storage');
+            } catch (err) {
+                showToast('Error saving to local storage', 'error');
+            }
+        }
+
+        // Export vocabulary as JSON file
+        function exportJSON() {
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'vocabulary.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Clear vocabulary from editor and localStorage
+        function clearEditor() {
+            if (confirm('Are you sure you want to clear all entries?')) {
+                data = [];
+                currentIndex = -1;
+                localStorage.removeItem('vocabulary');
+                saveToUndoStack();
+                renderEntryList();
+                renderEntryEditor();
+                updateStatus('Editor cleared');
+            }
         }
 
         // Theme management
@@ -350,56 +424,6 @@
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             document.body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-        }
-
-        // File operations
-        async function openJSONFile() {
-            try {
-                [fileHandle] = await window.showOpenFilePicker({
-                    types: [{
-                        description: "JSON Files",
-                        accept: { "application/json": [".json"] }
-                    }]
-                });
-                const file = await fileHandle.getFile();
-                const text = await file.text();
-                data = JSON.parse(text);
-                saveToUndoStack();
-                renderEntryList();
-                updateStatus('File loaded successfully');
-            } catch (err) {
-                showToast('Error opening file', 'error');
-                console.error(err);
-            }
-        }
-
-        async function saveJSON() {
-            if (!fileHandle) {
-                showToast('No file loaded to save', 'warning');
-                return;
-            }
-            try {
-                const writable = await fileHandle.createWritable();
-                await writable.write(JSON.stringify(data, null, 2));
-                await writable.close();
-                showToast('File saved successfully', 'success');
-                updateStatus('File saved');
-            } catch (err) {
-                showToast('Error saving file', 'error');
-                console.error(err);
-            }
-        }
-
-        function exportJSON() {
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'vocabulary.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
         }
 
         // Entry management
@@ -515,17 +539,14 @@
 
         function updateEntry(field, value) {
             if (currentIndex === -1) return;
-            
             const fields = field.split('.');
             let current = data[currentIndex];
-            
             for (let i = 0; i < fields.length - 1; i++) {
                 if (!current[fields[i]]) {
                     current[fields[i]] = {};
                 }
                 current = current[fields[i]];
             }
-            
             current[fields[fields.length - 1]] = value;
             saveToUndoStack();
             scheduleAutoSave();
@@ -534,15 +555,12 @@
 
         function updateExample(index, field, value) {
             if (currentIndex === -1) return;
-            
             if (!data[currentIndex].examples) {
                 data[currentIndex].examples = [];
             }
-            
             if (!data[currentIndex].examples[index]) {
                 data[currentIndex].examples[index] = {};
             }
-            
             data[currentIndex].examples[index][field] = value;
             saveToUndoStack();
             scheduleAutoSave();
@@ -550,11 +568,9 @@
 
         function addExample() {
             if (currentIndex === -1) return;
-            
             if (!data[currentIndex].examples) {
                 data[currentIndex].examples = [];
             }
-            
             data[currentIndex].examples.push({ jp: '', en: '' });
             saveToUndoStack();
             scheduleAutoSave();
@@ -563,7 +579,6 @@
 
         function removeExample(index) {
             if (currentIndex === -1) return;
-            
             data[currentIndex].examples.splice(index, 1);
             saveToUndoStack();
             scheduleAutoSave();
@@ -594,7 +609,6 @@
 
         function undo() {
             if (undoStack.length === 0) return;
-            
             redoStack.push(JSON.stringify(data));
             data = JSON.parse(undoStack.pop());
             renderEntryList();
@@ -604,7 +618,6 @@
 
         function redo() {
             if (redoStack.length === 0) return;
-            
             undoStack.push(JSON.stringify(data));
             data = JSON.parse(redoStack.pop());
             renderEntryList();
@@ -618,9 +631,7 @@
                 clearTimeout(autoSaveTimeout);
             }
             autoSaveTimeout = setTimeout(() => {
-                if (fileHandle) {
-                    saveJSON();
-                }
+                saveJSON();
             }, 5000);
         }
 
@@ -630,7 +641,6 @@
             toast.className = `toast toast-${type}`;
             toast.textContent = message;
             document.body.appendChild(toast);
-            
             setTimeout(() => {
                 toast.remove();
             }, 3000);
@@ -644,15 +654,77 @@
             document.getElementById('entryCount').textContent = `${data.length} entries`;
         }
 
-        function clearEditor() {
-            if (confirm('Are you sure you want to clear all entries?')) {
-                data = [];
-                currentIndex = -1;
+        // JLPT DB file handling
+        // Add JLPT DB file selector to the UI
+        function renderDbFileSelector() {
+            const container = document.getElementById('db-file-selector');
+            if (!container) return;
+            let html = '<label for="dbFileSelect">Edit JLPT DB: </label>';
+            html += '<select id="dbFileSelect"><option value="">-- Select --</option>';
+            jlptDbFiles.forEach(f => {
+                html += `<option value="${f.path}">${f.label}</option>`;
+            });
+            html += '</select>';
+            container.innerHTML = html;
+            document.getElementById('dbFileSelect').addEventListener('change', onDbFileSelect);
+        }
+
+        // Handle JLPT DB file selection
+        async function onDbFileSelect(e) {
+            const path = e.target.value;
+            if (!path) return;
+            currentDbFile = path;
+            if (path === '__free_mode__') {
+                // Load from localStorage key 'freeModeVocabulary'
+                try {
+                    showToast('Loading Free Mode Vocabulary...', 'info');
+                    const vocab = localStorage.getItem('freeModeVocabulary');
+                    data = vocab ? JSON.parse(vocab) : [];
+                    saveToUndoStack();
+                    renderEntryList();
+                    renderEntryEditor();
+                    updateStatus('Loaded Free Mode Vocabulary');
+                } catch (err) {
+                    showToast('Error loading Free Mode Vocabulary', 'error');
+                    data = [];
+                }
+                return;
+            }
+            try {
+                showToast('Loading JLPT DB file...', 'info');
+                const response = await fetch(path);
+                if (!response.ok) throw new Error('Failed to load file');
+                data = await response.json();
                 saveToUndoStack();
                 renderEntryList();
                 renderEntryEditor();
-                updateStatus('Editor cleared');
+                updateStatus('Loaded ' + path);
+            } catch (err) {
+                showToast('Error loading JLPT DB file', 'error');
             }
+        }
+
+        // Export JLPT DB file (if loaded)
+        function exportDbFile() {
+            if (!currentDbFile) {
+                showToast('No JLPT DB file loaded', 'error');
+                return;
+            }
+            let fileName;
+            if (currentDbFile === '__free_mode__') {
+                fileName = 'free-mode-vocabulary.json';
+            } else {
+                fileName = currentDbFile.split('/').pop();
+            }
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
         // Keyboard shortcuts
@@ -675,8 +747,11 @@
             }
         });
 
-        // Initialize
-        init();
+        // On DOMContentLoaded, render the DB file selector
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDbFileSelector();
+            init();
+        });
     </script>
 </body>
 </html>

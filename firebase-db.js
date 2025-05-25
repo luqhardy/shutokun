@@ -400,7 +400,8 @@ const firebaseDB = {
 
     // Data validation and error handling
     validateVocabularyItem(item) {
-        const required = ['word', 'reading', 'meaning'];
+        //const required = ['word', 'meaning']; // 'reading' is now optional
+        const required = ['word'];
         const missing = required.filter(field => !item[field]);
         
         if (missing.length > 0) {
