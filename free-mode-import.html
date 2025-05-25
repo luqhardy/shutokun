@@ -663,7 +663,7 @@
             kuromojiLoading = true;
             showToast('Loading Japanese tokenizer...', 'info');
             kuromoji.builder({
-                dicPath: 'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/'
+    dicPath: 'kuromoji-dict/'
             }).build(function (err, tokenizer) {
                 kuromojiLoading = false;
                 if (err) {
@@ -730,23 +730,28 @@
                 loadKuromojiTokenizer(function() {
                     let tokens = kuromojiTokenizer.tokenize(cleanText);
                     // Only keep words with at least one Japanese character and not punctuation
-                    let words = tokens.filter(t => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(t.surface_form) && t.pos !== '記号')
-                        .map(t => ({
-                            word: t.surface_form,
-                            kana: t.reading || '',
-                            romaji: '',
-                            meaning: '',
-                            pos: t.pos,
-                            jlpt: '',
-                            examples: [],
-                            srs: {
-                                easeFactor: 2.5,
-                                interval: 1,
-                                repetitions: 0,
-                                dueDate: null,
-                                lastReviewed: null
-                            }
-                        }));
+                    let words = tokens.filter(t =>
+                        /[\u3040-\u30FF\u4E00-\u9FFF]/.test(t.surface_form) &&
+                        t.pos !== '記号' &&
+                        // Exclude single kana (hiragana or katakana) entries
+                        !(t.surface_form.length === 1 && /[\u3040-\u30FF]/.test(t.surface_form))
+                    )
+                    .map(t => ({
+                        word: t.surface_form,
+                        kana: t.reading || '',
+                        romaji: '',
+                        meaning: '',
+                        pos: t.pos,
+                        jlpt: '',
+                        examples: [],
+                        srs: {
+                            easeFactor: 2.5,
+                            interval: 1,
+                            repetitions: 0,
+                            dueDate: null,
+                            lastReviewed: null
+                        }
+                    }));
                     displayResults(words);
                     showToast('Segmentation complete!', 'success');
                 });
