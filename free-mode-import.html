@@ -787,6 +787,95 @@
             }
         };
 
+        // Add autofill meanings button after segmentation
+        function addAutofillButton() {
+            if (document.getElementById('autofill-meanings-btn')) return;
+            const actionsDiv = document.querySelector('.actions');
+            if (!actionsDiv) return;
+            const btn = document.createElement('button');
+            btn.className = 'btn btn-info';
+            btn.id = 'autofill-meanings-btn';
+            btn.innerHTML = '<i class="fas fa-magic"></i> Autofill Meanings';
+            btn.onclick = autofillMeanings;
+            actionsDiv.insertBefore(btn, actionsDiv.firstChild);
+        }
+
+        // Call this after displaying results
+        function displayResults(vocabArray) {
+            const container = document.getElementById('results');
+            container.innerHTML = '';
+            if (!vocabArray || vocabArray.length === 0) {
+                container.innerHTML = '<p>No words detected.</p>';
+                return;
+            }
+            // Use vocabArray directly
+            srsVocab = vocabArray.filter(v => v.word.length > 0);
+
+            // Render editable table
+            const table = document.createElement('table');
+            table.style.width = '100%';
+            table.style.marginTop = '1rem';
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>Kana</th>
+                        <th>Meaning</th>
+                        <th>Romaji</th>
+                        <th>POS</th>
+                        <th>JLPT</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${srsVocab.map((v, i) => `
+                        <tr>
+                            <td><input value="${v.word}" onchange="updateVocabField(${i}, 'word', this.value)"></td>
+                            <td><input value="${v.kana}" onchange="updateVocabField(${i}, 'kana', this.value)"></td>
+                            <td><input value="${v.meaning}" onchange="updateVocabField(${i}, 'meaning', this.value)"></td>
+                            <td><input value="${v.romaji}" onchange="updateVocabField(${i}, 'romaji', this.value)"></td>
+                            <td><input value="${v.pos}" onchange="updateVocabField(${i}, 'pos', this.value)"></td>
+                            <td><input value="${v.jlpt}" onchange="updateVocabField(${i}, 'jlpt', this.value)"></td>
+                            <td><input value="${v.examples && v.examples[0] ? v.examples[0].jp : ''}" onchange="updateExample(${i}, this.value)"></td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            container.appendChild(table);
+            document.getElementById('saveVocabButton').style.display = 'inline-flex';
+            document.getElementById('goToPracticeButton').style.display = 'inline-flex';
+            document.getElementById('editVocabButton').style.display = 'inline-flex';
+            addAutofillButton();
+        }
+
+        // Autofill meanings using Jisho API
+        async function autofillMeanings() {
+            if (!srsVocab || srsVocab.length === 0) return;
+            showToast('Fetching meanings from Jisho.org...', 'info');
+            for (let i = 0; i < srsVocab.length; i++) {
+                const word = srsVocab[i].word;
+                if (!word || srsVocab[i].meaning) continue;
+                try {
+                    const res = await fetch(`https://jisho.org/api/v1/search/words?keyword=${encodeURIComponent(word)}`);
+                    if (!res.ok) throw new Error('API error');
+                    const data = await res.json();
+                    if (data.data && data.data.length > 0) {
+                        // Use the first definition
+                        const senses = data.data[0].senses;
+                        if (senses && senses.length > 0) {
+                            srsVocab[i].meaning = senses[0].english_definitions.join(', ');
+                        }
+                    }
+                } catch (e) {
+                    srsVocab[i].meaning = '';
+                }
+                // Update the input field in the table
+                const input = document.querySelectorAll('tbody tr')[i]?.querySelectorAll('input')[2];
+                if (input) input.value = srsVocab[i].meaning;
+            }
+            showToast('Autofill complete!', 'success');
+        }
+
         // Image preprocessing
         function preprocessImage(imageData) {
             const data = imageData.data;
@@ -852,6 +941,7 @@
             document.getElementById('saveVocabButton').style.display = 'inline-flex';
             document.getElementById('goToPracticeButton').style.display = 'inline-flex';
             document.getElementById('editVocabButton').style.display = 'inline-flex';
+            addAutofillButton();
         }
 
         // Update vocab field
