@@ -730,6 +730,128 @@ function signOut() {
         });
 }
 
+// --- Unsynced changes indicator ---
+function updateUnsyncedIndicator() {
+    let indicator = document.getElementById('unsynced-indicator');
+    if (!indicator) {
+        indicator = document.createElement('div');
+        indicator.id = 'unsynced-indicator';
+        indicator.style.position = 'fixed';
+        indicator.style.bottom = '16px';
+        indicator.style.right = '16px';
+        indicator.style.zIndex = '1000';
+        indicator.style.background = 'rgba(255, 193, 7, 0.95)';
+        indicator.style.color = '#222';
+        indicator.style.padding = '8px 16px';
+        indicator.style.borderRadius = '20px';
+        indicator.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+        indicator.style.fontWeight = 'bold';
+        indicator.style.display = 'none';
+        indicator.style.transition = 'opacity 0.3s';
+        indicator.style.cursor = 'pointer';
+        indicator.innerHTML = 'Unsynced changes';
+        document.body.appendChild(indicator);
+        // Add click handler to show dialog
+        indicator.onclick = showUnsyncedDialog;
+    }
+    // Show if there are unsynced changes
+    const hasUnsynced = syncQueue.queue.length > 0 || !isOnline;
+    indicator.style.display = hasUnsynced ? 'block' : 'none';
+    indicator.style.opacity = hasUnsynced ? '1' : '0';
+}
+
+// --- Unsynced changes dialog ---
+function showUnsyncedDialog() {
+    let dialog = document.getElementById('unsynced-dialog');
+    if (!dialog) {
+        dialog = document.createElement('div');
+        dialog.id = 'unsynced-dialog';
+        dialog.style.position = 'fixed';
+        dialog.style.left = '0';
+        dialog.style.top = '0';
+        dialog.style.width = '100vw';
+        dialog.style.height = '100vh';
+        dialog.style.background = 'rgba(0,0,0,0.35)';
+        dialog.style.zIndex = '2000';
+        dialog.style.display = 'flex';
+        dialog.style.alignItems = 'center';
+        dialog.style.justifyContent = 'center';
+        dialog.innerHTML = `
+            <div style="background:#fff;max-width:400px;width:90vw;padding:2rem 1.5rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.18);position:relative;text-align:center;">
+                <button id="unsynced-dialog-close" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
+                <h2 style="margin-top:0;">Unsynced Changes</h2>
+                <p style="font-size:1.1em;">Some of your recent progress hasn't been synced to the cloud yet.</p>
+                <ul style="text-align:left;font-size:1em;margin:1em 0 1.5em 0;padding-left:1.2em;">
+                  <li><b>Offline:</b> You are currently offline. Changes will sync automatically when you reconnect.</li>
+                  <li><b>Sync error:</b> There was a problem syncing. The app will keep retrying in the background.</li>
+                </ul>
+                <p style="font-size:0.98em;color:#666;">You can keep studying safely. Your progress is saved locally and will sync as soon as possible.</p>
+                <button id="unsynced-dialog-close2" style="margin-top:1.2em;padding:0.5em 1.5em;border-radius:8px;border:none;background:#ffc107;color:#222;font-weight:bold;cursor:pointer;">OK</button>
+            </div>
+        `;
+        document.body.appendChild(dialog);
+        // Close handlers
+        document.getElementById('unsynced-dialog-close').onclick = () => dialog.remove();
+        document.getElementById('unsynced-dialog-close2').onclick = () => dialog.remove();
+        dialog.onclick = (e) => { if (e.target === dialog) dialog.remove(); };
+    }
+}
+
+// Patch syncQueue to update indicator
+const originalAdd = syncQueue.add.bind(syncQueue);
+syncQueue.add = function(data) {
+    originalAdd(data);
+    updateUnsyncedIndicator();
+};
+const originalProcess = syncQueue.process.bind(syncQueue);
+syncQueue.process = async function() {
+    await originalProcess();
+    updateUnsyncedIndicator();
+};
+
+// Update indicator on network status change
+window.addEventListener('online', updateUnsyncedIndicator);
+window.addEventListener('offline', updateUnsyncedIndicator);
+
+// Update indicator after saveProgress
+const originalSaveProgress = saveProgress;
+window.saveProgress = async function(...args) {
+    const result = await originalSaveProgress.apply(this, args);
+    updateUnsyncedIndicator();
+    return result;
+};
+
+// --- Firebase real-time sync listener ---
+function setupFirebaseRealtimeListener() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const level = urlParams.get("level");
+    const category = urlParams.get("category") || "goi";
+    if (!currentUser || !level) return;
+    if (!window.firebaseDB || typeof window.firebaseDB.listenToUserProgress !== 'function') return;
+    // Remove any previous listener if needed (optional, not implemented here)
+    window.firebaseDB.listenToUserProgress(currentUser.uid, `${level}-${category}`, (updatedData) => {
+        if (Array.isArray(updatedData)) {
+            // Merge with local data
+            const localData = JSON.parse(localStorage.getItem("srsData") || "[]");
+            const mergedData = mergeProgressData(updatedData, localData);
+            mergedData.forEach((item, i) => {
+                if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+            });
+            // Save merged data locally
+            localStorage.setItem("srsData", JSON.stringify(mergedData));
+            localStorage.setItem("lastSync", Date.now().toString());
+            throttledUpdateUI();
+            updateSyncStatus('synced', 'Progress updated from cloud');
+        }
+    });
+}
+
+// Call the listener after successful login and vocab load
+// In loadProgress, after successful progress load and before throttledUpdateUI():
+if (currentUser && isOnline) {
+    setupFirebaseRealtimeListener();
+}
+
 // Initialize the app
 document.addEventListener("DOMContentLoaded", () => {
     try {
@@ -851,6 +973,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     showError('All SRS progress has been reset.', 3000);
                 }
             });
+        }
+
+        // Show indicator on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateUnsyncedIndicator);
+        } else {
+            updateUnsyncedIndicator();
         }
     } catch (error) {
         console.error('Error initializing app:', error);
