@@ -1,15 +1,15 @@
 [
   {
-    "word": "学生",
-    "kana": "がくせい",
-    "romaji": "gakusei",
-    "meaning": "student",
+    "word": "憧れ",
+    "kana": "あこがれ",
+    "romaji": "akogare",
+    "meaning": "longing; yearning; admiration",
     "pos": "noun",
-    "jlpt": "N5",
+    "jlpt": "N1",
     "examples": [
       {
-        "jp": "彼は学生です。",
-        "en": "He is a student."
+        "jp": "彼女は昔から歌手への憧れを抱いていた。",
+        "en": "She had always harbored a longing to become a singer."
       }
     ],
     "srs": {
@@ -21,16 +21,16 @@
     }
   },
   {
-    "word": "水",
-    "kana": "みず",
-    "romaji": "mizu",
-    "meaning": "water",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "曖昧",
+    "kana": "あいまい",
+    "romaji": "aimai",
+    "meaning": "vague; ambiguous; unclear",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
     "examples": [
       {
-        "jp": "水をください。",
-        "en": "Please give me water."
+        "jp": "彼の説明は曖昧で理解しにくい。",
+        "en": "His explanation is vague and hard to understand."
       }
     ],
     "srs": {
@@ -40,5 +40,1831 @@
       "dueDate": null,
       "lastReviewed": null
     }
-  }
-]
+  },
+  {
+    "word": "抽象的",
+    "kana": "ちゅうしょうてき",
+    "romaji": "chuushouteki",
+    "meaning": "abstract",
+    "pos": "na-adjective",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "この芸術作品は抽象的すぎて理解できない。",
+        "en": "This artwork is too abstract to understand."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "懐疑的",
+    "kana": "かいぎてき",
+    "romaji": "kaigiteki",
+    "meaning": "skeptical; doubtful",
+    "pos": "na-adjective",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は新しい提案に懐疑的な態度を示した。",
+        "en": "He showed a skeptical attitude toward the new proposal."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "顕著",
+    "kana": "けんちょ",
+    "romaji": "kencho",
+    "meaning": "remarkable; conspicuous; striking",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "この地域では人口減少が顕著に現れている。",
+        "en": "Population decline is remarkably evident in this region."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "洞察",
+    "kana": "どうさつ",
+    "romaji": "dousatsu",
+    "meaning": "insight; discernment; perception",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼女の洞察力は非常に鋭い。",
+        "en": "Her power of insight is very sharp."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "偏見",
+    "kana": "へんけん",
+    "romaji": "henken",
+    "meaning": "prejudice; bias",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "偏見を持たずに人を判断すべきだ。",
+        "en": "We should judge people without prejudice."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "模索",
+    "kana": "もさく",
+    "romaji": "mosaku",
+    "meaning": "groping; searching; fumbling",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "新しい解決策を模索している。",
+        "en": "We are searching for new solutions."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "慣習",
+    "kana": "かんしゅう",
+    "romaji": "kanshuu",
+    "meaning": "custom; convention; practice",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "この地域には古い慣習が残っている。",
+        "en": "Old customs remain in this region."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "潜在的",
+    "kana": "せんざいてき",
+    "romaji": "senzaiteki",
+    "meaning": "potential; latent",
+    "pos": "na-adjective",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "この技術には潜在的な危険性がある。",
+        "en": "This technology has potential dangers."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "絶妙",
+    "kana": "ぜつみょう",
+    "romaji": "zetsumyou",
+    "meaning": "exquisite; superb; perfect",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼のタイミングは絶妙だった。",
+        "en": "His timing was perfect."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "緻密",
+    "kana": "ちみつ",
+    "romaji": "chimitsu",
+    "meaning": "precise; detailed; minute",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼女は緻密な計画を立てた。",
+        "en": "She made a detailed plan."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "繊細",
+    "kana": "せんさい",
+    "romaji": "sensai",
+    "meaning": "delicate; fine; sensitive",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は繊細な性格をしている。",
+        "en": "He has a sensitive personality."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "蓄積",
+    "kana": "ちくせき",
+    "romaji": "chikuseki",
+    "meaning": "accumulation; storage",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "データの蓄積が重要だ。",
+        "en": "Data accumulation is important."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "促進",
+    "kana": "そくしん",
+    "romaji": "sokushin",
+    "meaning": "promotion; acceleration; encouragement",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "政府は経済成長の促進を図っている。",
+        "en": "The government is working to promote economic growth."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "拡張",
+    "kana": "かくちょう",
+    "romaji": "kakuchou",
+    "meaning": "expansion; extension; enlargement",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "会社の事業拡張が計画されている。",
+        "en": "The company's business expansion is being planned."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "抑制",
+    "kana": "よくせい",
+    "romaji": "yokusei",
+    "meaning": "restraint; suppression; control",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "感情を抑制することが必要だ。",
+        "en": "It's necessary to control one's emotions."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "妥協",
+    "kana": "だきょう",
+    "romaji": "dakyou",
+    "meaning": "compromise; concession",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "双方が妥協点を見つけた。",
+        "en": "Both sides found a compromise."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "頻繁",
+    "kana": "ひんぱん",
+    "romaji": "hinpan",
+    "meaning": "frequent",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は頻繁に海外出張に行く。",
+        "en": "He frequently goes on business trips abroad."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "露骨",
+    "kana": "ろこつ",
+    "romaji": "rokotsu",
+    "meaning": "frank; candid; plain; blunt",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼女の不満は露骨に表れていた。",
+        "en": "Her dissatisfaction was plainly evident."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "遭遇",
+    "kana": "そうぐう",
+    "romaji": "souguu",
+    "meaning": "encounter; being confronted with",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "野生動物との遭遇は危険だ。",
+        "en": "Encountering wild animals is dangerous."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "契機",
+    "kana": "けいき",
+    "romaji": "keiki",
+    "meaning": "opportunity; chance; trigger",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "この事件が改革の契機となった。",
+        "en": "This incident became the trigger for reform."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "憂慮",
+    "kana": "ゆうりょ",
+    "romaji": "yuuryo",
+    "meaning": "anxiety; concern; worry",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "環境問題を憂慮している。",
+        "en": "I'm concerned about environmental issues."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "懸念",
+    "kana": "けねん",
+    "romaji": "kenen",
+    "meaning": "worry; concern; anxiety",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "経済の先行きに懸念を抱いている。",
+        "en": "I have concerns about the economic outlook."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "軽蔑",
+    "kana": "けいべつ",
+    "romaji": "keibetsu",
+    "meaning": "scorn; disdain; contempt",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は嘘つきを軽蔑している。",
+        "en": "He despises liars."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "威厳",
+    "kana": "いげん",
+    "romaji": "igen",
+    "meaning": "dignity; majesty; solemnity",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は威厳のある態度を保っている。",
+        "en": "He maintains a dignified attitude."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "謙遜",
+    "kana": "けんそん",
+    "romaji": "kenson",
+    "meaning": "modesty; humility",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼女は謙遜して自分の才能を隠している。",
+        "en": "She modestly hides her talent."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "寛容",
+    "kana": "かんよう",
+    "romaji": "kanyou",
+    "meaning": "tolerance; broad-mindedness",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "多様性に対して寛容な社会が必要だ。",
+        "en": "We need a society that is tolerant of diversity."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "慎重",
+    "kana": "しんちょう",
+    "romaji": "shinchou",
+    "meaning": "careful; cautious; prudent",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "投資には慎重な判断が必要だ。",
+        "en": "Investment requires careful judgment."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "衝撃",
+    "kana": "しょうげき",
+    "romaji": "shougeki",
+    "meaning": "shock; impact; crash",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "そのニュースは大きな衝撃を与えた。",
+        "en": "That news gave a great shock."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "激励",
+    "kana": "げきれい",
+    "romaji": "gekirei",
+    "meaning": "encouragement; inspiration",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "監督の激励で選手は頑張った。",
+        "en": "The players worked hard with the coach's encouragement."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "屈辱",
+    "kana": "くつじょく",
+    "romaji": "kutsujoku",
+    "meaning": "humiliation; shame; disgrace",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は屈辱を感じて顔を赤らめた。",
+        "en": "He blushed with humiliation."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "称賛",
+    "kana": "しょうさん",
+    "romaji": "shousan",
+    "meaning": "praise; admiration; commendation",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼の功績は多くの人から称賛された。",
+        "en": "His achievements were praised by many people."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "嫌悪",
+    "kana": "けんお",
+    "romaji": "kenwo",
+    "meaning": "disgust; abhorrence; aversion",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は暴力に嫌悪感を示した。",
+        "en": "He showed disgust at violence."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "恐怖",
+    "kana": "きょうふ",
+    "romaji": "kyoufu",
+    "meaning": "fear; dread; terror",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼女は高所恐怖症だ。",
+        "en": "She has a fear of heights."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "愛憎",
+    "kana": "あいぞう",
+    "romaji": "aizou",
+    "meaning": "love and hate",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "愛憎入り混じった複雑な感情だった。",
+        "en": "It was complex emotions mixed with love and hate."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "敬意",
+    "kana": "けいい",
+    "romaji": "keii",
+    "meaning": "respect; honor; reverence",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼の努力に敬意を表する。",
+        "en": "I show respect for his efforts."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "崇拝",
+    "kana": "すうはい",
+    "romaji": "suuhai",
+    "meaning": "worship; adoration; veneration",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は芸術家を崇拝している。",
+        "en": "He worships the artist."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "愛着",
+    "kana": "あいちゃく",
+    "romaji": "aichaku",
+    "meaning": "attachment; affection; fondness",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "この家には深い愛着がある。",
+        "en": "I have deep attachment to this house."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "執着",
+    "kana": "しゅうちゃく",
+    "romaji": "shuuchaku",
+    "meaning": "attachment; adhesion; tenacity",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "お金への執着を捨てるべきだ。",
+        "en": "You should abandon your attachment to money."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "嫉妬",
+    "kana": "しっと",
+    "romaji": "shitto",
+    "meaning": "jealousy; envy",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼女の成功に嫉妬している。",
+        "en": "I'm jealous of her success."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "羨望",
+    "kana": "せんぼう",
+    "romaji": "senbou",
+    "meaning": "envy; admiration",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼の才能は羨望の的だ。",
+        "en": "His talent is the object of envy."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "憧憬",
+    "kana": "しょうけい",
+    "romaji": "shoukei",
+    "meaning": "longing; aspiration; admiration",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "故郷への憧憬の念が強い。",
+        "en": "The longing for hometown is strong."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "郷愁",
+    "kana": "きょうしゅう",
+    "romaji": "kyoushuu",
+    "meaning": "nostalgia; homesickness",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "故郷の風景に郷愁を感じる。",
+        "en": "I feel nostalgia for the scenery of my hometown."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "憂鬱",
+    "kana": "ゆううつ",
+    "romaji": "yuuutsu",
+    "meaning": "depression; melancholy; gloom",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "雨の日は憂鬱な気分になる。",
+        "en": "Rainy days make me feel melancholy."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "陶酔",
+    "kana": "とうすい",
+    "romaji": "tousui",
+    "meaning": "intoxication; being carried away; rapture",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "音楽に陶酔している。",
+        "en": "I'm intoxicated by the music."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "恍惚",
+    "kana": "こうこつ",
+    "romaji": "koukotsu",
+    "meaning": "ecstasy; rapture; trance",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼は恍惚とした表情を浮かべた。",
+        "en": "He showed an ecstatic expression."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "困惑",
+    "kana": "こんわく",
+    "romaji": "konwaku",
+    "meaning": "bewilderment; perplexity; embarrassment",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "突然の質問に困惑した。",
+        "en": "I was bewildered by the sudden question."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "動揺",
+    "kana": "どうよう",
+    "romaji": "douyou",
+    "meaning": "disturbance; unrest; shaking",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "悪いニュースで動揺している。",
+        "en": "I'm shaken by the bad news."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "狼狽",
+    "kana": "ろうばい",
+    "romaji": "roubai",
+    "meaning": "confusion; dismay; consternation",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "予想外の出来事に狼狽した。",
+        "en": "I was dismayed by the unexpected event."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "激怒",
+    "kana": "げきど",
+    "romaji": "gekido",
+    "meaning": "rage; fury; indignation",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "不正行為に激怒している。",
+        "en": "I'm furious about the misconduct."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "憤慨",
+    "kana": "ふんがい",
+    "romaji": "fungai",
+    "meaning": "indignation; resentment; outrage",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "不当な扱いに憤慨している。",
+        "en": "I'm indignant about the unfair treatment."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "憎悪",
+    "kana": "ぞうお",
+    "romaji": "zouwo",
+    "meaning": "hatred; abhorrence; loathing",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "戦争への憎悪を抱いている。",
+        "en": "I harbor hatred for war."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "怨恨",
+    "kana": "えんこん",
+    "romaji": "enkon",
+    "meaning": "grudge; malice; resentment",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "古い怨恨を忘れるべきだ。",
+        "en": "We should forget old grudges."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "歓喜",
+    "kana": "かんき",
+    "romaji": "kanki",
+    "meaning": "delight; great joy; rapture",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "勝利に歓喜の声が上がった。",
+        "en": "Shouts of joy arose at the victory."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "陶然",
+    "kana": "とうぜん",
+    "romaji": "touzen",
+    "meaning": "intoxication; rapture; being entranced",
+    "pos": "suru verb, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "美しい景色に陶然とした。",
+        "en": "I was entranced by the beautiful scenery."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "安堵",
+    "kana": "あんど",
+    "romaji": "ando",
+    "meaning": "relief; reassurance",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "試験に合格して安堵した。",
+        "en": "I felt relieved after passing the exam."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "切望",
+    "kana": "せつぼう",
+    "romaji": "setsubou",
+    "meaning": "earnest desire; eager hope",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "平和を切望している。",
+        "en": "I earnestly desire peace."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "渇望",
+    "kana": "かつぼう",
+    "romaji": "katsubou",
+    "meaning": "craving; longing; thirsting for",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "成功への渇望が強い。",
+        "en": "The craving for success is strong."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "熱望",
+    "kana": "ねつぼう",
+    "romaji": "netsubou",
+    "meaning": "aspiration; ardent desire; yearning",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "彼女は医者になることを熱望している。",
+        "en": "She ardently desires to become a doctor."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "絶望",
+    "kana": "ぜつぼう",
+    "romaji": "zetsubou",
+    "meaning": "despair; hopelessness",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "失敗に絶望している。",
+        "en": "I'm in despair over the failure."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "落胆",
+    "kana": "らくたん",
+    "romaji": "rakutan",
+    "meaning": "discouragement; despondency; dejection",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "結果に落胆している。",
+        "en": "I'm discouraged by the results."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "失望",
+    "kana": "しつぼう",
+    "romaji": "shitsubou",
+    "meaning": "disappointment; despair",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "期待していたのに失望した。",
+        "en": "I was disappointed despite having expectations."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "幻滅",
+    "kana": "げんめつ",
+    "romaji": "genmetsu",
+    "meaning": "disillusionment; disenchantment",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "現実に幻滅している。",
+        "en": "I'm disillusioned with reality."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "屈服",
+    "kana": "くっぷく",
+    "romaji": "kuppuku",
+    "meaning": "surrender; submission; giving in",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "圧力に屈服してしまった。",
+        "en": "I gave in to the pressure."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "抵抗",
+    "kana": "ていこう",
+    "romaji": "teikou",
+    "meaning": "resistance; opposition",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "不正に抵抗する。",
+        "en": "I resist injustice."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "反抗",
+    "kana": "はんこう",
+    "romaji": "hankou",
+    "meaning": "rebellion; defiance; revolt",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "権威に反抗している。",
+        "en": "I'm rebelling against authority."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "服従",
+    "kana": "ふくじゅう",
+    "romaji": "fukujuu",
+    "meaning": "obedience; submission; compliance",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "命令に服従する。",
+        "en": "I obey the orders."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "隷属",
+    "kana": "れいぞく",
+    "romaji": "reizoku",
+    "meaning": "subordination; dependency; subjection",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "他国への隷属を拒否する。",
+        "en": "We refuse subjection to other countries."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "支配",
+    "kana": "しはい",
+    "romaji": "shihai",
+    "meaning": "control; rule; influence",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "感情に支配されている。",
+        "en": "I'm controlled by emotions."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "統制",
+    "kana": "とうせい",
+    "romaji": "tousei",
+    "meaning": "control; regulation; suppression",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "物価統制が実施された。",
+        "en": "Price control was implemented."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "束縛",
+    "kana": "そくばく",
+    "romaji": "sokubaku",
+    "meaning": "restraint; shackles; restriction",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "自由を束縛されている。",
+        "en": "My freedom is being restricted."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "拘束",
+    "kana": "こうそく",
+    "romaji": "kousoku",
+    "meaning": "restriction; restraint; binding",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "時間に拘束されている。",
+        "en": "I'm bound by time."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "解放",
+    "kana": "かいほう",
+    "romaji": "kaihou",
+    "meaning": "liberation; release; freedom",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "束縛から解放された。",
+        "en": "I was freed from restraints."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "自由",
+    "kana": "じゆう",
+    "romaji": "jiyuu",
+    "meaning": "freedom; liberty; as one pleases",
+    "pos": "na-adjective, noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "表現の自由を守りたい。",
+        "en": "I want to protect freedom of expression."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "独立",
+    "kana": "どくりつ",
+    "romaji": "dokuritsu",
+    "meaning": "independence; self-reliance; autonomy",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "経済的独立を目指している。",
+        "en": "I'm aiming for economic independence."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "自律",
+    "kana": "じりつ",
+    "romaji": "jiritsu",
+    "meaning": "autonomy; self-control; independence",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "自律した行動が必要だ。",
+        "en": "Autonomous action is necessary."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "協調",
+    "kana": "きょうちょう",
+    "romaji": "kyouchou",
+    "meaning": "cooperation; coordination; harmony",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "チームワークには協調が大切だ。",
+        "en": "Cooperation is important for teamwork."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "連携",
+    "kana": "れんけい",
+    "romaji": "renkei",
+    "meaning": "cooperation; coordination; link",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "部署間の連携を強化する。",
+        "en": "We strengthen cooperation between departments."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "協力",
+    "kana": "きょうりょく",
+    "romaji": "kyouryoku",
+    "meaning": "cooperation; collaboration; assistance",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "国際協力が重要だ。",
+        "en": "International cooperation is important."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "競争",
+    "kana": "きょうそう",
+    "romaji": "kyousou",
+    "meaning": "competition; contest; rivalry",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "激しい競争に勝ち抜いた。",
+        "en": "I won through fierce competition."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "対立",
+    "kana": "たいりつ",
+    "romaji": "tairitsu",
+    "meaning": "confrontation; opposition; antagonism",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "意見の対立が生じた。",
+        "en": "A conflict of opinions arose."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "衝突",
+    "kana": "しょうとつ",
+    "romaji": "shoutotsu",
+    "meaning": "collision; conflict; clash",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "利害が衝突している。",
+        "en": "Interests are clashing."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "摩擦",
+    "kana": "まさつ",
+    "romaji": "masatsu",
+    "meaning": "friction; discord; strife",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "両国間に摩擦が生じている。",
+        "en": "Friction is arising between the two countries."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "和解",
+    "kana": "わかい",
+    "romaji": "wakai",
+    "meaning": "reconciliation; settlement; compromise",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "長年の対立に和解が成立した。",
+        "en": "Reconciliation was achieved after years of conflict."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "調和",
+    "kana": "ちょうわ",
+    "romaji": "chouwa",
+    "meaning": "harmony; accord; balance",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "自然との調和を保つ。",
+        "en": "I maintain harmony with nature."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "均衡",
+    "kana": "きんこう",
+    "romaji": "kinkou",
+    "meaning": "equilibrium; balance; stability",
+    "pos": "noun",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "需要と供給の均衡が重要だ。",
+        "en": "The balance of supply and demand is important."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "統一",
+    "kana": "とういつ",
+    "romaji": "touitsu",
+    "meaning": "unity; consolidation; uniformity",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "基準の統一が必要だ。",
+        "en": "Unification of standards is necessary."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "分裂",
+    "kana": "ぶんれつ",
+    "romaji": "bunretsu",
+    "meaning": "split; division; break up",
+    "pos": "noun, suru verb",
+    "jlpt": "N1",
+    "examples": [
+      {
+        "jp": "党が分裂した。",
+        "en": "The party split up."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  }]

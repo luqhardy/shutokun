@@ -1,15 +1,15 @@
 [
   {
-    "word": "学生",
-    "kana": "がくせい",
-    "romaji": "gakusei",
-    "meaning": "student",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "経験",
+    "kana": "けいけん",
+    "romaji": "keiken",
+    "meaning": "experience",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
     "examples": [
       {
-        "jp": "彼は学生です。",
-        "en": "He is a student."
+        "jp": "海外で働いた経験があります。",
+        "en": "I have experience working overseas."
       }
     ],
     "srs": {
@@ -21,16 +21,16 @@
     }
   },
   {
-    "word": "水",
-    "kana": "みず",
-    "romaji": "mizu",
-    "meaning": "water",
-    "pos": "noun",
-    "jlpt": "N5",
+    "word": "結婚",
+    "kana": "けっこん",
+    "romaji": "kekkon",
+    "meaning": "marriage",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
     "examples": [
       {
-        "jp": "水をください。",
-        "en": "Please give me water."
+        "jp": "来年結婚する予定です。",
+        "en": "I plan to get married next year."
       }
     ],
     "srs": {
@@ -40,5 +40,1936 @@
       "dueDate": null,
       "lastReviewed": null
     }
-  }
-]
+  },
+  {
+    "word": "離婚",
+    "kana": "りこん",
+    "romaji": "rikon",
+    "meaning": "divorce",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "両親が離婚しました。",
+        "en": "My parents got divorced."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "出産",
+    "kana": "しゅっさん",
+    "romaji": "shussan",
+    "meaning": "childbirth; delivery",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "姉が出産しました。",
+        "en": "My sister gave birth."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "引っ越し",
+    "kana": "ひっこし",
+    "romaji": "hikkoshi",
+    "meaning": "moving; relocation",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "来月引っ越しします。",
+        "en": "I'll move next month."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "旅行",
+    "kana": "りょこう",
+    "romaji": "ryokou",
+    "meaning": "travel; trip",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "夏休みに旅行に行きます。",
+        "en": "I'll go on a trip during summer vacation."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "観光",
+    "kana": "かんこう",
+    "romaji": "kankou",
+    "meaning": "sightseeing; tourism",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "京都を観光しました。",
+        "en": "I went sightseeing in Kyoto."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "出張",
+    "kana": "しゅっちょう",
+    "romaji": "shutchou",
+    "meaning": "business trip",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "来週東京に出張します。",
+        "en": "I'll go on a business trip to Tokyo next week."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "留学",
+    "kana": "りゅうがく",
+    "romaji": "ryuugaku",
+    "meaning": "studying abroad",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "アメリカに留学したいです。",
+        "en": "I want to study abroad in America."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "散歩",
+    "kana": "さんぽ",
+    "romaji": "sanpo",
+    "meaning": "walk; stroll",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "公園を散歩しました。",
+        "en": "I took a walk in the park."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "運動",
+    "kana": "うんどう",
+    "romaji": "undou",
+    "meaning": "exercise; movement",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "毎日運動しています。",
+        "en": "I exercise every day."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "健康",
+    "kana": "けんこう",
+    "romaji": "kenkou",
+    "meaning": "health; healthy",
+    "pos": "noun, na-adjective",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "健康に気をつけています。",
+        "en": "I'm taking care of my health."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "病気",
+    "kana": "びょうき",
+    "romaji": "byouki",
+    "meaning": "illness; disease; sickness",
+    "pos": "noun, na-adjective",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "病気で学校を休みました。",
+        "en": "I was absent from school due to illness."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "治療",
+    "kana": "ちりょう",
+    "romaji": "chiryou",
+    "meaning": "treatment; cure",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "病院で治療を受けています。",
+        "en": "I'm receiving treatment at the hospital."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "手術",
+    "kana": "しゅじゅつ",
+    "romaji": "shujutsu",
+    "meaning": "surgery; operation",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "来週手術を受けます。",
+        "en": "I will have surgery next week."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "薬",
+    "kana": "くすり",
+    "romaji": "kusuri",
+    "meaning": "medicine; drug",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "薬を飲みました。",
+        "en": "I took medicine."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "注射",
+    "kana": "ちゅうしゃ",
+    "romaji": "chuusha",
+    "meaning": "injection; shot",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "注射を打ちました。",
+        "en": "I got an injection."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "料理",
+    "kana": "りょうり",
+    "romaji": "ryouri",
+    "meaning": "cooking; cuisine; dish",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "母は料理が上手です。",
+        "en": "My mother is good at cooking."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "掃除",
+    "kana": "そうじ",
+    "romaji": "souji",
+    "meaning": "cleaning; sweeping",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "部屋の掃除をしました。",
+        "en": "I cleaned the room."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "洗濯",
+    "kana": "せんたく",
+    "romaji": "sentaku",
+    "meaning": "washing; laundry",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "洗濯をしなければなりません。",
+        "en": "I have to do the laundry."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "買い物",
+    "kana": "かいもの",
+    "romaji": "kaimono",
+    "meaning": "shopping",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "スーパーで買い物しました。",
+        "en": "I went shopping at the supermarket."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "交通",
+    "kana": "こうつう",
+    "romaji": "koutsu",
+    "meaning": "traffic; transportation",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "交通が便利な場所です。",
+        "en": "It's a place with convenient transportation."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "事故",
+    "kana": "じこ",
+    "romaji": "jiko",
+    "meaning": "accident; incident",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "交通事故がありました。",
+        "en": "There was a traffic accident."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "渋滞",
+    "kana": "じゅうたい",
+    "romaji": "juutai",
+    "meaning": "traffic jam; congestion",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "道路が渋滞しています。",
+        "en": "The road is congested."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "停車",
+    "kana": "ていしゃ",
+    "romaji": "teisha",
+    "meaning": "stopping (a vehicle)",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "電車が停車しました。",
+        "en": "The train stopped."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "駐車",
+    "kana": "ちゅうしゃ",
+    "romaji": "chuusha",
+    "meaning": "parking",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "ここに駐車してもいいですか。",
+        "en": "Can I park here?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "乗車",
+    "kana": "じょうしゃ",
+    "romaji": "jousha",
+    "meaning": "boarding; getting on",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "電車に乗車しました。",
+        "en": "I boarded the train."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "降車",
+    "kana": "こうしゃ",
+    "romaji": "kousha",
+    "meaning": "getting off; alighting",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "次の駅で降車します。",
+        "en": "I'll get off at the next station."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "通勤",
+    "kana": "つうきん",
+    "romaji": "tsuukin",
+    "meaning": "commuting to work",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "電車で通勤しています。",
+        "en": "I commute to work by train."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "通学",
+    "kana": "つうがく",
+    "romaji": "tsuugaku",
+    "meaning": "commuting to school",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "バスで通学しています。",
+        "en": "I commute to school by bus."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "天気",
+    "kana": "てんき",
+    "romaji": "tenki",
+    "meaning": "weather",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "今日はいい天気ですね。",
+        "en": "The weather is nice today, isn't it?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "気温",
+    "kana": "きおん",
+    "romaji": "kion",
+    "meaning": "temperature",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "今日の気温は30度です。",
+        "en": "Today's temperature is 30 degrees."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "湿度",
+    "kana": "しつど",
+    "romaji": "shitsudo",
+    "meaning": "humidity",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "湿度が高いです。",
+        "en": "The humidity is high."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "台風",
+    "kana": "たいふう",
+    "romaji": "taifuu",
+    "meaning": "typhoon",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "台風が近づいています。",
+        "en": "A typhoon is approaching."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "地震",
+    "kana": "じしん",
+    "romaji": "jishin",
+    "meaning": "earthquake",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "昨夜地震がありました。",
+        "en": "There was an earthquake last night."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "火事",
+    "kana": "かじ",
+    "romaji": "kaji",
+    "meaning": "fire; conflagration",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "近所で火事がありました。",
+        "en": "There was a fire in the neighborhood."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "警察",
+    "kana": "けいさつ",
+    "romaji": "keisatsu",
+    "meaning": "police",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "警察に電話しました。",
+        "en": "I called the police."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "消防車",
+    "kana": "しょうぼうしゃ",
+    "romaji": "shoubousha",
+    "meaning": "fire engine; fire truck",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "消防車が通りました。",
+        "en": "A fire truck passed by."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "救急車",
+    "kana": "きゅうきゅうしゃ",
+    "romaji": "kyuukyuusha",
+    "meaning": "ambulance",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "救急車を呼びました。",
+        "en": "I called an ambulance."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "文化",
+    "kana": "ぶんか",
+    "romaji": "bunka",
+    "meaning": "culture",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "日本の文化に興味があります。",
+        "en": "I'm interested in Japanese culture."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "歴史",
+    "kana": "れきし",
+    "romaji": "rekishi",
+    "meaning": "history",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "歴史を勉強しています。",
+        "en": "I'm studying history."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "伝統",
+    "kana": "でんとう",
+    "romaji": "dentou",
+    "meaning": "tradition",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "古い伝統を守っています。",
+        "en": "We're preserving old traditions."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "習慣",
+    "kana": "しゅうかん",
+    "romaji": "shuukan",
+    "meaning": "habit; custom",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "毎朝運動する習慣があります。",
+        "en": "I have a habit of exercising every morning."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "宗教",
+    "kana": "しゅうきょう",
+    "romaji": "shuukyou",
+    "meaning": "religion",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "宗教について話し合いました。",
+        "en": "We discussed religion."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "政治",
+    "kana": "せいじ",
+    "romaji": "seiji",
+    "meaning": "politics",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "政治に興味がありません。",
+        "en": "I'm not interested in politics."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "経済",
+    "kana": "けいざい",
+    "romaji": "keizai",
+    "meaning": "economy; economics",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "経済学を専攻しています。",
+        "en": "I'm majoring in economics."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "技術",
+    "kana": "ぎじゅつ",
+    "romaji": "gijutsu",
+    "meaning": "technology; technique",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "新しい技術を学んでいます。",
+        "en": "I'm learning new technology."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "科学",
+    "kana": "かがく",
+    "romaji": "kagaku",
+    "meaning": "science",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "科学の本を読んでいます。",
+        "en": "I'm reading a science book."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "相談",
+    "kana": "そうだん",
+    "romaji": "soudan",
+    "meaning": "consultation; discussion",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "友達に相談しました。",
+        "en": "I consulted with my friend."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "普通",
+    "kana": "ふつう",
+    "romaji": "futsuu",
+    "meaning": "ordinary; normal; usual",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "普通の人です。",
+        "en": "He's an ordinary person."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "連絡",
+    "kana": "れんらく",
+    "romaji": "renraku",
+    "meaning": "contact; communication",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "後で連絡します。",
+        "en": "I'll contact you later."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "準備",
+    "kana": "じゅんび",
+    "romaji": "junbi",
+    "meaning": "preparation; arrangements",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "旅行の準備をしています。",
+        "en": "I'm preparing for the trip."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "想像",
+    "kana": "そうぞう",
+    "romaji": "souzou",
+    "meaning": "imagination; guess",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "想像していたより難しかった。",
+        "en": "It was harder than I had imagined."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "心配",
+    "kana": "しんぱい",
+    "romaji": "shinpai",
+    "meaning": "worry; concern; anxiety",
+    "pos": "noun, suru verb, na-adjective",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "試験のことが心配です。",
+        "en": "I'm worried about the exam."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "感じ",
+    "kana": "かんじ",
+    "romaji": "kanji",
+    "meaning": "feeling; sense; impression",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "いい感じですね。",
+        "en": "It feels good, doesn't it?"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "説明",
+    "kana": "せつめい",
+    "romaji": "setsumei",
+    "meaning": "explanation; commentary",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "もう一度説明してください。",
+        "en": "Please explain it one more time."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "約束",
+    "kana": "やくそく",
+    "romaji": "yakusoku",
+    "meaning": "promise; appointment",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "友達と約束があります。",
+        "en": "I have an appointment with a friend."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "意見",
+    "kana": "いけん",
+    "romaji": "iken",
+    "meaning": "opinion; view",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "あなたの意見を聞かせてください。",
+        "en": "Please let me hear your opinion."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "参加",
+    "kana": "さんか",
+    "romaji": "sanka",
+    "meaning": "participation; joining",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "会議に参加します。",
+        "en": "I will participate in the meeting."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "確認",
+    "kana": "かくにん",
+    "romaji": "kakunin",
+    "meaning": "confirmation; verification",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "時間を確認してください。",
+        "en": "Please confirm the time."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "合格",
+    "kana": "ごうかく",
+    "romaji": "goukaku",
+    "meaning": "success; passing (an exam)",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "試験に合格しました。",
+        "en": "I passed the exam."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "失敗",
+    "kana": "しっぱい",
+    "romaji": "shippai",
+    "meaning": "failure; mistake",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "料理に失敗しました。",
+        "en": "I failed at cooking."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "遠慮",
+    "kana": "えんりょ",
+    "romaji": "enryo",
+    "meaning": "reserve; constraint; declining",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "遠慮しないでください。",
+        "en": "Please don't hold back."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "邪魔",
+    "kana": "じゃま",
+    "romaji": "jama",
+    "meaning": "hindrance; intrusion; bother",
+    "pos": "noun, suru verb, na-adjective",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "お邪魔します。",
+        "en": "Excuse me for bothering you."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "無理",
+    "kana": "むり",
+    "romaji": "muri",
+    "meaning": "unreasonable; impossible",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "それは無理です。",
+        "en": "That's impossible."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "残念",
+    "kana": "ざんねん",
+    "romaji": "zannen",
+    "meaning": "disappointing; regrettable",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "残念ですが、行けません。",
+        "en": "Unfortunately, I can't go."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "安全",
+    "kana": "あんぜん",
+    "romaji": "anzen",
+    "meaning": "safety; security",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "安全な場所です。",
+        "en": "It's a safe place."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "危険",
+    "kana": "きけん",
+    "romaji": "kiken",
+    "meaning": "danger; peril; hazard",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "ここは危険です。",
+        "en": "This place is dangerous."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "幸せ",
+    "kana": "しあわせ",
+    "romaji": "shiawase",
+    "meaning": "happiness; good fortune",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "とても幸せです。",
+        "en": "I'm very happy."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "不便",
+    "kana": "ふべん",
+    "romaji": "fuben",
+    "meaning": "inconvenient; troublesome",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "車がないと不便です。",
+        "en": "It's inconvenient without a car."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "便利",
+    "kana": "べんり",
+    "romaji": "benri",
+    "meaning": "convenient; useful",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "とても便利な場所です。",
+        "en": "It's a very convenient location."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "複雑",
+    "kana": "ふくざつ",
+    "romaji": "fukuzatsu",
+    "meaning": "complex; complicated",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "複雑な問題です。",
+        "en": "It's a complex problem."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "簡単",
+    "kana": "かんたん",
+    "romaji": "kantan",
+    "meaning": "simple; easy",
+    "pos": "na-adjective, noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "簡単な質問です。",
+        "en": "It's a simple question."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "完成",
+    "kana": "かんせい",
+    "romaji": "kansei",
+    "meaning": "completion; accomplishment",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "プロジェクトが完成しました。",
+        "en": "The project was completed."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "計画",
+    "kana": "けいかく",
+    "romaji": "keikaku",
+    "meaning": "plan; project; schedule",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "来年の計画を立てています。",
+        "en": "I'm making plans for next year."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "発見",
+    "kana": "はっけん",
+    "romaji": "hakken",
+    "meaning": "discovery; detection; finding",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "新しい事実を発見しました。",
+        "en": "I discovered a new fact."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "発明",
+    "kana": "はつめい",
+    "romaji": "hatsumei",
+    "meaning": "invention",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "便利な機械を発明しました。",
+        "en": "I invented a useful machine."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "成功",
+    "kana": "せいこう",
+    "romaji": "seikou",
+    "meaning": "success",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "実験は成功しました。",
+        "en": "The experiment was successful."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "注意",
+    "kana": "ちゅうい",
+    "romaji": "chuui",
+    "meaning": "attention; care; caution",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "車に注意してください。",
+        "en": "Please be careful of cars."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "出席",
+    "kana": "しゅっせき",
+    "romaji": "shusseki",
+    "meaning": "attendance; presence",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "会議に出席します。",
+        "en": "I will attend the meeting."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "欠席",
+    "kana": "けっせき",
+    "romaji": "kesseki",
+    "meaning": "absence; non-attendance",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "授業を欠席しました。",
+        "en": "I was absent from class."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "遅刻",
+    "kana": "ちこく",
+    "romaji": "chikoku",
+    "meaning": "being late; lateness",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "電車に遅刻しそうです。",
+        "en": "I'm likely to be late for the train."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "早退",
+    "kana": "そうたい",
+    "romaji": "soutai",
+    "meaning": "leaving early",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "今日は早退します。",
+        "en": "I'll leave early today."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "休憩",
+    "kana": "きゅうけい",
+    "romaji": "kyuukei",
+    "meaning": "rest; break; recess",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "10分間休憩しましょう。",
+        "en": "Let's take a 10-minute break."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "練習",
+    "kana": "れんしゅう",
+    "romaji": "renshuu",
+    "meaning": "practice; exercise",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "毎日ピアノの練習をします。",
+        "en": "I practice piano every day."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "復習",
+    "kana": "ふくしゅう",
+    "romaji": "fukushuu",
+    "meaning": "review; revision",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "今日習ったことを復習します。",
+        "en": "I'll review what I learned today."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "予習",
+    "kana": "よしゅう",
+    "romaji": "yoshuu",
+    "meaning": "preparation; preview",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "明日の授業の予習をしました。",
+        "en": "I previewed tomorrow's lesson."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "宿題",
+    "kana": "しゅくだい",
+    "romaji": "shukudai",
+    "meaning": "homework; assignment",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "宿題を忘れました。",
+        "en": "I forgot my homework."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "試験",
+    "kana": "しけん",
+    "romaji": "shiken",
+    "meaning": "examination; test",
+    "pos": "noun",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "来週試験があります。",
+        "en": "There's an exam next week."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "入学",
+    "kana": "にゅうがく",
+    "romaji": "nyuugaku",
+    "meaning": "school enrollment; matriculation",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "来年大学に入学します。",
+        "en": "I'll enter university next year."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "卒業",
+    "kana": "そつぎょう",
+    "romaji": "sotsugyou",
+    "meaning": "graduation",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "3月に高校を卒業します。",
+        "en": "I'll graduate from high school in March."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "就職",
+    "kana": "しゅうしょく",
+    "romaji": "shuushoku",
+    "meaning": "finding employment; getting a job",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "来年就職する予定です。",
+        "en": "I plan to get a job next year."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "転職",
+    "kana": "てんしょく",
+    "romaji": "tenshoku",
+    "meaning": "job change; career change",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "転職を考えています。",
+        "en": "I'm considering changing jobs."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "退職",
+    "kana": "たいしょく",
+    "romaji": "taishoku",
+    "meaning": "retirement; resignation",
+    "pos": "noun, suru verb",
+    "jlpt": "N3",
+    "examples": [
+      {
+        "jp": "来月退職します。",
+        "en": "I'll retire next month."
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  }]
