@@ -1,4 +1,4 @@
-# Shutokun
+# Shutokun by Luqman
 
 **Shutokun** is an all-in-one web application for learning Japanese using a Spaced Repetition System (SRS). It supports JLPT vocabulary, kanji, grammar, and kana practice, with cloud sync (Firebase), offline support, and a modern, responsive UI.
 
