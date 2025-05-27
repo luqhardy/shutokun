@@ -42,6 +42,22 @@ class FirebaseDB {
         const interval = srs.interval * 24 * 60 * 60 * 1000; // 日数をミリ秒に変換
         return srs.lastReviewed + interval;
     }
+    // ユーザー全体の進捗を取得（各カテゴリの進捗をまとめて返す）
+    async getUserOverallProgress(uid) {
+        // Firebase Realtime Databaseから全カテゴリの進捗を取得
+        const db = firebase.database();
+        const categories = ['n5-goi', 'n4-goi', 'n3-goi', 'n2-goi', 'n1-goi', 'kana'];
+        const result = {};
+        for (const cat of categories) {
+            try {
+                const snapshot = await db.ref(`users/${uid}/progress/${cat}`).once('value');
+                result[cat] = snapshot.val() || [];
+            } catch (e) {
+                result[cat] = [];
+            }
+        }
+        return result;
+    }
 }
 
 window.firebaseDB = new FirebaseDB();
