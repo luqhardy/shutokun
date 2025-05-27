@@ -32,6 +32,13 @@ if (!firebase.apps.length) {
 // --- FIX: Add mergeProgressData utility ---
 // Merge two vocab arrays (with srs) by index (or id if available)
 function mergeProgressData(serverData, localData) {
+    if (!Array.isArray(serverData)) {
+        console.warn('mergeProgressData: serverData is not an array', serverData);
+        return Array.isArray(localData) ? localData : [];
+    }
+    if (!Array.isArray(localData)) {
+        localData = [];
+    }
     // If items have unique IDs, use them for matching; otherwise, fallback to index
     return serverData.map((item, i) => {
         const localItem = localData[i] || {};
