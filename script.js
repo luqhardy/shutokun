@@ -360,6 +360,7 @@ async function saveProgress(data = null) {
     }
     
     if (currentUser && isOnline) {
+        checkFirebaseDBMethods();
         try {
             const level = new URLSearchParams(window.location.search).get("level");
             const category = new URLSearchParams(window.location.search).get("category") || "goi";
@@ -419,7 +420,7 @@ async function loadProgress() {
         }
         return;
     }
-
+    checkFirebaseDBMethods();
     showLoading();
     try {
         const level = new URLSearchParams(window.location.search).get("level");
@@ -486,6 +487,17 @@ async function loadProgress() {
         }
     } finally {
         hideLoading();
+    }
+}
+
+// Defensive check for firebaseDB methods
+function checkFirebaseDBMethods() {
+    if (!window.firebaseDB ||
+        typeof window.firebaseDB.loadUserProgress !== 'function' ||
+        typeof window.firebaseDB.saveUserProgress !== 'function' ||
+        typeof window.firebaseDB.listenToUserProgress !== 'function') {
+        showError('Critical error: Cloud sync functions are not available. Please check that firebase-db.js is loaded before script.js.');
+        throw new Error('firebaseDB methods missing');
     }
 }
 

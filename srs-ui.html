@@ -14,6 +14,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="firebase-db.js"></script>
+    <script src="script.js"></script>
     <style>
         /* Loading States */
         .loading-overlay {
@@ -244,8 +246,6 @@
     </main>
 
     <!-- Scripts -->
-    <script src="firebase-db.js"></script>
-    <script src="script.js"></script>
     <script type="module">
         import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
         // Attach to window for legacy code compatibility
