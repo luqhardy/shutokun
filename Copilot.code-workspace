@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../Copilot"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../Applications/MAMP/htdocs"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "shutokun"
+	}
+}
