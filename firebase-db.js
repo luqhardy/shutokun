@@ -60,4 +60,27 @@ class FirebaseDB {
     }
 }
 
+// 必要なメソッドをwindow.firebaseDBに明示的にエクスポート
 window.firebaseDB = new FirebaseDB();
+window.firebaseDB.loadUserProgress = async function(uid, category) {
+    // Realtime Databaseから進捗データを取得
+    const db = firebase.database();
+    const ref = db.ref(`users/${uid}/progress/${category}`);
+    const snapshot = await ref.once('value');
+    return snapshot.val() || [];
+};
+window.firebaseDB.saveUserProgress = async function(uid, category, data) {
+    // Realtime Databaseに進捗データを保存
+    const db = firebase.database();
+    const ref = db.ref(`users/${uid}/progress/${category}`);
+    await ref.set(data);
+};
+window.firebaseDB.listenToUserProgress = function(uid, category, callback) {
+    // Realtime Databaseの進捗データにリスナーを設定
+    const db = firebase.database();
+    const ref = db.ref(`users/${uid}/progress/${category}`);
+    ref.on('value', (snapshot) => {
+        callback(snapshot.val() || []);
+    });
+    // オフにするには: ref.off('value');
+};
