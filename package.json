@@ -1,0 +1,41 @@
+{
+  "name": "shutokun",
+  "version": "1.0.0",
+  "description": "**Shutokun** is an all-in-one web application for learning Japanese using a Spaced Repetition System (SRS). It supports JLPT vocabulary, kanji, grammar, and kana practice, with cloud sync (Firebase), offline support, and a modern, responsive UI.",
+  "main": "firebase-db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luqhardy/shutokun.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luqhardy/shutokun/issues"
+  },
+  "homepage": "https://github.com/luqhardy/shutokun#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.7"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.7",
+    "browserslist": "^4.24.5",
+    "caniuse-lite": "^1.0.30001718",
+    "electron-to-chromium": "^1.5.158",
+    "escalade": "^3.2.0",
+    "fraction.js": "^4.3.7",
+    "nanoid": "^3.3.11",
+    "node-releases": "^2.0.19",
+    "normalize-range": "^0.1.2",
+    "picocolors": "^1.1.1",
+    "postcss-value-parser": "^4.2.0",
+    "source-map-js": "^1.2.1",
+    "update-browserslist-db": "^1.1.3"
+  }
+}
