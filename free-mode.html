@@ -24,7 +24,7 @@
         </div>
     </header>
 
-    <!-- Navigation Menu -->
+    <!-- ナビゲーションメニュー -->
     <nav class="nav-menu" id="nav-menu">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -41,6 +41,7 @@
         </div>
     </main>
 
+    <!-- テーマ切り替えボタン -->
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon"></i>
     </button>
@@ -48,7 +49,7 @@
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
     <script>
-        // Hamburger menu toggle
+        // ハンバーガーメニューのトグル処理
         const hamburger = document.getElementById('hamburger-menu');
         const navMenu = document.getElementById('nav-menu');
         hamburger.addEventListener('click', () => {
@@ -57,15 +58,15 @@
             document.body.classList.toggle('nav-open');
         });
 
-        // Auth button logic (optional, can be customized)
+        // 認証ボタンのロジック（必要に応じてカスタマイズ可能）
         document.getElementById('loginBtn').onclick = function() {
-            // Implement login logic
+            // ログイン処理を実装
         };
         document.getElementById('logoutBtn').onclick = function() {
-            // Implement logout logic
+            // ログアウト処理を実装
         };
 
-        // Theme management
+        // テーマ管理
         function loadTheme() {
             const theme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', theme);
@@ -85,9 +86,9 @@
             icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
         }
 
-        // Feature handlers
+        // 機能ハンドラー
         function startPractice() {
-            // Navigate to srs-ui.html in free mode
+            // フリーモードでsrs-ui.htmlに遷移
             window.location.href = 'srs-ui.html?mode=free';
         }
 
@@ -95,7 +96,7 @@
             window.location.href = 'json-editor.html';
         }
 
-        // Initialize
+        // 初期化処理
         loadTheme();
     </script>
 </body>

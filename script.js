@@ -45,21 +45,20 @@ function mergeProgressData(serverData, localData) {
     });
 }
 
-// Auth state observer
+// 認証状態の監視
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
-        // User is signed in
+        // ユーザーがサインインしている場合
         currentUser = user;
         document.getElementById('loginBtn').style.display = 'none';
         document.getElementById('logoutBtn').style.display = 'block';
         console.log("User is signed in:", user.displayName);
-        
-        // Load user's progress if we're on the SRS page
+        // SRSページの場合は進捗を読み込む
         if (window.location.pathname.includes('srs-ui.html')) {
             await loadProgress();
         }
     } else {
-        // User is signed out
+        // ユーザーがサインアウトしている場合
         currentUser = null;
         document.getElementById('loginBtn').style.display = 'block';
         document.getElementById('logoutBtn').style.display = 'none';
@@ -67,6 +66,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
     }
 });
 
+// レビューキューの数を更新
 function updateReviewQueueCounts() {
     const now = Date.now();
     const oneDayMs = 24 * 60 * 60 * 1000;
@@ -129,7 +129,7 @@ function throttle(func, limit) {
     };
 }
 
-// Error handling utility
+// エラー表示ユーティリティ
 function showError(message, duration = 5000) {
     const errorElement = document.getElementById('error-message');
     if (errorElement) {
@@ -143,7 +143,7 @@ function showError(message, duration = 5000) {
     }
 }
 
-// Loading state management
+// ローディング状態管理
 function showLoading() {
     const loadingElement = document.getElementById('loading-overlay');
     if (loadingElement) {
@@ -158,7 +158,7 @@ function hideLoading() {
     }
 }
 
-// Sync status management
+// 同期状態管理
 function updateSyncStatus(status, message) {
     const syncElement = document.getElementById('sync-status');
     if (syncElement) {
@@ -171,7 +171,7 @@ function updateSyncStatus(status, message) {
     }
 }
 
-// Sync queue management
+// 同期キュー管理
 const syncQueue = {
     queue: [],
     isProcessing: false,
@@ -221,7 +221,7 @@ const syncQueue = {
     }
 };
 
-// Optimized progress saving with debounce
+// 進捗保存の最適化（debounce）
 const debouncedSaveProgress = debounce(async () => {
     try {
         updateSyncStatus('syncing', 'Saving progress...');
@@ -234,13 +234,13 @@ const debouncedSaveProgress = debounce(async () => {
     }
 }, 1000);
 
-// Optimized UI updates with throttle
+// UI更新の最適化（throttle）
 const throttledUpdateUI = throttle(() => {
     updateProgressDisplay();
     updateReviewQueueCounts();
 }, 100);
 
-// Enhanced error handling for Firebase operations
+// Firebase操作のエラーハンドリング強化
 async function fetchVocab() {
     showLoading();
     try {
@@ -323,7 +323,7 @@ async function fetchVocab() {
     }
 }
 
-// Network status monitoring
+// ネットワーク状態の監視
 let isOnline = navigator.onLine;
 window.addEventListener('online', () => {
     isOnline = true;
@@ -336,7 +336,7 @@ window.addEventListener('offline', () => {
     showError('You are offline. Changes will be saved locally.');
 });
 
-// Enhanced progress saving with sync queue
+// 進捗保存の強化（同期キュー）
 async function saveProgress(data = null) {
     const urlParams = new URLSearchParams(window.location.search);
     const mode = urlParams.get("mode");
@@ -400,7 +400,7 @@ async function saveProgress(data = null) {
     }
 }
 
-// Enhanced progress loading with sync status
+// 進捗読み込み（同期状態付き）
 async function loadProgress() {
     if (!currentUser) {
         try {
@@ -493,26 +493,25 @@ async function loadProgress() {
 const keyboardShortcuts = {
     init() {
         document.addEventListener('keydown', (e) => {
-            // Don't trigger shortcuts if user is typing in an input
+            // 入力中はショートカットを無効化
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
             switch(e.key) {
-                case ' ': // Space bar to show answer
+                case ' ': // スペースで答えを表示
                     if (showAnswerBtn && showAnswerBtn.style.display !== 'none') {
                         showAnswerBtn.click();
                     }
                     break;
-                case '1': // 1 for "Don't Know"
+                case '1': // 1で「わからない」
                     if (srsButtons && srsButtons.style.display !== 'none') {
                         document.getElementById('dont-know-btn').click();
                     }
                     break;
-                case '2': // 2 for "Know"
+                case '2': // 2で「わかる」
                     if (srsButtons && srsButtons.style.display !== 'none') {
                         document.getElementById('know-btn').click();
                     }
                     break;
-                case 'd': // Toggle dark mode
+                case 'd': // dでダークモード切替
                     toggleDarkMode();
                     break;
             }
@@ -520,20 +519,19 @@ const keyboardShortcuts = {
     }
 };
 
-// Dark mode support
+// ダークモード対応
 const darkMode = {
     init() {
-        // Check for saved theme preference
+        // 保存されたテーマを確認
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-mode');
         }
-        
-        // Add theme toggle button
+        // テーマ切替ボタンを追加
         const themeToggle = document.createElement('button');
         themeToggle.id = 'theme-toggle';
         themeToggle.innerHTML = '🌙';
-        themeToggle.title = 'Toggle dark mode';
+        themeToggle.title = 'ダークモード切替';
         themeToggle.onclick = toggleDarkMode;
         document.body.appendChild(themeToggle);
     }
@@ -546,12 +544,11 @@ function toggleDarkMode() {
     document.getElementById('theme-toggle').innerHTML = isDark ? '☀️' : '🌙';
 }
 
-// Sound effects
+// サウンドエフェクト
 const soundEffects = {
     correct: new Audio('assets/sounds/correct.mp3'),
     incorrect: new Audio('assets/sounds/incorrect.mp3'),
     showAnswer: new Audio('assets/sounds/show-answer.mp3'),
-    
     play(sound) {
         if (this[sound]) {
             this[sound].currentTime = 0;
@@ -560,21 +557,18 @@ const soundEffects = {
     }
 };
 
-// Enhanced review result with sound effects
+// レビュー結果（サウンド付き）
 function reviewResult(isCorrect) {
     const item = vocab[currentIndex];
     const srs = item.srs;
     const now = Date.now();
-
-    // Play sound effect
+    // サウンド再生
     soundEffects.play(isCorrect ? 'correct' : 'incorrect');
-
     // 上限値の設定
     const MAX_REPETITIONS = 10;
     const MAX_INTERVAL = 365; // 1年
     const MIN_EASE = 1.3;
     const MAX_EASE = 2.5;
-
     if (isCorrect) {
         srs.repetitions = Math.min(srs.repetitions + 1, MAX_REPETITIONS);
         srs.easeFactor = Math.min(MAX_EASE, Math.max(MIN_EASE, srs.easeFactor - 0.15 + 0.1 * srs.repetitions));
@@ -590,13 +584,10 @@ function reviewResult(isCorrect) {
         srs.easeFactor = Math.max(MIN_EASE, srs.easeFactor - 0.2);
         srs.interval = 1;
     }
-
     // intervalの上限
     srs.interval = Math.min(srs.interval, MAX_INTERVAL);
-
     srs.lastReviewed = now;
     srs.dueDate = now + (srs.interval * 24 * 60 * 60 * 1000);
-
     saveProgress();
     findNextDueCard();
     updateReviewQueueCounts();
@@ -604,7 +595,7 @@ function reviewResult(isCorrect) {
     updateProgressDisplay();
 }
 
-// Enhanced show word with sound effect
+// 単語表示（サウンド付き）
 function showWord() {
     const word = vocab[currentIndex];
     const cardContainer = document.querySelector(".card-container");
@@ -689,13 +680,13 @@ function updateProgressDisplay() {
     progressBar.value = Math.min(progress, 100);
 }
 
-// Google sign-in setup
+// Googleサインイン設定
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({
     prompt: 'select_account'
 });
 
-// Enhanced authentication with error handling
+// 認証強化（エラーハンドリング付き）
 function signInWithGoogle() {
     showLoading();
     firebase.auth().signInWithPopup(provider)
@@ -730,7 +721,7 @@ function signOut() {
         });
 }
 
-// --- Unsynced changes indicator ---
+// --- 未同期変更インジケーター ---
 function updateUnsyncedIndicator() {
     let indicator = document.getElementById('unsynced-indicator');
     if (!indicator) {
@@ -760,7 +751,7 @@ function updateUnsyncedIndicator() {
     indicator.style.opacity = hasUnsynced ? '1' : '0';
 }
 
-// --- Unsynced changes dialog ---
+// --- 未同期変更ダイアログ ---
 function showUnsyncedDialog() {
     let dialog = document.getElementById('unsynced-dialog');
     if (!dialog) {
@@ -821,7 +812,7 @@ window.saveProgress = async function(...args) {
     return result;
 };
 
-// --- Firebase real-time sync listener ---
+// --- Firebaseリアルタイム同期リスナー ---
 function setupFirebaseRealtimeListener() {
     const urlParams = new URLSearchParams(window.location.search);
     const level = urlParams.get("level");
@@ -987,7 +978,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Show friendly empty state if all cards are reviewed (Free Mode)
+// すべてのカードをレビュー済みの場合のフレンドリーな空状態（フリーモード）
 function findNextDueCard() {
     const now = Date.now();
     // dueDateがnullまたは今日以前のカードを探す（未学習も含む）
@@ -1042,7 +1033,7 @@ function findNextDueCard() {
     }
 }
 
-// Reset Free Mode SRS progress
+// フリーモードSRS進捗リセット
 function resetFreeModeProgress() {
     localStorage.removeItem('srsData_free');
     window.location.reload();

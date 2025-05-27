@@ -242,6 +242,7 @@
         </div>
     </header>
 
+    <!-- ナビゲーションメニュー -->
     <nav class="nav-menu" id="nav-menu">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -308,9 +309,9 @@
             <input type="text" id="answer" class="answer-input" placeholder="Type romaji..." autocomplete="off">
             <div class="feedback" id="feedback"></div>
             <div class="keyboard-hints">
-                Press Enter to submit, Space for next kana<br>
-                Press 1-3 to switch modes (Hiragana/Katakana/Mixed)<br>
-                Press R/W/M to switch practice mode (Reading/Writing/Mixed)
+                Enterキーで送信、Spaceで次のかな<br>
+                1-3キーでモード切替（ひらがな/カタカナ/ミックス）<br>
+                R/W/Mキーで練習モード切替（リーディング/ライティング/ミックス）
             </div>
         </div>
 
@@ -325,7 +326,7 @@
             <button onclick="startNewSession()" class="mode-button" style="margin-top: 1rem;">Start New Session</button>
         </div>
 
-        <!-- Navigation -->
+        <!-- ナビゲーション -->
         <div class="navigation-container">
             <button class="nav-button" onclick="window.location.href='index.html'">Back to Home</button>
             <button class="nav-button reset-all-progress" id="resetAllProgressBtn" style="background:#e74c3c;color:white;">Reset All Progress</button>
@@ -334,6 +335,7 @@
     </main>
 
     <script>
+        // かなデータ定義
         const kanaData = {
             hiragana: [
                 // Basic vowels
@@ -435,7 +437,7 @@
             ]
         };
 
-        // Firebase configuration
+        // Firebase設定
         const firebaseConfig = {
             apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
             authDomain: "shutokun.firebaseapp.com",
@@ -446,7 +448,7 @@
             measurementId: "G-GJG5NT05DH"
         };
 
-        // Initialize Firebase
+        // Firebase初期化
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
             firebase.analytics(); // Analytics初期化
@@ -477,7 +479,7 @@
         // Kana progress tracking
         let kanaProgress = {};
 
-        // Auth state observer
+        // 認証状態の監視
         firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
                 currentUser = user;
@@ -488,12 +490,12 @@
                 currentUser = null;
                 document.getElementById('loginBtn').style.display = 'block';
                 document.getElementById('logoutBtn').style.display = 'none';
-                // Load from localStorage if not logged in
+                // ログインしていない場合はlocalStorageから読み込み
                 loadFromLocalStorage();
             }
         });
 
-        // Performance optimization: Debounce function
+        // パフォーマンス最適化: debounce関数
         function debounce(func, wait) {
             let timeout;
             return function executedFunction(...args) {
@@ -506,7 +508,7 @@
             };
         }
 
-        // Performance optimization: Throttle function
+        // パフォーマンス最適化: throttle関数
         function throttle(func, limit) {
             let inThrottle;
             return function executedFunction(...args) {
@@ -515,10 +517,10 @@
                     inThrottle = true;
                     setTimeout(() => inThrottle = false, limit);
                 }
-            };
+            }
         }
 
-        // Error handling utility
+        // エラー表示ユーティリティ
         function showError(message, duration = 5000) {
             const errorElement = document.getElementById('error-message');
             errorElement.textContent = message;
@@ -528,7 +530,7 @@
             }, duration);
         }
 
-        // Loading state management
+        // ローディング状態管理
         function showLoading() {
             document.getElementById('loading-overlay').style.display = 'flex';
         }
@@ -537,7 +539,7 @@
             document.getElementById('loading-overlay').style.display = 'none';
         }
 
-        // Sync status management
+        // 同期状態管理
         function updateSyncStatus(status, message) {
             const syncElement = document.getElementById('sync-status');
             syncElement.textContent = message;
@@ -548,7 +550,7 @@
             }, 3000);
         }
 
-        // Optimized progress saving with debounce
+        // 進捗保存の最適化（debounce）
         const debouncedSaveProgress = debounce(async () => {
             try {
                 updateSyncStatus('syncing', 'Saving progress...');
@@ -561,13 +563,13 @@
             }
         }, 1000);
 
-        // Optimized stats update with throttle
+        // 統計更新の最適化（throttle）
         const throttledUpdateStats = throttle(() => {
             updateStats();
             updateKanaProgress();
         }, 100);
 
-        // Initialize kanaProgress with default values
+        // kanaProgressをデフォルト値で初期化
         function initializeKanaProgress() {
             const allKana = [...kanaData.hiragana, ...kanaData.katakana];
             allKana.forEach(kana => {
@@ -577,7 +579,7 @@
             });
         }
 
-        // Call initialization when loading progress
+        // 進捗読み込み時に初期化を呼び出し
         async function loadProgress() {
             if (!currentUser) return;
 
@@ -606,7 +608,7 @@
             }
         }
 
-        // Enhanced localStorage operations with error handling
+        // localStorage操作の強化（エラーハンドリング付き）
         function loadFromLocalStorage() {
             try {
                 const savedProgress = localStorage.getItem('kanaProgress');
@@ -627,7 +629,7 @@
             }
         }
 
-        // Enhanced save progress with error handling and retry logic
+        // 進捗保存の強化（エラーハンドリング・リトライ付き）
         async function saveProgress() {
             const data = {
                 progress: kanaProgress,
@@ -845,7 +847,7 @@
             nextKana();
         }
 
-        // Keyboard shortcuts
+        // キーボードショートカット
         document.addEventListener('keydown', (event) => {
             if (event.key >= '1' && event.key <= '3') {
                 const modes = ['hiragana', 'katakana', 'mixed'];
@@ -862,7 +864,7 @@
             }
         });
 
-        // Network status handling
+        // ネットワーク状態ハンドリング
         window.addEventListener('online', () => {
             updateSyncStatus('syncing', 'Back online, syncing...');
             debouncedSaveProgress();
@@ -872,21 +874,21 @@
             updateSyncStatus('error', 'Offline mode - changes saved locally');
         });
 
-        // Initialize the app
+        // アプリ初期化
         document.addEventListener('DOMContentLoaded', () => {
     try {
-        // Hamburger menu functionality
+        // ハンバーガーメニュー機能
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const navMenu = document.getElementById('nav-menu');
         let menuOverlay;
 
         if (hamburgerMenu && navMenu) {
-            // Create overlay element
+            // オーバーレイ要素作成
             menuOverlay = document.createElement('div');
             menuOverlay.className = 'menu-overlay';
             document.body.appendChild(menuOverlay);
 
-            // Toggle menu function
+            // メニューのトグル関数
             function toggleMenu() {
                 hamburgerMenu.classList.toggle('active');
                 navMenu.classList.toggle('active');
@@ -894,11 +896,11 @@
                 document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
             }
 
-            // Event listeners
+            // イベントリスナー
             hamburgerMenu.addEventListener('click', toggleMenu);
             menuOverlay.addEventListener('click', toggleMenu);
 
-            // Close menu when clicking a link
+            // メニュー内リンククリックで閉じる
             const navLinks = navMenu.querySelectorAll('a');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -908,13 +910,11 @@
                 });
             });
         }
-                // Set up event listeners
+                // イベントリスナー設定
                 document.getElementById('answer').addEventListener('keyup', checkAnswer);
-                
-                // Initialize the app
+                // アプリ初期化
                 setMode('hiragana');
-                
-                // Set up network status indicator
+                // ネットワーク状態インジケーター
                 if (navigator.onLine) {
                     updateSyncStatus('synced', 'Online');
                 } else {
@@ -926,14 +926,14 @@
             }
         });
 
-        // Reset All Progress button
+        // 全進捗リセットボタン
         const resetAllBtn = document.getElementById('resetAllProgressBtn');
         if (resetAllBtn) {
             resetAllBtn.addEventListener('click', () => {
-                if (confirm('Are you sure you want to reset ALL kana progress? This cannot be undone.')) {
-                    // Reset all kana progress in localStorage and Firebase (if used)
+                if (confirm('本当に全てのかな進捗をリセットしますか？この操作は元に戻せません。')) {
+                    // localStorageとFirebase（利用時）の全かな進捗をリセット
                     localStorage.removeItem('kanaProgress');
-                    // もしFirebase保存があれば、ここで削除処理を追加
+                    // Firebase保存があればここで削除処理を追加
                     // 画面リロードで初期状態に
                     location.reload();
                 }

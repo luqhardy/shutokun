@@ -211,15 +211,15 @@ measurementId: "G-GJG5NT05DH"
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
+    <!-- ローディングオーバーレイ -->
     <div id="loading-overlay" class="loading-overlay">
         <div class="loading-spinner"></div>
     </div>
 
-    <!-- Error Message -->
+    <!-- エラーメッセージ -->
     <div id="error-message" class="error-message"></div>
 
-    <!-- Sync Status -->
+    <!-- 同期ステータス -->
     <div id="sync-status" class="sync-status"></div>
 
 <header>
@@ -237,7 +237,7 @@ measurementId: "G-GJG5NT05DH"
     </div>
 </header>
 
-<!-- Navigation Menu -->
+<!-- ナビゲーションメニュー -->
 <nav class="nav-menu" id="nav-menu">
     <ul>
     <li><a href="index.html">Home</a></li>
@@ -246,7 +246,7 @@ measurementId: "G-GJG5NT05DH"
     </ul>
 </nav>
 
-    <!-- JLPT Level buttons -->
+    <!-- JLPTレベルボタン -->
     <div class="button-container">
         <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="assets/hirakata.png" alt="Hiragana/Katakana"></button>
         <button class="jlpt-button" onclick="location.href='level-select.html?level=n5'"><img src="assets/n5.png" alt="JLPT N5"></button>
@@ -258,7 +258,7 @@ measurementId: "G-GJG5NT05DH"
         <button class="jlpt-button" onclick="location.href='json-editor.html'"><img src="assets/json-editor.png" alt="JSON Editor"></button>
     </div>
 
-    <!-- Scripts -->
+    <!-- スクリプト -->
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
     <!-- script.jsの読み込みをbody直前に移動 -->
@@ -271,7 +271,7 @@ measurementId: "G-GJG5NT05DH"
         window.hideLoading = hideLoading;
         window.updateSyncStatus = updateSyncStatus;
     </script>
-    <!-- Service Worker Registration -->
+    <!-- サービスワーカー登録 -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -286,19 +286,19 @@ measurementId: "G-GJG5NT05DH"
         }
     </script>
 
-    <!-- Keyboard Shortcuts Hint -->
+    <!-- キーボードショートカットのヒント -->
     <div class="keyboard-shortcuts">
-        <p>Keyboard Shortcuts:</p>
+        <p>キーボードショートカット:</p>
         <ul>
-            <li>Space: Show Answer</li>
-            <li>1: Don't Know</li>
-            <li>2: Know</li>
-            <li>D: Toggle Dark Mode</li>
+            <li>Space: 答えを表示</li>
+            <li>1: わからない</li>
+            <li>2: わかる</li>
+            <li>D: ダークモード切替</li>
         </ul>
     </div>
 
     <script>
-        // Update progress bars with animation
+        // 進捗バーをアニメーションで更新
         async function updateProgressBars() {
             try {
                 const user = firebase.auth().currentUser;
@@ -306,7 +306,7 @@ measurementId: "G-GJG5NT05DH"
 
                 const progress = await window.firebaseDB.getUserOverallProgress(user.uid);
                 
-                // Update SRS progress
+                // SRS進捗を更新
                 const srsProgress = document.getElementById('srs-progress');
                 if (srsProgress) {
                     const srsData = progress['n5-goi'] || [];
@@ -316,7 +316,7 @@ measurementId: "G-GJG5NT05DH"
                     srsProgress.style.width = `${percentage}%`;
                 }
 
-                // Update Kana progress
+                // かな進捗を更新
                 const kanaProgress = document.getElementById('kana-progress');
                 if (kanaProgress) {
                     const kanaData = progress['kana'] || [];
@@ -326,8 +326,8 @@ measurementId: "G-GJG5NT05DH"
                     kanaProgress.style.width = `${percentage}%`;
                 }
             } catch (error) {
-                console.error('Error updating progress bars:', error);
-                showError('Failed to load progress data');
+                console.error('進捗バーの更新エラー:', error);
+                showError('進捗データの読み込みに失敗しました');
             }
         }
 
