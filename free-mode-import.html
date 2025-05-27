@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tiny-segmenter@0.2.0/dist/tiny-segmenter.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <!--<script src="script.js"></script> -->
     <style>
         :root {
@@ -36,7 +37,7 @@
         }
 
         * {
-            box-sizing: border-box;
+           box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
@@ -46,7 +47,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
-            padding: 2rem;
+            padding: 0rem;
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -249,7 +250,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 1rem 1rem;
             background-color: var(--light-color);
             border-bottom: 1px solid var(--border-color);
         }
@@ -282,7 +283,7 @@
         }
 
         .logo {
-            height: 40px;
+            height: auto;
         }
 
         .auth-container {
@@ -355,8 +356,8 @@
         .study-container {
             padding: 2rem;
             background-color: var(--background-color);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 0px;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
         }
 
         .section {
