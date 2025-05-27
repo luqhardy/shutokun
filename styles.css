@@ -16,13 +16,19 @@ header {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: 1rem 1rem;
+  gap: 1rem 1rem 1rem 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   z-index: 1000;
   width: 100%;
-  border-bottom: 1px solid var(--border-color);
+  height: auto;
+  border-bottom: 10px solid var(--border-color);
+  margin-bottom: 0.5rem;
 }
 
 .header-left {
@@ -126,7 +132,7 @@ header {
 
 .logo {
   height: auto;
-  width: 200px;
+  width: 150px;
   align-items: center;
 }
 
@@ -145,6 +151,7 @@ header {
   cursor: pointer;
   font-size: 0.7rem;
   transition: background-color 0.2s;
+  margin-right: 1rem;
 }
 
 .auth-button:hover {
