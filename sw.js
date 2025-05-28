@@ -1,14 +1,14 @@
 const CACHE_NAME = 'shutokun-v1';
 const ASSETS_TO_CACHE = [
-    '/',
-    '/index.html',
-    '/srs-ui.html',
-    '/styles.css',
-    '/script.js',
-    '/firebase-db.js',
-    '/assets/sounds/correct.mp3',
-    '/assets/sounds/incorrect.mp3',
-    '/assets/sounds/show-answer.mp3'
+    './',
+    './index.html',
+    './srs-ui.html',
+    './styles.css',
+    './script.js',
+    './firebase-db.js',
+    './assets/sounds/correct.mp3',
+    './assets/sounds/incorrect.mp3',
+    './assets/sounds/show-answer.mp3'
 ];
 
 // Install service worker and cache assets
@@ -84,8 +84,8 @@ self.addEventListener('sync', (event) => {
 self.addEventListener('push', (event) => {
     const options = {
         body: event.data.text(),
-        icon: '/assets/icon.png',
-        badge: '/assets/badge.png',
+        icon: './assets/icon.png',
+        badge: './assets/badge.png',
         vibrate: [100, 50, 100],
         data: {
             dateOfArrival: Date.now(),
@@ -95,12 +95,12 @@ self.addEventListener('push', (event) => {
             {
                 action: 'explore',
                 title: 'View',
-                icon: '/assets/checkmark.png'
+                icon: './assets/checkmark.png'
             },
             {
                 action: 'close',
                 title: 'Close',
-                icon: '/assets/xmark.png'
+                icon: './assets/xmark.png'
             },
         ]
     };
@@ -116,7 +116,7 @@ self.addEventListener('notificationclick', (event) => {
 
     if (event.action === 'explore') {
         event.waitUntil(
-            clients.openWindow('/')
+            clients.openWindow('./')
         );
     }
-}); 
+});

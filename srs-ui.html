@@ -8,11 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Loading States */
@@ -244,9 +239,15 @@
         </div>
     </main>
 
-    <!-- Scripts -->
+    <!-- Scripts: Firebase SDKs loaded first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <!-- Custom scripts moved to end of body for firebase availability -->
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
+    <!-- Scripts -->
     <script type="module">
         import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
         // Attach to window for legacy code compatibility

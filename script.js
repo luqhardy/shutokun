@@ -32,6 +32,13 @@ if (!firebase.apps.length) {
 // --- FIX: Add mergeProgressData utility ---
 // Merge two vocab arrays (with srs) by index (or id if available)
 function mergeProgressData(serverData, localData) {
+    if (!Array.isArray(serverData)) {
+        console.warn('mergeProgressData: serverData is not an array', serverData);
+        return Array.isArray(localData) ? localData : [];
+    }
+    if (!Array.isArray(localData)) {
+        localData = [];
+    }
     // If items have unique IDs, use them for matching; otherwise, fallback to index
     return serverData.map((item, i) => {
         const localItem = localData[i] || {};
@@ -360,6 +367,7 @@ async function saveProgress(data = null) {
     }
     
     if (currentUser && isOnline) {
+        checkFirebaseDBMethods();
         try {
             const level = new URLSearchParams(window.location.search).get("level");
             const category = new URLSearchParams(window.location.search).get("category") || "goi";
@@ -419,7 +427,7 @@ async function loadProgress() {
         }
         return;
     }
-
+    checkFirebaseDBMethods();
     showLoading();
     try {
         const level = new URLSearchParams(window.location.search).get("level");
@@ -486,6 +494,17 @@ async function loadProgress() {
         }
     } finally {
         hideLoading();
+    }
+}
+
+// Defensive check for firebaseDB methods
+function checkFirebaseDBMethods() {
+    if (!window.firebaseDB ||
+        typeof window.firebaseDB.loadUserProgress !== 'function' ||
+        typeof window.firebaseDB.saveUserProgress !== 'function' ||
+        typeof window.firebaseDB.listenToUserProgress !== 'function') {
+        showError('Critical error: Cloud sync functions are not available. Please check that firebase-db.js is loaded before script.js.');
+        throw new Error('firebaseDB methods missing');
     }
 }
 
