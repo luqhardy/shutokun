@@ -828,21 +828,20 @@
             addAutofillButton();
         }
 
-        // Autofill meanings using Jisho API
+        // Autofill meanings using Jisho API (via serverless proxy)
         async function autofillMeanings() {
             if (!srsVocab || srsVocab.length === 0) return;
             showToast('Fetching meanings from Jisho.org...', 'info');
+            const proxyBase = '/api/jisho'; // Vercel/Netlify等のサーバーレスAPIエンドポイント
             for (let i = 0; i < srsVocab.length; i++) {
                 const word = srsVocab[i].word;
                 if (!word || srsVocab[i].meaning) continue;
                 try {
-                    // Jisho APIへのリクエスト間にウェイトを入れる（レートリミット対策）
                     if (i > 0) await new Promise(res => setTimeout(res, 500));
-                    const res = await fetch(`https://jisho.org/api/v1/search/words?keyword=${encodeURIComponent(word)}`);
+                    const res = await fetch(`${proxyBase}?keyword=${encodeURIComponent(word)}`);
                     if (!res.ok) throw new Error('API error');
                     const data = await res.json();
                     if (data.data && data.data.length > 0) {
-                        // Use the first definition
                         const senses = data.data[0].senses;
                         if (senses && senses.length > 0) {
                             srsVocab[i].meaning = senses[0].english_definitions.join(', ');
