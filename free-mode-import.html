@@ -836,6 +836,8 @@
                 const word = srsVocab[i].word;
                 if (!word || srsVocab[i].meaning) continue;
                 try {
+                    // Jisho APIへのリクエスト間にウェイトを入れる（レートリミット対策）
+                    if (i > 0) await new Promise(res => setTimeout(res, 500));
                     const res = await fetch(`https://jisho.org/api/v1/search/words?keyword=${encodeURIComponent(word)}`);
                     if (!res.ok) throw new Error('API error');
                     const data = await res.json();
@@ -848,6 +850,10 @@
                     }
                 } catch (e) {
                     srsVocab[i].meaning = '';
+                    if (e.message && e.message.includes('429')) {
+                        showToast('Jisho API rate limit reached. Please try again later.', 'error');
+                        break;
+                    }
                 }
                 // Update the input field in the table
                 const input = document.querySelectorAll('tbody tr')[i]?.querySelectorAll('input')[2];
