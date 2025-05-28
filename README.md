@@ -19,7 +19,7 @@
 ### Online Demo
 
 GitHub Pages: [https://luqhardy.github.io/shutokun/](https://luqhardy.github.io/shutokun/)
-Vercel: [https://shutokun.vercel.app/](https://luqhardy.github.io/shutokun/](https://shutokun.vercel.app/)
+Vercel: [https://shutokun.vercel.app/](https://shutokun.vercel.app/)
 
 ### Local Development
 
