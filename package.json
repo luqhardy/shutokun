@@ -2,11 +2,13 @@
   "name": "shutokun",
   "version": "1.0.0",
   "description": "**Shutokun** is an all-in-one web application for learning Japanese using a Spaced Repetition System (SRS). It supports JLPT vocabulary, kanji, grammar, and kana practice, with cloud sync (Firebase), offline support, and a modern, responsive UI.",
-  "main": "firebase-db.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify"
-},
+    "start": "electron-forge start",
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luqhardy/shutokun.git"
@@ -19,7 +21,16 @@
   },
   "homepage": "https://github.com/luqhardy/shutokun#readme",
   "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-rpm": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-fuses": "^7.8.1",
+    "@electron/fuses": "^1.8.0",
     "autoprefixer": "^10.4.21",
+    "electron": "36.3.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.7"
   },
@@ -27,6 +38,7 @@
     "@tailwindcss/cli": "^4.1.7",
     "browserslist": "^4.24.5",
     "caniuse-lite": "^1.0.30001718",
+    "electron-squirrel-startup": "^1.0.1",
     "electron-to-chromium": "^1.5.158",
     "escalade": "^3.2.0",
     "fraction.js": "^4.3.7",

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="./">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -332,13 +333,34 @@ measurementId: "G-GJG5NT05DH"
         }
 
         // Enhanced authentication with error handling
-        function signInWithGoogle() {
+        async function signInWithGoogle() {
+            if (window.electronAPI && window.electronAPI.googleSignIn) {
+                // Electron用: electron-oauth2経由でGoogle認証
+                showLoading();
+                try {
+                    const token = await window.electronAPI.googleSignIn();
+                    if (token && token.id_token) {
+                        const credential = firebase.auth.GoogleAuthProvider.credential(token.id_token);
+                        await firebase.auth().signInWithCredential(credential);
+                        updateSyncStatus('synced', 'Signed in successfully (Electron)');
+                        updateProgressBars();
+                    } else {
+                        showError('Google認証に失敗しました (Electron)');
+                    }
+                } catch (error) {
+                    console.error('Electron Googleサインインエラー:', error);
+                    showError('Google認証に失敗しました (Electron)');
+                } finally {
+                    hideLoading();
+                }
+                return;
+            }
+            // Web用: 通常のsignInWithPopup
             showLoading();
             const provider = new firebase.auth.GoogleAuthProvider();
             provider.setCustomParameters({
                 prompt: 'select_account'
             });
-
             firebase.auth().signInWithPopup(provider)
                 .then((result) => {
                     const user = result.user;
@@ -442,6 +464,14 @@ measurementId: "G-GJG5NT05DH"
             } catch (error) {
                 console.error('Error initializing app:', error);
                 showError('Failed to initialize the app. Please refresh the page.');
+            }
+
+            // Electron環境ではGoogleサインインを非表示
+            if (navigator.userAgent.toLowerCase().includes('electron')) {
+                const loginBtn = document.getElementById('loginBtn');
+                const logoutBtn = document.getElementById('logoutBtn');
+                if (loginBtn) loginBtn.style.display = 'none';
+                if (logoutBtn) logoutBtn.style.display = 'none';
             }
         });
     </script>
