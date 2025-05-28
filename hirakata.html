@@ -225,7 +225,75 @@
             background: #ffebee;
             color: #c62828;
         }
+
+    /* ダークモード対応: body[data-theme="dark"] で全体の配色を調整 */
+    body[data-theme="dark"], body.dark-mode {
+      background-color: #181a20 !important;
+      color: #f1f1f1 !important;
+    }
+    body[data-theme="dark"] header,
+    body.dark-mode header {
+      background-color: #23262e !important;
+      color: #f1f1f1 !important;
+      border-bottom: 1px solid #333a4d !important;
+    }
+    body[data-theme="dark"] .card,
+    body.dark-mode .card {
+      background: #23262e !important;
+      color: #f1f1f1 !important;
+    }
+    body[data-theme="dark"] .nav-menu,
+    body.dark-mode .nav-menu {
+      background: #23262e !important;
+      color: #f1f1f1 !important;
+      border-bottom: 1px solid #333a4d !important;
+    }
+    body[data-theme="dark"] .auth-button,
+    body.dark-mode .auth-button {
+      background: #23262e !important;
+      color: #f1f1f1 !important;
+      border: 1px solid #4fc3f7 !important;
+    }
+    body[data-theme="dark"] .auth-button:hover,
+    body.dark-mode .auth-button:hover {
+      background: #4fc3f7 !important;
+      color: #23262e !important;
+    }
+    body[data-theme="dark"] .logo,
+    body.dark-mode .logo {
+      filter: brightness(0.9) invert(0.85) !important;
+    }
+    body[data-theme="dark"] .keyboard-shortcuts,
+    body.dark-mode .keyboard-shortcuts {
+      background: rgba(30, 34, 45, 0.95) !important;
+      color: #f1f1f1 !important;
+    }
+    /* 必要に応じて他の要素も追加 */
     </style>
+    <!-- ...既存のhead内コード... -->
+    <script>
+    // ダークモード切替スクリプト（既存のものがなければ追加）
+    function loadTheme() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', theme);
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function toggleTheme() {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadTheme();
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) toggle.addEventListener('click', toggleTheme);
+    });
+    </script>
+    <!-- ...既存のhead内コード... -->
 </head>
 <body>
     <header>

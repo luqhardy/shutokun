@@ -182,13 +182,13 @@ header {
 .card h2 {
   margin: 0 0 1rem 0;
   font-size: 2rem;
-  color: #333;
+  /*color: #333;*/
 }
 
 .card p {
   margin: 0.5rem 0;
   font-size: 1.1rem;
-  color: #666;
+  /*color: #666;*/
 }
 
 .hidden-on-start {
@@ -401,7 +401,8 @@ body.dark-mode {
 }
 
 body.dark-mode .card {
-    background-color: #ffffff;;
+      background-color: #3d3d3d;
+    color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -641,13 +642,11 @@ body[data-theme="dark"] #upcoming-count,
 body.dark-mode #upcoming-count { color: #a5d6a7 !important; }
 
 body[data-theme="dark"] .card,
-body[data-theme="dark"] .card-container,
-body.dark-mode .card,
-body.dark-mode .card-container {
+body.dark-mode .card{
   background: #23262e !important;
   color: #f1f1f1 !important;
-  border-color: #333a4d !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+  /*border-color: #333a4d !important;*/
+  /*box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;*/
 }
 
 body[data-theme="dark"] .srs-progress-container,
