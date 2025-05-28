@@ -31,6 +31,7 @@
     "@electron/fuses": "^1.8.0",
     "autoprefixer": "^10.4.21",
     "electron": "36.3.1",
+    "electron-oauth2": "^3.0.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.7"
   },
