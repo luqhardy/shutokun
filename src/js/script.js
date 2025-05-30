@@ -300,7 +300,7 @@ async function fetchVocab() {
         }
 
         // Fetch vocabulary data
-        const response = await fetch(`jlpt-db/${category}/${level}-${category}.json`);
+        const response = await fetch(`../data/jlpt-db/${category}/${level}-${category}.json`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -565,9 +565,9 @@ function toggleDarkMode() {
 
 // サウンドエフェクト
 const soundEffects = {
-    correct: new Audio('assets/sounds/correct.mp3'),
-    incorrect: new Audio('assets/sounds/incorrect.mp3'),
-    showAnswer: new Audio('assets/sounds/show-answer.mp3'),
+    correct: new Audio('/shutokun/assets/sounds/correct.mp3'),
+    incorrect: new Audio('/shutokun/assets/sounds/incorrect.mp3'),
+    showAnswer: new Audio('/shutokun/assets/sounds/show-answer.mp3'),
     play(sound) {
         if (this[sound]) {
             this[sound].currentTime = 0;

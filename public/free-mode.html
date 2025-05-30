@@ -7,7 +7,7 @@
     <base href="./">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/shutokun/src/css/styles.css">
 </head>
 <body>
     <header>
@@ -17,7 +17,7 @@
                 <span></span>
                 <span></span>
             </button>
-            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+            <img src="/shutokun/assets/logo.png" alt="Shutokun logo" class="logo">
         </div>
         <div class="auth-container">
             <button id="loginBtn" class="auth-button">Sign in</button>
@@ -36,9 +36,9 @@
 
     <main class="study-container">
         <div class="button-container">
-            <button class="jlpt-button" onclick="window.location.href='free-mode-import.html'" aria-label="Import Text"><img src="assets/import.png" alt="Import/Scan"></button>
-            <button class="jlpt-button" onclick="startPractice()" aria-label="Start Practice"><img src="assets/start.png" alt="Start"></button>
-            <button class="jlpt-button" onclick="editVocabulary()" aria-label="Edit Vocabulary"><img src="assets/edit.png" alt="Edit"></button>
+            <button class="jlpt-button" onclick="window.location.href='free-mode-import.html'" aria-label="Import Text"><img src="/shutokun/assets/import.png" alt="Import/Scan"></button>
+            <button class="jlpt-button" onclick="startPractice()" aria-label="Start Practice"><img src="/shutokun/assets/start.png" alt="Start"></button>
+            <button class="jlpt-button" onclick="editVocabulary()" aria-label="Edit Vocabulary"><img src="/shutokun/assets/edit.png" alt="Edit"></button>
         </div>
     </main>
 
@@ -47,8 +47,17 @@
         <i class="fas fa-moon"></i>
     </button>
 
-    <script src="firebase-db.js"></script>
-    <script src="script.js"></script>
+    <script src="/shutokun/src/js/firebase-db.js"></script>
+    <script src="/shutokun/src/js/script.js"></script>
+    <script type="module">
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from '/shutokun/src/js/shutokun-utils.js';
+        window.debounce = debounce;
+        window.throttle = throttle;
+        window.showError = showError;
+        window.showLoading = showLoading;
+        window.hideLoading = hideLoading;
+        window.updateSyncStatus = updateSyncStatus;
+    </script>
     <script>
         // ハンバーガーメニューのトグル処理
         const hamburger = document.getElementById('hamburger-menu');

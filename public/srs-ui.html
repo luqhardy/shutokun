@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/shutokun/src/css/styles.css">
     <style>
         /* Loading States */
         .loading-overlay {
@@ -206,7 +206,7 @@
                 <span></span>
                 <span></span>
             </button>
-            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+            <img src="/shutokun/assets/logo.png" alt="Shutokun logo" class="logo">
         </div>
         <div class="auth-container">
             <button id="loginBtn" class="auth-button" aria-label="Sign in with Google">Sign in</button>
@@ -259,10 +259,10 @@
         <!-- Know / Don't Know Buttons -->
         <div class="srs-button-container" style="display: none;" role="group" aria-label="Answer options">
             <button id="dont-know-btn" class="srs-button" aria-label="Mark as don't know">
-                <img src="assets/batsu.png" alt="Don't Know">
+                <img src="/shutokun/assets/batsu.png" alt="Don't Know">
             </button>
             <button id="know-btn" class="srs-button" aria-label="Mark as know">
-                <img src="assets/maru.png" alt="Know">
+                <img src="/shutokun/assets/maru.png" alt="Know">
             </button>
         </div>
 
@@ -303,11 +303,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
     <!-- Custom scripts moved to end of body for firebase availability -->
-    <script src="firebase-db.js"></script>
-    <script src="script.js"></script>
-    <!-- Scripts -->
+    <script src="/shutokun/src/js/firebase-db.js"></script>
+    <script src="/shutokun/src/js/script.js"></script>
     <script type="module">
-        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from '/shutokun/src/js/shutokun-utils.js';
         // Attach to window for legacy code compatibility
         window.debounce = debounce;
         window.throttle = throttle;

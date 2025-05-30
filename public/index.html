@@ -10,7 +10,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
-    <script src="script.js"></script>
+    <script src="/shutokun/src/js/script.js"></script>
     <script>
 const firebaseConfig = {
 apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
@@ -30,7 +30,7 @@ measurementId: "G-GJG5NT05DH"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shutokun - Japanese Learning App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/shutokun/src/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Loading and Error States */
@@ -230,7 +230,7 @@ measurementId: "G-GJG5NT05DH"
         <span></span>
         <span></span>
     </button>
-    <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+    <img src="/shutokun/assets/logo.png" alt="Shutokun logo" class="logo">
     </div>
     <div class="auth-container">
     <button id="loginBtn" class="auth-button">Sign in</button>
@@ -249,22 +249,21 @@ measurementId: "G-GJG5NT05DH"
 
     <!-- JLPTレベルボタン -->
     <div class="button-container">
-        <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="assets/hirakata.png" alt="Hiragana/Katakana"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n5'"><img src="assets/n5.png" alt="JLPT N5"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n4'"><img src="assets/n4.png" alt="JLPT N4"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n3'"><img src="assets/n3.png" alt="JLPT N3"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n2'"><img src="assets/n2.png" alt="JLPT N2"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n1'"><img src="assets/n1.png" alt="JLPT N1"></button>
-        <button class="jlpt-button" onclick="location.href='free-mode.html'"><img src="assets/free.png" alt="Free Mode"></button>
-        <button class="jlpt-button" onclick="location.href='json-editor.html'"><img src="assets/json-editor.png" alt="JSON Editor"></button>
+        <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="/shutokun/assets/hirakata.png" alt="Hiragana/Katakana"></button>
+        <button class="jlpt-button" onclick="location.href='level-select.html?level=n5'"><img src="/shutokun/assets/n5.png" alt="JLPT N5"></button>
+        <button class="jlpt-button" onclick="location.href='level-select.html?level=n4'"><img src="/shutokun/assets/n4.png" alt="JLPT N4"></button>
+        <button class="jlpt-button" onclick="location.href='level-select.html?level=n3'"><img src="/shutokun/assets/n3.png" alt="JLPT N3"></button>
+        <button class="jlpt-button" onclick="location.href='level-select.html?level=n2'"><img src="/shutokun/assets/n2.png" alt="JLPT N2"></button>
+        <button class="jlpt-button" onclick="location.href='level-select.html?level=n1'"><img src="/shutokun/assets/n1.png" alt="JLPT N1"></button>
+        <button class="jlpt-button" onclick="location.href='free-mode.html'"><img src="/shutokun/assets/free.png" alt="Free Mode"></button>
+        <button class="jlpt-button" onclick="location.href='json-editor.html'"><img src="/shutokun/assets/json-editor.png" alt="JSON Editor"></button>
     </div>
 
     <!-- スクリプト -->
-    <script src="firebase-db.js"></script>
-    <script src="script.js"></script>
-    <!-- script.jsの読み込みをbody直前に移動 -->
+    <script src="/shutokun/src/js/firebase-db.js"></script>
+    <script src="/shutokun/src/js/script.js"></script>
     <script type="module">
-        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from '/shutokun/src/js/shutokun-utils.js';
         window.debounce = debounce;
         window.throttle = throttle;
         window.showError = showError;

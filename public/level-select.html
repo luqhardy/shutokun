@@ -13,7 +13,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/shutokun/src/css/styles.css">
 </head>
 <body>
   <header>
@@ -23,7 +23,7 @@
         <span></span>
         <span></span>
       </button>
-      <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+      <img src="/shutokun/assets/logo.png" alt="Shutokun logo" class="logo">
     </div>
     <div class="auth-container">
       <button id="loginBtn" class="auth-button">Sign in</button>
@@ -44,15 +44,24 @@
     <!--<h1>Select Category</h1> -->
 
     <div class="button-container">
-      <button class="jlpt-button" onclick="selectCategory('goi')"><img src="assets/goi.png" alt="Vocabulary"></button>
-      <button class="jlpt-button" onclick="selectCategory('bunpou')"><img src="assets/bunpou.png" alt="Grammar"></button>
-      <button class="jlpt-button" onclick="selectCategory('kanji')"><img src="assets/kanji.png" alt="Kanji"></button>
+      <button class="jlpt-button" onclick="selectCategory('goi')"><img src="/shutokun/assets/goi.png" alt="Vocabulary"></button>
+      <button class="jlpt-button" onclick="selectCategory('bunpou')"><img src="/shutokun/assets/bunpou.png" alt="Grammar"></button>
+      <button class="jlpt-button" onclick="selectCategory('kanji')"><img src="/shutokun/assets/kanji.png" alt="Kanji"></button>
     </div>
   </main>
 
   <!-- Scripts -->
-  <script src="firebase-db.js"></script>
-  <script src="script.js"></script>
+  <script src="/shutokun/src/js/firebase-db.js"></script>
+  <script src="/shutokun/src/js/script.js"></script>
+  <script type="module">
+      import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from '/shutokun/src/js/shutokun-utils.js';
+      window.debounce = debounce;
+      window.throttle = throttle;
+      window.showError = showError;
+      window.showLoading = showLoading;
+      window.hideLoading = hideLoading;
+      window.updateSyncStatus = updateSyncStatus;
+  </script>
   <script>
     // Get JLPT level from URL parameters
     const urlParams = new URLSearchParams(window.location.search);

@@ -5,14 +5,14 @@ const path = require('path');
 const { oauth2 } = require('electron-oauth2');
 
 // Google OAuth2 設定
-const oauthConfig = {
-  clientId: 'YOUR_GOOGLE_CLIENT_ID', // ←Google Cloud Consoleで取得したクライアントIDに置き換えてください
-  clientSecret: 'YOUR_GOOGLE_CLIENT_SECRET', // ←同上
-  authorizationUrl: 'https://accounts.google.com/o/oauth2/v2/auth',
-  tokenUrl: 'https://oauth2.googleapis.com/token',
-  useBasicAuthorizationHeader: false,
-  redirectUri: 'http://localhost'
-};
+//const oauthConfig = {
+//  clientId: 'YOUR_GOOGLE_CLIENT_ID', // ←Google Cloud Consoleで取得したクライアントIDに置き換えてください
+//  clientSecret: 'YOUR_GOOGLE_CLIENT_SECRET', // ←同上
+//  authorizationUrl: 'https://accounts.google.com/o/oauth2/v2/auth',
+//  tokenUrl: 'https://oauth2.googleapis.com/token',
+//  useBasicAuthorizationHeader: false,
+//  redirectUri: 'http://localhost'
+//};
 
 const windowParams = {
   alwaysOnTop: true,
