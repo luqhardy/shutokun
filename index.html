@@ -229,7 +229,7 @@ measurementId: "G-GJG5NT05DH"
             padding: 16px 8px 8px 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             margin: 0 auto 16px auto;
-            max-width: 400px;
+            max-width: 300px;
         }
         .user-stats-container strong {
             font-weight: 700;
@@ -238,7 +238,8 @@ measurementId: "G-GJG5NT05DH"
             display: flex;
             justify-content: center;
             gap: 2px;
-            margin-top: 4px;
+            margin-top: 8px;
+margin-bottom: 8px;
         }
         .streak-cell {
             width: 14px;
@@ -502,18 +503,18 @@ measurementId: "G-GJG5NT05DH"
             const streakDiv = document.getElementById('user-streak');
             // 挨拶＋名前
             let firstName = user && user.displayName ? user.displayName.split(' ')[0] : '';
-            greetingDiv.innerHTML = `<span style="font-weight:400; margin-left:40px">${getGreeting()}${firstName ? ' ' + firstName + '-san' : ''}</span>`;
+            greetingDiv.innerHTML = `<span style="font-weight:400">${getGreeting()}${firstName ? ' ' + firstName + '-san' : ''}</span>`;
             // 進捗サマリー
             if (progress) {
                 const total = Object.values(progress).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.length : 0), 0);
                 const learned = Object.values(progress).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.filter(item => item.srs?.repetitions > 0).length : 0), 0);
-                summaryDiv.innerHTML = `<strong>Progress:</strong> ${learned} / ${total} items learned`;
+                summaryDiv.innerHTML = `<span style="font-weight:600"><strong>Progress:</strong> ${learned} / ${total} items learned</span>`;
             } else {
                 summaryDiv.innerHTML = '';
             }
             // streak
             if (typeof streakDays === 'number') {
-                streakDiv.innerHTML = `<strong>Streak:</strong> ${streakDays} days`;
+                streakDiv.innerHTML = `<span style="font-weight:600;"><strong>Streak:</strong> ${streakDays} days</span>`;
             } else {
                 streakDiv.innerHTML = '';
             }
