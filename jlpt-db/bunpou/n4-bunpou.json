@@ -1,0 +1,959 @@
+[
+  {
+    "word": "V+(ら)れる",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Passive form - 'be [verbed]' or 'someone does [verb] to me'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "私はきのう母にしかられた。",
+        "en": "I was scolded by my mother yesterday.",
+        "notes": "Passive form showing being affected by someone's action"
+      },
+      {
+        "jp": "きのう面白い服を着たから友だちに笑われた。",
+        "en": "I was laughed at by my friends because I wore funny clothes yesterday.",
+        "notes": "Passive form expressing suffering/annoyance"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "お+V+になる",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Honorific form - 'do [verb]' (respectful)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "先生は何時ごろお帰りになりますか。",
+        "en": "What time will the teacher return?",
+        "notes": "Honorific form showing respect to the subject"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+(ら)れる (respectful)",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Respectful form - 'do [verb]' (polite way to ask)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "あの本、もう読まれましたか。",
+        "en": "Have you already read that book?",
+        "notes": "Respectful form using passive conjugation"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "お+N",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Polite prefix for nouns - 'honorable [noun]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "お手紙ありがとう。",
+        "en": "Thank you for the letter.",
+        "notes": "Polite prefix making nouns more respectful"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "お+V+する",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Humble form - 'I do [verb]' (humble)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "これは田中さんにお借りした車です。",
+        "en": "This is a car I borrowed from Mr. Tanaka.",
+        "notes": "Humble form when doing something for someone higher"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "お+V+いたす",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Very humble form - 'I humbly do [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "先生のおにもつは私がお持ちいたします。",
+        "en": "I will carry the teacher's luggage.",
+        "notes": "Very humble form using いたす"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "(お)+Adj+ございます",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Very polite form of adjectives - 'is [adjective]' (very formal)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "こちらのほうが(お)安うございます。",
+        "en": "This one is cheaper.",
+        "notes": "Very polite form of i-adjectives"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "Adj+N+でございます",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Very polite copula - 'is [noun]' (very formal)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "このくつはイタリア製でございます。",
+        "en": "These shoes are made in Italy.",
+        "notes": "Very polite form of です"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+(さ)せる",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Causative form - 'make/let someone do [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "私は弟に部屋の掃除をさせた。",
+        "en": "I made my younger brother clean the room.",
+        "notes": "Causative form expressing making someone do something"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+(さ)せられる",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Causative-passive form - 'be made to do [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "子供の時お母さんに野菜を食べさせられました。",
+        "en": "When I was a child, I was made to eat vegetables by my mother.",
+        "notes": "Causative-passive expressing being forced to do something"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+ず(に)",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Without doing [verb] - 'without [verb]ing'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "朝ご飯を食べずに学校へ行きました。",
+        "en": "I went to school without eating breakfast.",
+        "notes": "Classical negative form meaning 'without doing'"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "~+の",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Nominalization - 'the fact/act of [doing something]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "あんな所へ行くのはいやです。",
+        "en": "Going to such a place is unpleasant.",
+        "notes": "Nominalizing verbs or clauses with の"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "~+こと",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Nominalization - 'the fact/matter of [doing something]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "私がここにいることをだれから聞きましたか。",
+        "en": "From whom did you hear that I am here?",
+        "notes": "Nominalizing clauses with こと"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "~ということ",
+    "kana": "",
+    "romaji": "",
+    "meaning": "The fact that - 'the fact/news that [clause]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "あなたが元気になったということを知って安心しました。",
+        "en": "I was relieved to know that you became well.",
+        "notes": "Expressing reported information or facts"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+ていく",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Continue into the future - 'go on [verb]ing' or 'do and go'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "この研究は卒業後も続けていくつもりです。",
+        "en": "I intend to continue this research even after graduation.",
+        "notes": "Expressing continuation into the future"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+てくる",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Change toward present - 'come to [verb]' or 'become [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "だいぶ日本語が上手になってきましたね。",
+        "en": "Your Japanese has become quite good, hasn't it?",
+        "notes": "Expressing gradual change or development"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+てみる",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Try doing - 'try to [verb]' or 'do and see'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "私が作った料理を食べてみてください。",
+        "en": "Please try eating the food I made.",
+        "notes": "Expressing trying something to see the result"
+      },
+      {
+        "jp": "じゃ、食べてみる。",
+        "en": "Well then, I'll try eating it.",
+        "notes": "Casual response agreeing to try"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+てしまう",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Complete action/regret - 'end up [verb]ing' or 'completely [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "「クッキーは残っていないんですか？」「あ、食べてしまいました」。",
+        "en": "'Aren't there any cookies left?' 'Oh, I ate them all up.'",
+        "notes": "Expressing completion or unintended result"
+      },
+      {
+        "jp": "さいふを忘れてしまいました。",
+        "en": "I ended up forgetting my wallet.",
+        "notes": "Expressing regret or unfortunate completion"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+ておく",
+    "kana": "",
+    "romaji": "",
+    "meaning": "Do in advance/preparation - 'do [verb] in advance' or 'keep [verb]ed'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "覚えておいてください。",
+        "en": "Please remember this (keep it in mind).",
+        "notes": "Expressing doing something for future benefit"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "こんな/そんな/あんな",
+    "kana": "",
+    "romaji": "konna/sonna/anna",
+    "meaning": "Demonstrative adjectives for manner - 'this kind of/that kind of/that kind of'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "こんなぼうしをかぶるのはどんな人でしょう。",
+        "en": "What kind of person would wear this kind of hat?",
+        "notes": "Demonstrative showing manner or type"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "こう/そう/ああ",
+    "kana": "",
+    "romaji": "kou/sou/aa",
+    "meaning": "Demonstrative adverbs for manner - 'this way/that way/that way'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "この漢字はこう書きます。",
+        "en": "This kanji is written this way.",
+        "notes": "Demonstrative adverb showing method"
+      },
+      {
+        "jp": "かれはもうけっこんしているが、そう見えない。",
+        "en": "He is already married, but doesn't look that way.",
+        "notes": "そう meaning 'like that' or 'so'"
+      },
+      {
+        "jp": "あの人はいつもああ言います。",
+        "en": "That person always says it that way.",
+        "notes": "ああ referring to manner of speaking"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "ちゃ/ては+いけない",
+    "kana": "",
+    "romaji": "cha/te wa + ikenai",
+    "meaning": "Must not do - 'must not [verb]' or 'shouldn't [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "そんなことをしちゃいけない。",
+        "en": "You must not do such things.",
+        "notes": "Prohibition using contracted form ちゃ"
+      },
+      {
+        "jp": "そんなことをしてはいけない。",
+        "en": "You must not do such things.",
+        "notes": "Prohibition using full form ては"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "までに",
+    "kana": "",
+    "romaji": "made ni",
+    "meaning": "By (deadline) - 'by [time]' or 'before [time]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "あしたは九時までに学校に来てください。",
+        "en": "Please come to school by 9 o'clock tomorrow.",
+        "notes": "Expressing deadline or time limit"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "~も (emphasis)",
+    "kana": "",
+    "romaji": "mo",
+    "meaning": "As many/much as - 'as many as [number]' (emphasis)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "友だちはパンを五つも食べました。",
+        "en": "My friend ate as many as five pieces of bread.",
+        "notes": "Emphasizing large quantity or extent"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "ばかり",
+    "kana": "",
+    "romaji": "bakari",
+    "meaning": "Only/nothing but - 'only [verb]' or 'nothing but [noun]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "このこは毎日テレビばかり見ています。",
+        "en": "This child does nothing but watch TV every day.",
+        "notes": "Expressing doing only one thing repeatedly"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "でも (suggestion)",
+    "kana": "",
+    "romaji": "demo",
+    "meaning": "Even/or something - 'even [noun]' or 'how about [noun]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "これなら子どもでもできる。",
+        "en": "Even a child can do this.",
+        "notes": "Expressing minimum capability"
+      },
+      {
+        "jp": "お茶でも飲もう。",
+        "en": "Let's have some tea or something.",
+        "notes": "Making casual suggestion"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "何でも",
+    "kana": "なんでも",
+    "romaji": "nan demo",
+    "meaning": "Anything/everything - 'anything' or 'everything'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "あの人は何でも知っています。",
+        "en": "That person knows everything.",
+        "notes": "Expressing knowing or doing anything/everything"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "とか",
+    "kana": "",
+    "romaji": "toka",
+    "meaning": "Things like/such as - 'things like [noun]' or 'and so on'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "机の上に本とかノートとかがある。",
+        "en": "There are things like books and notebooks on the desk.",
+        "notes": "Listing examples casually"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "し",
+    "kana": "",
+    "romaji": "shi",
+    "meaning": "And/also - 'and [reason]' (listing multiple reasons)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "本は高いし読みにくいし、買いません。",
+        "en": "The book is expensive and hard to read, so I won't buy it.",
+        "notes": "Listing multiple reasons or characteristics"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "の (casual question)",
+    "kana": "",
+    "romaji": "no",
+    "meaning": "Casual question particle - adds soft questioning tone",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "東京に行くの？",
+        "en": "Are you going to Tokyo?",
+        "notes": "Casual questioning, often used by/to women and children"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "だい",
+    "kana": "",
+    "romaji": "dai",
+    "meaning": "Masculine question particle - casual questioning (male speech)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "どうしたんだい？",
+        "en": "What's wrong?",
+        "notes": "Casual masculine questioning particle"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "かい",
+    "kana": "",
+    "romaji": "kai",
+    "meaning": "Masculine question particle - casual yes/no question (male speech)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "このビール、飲むかい？",
+        "en": "Will you drink this beer?",
+        "notes": "Casual masculine yes/no question particle"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "Adj+さ",
+    "kana": "",
+    "romaji": "sa",
+    "meaning": "Adjective nominalization - 'the [adjective]ness'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "この暑さは普通ではない。",
+        "en": "This heat is not normal.",
+        "notes": "Converting i-adjectives to nouns"
+      },
+      {
+        "jp": "にぎやかさではここが一番だ。",
+        "en": "In terms of liveliness, this place is number one.",
+        "notes": "Converting na-adjectives to nouns"
+      },
+      {
+        "jp": "重さは何キロですか？",
+        "en": "What is the weight?",
+        "notes": "Asking about weight as a noun"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "らしい",
+    "kana": "",
+    "romaji": "rashii",
+    "meaning": "Typical of/like - 'typical of [noun]' or 'seems like'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "あの人は男らしいね。",
+        "en": "That person is manly, isn't he?",
+        "notes": "Expressing typical characteristics"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "がる",
+    "kana": "",
+    "romaji": "garu",
+    "meaning": "Show signs of - 'show signs of [adjective]' (third person emotions)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "子供はあまいものをほしがる。",
+        "en": "Children want sweet things.",
+        "notes": "Expressing third person desires"
+      },
+      {
+        "jp": "学生はしゅくだいをいやがる。",
+        "en": "Students dislike homework.",
+        "notes": "Expressing third person dislikes"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+(ろう)+と思う",
+    "kana": "",
+    "romaji": "rou + to omou",
+    "meaning": "Intend to - 'I think I will [verb]' or 'I intend to [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "私はあした国へ帰ろうと思います。",
+        "en": "I think I will return to my country tomorrow.",
+        "notes": "Expressing intention or plan"
+      },
+      {
+        "jp": "車を買おうと思っています。",
+        "en": "I'm thinking of buying a car.",
+        "notes": "Expressing ongoing consideration"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "つもりだ",
+    "kana": "",
+    "romaji": "tsumori da",
+    "meaning": "Intend to - 'intend to [verb]' or 'plan to [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "あした車を買うつもりです。",
+        "en": "I intend to buy a car tomorrow.",
+        "notes": "Expressing firm intention or plan"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "V+(ろう)+とする",
+    "kana": "",
+    "romaji": "rou + to suru",
+    "meaning": "Try to/attempt to - 'try to [verb]' or 'be about to [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "彼は何をしようとしているのですか。",
+        "en": "What is he trying to do?",
+        "notes": "Expressing attempt or being about to do something"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "ことにする",
+    "kana": "",
+    "romaji": "koto ni suru",
+    "meaning": "Decide to - 'decide to [verb]' or 'make it a rule to [verb]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "私は毎日ジョギングをすることにしました。",
+        "en": "I decided to jog every day.",
+        "notes": "Expressing personal decision or rule"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "N+にする",
+    "kana": "",
+    "romaji": "ni suru",
+    "meaning": "Choose/decide on - 'choose [noun]' or 'decide on [noun]'",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "私はなっとうにします。",
+        "en": "I'll have the natto.",
+        "notes": "Making a choice or selection"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  },
+  {
+    "word": "お+V+ください",
+    "kana": "",
+    "romaji": "o + V + kudasai",
+    "meaning": "Please do - 'please [verb]' (polite request)",
+    "pos": "grammar",
+    "jlpt": "N4",
+    "examples": [
+      {
+        "jp": "ここでしばらくお待ちください。",
+        "en": "Please wait here for a while.",
+        "notes": "Very polite request form"
+      }
+    ],
+    "srs": {
+      "easeFactor": 2.5,
+      "interval": 1,
+      "repetitions": 0,
+      "dueDate": null,
+      "lastReviewed": null
+    }
+  }
+]

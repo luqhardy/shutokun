@@ -7,7 +7,7 @@
     <base href="./">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/shutokun/src/css/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         :root {
             --primary-color: #007bff;
@@ -326,17 +326,8 @@
         <span id="entryCount">0 entries</span>
     </div>
 
-    <script src="/shutokun/src/js/firebase-db.js"></script>
-    <script src="/shutokun/src/js/script.js"></script>
-    <script type="module">
-        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from '/shutokun/src/js/shutokun-utils.js';
-        window.debounce = debounce;
-        window.throttle = throttle;
-        window.showError = showError;
-        window.showLoading = showLoading;
-        window.hideLoading = hideLoading;
-        window.updateSyncStatus = updateSyncStatus;
-    </script>
+    <script src="/firebase-db.js"></script>
+    <script src="/script.js"></script>
     <script>
         let data = [];
         let currentIndex = -1;
@@ -766,6 +757,5 @@
             init();
         });
     </script>
-    <img src="/shutokun/assets/logo.png" alt="Shutokun logo" class="logo">
 </body>
 </html>

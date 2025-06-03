@@ -10,11 +10,11 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
-    <script src="/shutokun/src/js/script.js"></script>
+    <script src="/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Use - Shutokun</title>
-    <link rel="stylesheet" href="/shutokun/src/css/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         .content-container {
             max-width: 800px;
@@ -62,7 +62,7 @@
                 <span></span>
                 <span></span>
             </button>
-            <img src="/shutokun/assets/logo.png" alt="Shutokun logo" class="logo">
+            <img src="/assets/logo.png" alt="Shutokun logo" class="logo">
         </div>
         <div class="auth-container">
             <button id="loginBtn" class="auth-button">Sign in</button>
@@ -127,16 +127,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/shutokun/src/js/firebase-db.js"></script>
-    <script src="/shutokun/src/js/script.js"></script>
-    <script type="module">
-        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from '/shutokun/src/js/shutokun-utils.js';
-        window.debounce = debounce;
-        window.throttle = throttle;
-        window.showError = showError;
-        window.showLoading = showLoading;
-        window.hideLoading = hideLoading;
-        window.updateSyncStatus = updateSyncStatus;
-    </script>
+    <script src="/firebase-db.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
