@@ -10,7 +10,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
     <script>
 const firebaseConfig = {
 apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
@@ -30,7 +30,7 @@ measurementId: "G-GJG5NT05DH"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shutokun - Japanese Learning App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Loading and Error States */
@@ -209,6 +209,18 @@ measurementId: "G-GJG5NT05DH"
                 page-break-inside: avoid;
             }
         }
+
+        /* JLPTレベルボタンアニメーション */
+        #jlpt-level-buttons {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #jlpt-level-buttons.show {
+            opacity: 1;
+            max-height: 500px; /* 十分大きな値 */
+        }
     </style>
 </head>
 <body>
@@ -230,7 +242,7 @@ measurementId: "G-GJG5NT05DH"
         <span></span>
         <span></span>
     </button>
-    <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+    <img src="/assets/logo.png" alt="Shutokun logo" class="logo">
     </div>
     <div class="auth-container">
     <button id="loginBtn" class="auth-button">Sign in</button>
@@ -241,30 +253,36 @@ measurementId: "G-GJG5NT05DH"
 <!-- ナビゲーションメニュー -->
 <nav class="nav-menu" id="nav-menu">
     <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="how-to-use.html">How To Use</a></li>
-    <li><a href="about.html">About Us</a></li>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/how-to-use.html">How To Use</a></li>
+    <li><a href="/about.html">About Us</a></li>
     </ul>
 </nav>
 
     <!-- JLPTレベルボタン -->
     <div class="button-container">
-        <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="assets/hirakata.png" alt="Hiragana/Katakana"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n5'"><img src="assets/n5.png" alt="JLPT N5"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n4'"><img src="assets/n4.png" alt="JLPT N4"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n3'"><img src="assets/n3.png" alt="JLPT N3"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n2'"><img src="assets/n2.png" alt="JLPT N2"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n1'"><img src="assets/n1.png" alt="JLPT N1"></button>
-        <button class="jlpt-button" onclick="location.href='free-mode.html'"><img src="assets/free.png" alt="Free Mode"></button>
-        <button class="jlpt-button" onclick="location.href='json-editor.html'"><img src="assets/json-editor.png" alt="JSON Editor"></button>
+        <!-- JLPT Study 親ボタン -->
+        <button class="jlpt-button" id="jlpt-study-toggle"><img src="/assets/jlpt-study.png" alt="JLPT Study"></button>
+        <!-- JLPTレベルボタン（初期は非表示） -->
+        <div id="jlpt-level-buttons">
+            <button class="jlpt-button" onclick="location.href='/level-select.html?level=n5'"><img src="/assets/n5.png" alt="JLPT N5"></button>
+            <button class="jlpt-button" onclick="location.href='/level-select.html?level=n4'"><img src="/assets/n4.png" alt="JLPT N4"></button>
+            <button class="jlpt-button" onclick="location.href='/level-select.html?level=n3'"><img src="/assets/n3.png" alt="JLPT N3"></button>
+            <button class="jlpt-button" onclick="location.href='/level-select.html?level=n2'"><img src="/assets/n2.png" alt="JLPT N2"></button>
+            <button class="jlpt-button" onclick="location.href='/level-select.html?level=n1'"><img src="/assets/n1.png" alt="JLPT N1"></button>
+        </div>
+        <!-- 他のボタンはそのまま -->
+        <button class="jlpt-button" onclick="location.href='/hirakata.html'"><img src="/assets/hirakata.png" alt="Hiragana/Katakana"></button>
+        <button class="jlpt-button" onclick="location.href='/free-mode.html'"><img src="/assets/free.png" alt="Free Mode"></button>
+        <button class="jlpt-button" onclick="location.href='/json-editor.html'"><img src="/assets/json-editor.png" alt="JSON Editor"></button>
     </div>
 
     <!-- スクリプト -->
-    <script src="firebase-db.js"></script>
-    <script src="script.js"></script>
+    <script src="/firebase-db.js"></script>
+    <script src="/script.js"></script>
     <!-- script.jsの読み込みをbody直前に移動 -->
     <script type="module">
-        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from '/shutokun-utils.js';
         window.debounce = debounce;
         window.throttle = throttle;
         window.showError = showError;
@@ -276,7 +294,7 @@ measurementId: "G-GJG5NT05DH"
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
+                navigator.serviceWorker.register('/sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registration successful');
                     })
@@ -405,6 +423,18 @@ measurementId: "G-GJG5NT05DH"
                 const logoutBtn = document.getElementById('logoutBtn');
                 if (loginBtn) loginBtn.style.display = 'none';
                 if (logoutBtn) logoutBtn.style.display = 'none';
+            }
+        });
+
+        // JLPT StudyボタンでN5-N1をトグル表示
+        document.addEventListener('DOMContentLoaded', function() {
+            var jlptToggle = document.getElementById('jlpt-study-toggle');
+            var jlptLevels = document.getElementById('jlpt-level-buttons');
+            if (jlptToggle && jlptLevels) {
+                jlptLevels.classList.remove('show'); // 初期状態
+                jlptToggle.addEventListener('click', function() {
+                    jlptLevels.classList.toggle('show');
+                });
             }
         });
     </script>
