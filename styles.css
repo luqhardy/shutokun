@@ -300,7 +300,7 @@ header {
   background: none;
   display: block;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0;
   padding: 0;
