@@ -225,11 +225,11 @@ measurementId: "G-GJG5NT05DH"
         /* ユーザーステータス表示 */
         .user-stats-container {
             background: #f8fafc;
-            border-radius: 12px;
+            border-radius: 30px;
             padding: 16px 8px 8px 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             margin: 0 auto 16px auto;
-            max-width: 420px;
+            max-width: 400px;
         }
         .user-stats-container strong {
             font-weight: 700;
@@ -289,12 +289,14 @@ measurementId: "G-GJG5NT05DH"
 </nav>
 
     <!-- JLPTレベルボタン -->
-    <div class="button-container">
-        <!-- ユーザーステータス表示 -->
-    <div id="user-stats" class="user-stats-container" style="margin-bottom: 16px; text-align: center;">
+     <div id="user-stats" class="user-stats-container" style="margin-bottom: 16px; text-align: left; margin-left:8px; margin-right: 8px;">
         <div id="greeting" style="font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600;"></div>
         <div id="user-progress-summary" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; margin-top: 4px;"></div>
         <div id="user-streak" style="margin-top: 8px;"></div>
+
+    <div class="button-container">
+        <!-- ユーザーステータス表示 -->
+    
     </div>
         <!-- JLPT Study 親ボタン -->
         <button class="jlpt-button" id="jlpt-study-toggle"><img src="assets/jlpt-study.png" alt="JLPT Study"></button>
@@ -490,8 +492,8 @@ measurementId: "G-GJG5NT05DH"
         // ユーザー挨拶・進捗・streak表示
         function getGreeting() {
             const hour = new Date().getHours();
-            if (hour < 11) return 'Ohayou gozaimasu';
-            if (hour < 18) return 'Konnichiwa';
+            if (hour < 11) return 'Ohayou gozaimasu!';
+            if (hour < 18) return 'Konnichiwa!';
             return 'Konbanwa';
         }
         function renderUserStats(user, progress, streakDays, streakMatrix) {
@@ -500,7 +502,7 @@ measurementId: "G-GJG5NT05DH"
             const streakDiv = document.getElementById('user-streak');
             // 挨拶＋名前
             let firstName = user && user.displayName ? user.displayName.split(' ')[0] : '';
-            greetingDiv.innerHTML = `<span style="font-weight:700;">${getGreeting()}${firstName ? ' ' + firstName + '-san' : ''}</span>`;
+            greetingDiv.innerHTML = `<span style="font-weight:400; margin-left:40px">${getGreeting()}${firstName ? ' ' + firstName + '-san' : ''}</span>`;
             // 進捗サマリー
             if (progress) {
                 const total = Object.values(progress).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.length : 0), 0);
