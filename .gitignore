@@ -22,3 +22,6 @@ assets/.DS_Store
 Thumbs.db
 
 out/
+.DS_Store
+Copilot.code-workspace
+.DS_Store
