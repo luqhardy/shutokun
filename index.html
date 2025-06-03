@@ -209,6 +209,52 @@ measurementId: "G-GJG5NT05DH"
                 page-break-inside: avoid;
             }
         }
+
+        /* JLPTレベルボタンアニメーション */
+        #jlpt-level-buttons, #custom-mode-buttons {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #jlpt-level-buttons.show, #custom-mode-buttons.show {
+            opacity: 1;
+            max-height: 500px; /* 十分大きな値 */
+        }
+
+        /* ユーザーステータス表示 */
+        .user-stats-container {
+            background: #f8fafc;
+            border-radius: 30px;
+            padding: 16px 8px 8px 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin: 0 auto 16px auto;
+            max-width: 300px;
+        }
+        body.dark-mode .user-stats-container {
+        background-color: #2d2d2d;
+        color: #ffffff;
+    }
+        .user-stats-container strong {
+            font-weight: 700;
+        }
+        .streak-matrix {
+            display: flex;
+            justify-content: center;
+            gap: 3px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .streak-cell {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            background: #e0e0e0;
+            transition: background 0.2s;
+        }
+        .streak-cell.active {
+            background: #34d399;
+        }
     </style>
 </head>
 <body>
@@ -248,21 +294,39 @@ measurementId: "G-GJG5NT05DH"
 </nav>
 
     <!-- JLPTレベルボタン -->
+     <div id="user-stats" class="user-stats-container" style="margin-bottom: 16px; text-align: center; margin-left:8px; margin-right: 8px;">
+        <div id="greeting" style="font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600;"></div>
+        <div id="user-progress-summary" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; margin-top: 4px;"></div>
+        <div id="user-streak" style="margin-top: 8px;"></div>
+
     <div class="button-container">
+        <!-- ユーザーステータス表示 -->
+    
+    </div>
+        <!-- JLPT Study 親ボタン -->
+        <button class="jlpt-button" id="jlpt-study-toggle"><img src="assets/jlpt-study.png" alt="JLPT Study"></button>
+        <div id="jlpt-level-buttons">
+            <button class="jlpt-button" onclick="location.href='level-select.html?level=n5'"><img src="assets/n5.png" alt="JLPT N5"></button>
+            <button class="jlpt-button" onclick="location.href='level-select.html?level=n4'"><img src="assets/n4.png" alt="JLPT N4"></button>
+            <button class="jlpt-button" onclick="location.href='level-select.html?level=n3'"><img src="assets/n3.png" alt="JLPT N3"></button>
+            <button class="jlpt-button" onclick="location.href='level-select.html?level=n2'"><img src="assets/n2.png" alt="JLPT N2"></button>
+            <button class="jlpt-button" onclick="location.href='level-select.html?level=n1'"><img src="assets/n1.png" alt="JLPT N1"></button>
+        </div>
         <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="assets/hirakata.png" alt="Hiragana/Katakana"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n5'"><img src="assets/n5.png" alt="JLPT N5"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n4'"><img src="assets/n4.png" alt="JLPT N4"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n3'"><img src="assets/n3.png" alt="JLPT N3"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n2'"><img src="assets/n2.png" alt="JLPT N2"></button>
-        <button class="jlpt-button" onclick="location.href='level-select.html?level=n1'"><img src="assets/n1.png" alt="JLPT N1"></button>
-        <button class="jlpt-button" onclick="location.href='free-mode.html'"><img src="assets/free.png" alt="Free Mode"></button>
+        <div class="margin-div"></div>
+        <!-- Custom Mode 親ボタン -->
+        <button class="jlpt-button" id="custom-mode-toggle"><img src="assets/free.png" alt="Custom Mode"></button>
+        <div id="custom-mode-buttons">
+            <button class="jlpt-button" onclick="location.href='free-mode-import.html'"><img src="assets/import.png" alt="Import"></button>
+            <button class="jlpt-button" onclick="startPractice()"><img src="assets/start.png" alt="Start"></button>
+            <button class="jlpt-button" onclick="editVocabulary()"><img src="assets/edit.png" alt="Edit"></button>
+        </div>
         <button class="jlpt-button" onclick="location.href='json-editor.html'"><img src="assets/json-editor.png" alt="JSON Editor"></button>
     </div>
 
     <!-- スクリプト -->
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
-    <!-- script.jsの読み込みをbody直前に移動 -->
     <script type="module">
         import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
         window.debounce = debounce;
@@ -276,7 +340,7 @@ measurementId: "G-GJG5NT05DH"
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registration successful');
                     })
@@ -306,7 +370,6 @@ measurementId: "G-GJG5NT05DH"
                 if (!user) return;
 
                 const progress = await window.firebaseDB.getUserOverallProgress(user.uid);
-                
                 // SRS進捗を更新
                 const srsProgress = document.getElementById('srs-progress');
                 if (srsProgress) {
@@ -316,7 +379,6 @@ measurementId: "G-GJG5NT05DH"
                     const percentage = total > 0 ? (completed / total) * 100 : 0;
                     srsProgress.style.width = `${percentage}%`;
                 }
-
                 // かな進捗を更新
                 const kanaProgress = document.getElementById('kana-progress');
                 if (kanaProgress) {
@@ -326,6 +388,10 @@ measurementId: "G-GJG5NT05DH"
                     const percentage = total > 0 ? (completed / total) * 100 : 0;
                     kanaProgress.style.width = `${percentage}%`;
                 }
+                // 学習アクション時にstreakを更新（例: 進捗バー更新時に呼ぶ）
+                markTodayStudied();
+                // ユーザーステータスも即時更新
+                updateUserStats(user);
             } catch (error) {
                 console.error('進捗バーの更新エラー:', error);
                 showError('進捗データの読み込みに失敗しました');
@@ -407,6 +473,119 @@ measurementId: "G-GJG5NT05DH"
                 if (logoutBtn) logoutBtn.style.display = 'none';
             }
         });
+
+        // JLPT StudyボタンでN5-N1をトグル表示（アニメーション付き）
+        document.addEventListener('DOMContentLoaded', function() {
+            var jlptToggle = document.getElementById('jlpt-study-toggle');
+            var jlptLevels = document.getElementById('jlpt-level-buttons');
+            if (jlptToggle && jlptLevels) {
+                jlptLevels.classList.remove('show');
+                jlptToggle.addEventListener('click', function() {
+                    jlptLevels.classList.toggle('show');
+                });
+            }
+            // Custom ModeボタンでImport/Start/Editをトグル表示（アニメーション付き）
+            var customToggle = document.getElementById('custom-mode-toggle');
+            var customBtns = document.getElementById('custom-mode-buttons');
+            if (customToggle && customBtns) {
+                customBtns.classList.remove('show');
+                customToggle.addEventListener('click', function() {
+                    customBtns.classList.toggle('show');
+                });
+            }
+        });
+
+        // ユーザー挨拶・進捗・streak表示
+        function getGreeting() {
+            const hour = new Date().getHours();
+            if (hour < 11) return 'Ohayou gozaimasu!';
+            if (hour < 18) return 'Konnichiwa!';
+            return 'Konbanwa!';
+        }
+        function renderUserStats(user, progress, streakDays, streakMatrix) {
+            const greetingDiv = document.getElementById('greeting');
+            const summaryDiv = document.getElementById('user-progress-summary');
+            const streakDiv = document.getElementById('user-streak');
+            // 挨拶＋名前
+            let firstName = user && user.displayName ? user.displayName.split(' ')[0] : '';
+            greetingDiv.innerHTML = `<span style="font-weight:400">${getGreeting()}${firstName ? ' ' + firstName + '-san' : ''}</span>`;
+            // 進捗サマリー
+            if (progress) {
+                const total = Object.values(progress).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.length : 0), 0);
+                const learned = Object.values(progress).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.filter(item => item.srs?.repetitions > 0).length : 0), 0);
+                summaryDiv.innerHTML = `<span style="font-weight:600"><strong>Progress:</strong> ${learned} / ${total} items learned</span>`;
+            } else {
+                summaryDiv.innerHTML = '';
+            }
+            // streak
+            if (typeof streakDays === 'number') {
+                streakDiv.innerHTML = `<span style="font-weight:600;"><strong>Streak:</strong> ${streakDays} days</span>`;
+            } else {
+                streakDiv.innerHTML = '';
+            }
+            // streak matrix
+            if (Array.isArray(streakMatrix)) {
+                let html = '<div class="streak-matrix">';
+                for (let i = 0; i < streakMatrix.length; i++) {
+                    html += `<div class="streak-cell${streakMatrix[i] ? ' active' : ''}"></div>`;
+                }
+                html += '</div>';
+                streakDiv.innerHTML += html;
+            }
+        }
+        // streakデータ取得例（localStorageやDBで管理する場合は適宜変更）
+        function getStreakMatrix() {
+            // 直近14日分の例: 1=学習あり, 0=なし
+            let arr = JSON.parse(localStorage.getItem('userStreakMatrix') || '[]');
+            if (arr.length !== 14) arr = Array(14).fill(0);
+            return arr;
+        }
+        function getStreakDays(matrix) {
+            // 右端から連続active数
+            let streak = 0;
+            for (let i = matrix.length - 1; i >= 0; i--) {
+                if (matrix[i]) streak++;
+                else break;
+            }
+            return streak;
+        }
+        // サインイン時にユーザーステータスを更新
+        async function updateUserStats(user) {
+            if (!user) {
+                renderUserStats(null, null, null, null);
+                return;
+            }
+            let progress = null;
+            if (window.firebaseDB && user.uid) {
+                try {
+                    progress = await window.firebaseDB.getUserOverallProgress(user.uid);
+                } catch (e) {}
+            }
+            const streakMatrix = getStreakMatrix();
+            const streakDays = getStreakDays(streakMatrix);
+            renderUserStats(user, progress, streakDays, streakMatrix);
+        }
+        // サインイン状態監視にフック
+        document.addEventListener('DOMContentLoaded', function() {
+            firebase.auth().onAuthStateChanged((user) => {
+                updateUserStats(user);
+            });
+        });
+        // 学習時にstreak更新例（実際の学習アクション時に呼ぶこと）
+        function markTodayStudied() {
+            const matrix = getStreakMatrix();
+            // 今日の日付（YYYY-MM-DD）
+            const today = new Date();
+            const todayStr = today.toISOString().slice(0, 10);
+            let lastDate = localStorage.getItem('userStreakLastDate');
+            // すでに今日記録済みなら何もしない
+            if (lastDate === todayStr) return;
+            // 直近14日分をローテーション
+            matrix.push(1);
+            if (matrix.length > 14) matrix.shift();
+            localStorage.setItem('userStreakMatrix', JSON.stringify(matrix));
+            localStorage.setItem('userStreakLastDate', todayStr);
+        }
     </script>
 </body>
 </html>

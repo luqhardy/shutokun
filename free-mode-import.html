@@ -1052,5 +1052,16 @@
             document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
         });
     </script>
+    <script src="src/js/firebase-db.js"></script>
+    <script src="src/js/script.js"></script>
+    <script type="module">
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './src/js/shutokun-utils.js';
+        window.debounce = debounce;
+        window.throttle = throttle;
+        window.showError = showError;
+        window.showLoading = showLoading;
+        window.hideLoading = hideLoading;
+        window.updateSyncStatus = updateSyncStatus;
+    </script>
 </body>
 </html>
