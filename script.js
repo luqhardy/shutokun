@@ -563,6 +563,15 @@ function toggleDarkMode() {
     document.getElementById('theme-toggle').innerHTML = isDark ? '☀️' : '🌙';
 }
 
+        function startPractice() {
+            // フリーモードでsrs-ui.htmlに遷移
+            window.location.href = 'srs-ui.html?mode=free';
+        }
+
+        function editVocabulary() {
+            window.location.href = 'json-editor.html';
+        }
+
 // サウンドエフェクト
 const soundEffects = {
     correct: new Audio('assets/sounds/correct.mp3'),
