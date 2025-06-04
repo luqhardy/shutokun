@@ -8,7 +8,9 @@ const ASSETS_TO_CACHE = [
     './firebase-db.js',
     './assets/sounds/correct.mp3',
     './assets/sounds/incorrect.mp3',
-    './assets/sounds/show-answer.mp3'
+    './assets/sounds/show-answer.mp3',
+    // 追加でキャッシュしたいファイルがあればここに
+    // 存在しないファイルは絶対に含めないこと
 ];
 
 // Install service worker and cache assets
@@ -17,7 +19,10 @@ self.addEventListener('install', (event) => {
         caches.open(CACHE_NAME)
             .then((cache) => {
                 console.log('Opened cache');
-                return cache.addAll(ASSETS_TO_CACHE);
+                // addAllで1つでも404があると全体が失敗するため、個別キャッチ
+                return cache.addAll(ASSETS_TO_CACHE).catch(err => {
+                    console.warn('Some assets failed to cache:', err);
+                });
             })
     );
 });
