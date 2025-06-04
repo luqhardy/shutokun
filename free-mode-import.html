@@ -12,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/tiny-segmenter@0.2.0/dist/tiny-segmenter.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+        <script src="firebase-db.js"></script>
+    <script src="script.js"></script>
     <!--<script src="script.js"></script> -->
     <style>
         :root {
@@ -1052,8 +1054,6 @@
             document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
         });
     </script>
-    <script src="firebase-db.js"></script>
-    <script src="script.js"></script>
     <script type="module">
         import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from 'shutokun-utils.js';
         window.debounce = debounce;
