@@ -236,7 +236,7 @@ measurementId: "G-GJG5NT05DH"
         color: #ffffff;
     }
         .user-stats-container strong {
-            font-weight: 700;
+            font-weight: 600;
         }
         .streak-matrix {
             display: flex;
@@ -293,15 +293,13 @@ measurementId: "G-GJG5NT05DH"
     </ul>
 </nav>
 
-    <!-- JLPTレベルボタン -->
+    <!-- ユーザーステータス表示 -->
      <div id="user-stats" class="user-stats-container" style="margin-bottom: 16px; text-align: center; margin-left:8px; margin-right: 8px;">
-        <div id="greeting" style="font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600;"></div>
-        <div id="user-progress-summary" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; margin-top: 4px;"></div>
-        <div id="user-streak" style="margin-top: 8px;"></div>
-
+        <div id="greeting" style="font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600; margin-top:8px;margin-bottom:12px"></div>
+        <div id="user-progress-summary" style="font-family: 'Inter', sans-serif; font-size: 1rem; margin-top: 4px;"></div>
+        <div id="user-streak" style="margin-top: 4px; margin-bottom: 8px"></div>
+    <!-- JLPTレベルボタン -->
     <div class="button-container">
-        <!-- ユーザーステータス表示 -->
-    
     </div>
         <!-- JLPT Study 親ボタン -->
         <button class="jlpt-button" id="jlpt-study-toggle"><img src="assets/jlpt-study.png" alt="JLPT Study"></button>
@@ -513,13 +511,13 @@ measurementId: "G-GJG5NT05DH"
             if (progress) {
                 const total = Object.values(progress).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.length : 0), 0);
                 const learned = Object.values(progress).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.filter(item => item.srs?.repetitions > 0).length : 0), 0);
-                summaryDiv.innerHTML = `<span style="font-weight:600"><strong>Progress:</strong> ${learned} / ${total} items learned</span>`;
+                summaryDiv.innerHTML = `<span style="font-weight:250"><strong>Progress:</strong> ${learned} / ${total} items learned</span>`;
             } else {
                 summaryDiv.innerHTML = '';
             }
             // streak
             if (typeof streakDays === 'number') {
-                streakDiv.innerHTML = `<span style="font-weight:600;"><strong>Streak:</strong> ${streakDays} days</span>`;
+                streakDiv.innerHTML = `<span style="font-weight:250;"><strong>Streak:</strong> ${streakDays} days</span>`;
             } else {
                 streakDiv.innerHTML = '';
             }

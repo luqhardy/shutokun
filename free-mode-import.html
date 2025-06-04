@@ -482,7 +482,7 @@
     <div id="error-message" class="error-message" role="alert" style="display:none;"></div>
 
     <header>
-         <div class="header-left">
+        <div class="header-left">
             <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
@@ -506,8 +506,8 @@
     <div class="menu-overlay" id="menu-overlay"></div>
     <main class="study-container">
         <div class="section" style="margin-bottom:2rem;">
-            <h1 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Shutokun Free Mode - 日本語OCR</h1>
-            <p style="text-align:center; color:var(--secondary-color);">Upload an image containing Japanese text for OCR processing</p>
+            <h1 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Custom Mode</h1>
+            <p style="text-align:center; color:var(--secondary-color);">Custom Mode allows you to study any Japanese text by importing it into our OCR processor. All processessing is done locally - no cloud is used</p>
         </div>
         <div class="upload-container" id="dropZone">
             <input type="file" id="imageUpload" accept="image/*">
@@ -566,7 +566,7 @@
         let kuromojiTokenizer = null;
         let kuromojiLoading = false;
 
-        // Initialize Tesseract worker
+        // Tesseract initialization
         async function initWorker() {
             if (!worker) {
                 worker = await Tesseract.createWorker({
@@ -588,10 +588,10 @@
 
         // Handle file upload
         document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
-        
+
         // Handle drag and drop
         const dropZone = document.getElementById('dropZone');
-        
+
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
             dropZone.addEventListener(eventName, preventDefaults, false);
         });
@@ -864,7 +864,7 @@
         // Image preprocessing
         function preprocessImage(imageData) {
             const data = imageData.data;
-            
+
             // Convert to grayscale
             for (let i = 0; i < data.length; i += 4) {
                 const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
@@ -985,7 +985,7 @@
             toast.className = `toast toast-${type}`;
             toast.textContent = message;
             document.body.appendChild(toast);
-            
+
             setTimeout(() => {
                 toast.remove();
             }, 3000);
@@ -1052,10 +1052,10 @@
             document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
         });
     </script>
-    <script src="src/js/firebase-db.js"></script>
-    <script src="src/js/script.js"></script>
+    <script src="firebase-db.js"></script>
+    <script src="script.js"></script>
     <script type="module">
-        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './src/js/shutokun-utils.js';
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from 'shutokun-utils.js';
         window.debounce = debounce;
         window.throttle = throttle;
         window.showError = showError;
