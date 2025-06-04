@@ -720,7 +720,7 @@
         document.getElementById('segmentTextButton').onclick = function() {
             const rawText = document.getElementById('ocrTextArea').value;
             // Aggressively join all lines and remove all whitespace (including full-width and invisible spaces)
-            let cleanText = rawText ? rawText.replace(/[ -\u30FF\u4E00-\u9FFF]/g, '') : '';
+            let cleanText = rawText ? rawText.replace(/[\s\u3000\u00A0\u200B\u200C\u200D\uFEFF]+/g, '') : '';
             if (window.kuromoji) {
                 loadKuromojiTokenizer(function() {
                     let tokens = kuromojiTokenizer.tokenize(cleanText);
@@ -750,17 +750,19 @@
                     displayResults(words);
                     showToast('Segmentation complete!', 'success');
                 });
-            } else {
-                // Fallback: TinySegmenter or no tokenizer
-                let words = [];
-                // TinySegmenter fallback（コメントアウトされていた部分を有効化する場合はここで処理）
-                // if (window.TinySegmenter && cleanText) {
-                //     const segmenter = new TinySegmenter();
-                //     words = segmenter.segment(cleanText)
-                //         .map(w => w.trim())
-                //         .filter(w => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(w));
-                // }
-                displayResults((words || []).map(word => ({ word, kana: '', romaji: '', meaning: '', pos: '', jlpt: '', examples: [], srs: { easeFactor: 2.5, interval: 1, repetitions: 0, dueDate: null, lastReviewed: null } })));
+            //} else {
+                // Fallback: TinySegmenter
+              //  let words = [];
+               // if (window.TinySegmenter && cleanText) {
+                 //   const segmenter = new TinySegmenter();
+                   // words = segmenter.segment(cleanText)
+                     //   .map(w => w.trim())
+                       // .filter(w => /[\u3040-\u30FF\u4E00-\u9FFF]/.test(w));
+              //  }
+               // if (!words || words.length === 0) {
+                //    words = [cleanText];
+               // }
+                displayResults(words.map(word => ({ word, kana: '', romaji: '', meaning: '', pos: '', jlpt: '', examples: [], srs: { easeFactor: 2.5, interval: 1, repetitions: 0, dueDate: null, lastReviewed: null } })));
                 showToast('Segmentation complete (fallback)', 'warning');
             }
         };
@@ -789,16 +791,10 @@
             // Use vocabArray directly
             srsVocab = vocabArray.filter(v => v.word.length > 0);
 
-            // --- 追加: テーブルをラップするdivを作成し、横スクロール対応 ---
-            const tableWrapper = document.createElement('div');
-            tableWrapper.style.overflowX = 'auto';
-            tableWrapper.style.width = '100%';
-            tableWrapper.style.marginTop = '1rem';
-
-            // --- テーブル本体 ---
+            // Render editable table
             const table = document.createElement('table');
             table.style.width = '100%';
-            table.style.minWidth = '600px'; // モバイルで折り返し防止
+            table.style.marginTop = '1rem';
             table.innerHTML = `
                 <thead>
                     <tr>
@@ -814,19 +810,18 @@
                 <tbody>
                     ${srsVocab.map((v, i) => `
                         <tr>
-                            <td><input style="width:100%;min-width:80px;box-sizing:border-box;" value="${v.word}" onchange="updateVocabField(${i}, 'word', this.value)"></td>
-                            <td><input style="width:100%;min-width:80px;box-sizing:border-box;" value="${v.kana}" onchange="updateVocabField(${i}, 'kana', this.value)"></td>
-                            <td><input style="width:100%;min-width:100px;box-sizing:border-box;" value="${v.meaning}" onchange="updateVocabField(${i}, 'meaning', this.value)"></td>
-                            <td><input style="width:100%;min-width:80px;box-sizing:border-box;" value="${v.romaji}" onchange="updateVocabField(${i}, 'romaji', this.value)"></td>
-                            <td><input style="width:100%;min-width:60px;box-sizing:border-box;" value="${v.pos}" onchange="updateVocabField(${i}, 'pos', this.value)"></td>
-                            <td><input style="width:100%;min-width:60px;box-sizing:border-box;" value="${v.jlpt}" onchange="updateVocabField(${i}, 'jlpt', this.value)"></td>
-                            <td><input style="width:100%;min-width:100px;box-sizing:border-box;" value="${v.examples && v.examples[0] ? v.examples[0].jp : ''}" onchange="updateExample(${i}, this.value)"></td>
+                            <td><input value="${v.word}" onchange="updateVocabField(${i}, 'word', this.value)"></td>
+                            <td><input value="${v.kana}" onchange="updateVocabField(${i}, 'kana', this.value)"></td>
+                            <td><input value="${v.meaning}" onchange="updateVocabField(${i}, 'meaning', this.value)"></td>
+                            <td><input value="${v.romaji}" onchange="updateVocabField(${i}, 'romaji', this.value)"></td>
+                            <td><input value="${v.pos}" onchange="updateVocabField(${i}, 'pos', this.value)"></td>
+                            <td><input value="${v.jlpt}" onchange="updateVocabField(${i}, 'jlpt', this.value)"></td>
+                            <td><input value="${v.examples && v.examples[0] ? v.examples[0].jp : ''}" onchange="updateExample(${i}, this.value)"></td>
                         </tr>
                     `).join('')}
                 </tbody>
             `;
-            tableWrapper.appendChild(table);
-            container.appendChild(tableWrapper);
+            container.appendChild(table);
             document.getElementById('saveVocabButton').style.display = 'inline-flex';
             document.getElementById('goToPracticeButton').style.display = 'inline-flex';
             document.getElementById('editVocabButton').style.display = 'inline-flex';
@@ -897,16 +892,10 @@
             // Use vocabArray directly
             srsVocab = vocabArray.filter(v => v.word.length > 0);
 
-            // --- 追加: テーブルをラップするdivを作成し、横スクロール対応 ---
-            const tableWrapper = document.createElement('div');
-            tableWrapper.style.overflowX = 'auto';
-            tableWrapper.style.width = '100%';
-            tableWrapper.style.marginTop = '1rem';
-
-            // --- テーブル本体 ---
+            // Render editable table
             const table = document.createElement('table');
             table.style.width = '100%';
-            table.style.minWidth = '600px'; // モバイルで折り返し防止
+            table.style.marginTop = '1rem';
             table.innerHTML = `
                 <thead>
                     <tr>
@@ -922,19 +911,18 @@
                 <tbody>
                     ${srsVocab.map((v, i) => `
                         <tr>
-                            <td><input style="width:100%;min-width:80px;box-sizing:border-box;" value="${v.word}" onchange="updateVocabField(${i}, 'word', this.value)"></td>
-                            <td><input style="width:100%;min-width:80px;box-sizing:border-box;" value="${v.kana}" onchange="updateVocabField(${i}, 'kana', this.value)"></td>
-                            <td><input style="width:100%;min-width:100px;box-sizing:border-box;" value="${v.meaning}" onchange="updateVocabField(${i}, 'meaning', this.value)"></td>
-                            <td><input style="width:100%;min-width:80px;box-sizing:border-box;" value="${v.romaji}" onchange="updateVocabField(${i}, 'romaji', this.value)"></td>
-                            <td><input style="width:100%;min-width:60px;box-sizing:border-box;" value="${v.pos}" onchange="updateVocabField(${i}, 'pos', this.value)"></td>
-                            <td><input style="width:100%;min-width:60px;box-sizing:border-box;" value="${v.jlpt}" onchange="updateVocabField(${i}, 'jlpt', this.value)"></td>
-                            <td><input style="width:100%;min-width:100px;box-sizing:border-box;" value="${v.examples && v.examples[0] ? v.examples[0].jp : ''}" onchange="updateExample(${i}, this.value)"></td>
+                            <td><input value="${v.word}" onchange="updateVocabField(${i}, 'word', this.value)"></td>
+                            <td><input value="${v.kana}" onchange="updateVocabField(${i}, 'kana', this.value)"></td>
+                            <td><input value="${v.meaning}" onchange="updateVocabField(${i}, 'meaning', this.value)"></td>
+                            <td><input value="${v.romaji}" onchange="updateVocabField(${i}, 'romaji', this.value)"></td>
+                            <td><input value="${v.pos}" onchange="updateVocabField(${i}, 'pos', this.value)"></td>
+                            <td><input value="${v.jlpt}" onchange="updateVocabField(${i}, 'jlpt', this.value)"></td>
+                            <td><input value="${v.examples && v.examples[0] ? v.examples[0].jp : ''}" onchange="updateExample(${i}, this.value)"></td>
                         </tr>
                     `).join('')}
                 </tbody>
             `;
-            tableWrapper.appendChild(table);
-            container.appendChild(tableWrapper);
+            container.appendChild(table);
             document.getElementById('saveVocabButton').style.display = 'inline-flex';
             document.getElementById('goToPracticeButton').style.display = 'inline-flex';
             document.getElementById('editVocabButton').style.display = 'inline-flex';
@@ -1067,7 +1055,7 @@
     <script src="firebase-db.js"></script>
     <script src="script.js"></script>
     <script type="module">
-        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from './shutokun-utils.js';
+        import { debounce, throttle, showError, showLoading, hideLoading, updateSyncStatus } from 'shutokun-utils.js';
         window.debounce = debounce;
         window.throttle = throttle;
         window.showError = showError;
