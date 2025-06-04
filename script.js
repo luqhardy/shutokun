@@ -343,19 +343,85 @@ window.addEventListener('offline', () => {
     showError('You are offline. Changes will be saved locally.');
 });
 
-// 進捗保存の強化（同期キュー）
+// --- 進捗読み込み（サーバー優先・同期付き） ---
+async function loadProgress() {
+    if (!currentUser) {
+        // オフライン or 未サインイン時はlocalStorageから復元
+        try {
+            const saved = localStorage.getItem("srsData");
+            if (saved) {
+                const savedData = JSON.parse(saved);
+                if (Array.isArray(savedData)) {
+                    savedData.forEach((item, i) => {
+                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+                    });
+                }
+            }
+        } catch (error) {
+            console.error("Error loading from localStorage:", error);
+            showError("Failed to load local progress data.");
+        }
+        return;
+    }
+    showLoading();
+    try {
+        const level = new URLSearchParams(window.location.search).get("level");
+        const category = new URLSearchParams(window.location.search).get("category") || "goi";
+        // サーバーから常に最新データ取得
+        const serverData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
+        if (Array.isArray(serverData)) {
+            // サーバーデータをlocalStorageに保存し、UIに反映
+            localStorage.setItem("srsData", JSON.stringify(serverData));
+            serverData.forEach((item, i) => {
+                if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+            });
+        }
+        // サーバーのリアルタイムリスナー設置
+        if (window.firebaseDB.listenToUserProgress) {
+            window.firebaseDB.listenToUserProgress(currentUser.uid, `${level}-${category}`, (updatedData) => {
+                if (Array.isArray(updatedData)) {
+                    localStorage.setItem("srsData", JSON.stringify(updatedData));
+                    updatedData.forEach((item, i) => {
+                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+                    });
+                    throttledUpdateUI();
+                }
+            });
+        }
+        throttledUpdateUI();
+    } catch (error) {
+        console.error("Error loading progress from server:", error);
+        showError("Failed to load progress from server. Using local data.");
+        // Fallback to localStorage
+        const saved = localStorage.getItem("srsData");
+        if (saved) {
+            try {
+                const savedData = JSON.parse(saved);
+                if (Array.isArray(savedData)) {
+                    savedData.forEach((item, i) => {
+                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
+                    });
+                }
+            } catch (parseError) {
+                console.error("Error parsing localStorage data:", parseError);
+            }
+        }
+    } finally {
+        hideLoading();
+    }
+}
+
+// --- 進捗保存（サーバー優先・オフライン時はlocalStorage） ---
 async function saveProgress(data = null) {
     const urlParams = new URLSearchParams(window.location.search);
     const mode = urlParams.get("mode");
-    // --- FIX: Always save vocab (with srs) for server/local ---
-   // const dataToSave = data || vocab;
-   const dataToSave = (data || vocab).map(item => ({
-    ...item,
-    reading: item.readings && item.readings.hiragana ? item.readings.hiragana.join(', ') : '',
-    meaning: item.meanings && item.meanings.en ? item.meanings.en.join(', ') : '',
-}));
+    const dataToSave = (data || vocab).map(item => ({
+        ...item,
+        reading: item.readings && item.readings.hiragana ? item.readings.hiragana.join(', ') : '',
+        meaning: item.meanings && item.meanings.en ? item.meanings.en.join(', ') : '',
+    }));
     if (mode === "free") {
-        // Save SRS progress for Free Mode
+        // Free ModeはlocalStorageのみ
         try {
             localStorage.setItem("srsData_free", JSON.stringify(vocab));
             return true;
@@ -365,38 +431,27 @@ async function saveProgress(data = null) {
             return false;
         }
     }
-    
     if (currentUser && isOnline) {
-        checkFirebaseDBMethods();
         try {
-            const level = new URLSearchParams(window.location.search).get("level");
-            const category = new URLSearchParams(window.location.search).get("category") || "goi";
-            
-            // Get current server version
-            const currentData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
-            
-            // Merge with server data if it exists
-            if (currentData) {
-                const mergedData = mergeProgressData(currentData, dataToSave);
-                await window.firebaseDB.saveUserProgress(currentUser.uid, `${level}-${category}`, mergedData);
-            } else {
-                await window.firebaseDB.saveUserProgress(currentUser.uid, `${level}-${category}`, dataToSave);
-            }
-            
-            // Update local storage as backup
+            const level = urlParams.get("level");
+            const category = urlParams.get("category") || "goi";
+            // サーバーに上書き保存
+            await window.firebaseDB.saveUserProgress(currentUser.uid, `${level}-${category}`, dataToSave);
+            // サーバー保存成功時にlocalStorageも更新
             localStorage.setItem("srsData", JSON.stringify(dataToSave));
             localStorage.setItem("lastSync", Date.now().toString());
-            
             return true;
         } catch (error) {
             console.error("Error saving to Firebase:", error);
-            // Add to sync queue for retry
+            // オフライン時はlocalStorageに保存
+            localStorage.setItem("srsData", JSON.stringify(dataToSave));
+            localStorage.setItem("lastSync", Date.now().toString());
             syncQueue.add(dataToSave);
-            throw error;
+            showError("Failed to sync. Changes will be saved locally.");
+            return false;
         }
     }
-
-    // Fallback to localStorage
+    // オフライン時はlocalStorageのみ
     try {
         localStorage.setItem("srsData", JSON.stringify(dataToSave));
         localStorage.setItem("lastSync", Date.now().toString());
