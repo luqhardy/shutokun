@@ -352,9 +352,7 @@ async function loadProgress() {
             if (saved) {
                 const savedData = JSON.parse(saved);
                 if (Array.isArray(savedData)) {
-                    savedData.forEach((item, i) => {
-                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-                    });
+                    vocab = savedData; // vocab配列を完全に上書き
                 }
             }
         } catch (error) {
@@ -370,20 +368,15 @@ async function loadProgress() {
         // サーバーから常に最新データ取得
         const serverData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
         if (Array.isArray(serverData)) {
-            // サーバーデータをlocalStorageに保存し、UIに反映
             localStorage.setItem("srsData", JSON.stringify(serverData));
-            serverData.forEach((item, i) => {
-                if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-            });
+            vocab = serverData; // vocab配列を完全に上書き
         }
         // サーバーのリアルタイムリスナー設置
         if (window.firebaseDB.listenToUserProgress) {
             window.firebaseDB.listenToUserProgress(currentUser.uid, `${level}-${category}`, (updatedData) => {
                 if (Array.isArray(updatedData)) {
                     localStorage.setItem("srsData", JSON.stringify(updatedData));
-                    updatedData.forEach((item, i) => {
-                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-                    });
+                    vocab = updatedData; // vocab配列を完全に上書き
                     throttledUpdateUI();
                 }
             });
@@ -398,9 +391,7 @@ async function loadProgress() {
             try {
                 const savedData = JSON.parse(saved);
                 if (Array.isArray(savedData)) {
-                    savedData.forEach((item, i) => {
-                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-                    });
+                    vocab = savedData; // vocab配列を完全に上書き
                 }
             } catch (parseError) {
                 console.error("Error parsing localStorage data:", parseError);
@@ -471,9 +462,7 @@ async function loadProgress() {
             if (saved) {
                 const savedData = JSON.parse(saved);
                 if (Array.isArray(savedData)) {
-                    savedData.forEach((item, i) => {
-                        if (vocab[i] && item && item.srs) vocab[i].srs = item.srs;
-                    });
+                    vocab = savedData; // vocab配列を完全に上書き
                 }
             }
         } catch (error) {
