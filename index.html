@@ -271,11 +271,12 @@ measurementId: "G-GJG5NT05DH"
         });
 
         // ユーザー挨拶・進捗・streak表示
-        function getGreeting() {
+        function getGreeting(user) {
+            if (!user) return 'Sign in to sync your progress';
             const hour = new Date().getHours();
-            if (hour < 11) return 'Ohayou gozaimasu!';
-            if (hour < 18) return 'Konnichiwa!';
-            return 'Konbanwa!';
+            if (hour < 11) return 'Ohayou gozaimasu,';
+            if (hour < 18) return 'Konnichiwa,';
+            return 'Konbanwa,';
         }
         function renderUserStats(user, progress, streakDays, streakMatrix) {
             const greetingDiv = document.getElementById('greeting');
@@ -283,7 +284,13 @@ measurementId: "G-GJG5NT05DH"
             const streakDiv = document.getElementById('user-streak');
             // 挨拶＋名前
             let firstName = user && user.displayName ? user.displayName.split(' ')[0] : '';
-            greetingDiv.innerHTML = `<span style="font-weight:400">${getGreeting()}${firstName ? ' ' + firstName + '-san' : ''}</span>`;
+            if (!user) {
+                greetingDiv.innerHTML = `<span style="font-weight:400">Sign in to sync your progress</span><div style=margin-bottom:16px></div>`;
+                summaryDiv.innerHTML = '';
+                streakDiv.innerHTML = '';
+                return;
+            }
+            greetingDiv.innerHTML = `<span style="font-weight:400">${getGreeting(user)}${firstName ? '<br>' + firstName + '-san' : ''}</span>`;
             // 進捗サマリー
             if (progress) {
                 const total = Object.values(progress).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.length : 0), 0);

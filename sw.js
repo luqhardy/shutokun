@@ -1,10 +1,10 @@
 const CACHE_NAME = 'shutokun-v1';
 const ASSETS_TO_CACHE = [
     './',
-    './index.html',
-    './srs-ui.html',
-    './styles.css',
-    './script.js',
+    //'./index.html',
+    //'./srs-ui.html',
+    //'./styles.css',
+    //'./script.js',
     './firebase-db.js',
     './assets/sounds/correct.mp3',
     './assets/sounds/incorrect.mp3',
