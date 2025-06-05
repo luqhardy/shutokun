@@ -163,7 +163,7 @@ header {
 /* Study container */
 .study-container {
   max-width: 800px;
-  margin: 2rem auto;
+  margin: 0rem 0;
   padding: 0 1rem;
   flex: 1;
 }
@@ -182,7 +182,7 @@ header {
 }
 
 .card h2 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 0rem 0;
   font-size: 2rem;
   /*color: #333;*/
 }
@@ -200,7 +200,7 @@ header {
 /* Button styles */
 .show-answer-container {
   text-align: center;
-  margin: 1rem 0;
+ margin: 1rem 0;
 }
 
 .action-button {
@@ -245,7 +245,7 @@ header {
 
 /* Progress styles */
 .srs-progress-container {
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: 1rem;
   background: white;
   border-radius: 8px;
