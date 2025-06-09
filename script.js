@@ -1111,3 +1111,51 @@ function resetFreeModeProgress() {
     window.location.reload();
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Clear Cache button
+    const clearBtn = document.getElementById('clear-cache-btn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', async function() {
+            if (!confirm('Are you sure you want to clear all local cache (localStorage, IndexedDB, service workers)? This cannot be undone.')) return;
+            // Clear localStorage
+            localStorage.clear();
+            // Clear IndexedDB (if used)
+            if (window.indexedDB && window.indexedDB.databases) {
+                const dbs = await window.indexedDB.databases();
+                for (const db of dbs) {
+                    window.indexedDB.deleteDatabase(db.name);
+                }
+            }
+            // Unregister service workers
+            if ('serviceWorker' in navigator) {
+                const regs = await navigator.serviceWorker.getRegistrations();
+                for (const reg of regs) {
+                    await reg.unregister();
+                }
+            }
+            alert('Cache cleared. The page will now reload.');
+            location.reload();
+        });
+    }
+
+    // Reset Progress button
+    const resetBtn = document.getElementById('reset-progress-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', async function() {
+            if (!confirm('Are you sure you want to reset your learning progress? This cannot be undone.')) return;
+            // Remove progress-related localStorage keys
+            localStorage.removeItem('userStreakMatrix');
+            localStorage.removeItem('userStreakLastDate');
+            // Add any other progress keys you use here
+            // Optionally, clear progress in IndexedDB or Firebase if needed
+            // Example for Firebase:
+            if (window.firebase && firebase.auth().currentUser && window.firebaseDB && window.firebaseDB.resetUserProgress) {
+                try {
+                    await window.firebaseDB.resetUserProgress(firebase.auth().currentUser.uid);
+                } catch (e) {}
+            }
+            alert('Progress reset. The page will now reload.');
+            location.reload();
+        });
+    }
+});
