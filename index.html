@@ -166,6 +166,41 @@ measurementId: "G-GJG5NT05DH"
     </div>
 
     <script>
+        // Clear all caches and storage on every reload
+(function clearAllOnReload() {
+    // Clear localStorage
+    try { localStorage.clear(); } catch(e) {}
+    // Clear sessionStorage
+    try { sessionStorage.clear(); } catch(e) {}
+    // Clear IndexedDB
+    if (window.indexedDB && indexedDB.databases) {
+        indexedDB.databases().then(dbs => {
+            dbs.forEach(db => {
+                indexedDB.deleteDatabase(db.name);
+            });
+        });
+    } else if (window.indexedDB) {
+        // Fallback for browsers without indexedDB.databases
+        // Try to delete common DBs
+        ['firebaseLocalStorageDb', 'firebase-database', 'firebase-auth-database', 'firebaseLocalStorage', 'shutokun'].forEach(name => {
+            try { indexedDB.deleteDatabase(name); } catch(e) {}
+        });
+    }
+    // Clear Cache Storage
+    if ('caches' in window) {
+        caches.keys().then(function(names) {
+            for (let name of names) caches.delete(name);
+        });
+    }
+    // Unregister all service workers
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+})();
         // 進捗バーをアニメーションで更新
         async function updateProgressBars() {
             try {
