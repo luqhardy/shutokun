@@ -67,17 +67,33 @@ measurementId: "G-GJG5NT05DH"
     <li><a href="how-to-use.html">How To Use</a></li>
     <li><a href="about.html">About Us</a></li>
     <li>
-        <button id="clear-cache-btn" style="width:100%;background:none;border:none;color:#c00;cursor:pointer;margin-bottom: 10px;">
-            Clear Cache
-        </button>
+        <a href="#" id="clear-cache-btn" class="nav-link nav-link-red">Clear Cache</a>
     </li>
     <li>
-        <button id="resetAllProgressBtn" style="width:100%;text-align:center;background:none;border:none;color:#c00;cursor:pointer;margin-bottom: 10px;">
-            Reset Progress
-        </button>
+        <a href="#" id="resetAllProgressBtn" class="nav-link nav-link-red">Reset Progress</a>
     </li>
     </ul>
 </nav>
+<style>
+.nav-link-red {
+    color: #c00 !important;
+    background: none !important;
+    border: none !important;
+    font: inherit;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    transition: color 0.15s;
+}
+.nav-link-red:hover, .nav-link-red:focus {
+    color: #a00 !important;
+    text-decoration: underline;
+}
+</style>
 
     <!-- ユーザーステータス表示 -->
      <div style="margin-top:18px"></div>
