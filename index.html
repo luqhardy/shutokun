@@ -107,11 +107,13 @@ measurementId: "G-GJG5NT05DH"
         <!-- JLPT Study 親ボタン -->
         <button class="jlpt-button" id="jlpt-study-toggle"><img src="assets/jlpt-study.png" alt="JLPT Study"></button>
         <div id="jlpt-level-buttons">
-            <button class="jlpt-button" onclick="location.href='level-select.html?level=n5'"><img src="assets/n5.png" alt="JLPT N5"></button>
-            <button class="jlpt-button" onclick="location.href='level-select.html?level=n4'"><img src="assets/n4.png" alt="JLPT N4"></button>
-            <button class="jlpt-button" onclick="location.href='level-select.html?level=n3'"><img src="assets/n3.png" alt="JLPT N3"></button>
-            <button class="jlpt-button" onclick="location.href='level-select.html?level=n2'"><img src="assets/n2.png" alt="JLPT N2"></button>
-            <button class="jlpt-button" onclick="location.href='level-select.html?level=n1'"><img src="assets/n1.png" alt="JLPT N1"></button>
+            <div class="jlpt-level-row">
+                <button class="jlpt-button jlpt-level-btn" data-level="n5"><img src="assets/n5.png" alt="JLPT N5"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n4"><img src="assets/n4.png" alt="JLPT N4"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n3"><img src="assets/n3.png" alt="JLPT N3"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n2"><img src="assets/n2.png" alt="JLPT N2"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n1"><img src="assets/n1.png" alt="JLPT N1"></button>
+            </div>
         </div>
         <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="assets/hirakata.png" alt="Hiragana/Katakana"></button>
         <div class="margin-div"></div>
@@ -395,5 +397,111 @@ measurementId: "G-GJG5NT05DH"
             localStorage.setItem('userStreakLastDate', todayStr);
         }
     </script>
+    <script>
+// JLPT Level category inline row logic (insert between buttons)
+(function() {
+    const jlptLevelRow = document.querySelector('.jlpt-level-row');
+    const jlptLevelBtns = document.querySelectorAll('.jlpt-level-btn');
+    let currentCategoryRow = null;
+    let lastActiveBtn = null;
+    jlptLevelBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Toggle: if already open under this button, close it
+            if (lastActiveBtn === btn && currentCategoryRow) {
+                currentCategoryRow.remove();
+                btn.classList.remove('active');
+                currentCategoryRow = null;
+                lastActiveBtn = null;
+                return;
+            }
+            // Remove any existing row
+            if (currentCategoryRow) {
+                currentCategoryRow.remove();
+                if (lastActiveBtn) lastActiveBtn.classList.remove('active');
+            }
+            // Create new row
+            const level = btn.getAttribute('data-level');
+            const row = document.createElement('div');
+            row.className = 'jlpt-category-inline-row';
+            row.innerHTML = `
+                <button class="jlpt-button jlpt-category-btn" onclick="location.href='srs-ui.html?level=${level}&category=goi'"><img src='assets/goi-small.png' alt='Vocabulary'><br><span></span></button>
+                <button class="jlpt-button jlpt-category-btn" onclick="location.href='srs-ui.html?level=${level}&category=bunpou'"><img src='assets/bunpou-small.png' alt='Grammar'><br><span></span></button>
+                <button class="jlpt-button jlpt-category-btn" onclick="location.href='srs-ui.html?level=${level}&category=kanji'"><img src='assets/kanji-small.png' alt='Kanji'><br><span></span></button>
+            `;
+            // Insert after the clicked button, or after the row if N1
+            const buttons = Array.from(jlptLevelRow.children);
+            const insertIdx = buttons.indexOf(btn) + 1;
+            if (btn.getAttribute('data-level') === 'n1') {
+                // Insert after the .jlpt-level-row (so before Hirakata)
+                jlptLevelRow.parentNode.insertBefore(row, jlptLevelRow.nextSibling);
+            } else if (insertIdx >= jlptLevelRow.children.length) {
+                jlptLevelRow.appendChild(row);
+            } else {
+                jlptLevelRow.insertBefore(row, jlptLevelRow.children[insertIdx]);
+            }
+            btn.classList.add('active');
+            currentCategoryRow = row;
+            lastActiveBtn = btn;
+        });
+    });
+    // Click outside to close
+    document.addEventListener('click', function(e) {
+        if (currentCategoryRow && !currentCategoryRow.contains(e.target) && !Array.from(jlptLevelBtns).some(btn => btn.contains(e.target))) {
+            currentCategoryRow.remove();
+            if (lastActiveBtn) lastActiveBtn.classList.remove('active');
+            currentCategoryRow = null;
+            lastActiveBtn = null;
+        }
+    });
+})();
+</script>
+<style>
+.jlpt-category-inline-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    margin: 0 0 10px 0;
+    margin-bottom: 10px;
+    width: 100%;
+    animation: fadeIn 0.18s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.jlpt-category-btn {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    border-radius: 0px;
+    /*box-shadow: 0 2px 8px rgba(0,0,0,0.06);*/
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 10px;
+    transition: border 0.15s, box-shadow 0.15s;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    max-width: 85px;
+}
+.jlpt-category-btn:hover, .jlpt-category-btn:focus {
+    /*border: 2px solid #a0a0ff;
+    box-shadow: 0 4px 16px rgba(80,80,255,0.10);*/
+}
+.jlpt-level-btn.active {
+    outline: 2px solid #a0a0ff;
+    z-index: 2;
+}
+.jlpt-category-btn img {
+  max-width: 100%;
+  height: auto;
+}
+</style>
 </body>
 </html>
