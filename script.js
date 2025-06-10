@@ -52,15 +52,6 @@ function mergeProgressData(serverData, localData) {
     });
 }
 
-// Utility: Get per-level/category/mode progress key
-function getProgressKey() {
-    const urlParams = new URLSearchParams(window.location.search);
-    //const mode = urlParams.get("mode") || "jlpt";
-    const level = urlParams.get("level") || "n5";
-    const category = urlParams.get("category") || "goi";
-    return `srsData_${mode}_${level}_${category}`;
-}
-
 // 認証状態の監視
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
@@ -357,8 +348,7 @@ async function loadProgress() {
     if (!currentUser) {
         // オフライン or 未サインイン時はlocalStorageから復元
         try {
-            const key = getProgressKey();
-            const saved = localStorage.getItem(key);
+            const saved = localStorage.getItem("srsData");
             if (saved) {
                 const savedData = JSON.parse(saved);
                 if (Array.isArray(savedData)) {
@@ -378,16 +368,14 @@ async function loadProgress() {
         // サーバーから常に最新データ取得
         const serverData = await window.firebaseDB.loadUserProgress(currentUser.uid, `${level}-${category}`);
         if (Array.isArray(serverData)) {
-            const key = getProgressKey();
-            localStorage.setItem(key, JSON.stringify(serverData));
+            localStorage.setItem("srsData", JSON.stringify(serverData));
             vocab = serverData; // vocab配列を完全に上書き
         }
         // サーバーのリアルタイムリスナー設置
         if (window.firebaseDB.listenToUserProgress) {
             window.firebaseDB.listenToUserProgress(currentUser.uid, `${level}-${category}`, (updatedData) => {
                 if (Array.isArray(updatedData)) {
-                    const key = getProgressKey();
-                    localStorage.setItem(key, JSON.stringify(updatedData));
+                    localStorage.setItem("srsData", JSON.stringify(updatedData));
                     vocab = updatedData; // vocab配列を完全に上書き
                     throttledUpdateUI();
                 }
@@ -398,8 +386,7 @@ async function loadProgress() {
         console.error("Error loading progress from server:", error);
         showError("Failed to load progress from server. Using local data.");
         // Fallback to localStorage
-        const key = getProgressKey();
-        const saved = localStorage.getItem(key);
+        const saved = localStorage.getItem("srsData");
         if (saved) {
             try {
                 const savedData = JSON.parse(saved);
@@ -424,11 +411,10 @@ async function saveProgress(data = null) {
         reading: item.readings && item.readings.hiragana ? item.readings.hiragana.join(', ') : '',
         meaning: item.meanings && item.meanings.en ? item.meanings.en.join(', ') : '',
     }));
-    const key = getProgressKey();
     if (mode === "free") {
         // Free ModeはlocalStorageのみ
         try {
-            localStorage.setItem(key, JSON.stringify(vocab));
+            localStorage.setItem("srsData_free", JSON.stringify(vocab));
             return true;
         } catch (error) {
             console.error("Error saving Free Mode progress to localStorage:", error);
@@ -443,13 +429,13 @@ async function saveProgress(data = null) {
             // サーバーに上書き保存
             await window.firebaseDB.saveUserProgress(currentUser.uid, `${level}-${category}`, dataToSave);
             // サーバー保存成功時にlocalStorageも更新
-            localStorage.setItem(key, JSON.stringify(dataToSave));
+            localStorage.setItem("srsData", JSON.stringify(dataToSave));
             localStorage.setItem("lastSync", Date.now().toString());
             return true;
         } catch (error) {
             console.error("Error saving to Firebase:", error);
             // オフライン時はlocalStorageに保存
-            localStorage.setItem(key, JSON.stringify(dataToSave));
+            localStorage.setItem("srsData", JSON.stringify(dataToSave));
             localStorage.setItem("lastSync", Date.now().toString());
             syncQueue.add(dataToSave);
             showError("Failed to sync. Changes will be saved locally.");
@@ -458,7 +444,7 @@ async function saveProgress(data = null) {
     }
     // オフライン時はlocalStorageのみ
     try {
-        localStorage.setItem(key, JSON.stringify(dataToSave));
+        localStorage.setItem("srsData", JSON.stringify(dataToSave));
         localStorage.setItem("lastSync", Date.now().toString());
         return true;
     } catch (error) {
@@ -472,8 +458,7 @@ async function saveProgress(data = null) {
 async function loadProgress() {
     if (!currentUser) {
         try {
-            const key = getProgressKey();
-            const saved = localStorage.getItem(key);
+            const saved = localStorage.getItem("srsData");
             if (saved) {
                 const savedData = JSON.parse(saved);
                 if (Array.isArray(savedData)) {
@@ -511,8 +496,7 @@ async function loadProgress() {
             }
         } else {
             // Load from local storage
-            const key = getProgressKey();
-            const saved = localStorage.getItem(key);
+            const saved = localStorage.getItem("srsData");
             if (saved) {
                 const savedData = JSON.parse(saved);
                 if (Array.isArray(savedData)) {
@@ -539,8 +523,7 @@ async function loadProgress() {
         console.error("Error loading progress:", error);
         showError("Failed to load progress from server. Using local data.");
         // Fallback to localStorage
-        const key = getProgressKey();
-        const saved = localStorage.getItem(key);
+        const saved = localStorage.getItem("srsData");
         if (saved) {
             try {
                 const savedData = JSON.parse(saved);
@@ -556,6 +539,15 @@ async function loadProgress() {
     } finally {
         hideLoading();
     }
+}
+
+// Utility: Get per-level/category/mode progress key
+function getProgressKey() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get("mode") || "jlpt";
+    const level = urlParams.get("level") || "n5";
+    const category = urlParams.get("category") || "goi";
+    return `srsData_${mode}_${level}_${category}`;
 }
 
 // Defensive check for firebaseDB methods
@@ -1128,58 +1120,3 @@ function resetFreeModeProgress() {
     window.location.reload();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Clear Cache button
-    const clearBtn = document.getElementById('clear-cache-btn');
-    if (clearBtn) {
-        clearBtn.addEventListener('click', async function() {
-            if (!confirm('Are you sure you want to clear all local cache (localStorage, IndexedDB, service workers, and asset caches)? This cannot be undone.')) return;
-            // Clear localStorage
-            localStorage.clear();
-            // Clear IndexedDB (if used)
-            if (window.indexedDB && window.indexedDB.databases) {
-                const dbs = await window.indexedDB.databases();
-                for (const db of dbs) {
-                    window.indexedDB.deleteDatabase(db.name);
-                }
-            }
-            // Unregister service workers
-            if ('serviceWorker' in navigator) {
-                const regs = await navigator.serviceWorker.getRegistrations();
-                for (const reg of regs) {
-                    await reg.unregister();
-                }
-            }
-            // Delete all Cache Storage (Service Worker asset caches)
-            if (window.caches && caches.keys) {
-                const cacheNames = await caches.keys();
-                for (const name of cacheNames) {
-                    await caches.delete(name);
-                }
-            }
-            alert('Cache cleared. The page will now reload.');
-            location.reload(true);
-        });
-    }
-
-    // Reset Progress button
-    const resetBtn = document.getElementById('reset-progress-btn');
-    if (resetBtn) {
-        resetBtn.addEventListener('click', async function() {
-            if (!confirm('Are you sure you want to reset your learning progress for this level? This cannot be undone.')) return;
-            const key = getProgressKey();
-            localStorage.removeItem(key);
-            // Optionally, clear progress in Firebase for this level/category
-            if (window.firebase && firebase.auth().currentUser && window.firebaseDB && window.firebaseDB.resetUserProgress) {
-                try {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const level = urlParams.get("level") || "n5";
-                    const category = urlParams.get("category") || "goi";
-                    await window.firebaseDB.resetUserProgress(firebase.auth().currentUser.uid, `${level}-${category}`);
-                } catch (e) {}
-            }
-            alert('Progress reset for this level. The page will now reload.');
-            location.reload();
-        });
-    }
-});
