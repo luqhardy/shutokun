@@ -756,9 +756,15 @@ function updateProgressDisplay() {
     }
     
     // Update progress bar with animation
-    const progress = (srs.repetitions / 10) * 100; // Assuming 10 is max repetitions
     const progressBar = document.getElementById('srs-progress');
-    progressBar.value = Math.min(progress, 100);
+    if (progressBar) {
+        progressBar.max = 100;
+        let total = vocab.length;
+        let reviewed = vocab.filter(item => item.srs && item.srs.repetitions > 0).length;
+        // 進捗率 = レビュー済みカード数 / 総カード数
+        let percent = total > 0 ? Math.round((reviewed / total) * 100) : 0;
+        progressBar.value = percent;
+    }
 }
 
 // Googleサインイン設定
