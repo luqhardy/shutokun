@@ -535,6 +535,15 @@
         <div class="section" style="margin-bottom:2rem;">
             <h1 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Custom Mode</h1>
             <p style="text-align:center; color:var(--secondary-color);">Custom Mode allows you to study any Japanese text by importing it into our OCR processor. All processessing is done locally - no cloud is used</p>
+            <div style="text-align:center; margin-top:1rem;">
+                <label style="font-weight:500; font-size:1.1em; margin-right:1em;">OCR Engine:</label>
+                <label style="margin-right:1em;">
+                    <input type="radio" name="ocr-engine" value="tesseract" checked> Tesseract + kuromoji.js (ローカル)
+                </label>
+                <label>
+                    <input type="radio" name="ocr-engine" value="gemini"> Google Gemini API (クラウド)
+                </label>
+            </div>
         </div>
         <div class="upload-container" id="dropZone">
             <input type="file" id="imageUpload" accept="image/*">
@@ -703,6 +712,13 @@
         async function processImage() {
             if (!currentImage) return;
 
+            // OCRエンジン選択
+            const ocrEngine = document.querySelector('input[name="ocr-engine"]:checked').value;
+            if (ocrEngine === 'gemini') {
+                await processImageWithGemini();
+                return;
+            }
+
             try {
                 document.getElementById('progressContainer').style.display = 'block';
                 document.getElementById('processButton').disabled = true;
@@ -737,6 +753,45 @@
                 showToast('OCR completed. Please review and segment.', 'info');
             } catch (err) {
                 showToast('Error processing image', 'error');
+                console.error(err);
+            } finally {
+                document.getElementById('processButton').disabled = false;
+            }
+        }
+
+        // Gemini APIによるOCR処理
+        async function processImageWithGemini() {
+            try {
+                document.getElementById('progressContainer').style.display = 'block';
+                document.getElementById('processButton').disabled = true;
+                document.getElementById('exportButton').disabled = true;
+                updateStatus('Uploading image to Gemini API...');
+                // 画像をBase64に変換
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = currentImage.width;
+                canvas.height = currentImage.height;
+                ctx.drawImage(currentImage, 0, 0);
+                const dataUrl = canvas.toDataURL('image/png');
+                // Gemini APIエンドポイントにPOST
+                const res = await fetch('/api/gemini-ocr', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ image: dataUrl })
+                });
+                if (!res.ok) throw new Error('Gemini API error');
+                const result = await res.json();
+                // Geminiのレスポンス例: { text: '...' }
+                document.getElementById('ocrEditContainer').style.display = 'block';
+                document.getElementById('ocrTextArea').value = result.text || '';
+                document.getElementById('results').innerHTML = '';
+                document.getElementById('saveVocabButton').style.display = 'none';
+                document.getElementById('goToPracticeButton').style.display = 'none';
+                document.getElementById('editVocabButton').style.display = 'none';
+                document.getElementById('exportButton').disabled = false;
+                showToast('Gemini OCR completed. Please review and segment.', 'info');
+            } catch (err) {
+                showToast('Error processing image with Gemini', 'error');
                 console.error(err);
             } finally {
                 document.getElementById('processButton').disabled = false;
