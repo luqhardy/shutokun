@@ -8,13 +8,24 @@ module.exports = async (req, res) => {
     res.status(405).json({ error: 'Method not allowed' });
     return;
   }
+
+  // Vercel: req.body may be a string, so parse if needed
+  let body = req.body;
+  if (!body || typeof body !== 'object') {
+    try {
+      body = JSON.parse(req.body);
+    } catch (e) {
+      body = {};
+    }
+  }
+
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     res.status(500).json({ error: 'GEMINI_API_KEY not set' });
     return;
   }
   try {
-    const { image } = req.body;
+    const { image } = body;
     if (!image) {
       res.status(400).json({ error: 'No image provided' });
       return;
