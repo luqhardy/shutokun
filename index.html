@@ -540,5 +540,130 @@ measurementId: "G-GJG5NT05DH"
   height: auto;
 }
 </style>
+
+<!-- === Gamepad/Controller Support === -->
+<script>
+(function() {
+    let gamepadIndex = null;
+    let lastButtonStates = [];
+    let controllerIndicator = null;
+    // Button mapping (standard mapping)
+    const BUTTONS = {
+        A: 0, // Show answer
+        B: 1, // "I don't know"
+        X: 2, // "I know"
+        Y: 3, // Toggle dark mode
+        DPAD_UP: 12, // Up nav
+        DPAD_DOWN: 13, // Down nav
+        DPAD_LEFT: 14, // Prev
+        DPAD_RIGHT: 15 // Next
+    };
+    // Show controller indicator
+    function showControllerIndicator() {
+        if (!controllerIndicator) {
+            controllerIndicator = document.createElement('div');
+            controllerIndicator.id = 'controller-indicator';
+            controllerIndicator.innerHTML = '🎮 Controller Connected';
+            controllerIndicator.style.position = 'fixed';
+            controllerIndicator.style.bottom = '16px';
+            controllerIndicator.style.right = '16px';
+            controllerIndicator.style.background = 'rgba(30,30,40,0.92)';
+            controllerIndicator.style.color = '#fff';
+            controllerIndicator.style.padding = '8px 16px';
+            controllerIndicator.style.borderRadius = '8px';
+            controllerIndicator.style.fontFamily = 'Inter, sans-serif';
+            controllerIndicator.style.fontSize = '1rem';
+            controllerIndicator.style.zIndex = 9999;
+            controllerIndicator.style.boxShadow = '0 2px 8px rgba(0,0,0,0.18)';
+            document.body.appendChild(controllerIndicator);
+        }
+        controllerIndicator.style.display = 'block';
+    }
+    function hideControllerIndicator() {
+        if (controllerIndicator) controllerIndicator.style.display = 'none';
+    }
+    // Gamepad polling loop
+    function pollGamepad() {
+        if (gamepadIndex === null) return;
+        const gp = navigator.getGamepads()[gamepadIndex];
+        if (!gp) return;
+        // Only react to new button presses (not held)
+        gp.buttons.forEach((btn, idx) => {
+            if (btn.pressed && !lastButtonStates[idx]) {
+                handleButtonPress(idx);
+            }
+        });
+        lastButtonStates = gp.buttons.map(b => b.pressed);
+        requestAnimationFrame(pollGamepad);
+    }
+    // Map button presses to actions
+    function handleButtonPress(idx) {
+        switch(idx) {
+            case BUTTONS.A:
+                // Space: Show answer
+                simulateKey(' ');
+                break;
+            case BUTTONS.B:
+                // 1: "I don't know"
+                simulateKey('1');
+                break;
+            case BUTTONS.X:
+                // 2: "I know"
+                simulateKey('2');
+                break;
+            case BUTTONS.Y:
+                // D: Toggle dark mode
+                simulateKey('d');
+                break;
+            case BUTTONS.DPAD_LEFT:
+                // Left: Previous (simulate left arrow)
+                simulateKey('ArrowLeft');
+                break;
+            case BUTTONS.DPAD_RIGHT:
+                // Right: Next (simulate right arrow)
+                simulateKey('ArrowRight');
+                break;
+            case BUTTONS.DPAD_UP:
+                // Up: Scroll up
+                window.scrollBy({top: -80, behavior: 'smooth'});
+                break;
+            case BUTTONS.DPAD_DOWN:
+                // Down: Scroll down
+                window.scrollBy({top: 80, behavior: 'smooth'});
+                break;
+        }
+    }
+    // Simulate key events for app shortcuts
+    function simulateKey(key) {
+        document.dispatchEvent(new KeyboardEvent('keydown', {key, bubbles: true}));
+    }
+    // Listen for gamepad connect/disconnect
+    window.addEventListener('gamepadconnected', (e) => {
+        gamepadIndex = e.gamepad.index;
+        lastButtonStates = Array(e.gamepad.buttons.length).fill(false);
+        showControllerIndicator();
+        pollGamepad();
+    });
+    window.addEventListener('gamepaddisconnected', (e) => {
+        if (e.gamepad.index === gamepadIndex) {
+            gamepadIndex = null;
+            hideControllerIndicator();
+        }
+    });
+    // On load, check if already connected
+    window.addEventListener('DOMContentLoaded', () => {
+        const gps = navigator.getGamepads();
+        for (let i = 0; i < gps.length; i++) {
+            if (gps[i]) {
+                gamepadIndex = i;
+                lastButtonStates = Array(gps[i].buttons.length).fill(false);
+                showControllerIndicator();
+                pollGamepad();
+                break;
+            }
+        }
+    });
+})();
+</script>
 </body>
 </html>
