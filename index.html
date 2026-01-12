@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <base href="./">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -12,16 +15,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
     <script src="script.js"></script>
     <script>
-const firebaseConfig = {
-apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
-authDomain: "shutokun.firebaseapp.com",
-databaseURL: "https://shutokun-default-rtdb.asia-southeast1.firebasedatabase.app",
-projectId: "shutokun",
-storageBucket: "shutokun.firebasestorage.app",
-messagingSenderId: "120770573657",
-appId: "1:120770573657:web:692c54b821b0a51c138848",
-measurementId: "G-GJG5NT05DH"
-};
+        const firebaseConfig = {
+            apiKey: "AIzaSyB8D99bt_z2FtMeRDY-gdDYFMqqceZV_2s",
+            authDomain: "shutokun.firebaseapp.com",
+            databaseURL: "https://shutokun-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "shutokun",
+            storageBucket: "shutokun.firebasestorage.app",
+            messagingSenderId: "120770573657",
+            appId: "1:120770573657:web:692c54b821b0a51c138848",
+            measurementId: "G-GJG5NT05DH"
+        };
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
             firebase.analytics();
@@ -33,6 +36,7 @@ measurementId: "G-GJG5NT05DH"
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- ローディングオーバーレイ -->
     <div id="loading-overlay" class="loading-overlay">
@@ -45,87 +49,103 @@ measurementId: "G-GJG5NT05DH"
     <!-- 同期ステータス -->
     <div id="sync-status" class="sync-status"></div>
 
-<header>
-    <div class="header-left">
-    <button class="hamburger-menu" id="hamburger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <img src="assets/logo.png" alt="Shutokun logo" class="logo">
-    </div>
-    <div class="auth-container">
-    <button id="loginBtn" class="auth-button">Sign in</button>
-    <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
-    </div>
-</header>
+    <header>
+        <div class="header-left">
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="assets/logo.png" alt="Shutokun logo" class="logo">
+        </div>
+        <div class="auth-container">
+            <button id="loginBtn" class="auth-button">Sign in</button>
+            <button id="logoutBtn" class="auth-button" style="display: none;">Sign out</button>
+        </div>
+    </header>
 
-<!-- ナビゲーションメニュー -->
-<nav class="nav-menu" id="nav-menu">
-    <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="how-to-use.html">How To Use</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li>
-        <a href="#" id="clear-cache-btn" class="nav-link nav-link-red">Clear Cache</a>
-    </li>
-    <li>
-        <a href="#" id="resetAllProgressBtn" class="nav-link nav-link-red">Reset Progress</a>
-    </li>
-    </ul>
-</nav>
-<style>
-.nav-link-red {
-    color: #c00 !important;
-    background: none !important;
-    border: none !important;
-    font: inherit;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    text-align: left;
-    transition: color 0.15s;
-}
-.nav-link-red:hover, .nav-link-red:focus {
-    color: #a00 !important;
-    text-decoration: underline;
-}
-</style>
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-to-use.html">How To Use</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li>
+                <a href="#" id="clear-cache-btn" class="nav-link nav-link-red">Clear Cache</a>
+            </li>
+            <li>
+                <a href="#" id="resetAllProgressBtn" class="nav-link nav-link-red">Reset Progress</a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav-link-red {
+            color: #c00 !important;
+            background: none !important;
+            border: none !important;
+            font: inherit;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            transition: color 0.15s;
+        }
+
+        .nav-link-red:hover,
+        .nav-link-red:focus {
+            color: #a00 !important;
+            text-decoration: underline;
+        }
+    </style>
 
     <!-- ユーザーステータス表示 -->
-     <div style="margin-top:18px"></div>
-     <div id="user-stats" class="user-stats-container" style="margin-bottom: 16px; text-align: center; margin-left:8px; margin-right: 8px;">
-        <div id="greeting" style="font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600; margin-top:8px;margin-bottom:12px"></div>
-        <div id="user-progress-summary" style="font-family: 'Inter', sans-serif; font-size: 1rem; margin-top: 4px;"></div>
+    <div style="margin-top:18px"></div>
+    <div id="user-stats" class="user-stats-container"
+        style="margin-bottom: 16px; text-align: center; margin-left:8px; margin-right: 8px;">
+        <div id="greeting"
+            style="font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600; margin-top:8px;margin-bottom:12px">
+        </div>
+        <div id="user-progress-summary" style="font-family: 'Inter', sans-serif; font-size: 1rem; margin-top: 4px;">
+        </div>
         <div id="user-streak" style="margin-top: 4px; margin-bottom: 8px"></div>
-    <!-- JLPTレベルボタン -->
-    <div class="button-container">
-    </div>
+        <!-- JLPTレベルボタン -->
+        <div class="button-container">
+        </div>
         <!-- JLPT Study 親ボタン -->
         <button class="jlpt-button" id="jlpt-study-toggle"><img src="assets/jlpt-study.png" alt="JLPT Study"></button>
         <div id="jlpt-level-buttons">
             <div class="jlpt-level-row">
-                <button class="jlpt-button jlpt-level-btn" data-level="n5"><img src="assets/n5.png" alt="JLPT N5"></button>
-                <button class="jlpt-button jlpt-level-btn" data-level="n4"><img src="assets/n4.png" alt="JLPT N4"></button>
-                <button class="jlpt-button jlpt-level-btn" data-level="n3"><img src="assets/n3.png" alt="JLPT N3"></button>
-                <button class="jlpt-button jlpt-level-btn" data-level="n2"><img src="assets/n2.png" alt="JLPT N2"></button>
-                <button class="jlpt-button jlpt-level-btn" data-level="n1"><img src="assets/n1.png" alt="JLPT N1"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n5"><img src="assets/n5.png"
+                        alt="JLPT N5"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n4"><img src="assets/n4.png"
+                        alt="JLPT N4"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n3"><img src="assets/n3.png"
+                        alt="JLPT N3"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n2"><img src="assets/n2.png"
+                        alt="JLPT N2"></button>
+                <button class="jlpt-button jlpt-level-btn" data-level="n1"><img src="assets/n1.png"
+                        alt="JLPT N1"></button>
             </div>
         </div>
-        <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="assets/hirakata.png" alt="Hiragana/Katakana"></button>
+        <button class="jlpt-button" onclick="location.href='hirakata.html'"><img src="assets/hirakata.png"
+                alt="Hiragana/Katakana"></button>
         <div class="margin-div"></div>
         <!-- Custom Mode 親ボタン -->
         <button class="jlpt-button" id="custom-mode-toggle"><img src="assets/free.png" alt="Custom Mode"></button>
         <div id="custom-mode-buttons">
-            <button class="jlpt-button" onclick="location.href='free-mode-import.html'"><img src="assets/import.png" alt="Import"></button>
+            <button class="jlpt-button" onclick="location.href='free-mode-import.html'"><img src="assets/import.png"
+                    alt="Import"></button>
             <button class="jlpt-button" onclick="startPractice()"><img src="assets/start.png" alt="Start"></button>
             <button class="jlpt-button" onclick="editVocabulary()"><img src="assets/edit.png" alt="Edit"></button>
         </div>
-        <button class="jlpt-button" onclick="location.href='json-editor.html'"><img src="assets/json-editor.png" alt="JSON Editor"></button>
-        <button class="jlpt-button" onclick="location.href='https://bunsekikun.vercel.app/'"><img src="assets/bunsekikun.png" alt="Bunsekikun mascot holding a magnifying glass, Japanese text ぶんせきくん and BUNSEKIKUN, English text Japanese Sentence Analyser, red badge with New exclamation mark, cheerful blue background, friendly and welcoming tone">
+        <button class="jlpt-button" onclick="location.href='json-editor.html'"><img src="assets/json-editor.png"
+                alt="JSON Editor"></button>
+        <button class="jlpt-button" onclick="location.href='https://bunsekikun.luqmanhadi.com/'"><img
+                src="assets/bunsekikun.png"
+                alt="Bunsekikun mascot holding a magnifying glass, Japanese text ぶんせきくん and BUNSEKIKUN, English text Japanese Sentence Analyser, red badge with New exclamation mark, cheerful blue background, friendly and welcoming tone">
     </div>
 
     <!-- スクリプト -->
@@ -168,40 +188,40 @@ measurementId: "G-GJG5NT05DH"
 
     <script>
         // Clear all caches and storage on every reload
-(function clearAllOnReload() {
-    // Clear localStorage
-    try { localStorage.clear(); } catch(e) {}
-    // Clear sessionStorage
-    try { sessionStorage.clear(); } catch(e) {}
-    // Clear IndexedDB
-    if (window.indexedDB && indexedDB.databases) {
-        indexedDB.databases().then(dbs => {
-            dbs.forEach(db => {
-                indexedDB.deleteDatabase(db.name);
-            });
-        });
-    } else if (window.indexedDB) {
-        // Fallback for browsers without indexedDB.databases
-        // Try to delete common DBs
-        ['firebaseLocalStorageDb', 'firebase-database', 'firebase-auth-database', 'firebaseLocalStorage', 'shutokun'].forEach(name => {
-            try { indexedDB.deleteDatabase(name); } catch(e) {}
-        });
-    }
-    // Clear Cache Storage
-    if ('caches' in window) {
-        caches.keys().then(function(names) {
-            for (let name of names) caches.delete(name);
-        });
-    }
-    // Unregister all service workers
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-            for(let registration of registrations) {
-                registration.unregister();
+        (function clearAllOnReload() {
+            // Clear localStorage
+            try { localStorage.clear(); } catch (e) { }
+            // Clear sessionStorage
+            try { sessionStorage.clear(); } catch (e) { }
+            // Clear IndexedDB
+            if (window.indexedDB && indexedDB.databases) {
+                indexedDB.databases().then(dbs => {
+                    dbs.forEach(db => {
+                        indexedDB.deleteDatabase(db.name);
+                    });
+                });
+            } else if (window.indexedDB) {
+                // Fallback for browsers without indexedDB.databases
+                // Try to delete common DBs
+                ['firebaseLocalStorageDb', 'firebase-database', 'firebase-auth-database', 'firebaseLocalStorage', 'shutokun'].forEach(name => {
+                    try { indexedDB.deleteDatabase(name); } catch (e) { }
+                });
             }
-        });
-    }
-})();
+            // Clear Cache Storage
+            if ('caches' in window) {
+                caches.keys().then(function (names) {
+                    for (let name of names) caches.delete(name);
+                });
+            }
+            // Unregister all service workers
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                    for (let registration of registrations) {
+                        registration.unregister();
+                    }
+                });
+            }
+        })();
         // 進捗バーをアニメーションで更新
         async function updateProgressBars() {
             try {
@@ -256,7 +276,7 @@ measurementId: "G-GJG5NT05DH"
                     const logoutBtnHeader = document.getElementById('logoutBtnHeader');
                     const loginBtnNav = document.getElementById('loginBtnNav');
                     const logoutBtnNav = document.getElementById('logoutBtnNav');
-                    
+
                     if (user) {
                         if (loginBtnHeader) loginBtnHeader.style.display = 'none';
                         if (logoutBtnHeader) logoutBtnHeader.style.display = 'block';
@@ -276,7 +296,7 @@ measurementId: "G-GJG5NT05DH"
                 const logoutBtnHeader = document.getElementById('logoutBtnHeader');
                 const loginBtnNav = document.getElementById('loginBtnNav');
                 const logoutBtnNav = document.getElementById('logoutBtnNav');
-                
+
                 if (loginBtnHeader) {
                     loginBtnHeader.addEventListener('click', signInWithGoogle);
                 }
@@ -314,12 +334,12 @@ measurementId: "G-GJG5NT05DH"
         });
 
         // JLPT StudyボタンでN5-N1をトグル表示（アニメーション付き）
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var jlptToggle = document.getElementById('jlpt-study-toggle');
             var jlptLevels = document.getElementById('jlpt-level-buttons');
             if (jlptToggle && jlptLevels) {
                 jlptLevels.classList.remove('show');
-                jlptToggle.addEventListener('click', function() {
+                jlptToggle.addEventListener('click', function () {
                     jlptLevels.classList.toggle('show');
                 });
             }
@@ -328,7 +348,7 @@ measurementId: "G-GJG5NT05DH"
             var customBtns = document.getElementById('custom-mode-buttons');
             if (customToggle && customBtns) {
                 customBtns.classList.remove('show');
-                customToggle.addEventListener('click', function() {
+                customToggle.addEventListener('click', function () {
                     customBtns.classList.toggle('show');
                 });
             }
@@ -405,14 +425,14 @@ measurementId: "G-GJG5NT05DH"
             if (window.firebaseDB && user.uid) {
                 try {
                     progress = await window.firebaseDB.getUserOverallProgress(user.uid);
-                } catch (e) {}
+                } catch (e) { }
             }
             const streakMatrix = getStreakMatrix();
             const streakDays = getStreakDays(streakMatrix);
             renderUserStats(user, progress, streakDays, streakMatrix);
         }
         // サインイン状態監視にフック
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             firebase.auth().onAuthStateChanged((user) => {
                 updateUserStats(user);
             });
@@ -434,237 +454,251 @@ measurementId: "G-GJG5NT05DH"
         }
     </script>
     <script>
-// JLPT Level category inline row logic (insert between buttons)
-(function() {
-    const jlptLevelRow = document.querySelector('.jlpt-level-row');
-    const jlptLevelBtns = document.querySelectorAll('.jlpt-level-btn');
-    let currentCategoryRow = null;
-    let lastActiveBtn = null;
-    jlptLevelBtns.forEach((btn, idx) => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Toggle: if already open under this button, close it
-            if (lastActiveBtn === btn && currentCategoryRow) {
-                currentCategoryRow.remove();
-                btn.classList.remove('active');
-                currentCategoryRow = null;
-                lastActiveBtn = null;
-                return;
-            }
-            // Remove any existing row
-            if (currentCategoryRow) {
-                currentCategoryRow.remove();
-                if (lastActiveBtn) lastActiveBtn.classList.remove('active');
-            }
-            // Create new row
-            const level = btn.getAttribute('data-level');
-            const row = document.createElement('div');
-            row.className = 'jlpt-category-inline-row';
-            row.innerHTML = `
+        // JLPT Level category inline row logic (insert between buttons)
+        (function () {
+            const jlptLevelRow = document.querySelector('.jlpt-level-row');
+            const jlptLevelBtns = document.querySelectorAll('.jlpt-level-btn');
+            let currentCategoryRow = null;
+            let lastActiveBtn = null;
+            jlptLevelBtns.forEach((btn, idx) => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Toggle: if already open under this button, close it
+                    if (lastActiveBtn === btn && currentCategoryRow) {
+                        currentCategoryRow.remove();
+                        btn.classList.remove('active');
+                        currentCategoryRow = null;
+                        lastActiveBtn = null;
+                        return;
+                    }
+                    // Remove any existing row
+                    if (currentCategoryRow) {
+                        currentCategoryRow.remove();
+                        if (lastActiveBtn) lastActiveBtn.classList.remove('active');
+                    }
+                    // Create new row
+                    const level = btn.getAttribute('data-level');
+                    const row = document.createElement('div');
+                    row.className = 'jlpt-category-inline-row';
+                    row.innerHTML = `
                 <button class="jlpt-category-btn" onclick="location.href='srs-ui.html?level=${level}&category=goi'"><img src='assets/goi-small.png' alt='Vocabulary'><br><span></span></button>
                 <button class="jlpt-category-btn" onclick="location.href='srs-ui.html?level=${level}&category=bunpou'"><img src='assets/bunpou-small.png' alt='Grammar'><br><span></span></button>
                 <button class="jlpt-category-btn" onclick="location.href='srs-ui.html?level=${level}&category=kanji'"><img src='assets/kanji-small.png' alt='Kanji'><br><span></span></button>
             `;
-            // Insert after the clicked button, or after the row if N1
-            const buttons = Array.from(jlptLevelRow.children);
-            const insertIdx = buttons.indexOf(btn) + 1;
-            if (btn.getAttribute('data-level') === 'n1') {
-                // Insert after the .jlpt-level-row (so before Hirakata)
-                jlptLevelRow.parentNode.insertBefore(row, jlptLevelRow.nextSibling);
-            } else if (insertIdx >= jlptLevelRow.children.length) {
-                jlptLevelRow.appendChild(row);
-            } else {
-                jlptLevelRow.insertBefore(row, jlptLevelRow.children[insertIdx]);
-            }
-            btn.classList.add('active');
-            currentCategoryRow = row;
-            lastActiveBtn = btn;
-        });
-    });
-    // Click outside to close
-    document.addEventListener('click', function(e) {
-        if (currentCategoryRow && !currentCategoryRow.contains(e.target) && !Array.from(jlptLevelBtns).some(btn => btn.contains(e.target))) {
-            currentCategoryRow.remove();
-            if (lastActiveBtn) lastActiveBtn.classList.remove('active');
-            currentCategoryRow = null;
-            lastActiveBtn = null;
+                    // Insert after the clicked button, or after the row if N1
+                    const buttons = Array.from(jlptLevelRow.children);
+                    const insertIdx = buttons.indexOf(btn) + 1;
+                    if (btn.getAttribute('data-level') === 'n1') {
+                        // Insert after the .jlpt-level-row (so before Hirakata)
+                        jlptLevelRow.parentNode.insertBefore(row, jlptLevelRow.nextSibling);
+                    } else if (insertIdx >= jlptLevelRow.children.length) {
+                        jlptLevelRow.appendChild(row);
+                    } else {
+                        jlptLevelRow.insertBefore(row, jlptLevelRow.children[insertIdx]);
+                    }
+                    btn.classList.add('active');
+                    currentCategoryRow = row;
+                    lastActiveBtn = btn;
+                });
+            });
+            // Click outside to close
+            document.addEventListener('click', function (e) {
+                if (currentCategoryRow && !currentCategoryRow.contains(e.target) && !Array.from(jlptLevelBtns).some(btn => btn.contains(e.target))) {
+                    currentCategoryRow.remove();
+                    if (lastActiveBtn) lastActiveBtn.classList.remove('active');
+                    currentCategoryRow = null;
+                    lastActiveBtn = null;
+                }
+            });
+        })();
+    </script>
+    <style>
+        .jlpt-category-inline-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 10px;
+            width: 100%;
+            animation: fadeIn 0.18s;
         }
-    });
-})();
-</script>
-<style>
-.jlpt-category-inline-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-    gap: 10px;
-    width: 100%;
-    animation: fadeIn 0.18s;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.jlpt-category-btn {
-    background: none;
-    border: none;
-    border-radius: 0px;
-    padding: 0px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: auto;
-    border-radius: 0px;
-    /*box-shadow: 0 2px 8px rgba(0,0,0,0.06);*/
-    padding: 0px 0px 0px 0px;
-    margin-bottom: 10px;
-    transition: border 0.15s;
-    max-width: 85px;
-    max-height: auto;
-}
-.jlpt-category-btn:hover, .jlpt-category-btn:focus {
-    box-shadow: 0 5px 5px rgba(80,80,255,0.10);
-    transition: scale 0.15s, border 0.15s;
-}*/
-.jlpt-level-btn.active {
-    outline: 2px solid #a0a0ff;
-    z-index: 2;
-}
-.jlpt-category-btn img {
-  max-width: 100%;
-  height: auto;
-}
-</style>
 
-<!-- === Gamepad/Controller Support === -->
-<script>
-(function() {
-    let gamepadIndex = null;
-    let lastButtonStates = [];
-    let controllerIndicator = null;
-    // Button mapping (standard mapping)
-    const BUTTONS = {
-        A: 0, // Show answer
-        B: 1, // "I don't know"
-        X: 2, // "I know"
-        Y: 3, // Toggle dark mode
-        DPAD_UP: 12, // Up nav
-        DPAD_DOWN: 13, // Down nav
-        DPAD_LEFT: 14, // Prev
-        DPAD_RIGHT: 15 // Next
-    };
-    // Show controller indicator
-    function showControllerIndicator() {
-        if (!controllerIndicator) {
-            controllerIndicator = document.createElement('div');
-            controllerIndicator.id = 'controller-indicator';
-            controllerIndicator.innerHTML = '🎮 Controller Connected';
-            controllerIndicator.style.position = 'fixed';
-            controllerIndicator.style.bottom = '16px';
-            controllerIndicator.style.right = '16px';
-            controllerIndicator.style.background = 'rgba(30,30,40,0.92)';
-            controllerIndicator.style.color = '#fff';
-            controllerIndicator.style.padding = '8px 16px';
-            controllerIndicator.style.borderRadius = '8px';
-            controllerIndicator.style.fontFamily = 'Inter, sans-serif';
-            controllerIndicator.style.fontSize = '1rem';
-            controllerIndicator.style.zIndex = 9999;
-            controllerIndicator.style.boxShadow = '0 2px 8px rgba(0,0,0,0.18)';
-            document.body.appendChild(controllerIndicator);
-        }
-        controllerIndicator.style.display = 'block';
-    }
-    function hideControllerIndicator() {
-        if (controllerIndicator) controllerIndicator.style.display = 'none';
-    }
-    // Gamepad polling loop
-    function pollGamepad() {
-        if (gamepadIndex === null) return;
-        const gp = navigator.getGamepads()[gamepadIndex];
-        if (!gp) return;
-        // Only react to new button presses (not held)
-        gp.buttons.forEach((btn, idx) => {
-            if (btn.pressed && !lastButtonStates[idx]) {
-                handleButtonPress(idx);
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
             }
-        });
-        lastButtonStates = gp.buttons.map(b => b.pressed);
-        requestAnimationFrame(pollGamepad);
-    }
-    // Map button presses to actions
-    function handleButtonPress(idx) {
-        switch(idx) {
-            case BUTTONS.A:
-                // Space: Show answer
-                simulateKey(' ');
-                break;
-            case BUTTONS.B:
-                // 1: "I don't know"
-                simulateKey('1');
-                break;
-            case BUTTONS.X:
-                // 2: "I know"
-                simulateKey('2');
-                break;
-            case BUTTONS.Y:
-                // D: Toggle dark mode
-                simulateKey('d');
-                break;
-            case BUTTONS.DPAD_LEFT:
-                // Left: Previous (simulate left arrow)
-                simulateKey('ArrowLeft');
-                break;
-            case BUTTONS.DPAD_RIGHT:
-                // Right: Next (simulate right arrow)
-                simulateKey('ArrowRight');
-                break;
-            case BUTTONS.DPAD_UP:
-                // Up: Scroll up
-                window.scrollBy({top: -80, behavior: 'smooth'});
-                break;
-            case BUTTONS.DPAD_DOWN:
-                // Down: Scroll down
-                window.scrollBy({top: 80, behavior: 'smooth'});
-                break;
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-    }
-    // Simulate key events for app shortcuts
-    function simulateKey(key) {
-        document.dispatchEvent(new KeyboardEvent('keydown', {key, bubbles: true}));
-    }
-    // Listen for gamepad connect/disconnect
-    window.addEventListener('gamepadconnected', (e) => {
-        gamepadIndex = e.gamepad.index;
-        lastButtonStates = Array(e.gamepad.buttons.length).fill(false);
-        showControllerIndicator();
-        pollGamepad();
-    });
-    window.addEventListener('gamepaddisconnected', (e) => {
-        if (e.gamepad.index === gamepadIndex) {
-            gamepadIndex = null;
-            hideControllerIndicator();
+
+        .jlpt-category-btn {
+            background: none;
+            border: none;
+            border-radius: 0px;
+            padding: 0px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: auto;
+            border-radius: 0px;
+            /*box-shadow: 0 2px 8px rgba(0,0,0,0.06);*/
+            padding: 0px 0px 0px 0px;
+            margin-bottom: 10px;
+            transition: border 0.15s;
+            max-width: 85px;
+            max-height: auto;
         }
-    });
-    // On load, check if already connected
-    window.addEventListener('DOMContentLoaded', () => {
-        const gps = navigator.getGamepads();
-        for (let i = 0; i < gps.length; i++) {
-            if (gps[i]) {
-                gamepadIndex = i;
-                lastButtonStates = Array(gps[i].buttons.length).fill(false);
+
+        .jlpt-category-btn:hover,
+        .jlpt-category-btn:focus {
+            box-shadow: 0 5px 5px rgba(80, 80, 255, 0.10);
+            transition: scale 0.15s, border 0.15s;
+        }
+
+        */ .jlpt-level-btn.active {
+            outline: 2px solid #a0a0ff;
+            z-index: 2;
+        }
+
+        .jlpt-category-btn img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <!-- === Gamepad/Controller Support === -->
+    <script>
+        (function () {
+            let gamepadIndex = null;
+            let lastButtonStates = [];
+            let controllerIndicator = null;
+            // Button mapping (standard mapping)
+            const BUTTONS = {
+                A: 0, // Show answer
+                B: 1, // "I don't know"
+                X: 2, // "I know"
+                Y: 3, // Toggle dark mode
+                DPAD_UP: 12, // Up nav
+                DPAD_DOWN: 13, // Down nav
+                DPAD_LEFT: 14, // Prev
+                DPAD_RIGHT: 15 // Next
+            };
+            // Show controller indicator
+            function showControllerIndicator() {
+                if (!controllerIndicator) {
+                    controllerIndicator = document.createElement('div');
+                    controllerIndicator.id = 'controller-indicator';
+                    controllerIndicator.innerHTML = '🎮 Controller Connected';
+                    controllerIndicator.style.position = 'fixed';
+                    controllerIndicator.style.bottom = '16px';
+                    controllerIndicator.style.right = '16px';
+                    controllerIndicator.style.background = 'rgba(30,30,40,0.92)';
+                    controllerIndicator.style.color = '#fff';
+                    controllerIndicator.style.padding = '8px 16px';
+                    controllerIndicator.style.borderRadius = '8px';
+                    controllerIndicator.style.fontFamily = 'Inter, sans-serif';
+                    controllerIndicator.style.fontSize = '1rem';
+                    controllerIndicator.style.zIndex = 9999;
+                    controllerIndicator.style.boxShadow = '0 2px 8px rgba(0,0,0,0.18)';
+                    document.body.appendChild(controllerIndicator);
+                }
+                controllerIndicator.style.display = 'block';
+            }
+            function hideControllerIndicator() {
+                if (controllerIndicator) controllerIndicator.style.display = 'none';
+            }
+            // Gamepad polling loop
+            function pollGamepad() {
+                if (gamepadIndex === null) return;
+                const gp = navigator.getGamepads()[gamepadIndex];
+                if (!gp) return;
+                // Only react to new button presses (not held)
+                gp.buttons.forEach((btn, idx) => {
+                    if (btn.pressed && !lastButtonStates[idx]) {
+                        handleButtonPress(idx);
+                    }
+                });
+                lastButtonStates = gp.buttons.map(b => b.pressed);
+                requestAnimationFrame(pollGamepad);
+            }
+            // Map button presses to actions
+            function handleButtonPress(idx) {
+                switch (idx) {
+                    case BUTTONS.A:
+                        // Space: Show answer
+                        simulateKey(' ');
+                        break;
+                    case BUTTONS.B:
+                        // 1: "I don't know"
+                        simulateKey('1');
+                        break;
+                    case BUTTONS.X:
+                        // 2: "I know"
+                        simulateKey('2');
+                        break;
+                    case BUTTONS.Y:
+                        // D: Toggle dark mode
+                        simulateKey('d');
+                        break;
+                    case BUTTONS.DPAD_LEFT:
+                        // Left: Previous (simulate left arrow)
+                        simulateKey('ArrowLeft');
+                        break;
+                    case BUTTONS.DPAD_RIGHT:
+                        // Right: Next (simulate right arrow)
+                        simulateKey('ArrowRight');
+                        break;
+                    case BUTTONS.DPAD_UP:
+                        // Up: Scroll up
+                        window.scrollBy({ top: -80, behavior: 'smooth' });
+                        break;
+                    case BUTTONS.DPAD_DOWN:
+                        // Down: Scroll down
+                        window.scrollBy({ top: 80, behavior: 'smooth' });
+                        break;
+                }
+            }
+            // Simulate key events for app shortcuts
+            function simulateKey(key) {
+                document.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
+            }
+            // Listen for gamepad connect/disconnect
+            window.addEventListener('gamepadconnected', (e) => {
+                gamepadIndex = e.gamepad.index;
+                lastButtonStates = Array(e.gamepad.buttons.length).fill(false);
                 showControllerIndicator();
                 pollGamepad();
-                break;
-            }
-        }
-    });
-})();
-</script>
+            });
+            window.addEventListener('gamepaddisconnected', (e) => {
+                if (e.gamepad.index === gamepadIndex) {
+                    gamepadIndex = null;
+                    hideControllerIndicator();
+                }
+            });
+            // On load, check if already connected
+            window.addEventListener('DOMContentLoaded', () => {
+                const gps = navigator.getGamepads();
+                for (let i = 0; i < gps.length; i++) {
+                    if (gps[i]) {
+                        gamepadIndex = i;
+                        lastButtonStates = Array(gps[i].buttons.length).fill(false);
+                        showControllerIndicator();
+                        pollGamepad();
+                        break;
+                    }
+                }
+            });
+        })();
+    </script>
 </body>
+
 </html>
